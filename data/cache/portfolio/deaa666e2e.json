@@ -1,0 +1,240 @@
+{
+ "key": "d964a14b299fb2ef",
+ "portfolio": {
+  "candidateId": "deaa666e2e",
+  "website": "https://www.foliowine.com",
+  "pagesRead": [
+   "https://www.foliowine.com/regions",
+   "https://www.foliowine.com/region",
+   "https://www.foliowine.com/regions/australia",
+   "https://www.foliowine.com/regions/usa",
+   "https://www.foliowine.com/regions/austria",
+   "https://www.foliowine.com/regions/argentina",
+   "https://www.foliowine.com/regions/france",
+   "https://www.foliowine.com/regions/italy",
+   "https://www.foliowine.com/regions/new-zealand",
+   "https://www.foliowine.com/regions/spain",
+   "https://www.foliowine.com/recent-news/maison-champy-joins-folio-fine-wine-partners",
+   "https://www.foliowine.com/inside-folio/team/michael-mondavi",
+   "https://www.foliowine.com"
+  ],
+  "producers": [
+   {
+    "producer": "Amalaya",
+    "country": "Argentina",
+    "region": "Salta",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Back To Menu Our Brands + Argentina Amalaya Colomé + Australia Tournon + Austria Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathi"
+   },
+   {
+    "producer": "Colomé",
+    "country": "Argentina",
+    "region": "Salta",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Back To Menu Our Brands + Argentina Amalaya Colomé + Australia Tournon + Austria Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathilde Cha"
+   },
+   {
+    "producer": "Tournon",
+    "country": "Australia",
+    "region": "Victoria",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "k To Menu Our Brands + Argentina Amalaya Colomé + Australia Tournon + Austria Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathilde Chapoutier Selection M."
+   },
+   {
+    "producer": "Laurenz V.",
+    "country": "Austria",
+    "region": "Kamptal",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "ds + Argentina Amalaya Colomé + Australia Tournon + Austria Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathilde Chapoutier Selection M. Chapoutier Piper-Hei"
+   },
+   {
+    "producer": "Charles Heidsieck",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "ya Colomé + Australia Tournon + Austria Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathilde Chapoutier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trene"
+   },
+   {
+    "producer": "Château La Verrerie",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions/france",
+    "quote": "orld's premier and emerging wine regions. Charles Heidsieck Château La Verrerie M. Chapoutier Mathilde Chapoutier Selection Piper-Heidsieck Rare Champagne Trenel Folio Fine Wine P"
+   },
+   {
+    "producer": "Mathilde Chapoutier Selection",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "ia Laurenz V. + France Charles Heidsieck Chteau La Verrerie Mathilde Chapoutier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena"
+   },
+   {
+    "producer": "M. Chapoutier",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Heidsieck Chteau La Verrerie Mathilde Chapoutier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand"
+   },
+   {
+    "producer": "Piper-Heidsieck",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "eau La Verrerie Mathilde Chapoutier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portug"
+   },
+   {
+    "producer": "Rare Champagne",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Mathilde Chapoutier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas"
+   },
+   {
+    "producer": "Trenel",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "tier Selection M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spai"
+   },
+   {
+    "producer": "Bruno Giacosa",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "M. Chapoutier Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spain Dominio del Soto + U"
+   },
+   {
+    "producer": "Donnafugata",
+    "country": "Italy",
+    "region": "Sicily",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Piper-Heidsieck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spain Dominio del Soto + USA Dutton-Go"
+   },
+   {
+    "producer": "Isole e Olena",
+    "country": "Italy",
+    "region": "Tuscany",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "eck Rare Champagne Trenel + Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spain Dominio del Soto + USA Dutton-Goldfield Hangti"
+   },
+   {
+    "producer": "Tiraki",
+    "country": "New Zealand",
+    "region": "Hawke's Bay",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Italy Bruno Giacosa Donnafugata Isole e Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spain Dominio del Soto + USA Dutton-Goldfield Hangtime Wines Michael Mond"
+   },
+   {
+    "producer": "Dos Lusíadas",
+    "country": "Portugal",
+    "region": "Alentejo",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "ieck Chteau La Verrerie Colomé Dominio Del Soto Donnafugata Dos Lusíadas Dutton-Goldfield Hangtime Isole e Olena Laurenz V. M. Chapoutier Mathilde Chapoutier Selection Mich"
+   },
+   {
+    "producer": "Dominio del Soto",
+    "country": "Spain",
+    "region": "Ribera del Duero",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "Olena + New Zealand Tiraki + Portugal Dos Lusiadas + Spain Dominio del Soto + USA Dutton-Goldfield Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spell"
+   },
+   {
+    "producer": "Dutton-Goldfield",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "raki + Portugal Dos Lusiadas + Spain Dominio del Soto + USA Dutton-Goldfield Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Asset"
+   },
+   {
+    "producer": "Hangtime Wines",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "os Lusiadas + Spain Dominio del Soto + USA Dutton-Goldfield Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Assets + Search Asse"
+   },
+   {
+    "producer": "Michael Mondavi Family Estate",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "pain Dominio del Soto + USA Dutton-Goldfield Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Assets + Search Assets + Ratings & Reviews + Broch"
+   },
+   {
+    "producer": "Oberon Wines",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "tton-Goldfield Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Assets + Search Assets + Ratings & Reviews + Brochures Stories"
+   },
+   {
+    "producer": "Piper Sonoma",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "d Hangtime Wines Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Assets + Search Assets + Ratings & Reviews + Brochures Stories Inside Folio"
+   },
+   {
+    "producer": "Spellbound Wines",
+    "country": "USA",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/regions",
+    "quote": "nes Michael Mondavi Family Estate Oberon Wines Piper Sonoma Spellbound Wines Brand Assets + Search Assets + Ratings & Reviews + Brochures Stories Inside Folio + Our Founding St"
+   },
+   {
+    "producer": "Maison Champy",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.foliowine.com/recent-news/maison-champy-joins-folio-fine-wine-partners",
+    "quote": "MAISON CHAMPY JOINS FOLIO FINE WINE PARTNERS MAISON CHAMPY JOINS FOLIO FINE WINE PARTNERS Burgundy’s Oldest Domai"
+   }
+  ]
+ }
+}

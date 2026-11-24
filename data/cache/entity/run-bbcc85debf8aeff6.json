@@ -1,0 +1,348 @@
+{
+ "createdAt": "2026-11-24T22:48:34.523Z",
+ "log": [
+  {
+   "lead": "Authentic Wine Selections",
+   "signal": "boutique_size",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/zZSPqa2YDKuB"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL is from Grand Cru Selections' own website, and the context explicitly mentions 'At Grand Cru Selections'.",
+   "url": "https://grandcruselections.com/gcs-cali-team"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is from Grand Cru Selections' own website, and the context lists producers under their portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "loire_specialist",
+   "verdict": "same_company",
+   "reason": "The URL is from Grand Cru Selections' own website, and the context refers to their Burgundy portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is from Grand Cru Selections' own website, and the context lists their portfolio of French regions.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL is from Grand Cru Selections' own website, and the context describes their Burgundy portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Pasternak Wine Imports LLC",
+   "signal": "big_houses",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Pasternak' as the company with the portfolio of top-level producers.",
+   "url": "https://www.marketwatchmag.com/forty-years-of-family-leadership"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "URL is Cru Wines' own portfolio page",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "loire_specialist",
+   "verdict": "same_company",
+   "reason": "URL is Cru Wines' own portfolio page",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "URL is Cru Wines' own portfolio page",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "URL is Cru Wines' own portfolio page",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "organic_natural",
+   "verdict": "sister_or_related_company",
+   "reason": "The text refers to 'Rovine Selections' and 'Zev Rovine Selections', not 'Sylvester/Rovine Selections' or 'Sylvester Wine Imports, Inc.'",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "boutique_size",
+   "verdict": "sister_or_related_company",
+   "reason": "The text refers to 'Zev Rovine Selections', not 'Sylvester/Rovine Selections' or 'Sylvester Wine Imports, Inc.'",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Farm Wine Imports' official website.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is from Farm Wine Imports' official website, listing producers they work with.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is from Farm Wine Imports' official website, listing producers by region.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL is from Farm Wine Imports' official website, detailing their Burgundy portfolio.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is from Farm Wine Imports' official website, mentioning their events.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Dime Group International",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The URL and quote explicitly reference 'JVS Imports' and 'JVS Wines Imports', matching the TTB permit holder name 'JVS WINES IMPORT, INC.' for Dime Group International.",
+   "url": "https://jvsimports.com"
+  },
+  {
+   "lead": "Atherton Wine Imports",
+   "signal": "mega_distributor",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4"
+  },
+  {
+   "lead": "Atherton Wine Imports",
+   "signal": "big_houses",
+   "verdict": "same_company",
+   "reason": "The context explicitly names 'Atherton Wine Imports' as the company specializing in French wines, including Burgundies and Bordeaux.",
+   "url": "https://beveragetradenetwork.com/en/wine-importers-in-california-662.htm"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Charles Neal Selections and its practices.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is from Charles Neal Selections' official website, listing its producers.",
+   "url": "https://www.charlesnealselections.com/french-wines.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Charles Neal Selections' own website, discussing its practices.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The interview explicitly names 'Amy Atwood Selections' and describes its business as a California-based importer and wholesaler.",
+   "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The article explicitly discusses Amy Atwood and her business, 'Amy Atwood Selections', including staffing details.",
+   "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the importer representing organic and biodynamic wineries.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the company producing the Routestock brand.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "Quintessential, LLC",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The article explicitly names 'Quintessential' and its owners, Steve Kreps, Sr. and Dennis Kreps, as the company in question.",
+   "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names and describes True North Wine Merchants",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "Official website of True North Wine Merchants listing producers",
+   "url": "https://www.truenorthwines.com/producer-list"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "Official website of True North Wine Merchants detailing Burgundy portfolio",
+   "url": "https://www.truenorthwines.com/producer-list"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names and describes True North Wine Merchants as a boutique importer",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The page explicitly names and describes Kermit Lynch Wine Merchant.",
+   "url": "https://www.winewithseth.com/winewiki/kermit-lynch-wine-merchant"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL and product listing are from Kermit Lynch Wine Merchant's official shop.",
+   "url": "https://shop.kermitlynch.com/product/detail/23FLU04"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "price_match",
+   "verdict": "same_company",
+   "reason": "The URL is from Kermit Lynch Wine Merchant's official shop, listing wines.",
+   "url": "https://shop.kermitlynch.com/wines"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Kermit Lynch Wine Merchant's official shop.",
+   "url": "https://shop.kermitlynch.com/product/detail/23FLU04"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL is from Kermit Lynch Wine Merchant's official shop, describing their portfolio.",
+   "url": "https://shop.kermitlynch.com/france"
+  },
+  {
+   "lead": "Martine'S Wines, INC.",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'Martine's Wines, Inc.' as the company",
+   "url": "https://www.linkedin.com/company/martine's-wines-inc."
+  },
+  {
+   "lead": "Folio Wine Company, LLC",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Folio Fine Wine Partners, which is the company name used by Folio Wine Company, LLC.",
+   "url": "https://www.foliowine.com"
+  },
+  {
+   "lead": "Folio Wine Company, LLC",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL and quote explicitly state 'Folio Fine Wine Partners' as the importer, which is the company name used by Folio Wine Company, LLC.",
+   "url": "https://www.foliowine.com/recent-news/maison-champy-joins-folio-fine-wine-partners"
+  },
+  {
+   "lead": "Folio Wine Company, LLC",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Folio Wine Company, LLC's official website, listing their portfolio regions.",
+   "url": "https://www.foliowine.com/regions"
+  },
+  {
+   "lead": "Folio Wine Company, LLC",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Folio Wine Company, LLC's official news page, referencing their partnership with Maison Champy.",
+   "url": "https://www.foliowine.com/recent-news/maison-champy-joins-folio-fine-wine-partners"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The quote explicitly names Beaune Imports and describes it as a small, family-owned importer.",
+   "url": "https://www.beauneimports.com/about"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Beaune Imports' own website, listing a producer they import.",
+   "url": "https://www.beauneimports.com/producer/domaine-mia"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "loire_specialist",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' website, discussing their Burgundy producer portfolio.",
+   "url": "https://www.beauneimports.com/producer/domaine-mia"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Beaune Imports' own website, listing their producers by region.",
+   "url": "https://www.beauneimports.com/producers"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' website, detailing their Burgundy producer list.",
+   "url": "https://www.beauneimports.com/producer/domaine-mia"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The quote explicitly describes Beaune Imports as a small, family-owned importer.",
+   "url": "https://www.beauneimports.com/about"
+  }
+ ]
+}

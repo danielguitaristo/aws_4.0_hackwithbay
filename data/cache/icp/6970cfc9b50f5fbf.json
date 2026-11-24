@@ -1,0 +1,77 @@
+{
+ "buyerTypes": [
+  "importer_distributor"
+ ],
+ "naicsCodes": [
+  "424820"
+ ],
+ "states": [
+  "CA"
+ ],
+ "metros": [
+  "San Francisco Bay Area",
+  "Los Angeles",
+  "Sacramento"
+ ],
+ "sizeBand": "Small (1-10 employees, 5-50 producers in portfolio)",
+ "personas": [
+  "Import Manager",
+  "Portfolio Director",
+  "Owner/Founder",
+  "Burgundy Specialist"
+ ],
+ "portfolioFit": [
+  "Organic-certified wines",
+  "Small Burgundy growers",
+  "Niche appellations (Côte Chalonnaise)",
+  "Mineral-driven whites",
+  "Light-bodied reds"
+ ],
+ "priceBand": "$20-$40",
+ "triggers": [
+  "Seeking Burgundy producers under $40",
+  "Expanding organic portfolio",
+  "Looking for small, family-run estates",
+  "Interest in Aligoté or Côte Chalonnaise",
+  "Recent addition of Burgundy to portfolio"
+ ],
+ "negativeSignals": [
+  "Focus on large-volume producers",
+  "Exclusive to high-end ($50+) Burgundy",
+  "No interest in organic wines",
+  "Limited to major appellations (e.g., Côte de Nuits, Côte de Beaune)",
+  "Prefer established export teams"
+ ],
+ "confidence": {
+  "buyerTypes": 0.95,
+  "naicsCodes": 1,
+  "states": 0.9,
+  "metros": 0.85,
+  "sizeBand": 0.9,
+  "personas": 0.85,
+  "portfolioFit": 0.9,
+  "priceBand": 0.85,
+  "triggers": 0.8,
+  "negativeSignals": 0.85
+ },
+ "expansions": [
+  {
+   "id": "exp1",
+   "segment": "importer",
+   "rationale": "California importers with strong Burgundy focus may have distributor partners in CA.",
+   "status": "suggested"
+  },
+  {
+   "id": "exp2",
+   "segment": "distributor",
+   "rationale": "CA distributors with Burgundy specialists may work with importers for small estates.",
+   "status": "suggested"
+  },
+  {
+   "id": "exp3",
+   "segment": "NY/NJ importer_distributor",
+   "rationale": "Burgundy demand is high in NY; estate could test East Coast after CA.",
+   "status": "suggested"
+  }
+ ]
+}

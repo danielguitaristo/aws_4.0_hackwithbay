@@ -1,0 +1,27 @@
+[
+ {
+  "name": "North Berkeley Imports",
+  "city": "Berkeley",
+  "result": 2
+ },
+ {
+  "name": "Beaune Imports",
+  "city": "",
+  "result": 4
+ },
+ {
+  "name": "Fine Wines International",
+  "city": "San Francisco",
+  "result": 6
+ },
+ {
+  "name": "Martines Wines",
+  "city": "",
+  "result": 7
+ },
+ {
+  "name": "H. Mercer Imports",
+  "city": "",
+  "result": 8
+ }
+]

@@ -1,13 +1,11 @@
 {
- "key": "148de7f7e2841856",
+ "key": "6368bbb48602dbab",
  "portfolio": {
   "candidateId": "898148e1c8",
   "website": "https://www.farmwineimports.com",
   "pagesRead": [
    "https://www.farmwineimports.com/producers",
-   "https://www.farmwineimports.com",
-   "https://www.farmwineimports.com/wholesale/contact",
-   "https://www.farmwineimports.com/contact"
+   "https://www.farmwineimports.com"
   ],
   "producers": [
    {
@@ -1442,6 +1440,15 @@
     "quote": "Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
    },
    {
+    "producer": "Martha Stoumen",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com",
+    "quote": "o Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it. We"
+   },
+   {
     "producer": "Bichi",
     "country": "Mexico",
     "region": "Baja California",
@@ -1467,33 +1474,6 @@
     "grapes": [],
     "url": "https://www.farmwineimports.com/producers",
     "quote": "lifornia + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
-   },
-   {
-    "producer": "Bernardo Estevez",
-    "country": "Spain",
-    "region": "Galicia",
-    "appellation": "",
-    "grapes": [],
-    "url": "https://www.farmwineimports.com",
-    "quote": "Laura Lorenzo Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who"
-   },
-   {
-    "producer": "Alberto Nanclares",
-    "country": "Spain",
-    "region": "Galicia",
-    "appellation": "",
-    "grapes": [],
-    "url": "https://www.farmwineimports.com",
-    "quote": "Laura Lorenzo Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and"
-   },
-   {
-    "producer": "Martha Stoumen",
-    "country": "United States",
-    "region": "California",
-    "appellation": "",
-    "grapes": [],
-    "url": "https://www.farmwineimports.com",
-    "quote": "o Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it. We"
    }
   ]
  }

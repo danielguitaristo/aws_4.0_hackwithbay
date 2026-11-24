@@ -1,0 +1,92 @@
+{
+ "region": "Burgundy",
+ "ourAppellations": [
+  "Bouzeron",
+  "Rully",
+  "Mercurey",
+  "Bourgogne Côte Chalonnaise"
+ ],
+ "ourAreaTerms": [
+  "côte chalonnaise",
+  "bouzeron",
+  "rully",
+  "mercurey",
+  "bourgogne côte chalonnaise"
+ ],
+ "sameRegionAppellations": [
+  "bourgogne",
+  "côte chalonnaise",
+  "bouzeron",
+  "rully",
+  "mercurey",
+  "givry",
+  "montagny",
+  "côte de beaune",
+  "meursault",
+  "puligny-montrachet",
+  "chassagne-montrachet",
+  "volnay",
+  "pommard",
+  "beaune",
+  "savigny-lès-beaune",
+  "santenay",
+  "maranges",
+  "côte de nuits",
+  "gevreychambertin",
+  "vosne-romanée",
+  "nuits-saint-georges",
+  "morey-saint-denis",
+  "ambonnay",
+  "chablis",
+  "mâconnais",
+  "pouilly-fuissé",
+  "saint-véran"
+ ],
+ "peerAppellations": [
+  "bouzeron",
+  "rully",
+  "mercurey",
+  "givry",
+  "montagny",
+  "côte de beaune-villages",
+  "savigny-lès-beaune",
+  "santenay",
+  "maranges",
+  "pouilly-fuissé",
+  "saint-véran"
+ ],
+ "neighborRegions": [
+  "beaujolais",
+  "jura",
+  "savoie",
+  "loire",
+  "rhône",
+  "champagne",
+  "alsace",
+  "côtes du rhône"
+ ],
+ "styles": [
+  "dry",
+  "red",
+  "rose"
+ ],
+ "reverseQueries": [
+  "US importer organic Burgundy small growers {state}",
+  "California wine importer Côte Chalonnaise {hub}",
+  "organic Burgundy importer {state} small estate",
+  "Burgundy Aligoté Pinot Noir importer {hub}",
+  "small organic Burgundy growers distributor {state}",
+  "Côte Chalonnaise wine importer {hub} CA",
+  "US distributor for organic Burgundy {state}"
+ ],
+ "peerSeedQueries": [
+  "organic Burgundy estate like Domaine Test Chalonnais",
+  "small organic Côte Chalonnaise growers"
+ ],
+ "retailQueries": [
+  "\"imported by\" bouzeron aligoté {state} wine shop",
+  "\"imported by\" rully pinot noir {state} wine shop",
+  "\"imported by\" mercurey {state} wine shop",
+  "\"imported by\" bourgogne côte chalonnaise {state} wine shop"
+ ]
+}

@@ -382,6 +382,7 @@ export interface Usage {
   searches: number; // paid Tavily calls
   credits?: number; // Tavily credits reported by the API (includeUsage)
   budget?: number; // hard cap on credits for this run; paid calls are skipped once reached
+  inflight?: number; // paid calls started but not finished (parallel calls count against the cap)
 }
 
 interface RawResult {
@@ -412,10 +413,11 @@ async function cachedTavily<T>(key: string, u: Usage, run: () => Promise<T | { r
   const file = cacheFile(key);
   if (fs.existsSync(file)) return JSON.parse(fs.readFileSync(file, "utf8")).results as T;
   if (!process.env.TAVILY_API_KEY) return null;
-  if (u.budget !== undefined && (u.credits ?? 0) >= u.budget) {
+  if (u.budget !== undefined && (u.credits ?? 0) + (u.inflight ?? 0) >= u.budget) {
     console.warn(`[tavily] budget of ${u.budget} credits reached, skipping ${key}`);
     return null;
   }
+  u.inflight = (u.inflight ?? 0) + 1;
   try {
     const out = await run();
     const withCredits = out && typeof out === "object" && "credits" in out && "results" in out;
@@ -432,6 +434,8 @@ async function cachedTavily<T>(key: string, u: Usage, run: () => Promise<T | { r
   } catch (err) {
     console.error(`[tavily] ${key} failed:`, err);
     return null;
+  } finally {
+    u.inflight = Math.max(0, (u.inflight ?? 1) - 1);
   }
 }
 

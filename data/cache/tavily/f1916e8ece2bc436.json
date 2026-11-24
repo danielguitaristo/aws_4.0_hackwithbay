@@ -1,0 +1,12 @@
+{
+ "query": "search:importers USA importateurs export distributeurs:{\"maxResults\":5,\"includeDomains\":[\"de-villaine.com\"]}",
+ "estate": "Domaine de Villaine",
+ "fetchedAt": "2026-11-24T22:47:11.955Z",
+ "results": [
+  {
+   "url": "https://www.de-villaine.com/fr/distributeurs",
+   "title": "Où trouver les vins du Domaine de Villaine",
+   "content": "* Caviste * Epicerie * Hotel * Importateur * Restaurant * + Afrique du Sud * + Canada + USA * + Corée + Indonésie + Israël + Japon + Singapour + Taiwan * + Allemagne + Andorre + Angleterre + Belgique + Danemark + Espagne + France + Hongrie + Norvège + Pays Bas + Portugal + Suède + Suisse * + Australie + Nouvelle Zélande"
+  }
+ ]
+}

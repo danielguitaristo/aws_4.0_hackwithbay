@@ -1,0 +1,13 @@
+{
+ "query": "extract-full-advanced:https://www.thewinesourceinc.com/burgundy",
+ "candidate": "The Source",
+ "fetchedAt": "2026-11-24T22:47:05.726Z",
+ "results": [
+  {
+   "url": "https://www.thewinesourceinc.com/burgundy",
+   "title": "Gallery 3 — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Skip to Content \nThe Wine Source Inc.\nThe Wine Source Inc.\nBURGUNDY"
+  }
+ ]
+}
