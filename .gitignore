@@ -42,3 +42,6 @@ next-env.d.ts
 
 # keep the template so teammates know which keys to set
 !.env.example
+
+# local runtime demo state
+/data/runtime/
