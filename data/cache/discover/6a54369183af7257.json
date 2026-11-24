@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:25:36.168Z",
+ "createdAt": "2026-11-24T22:33:51.132Z",
  "leads": [
   {
    "portfolioDetail": [
@@ -4036,6 +4036,42 @@
      "quote": "apet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos d"
     },
     {
+     "producer": "Chteau Falfas",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ne Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chabli"
+    },
+    {
+     "producer": "Chteau Milon",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "nique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Dom"
+    },
+    {
+     "producer": "Chteau Peyredon Lagravette",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Je"
+    },
+    {
+     "producer": "Chteau Sainte-Marie",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le"
+    },
+    {
      "producer": "Clos de la Cure",
      "country": "France",
      "region": "Bordeaux",
@@ -4196,6 +4232,15 @@
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet"
+    },
+    {
+     "producer": "Chteau des Quarts",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Mâconnais",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épern"
     },
     {
      "producer": "Domaine Manciat-Poncet",
@@ -5214,6 +5259,10 @@
     "Antoine Sunier (Beaujolais), France",
     "Dominique Piron (Beaujolais), France",
     "Jean-Claude Lapalu (Beaujolais), France",
+    "Chteau Falfas (Bordeaux), France",
+    "Chteau Milon (Bordeaux), France",
+    "Chteau Peyredon Lagravette (Bordeaux), France",
+    "Chteau Sainte-Marie (Bordeaux), France",
     "Clos de la Cure (Bordeaux), France",
     "Domaine Hervé Azo (Chablis/Auxerre), France",
     "Guilhem & Jean-Hugues Goisot (Chablis/Auxerre), France",
@@ -5232,6 +5281,7 @@
     "Domaine Confuron-Cotetidot (Côte de Nuits), France",
     "Domaine Duroché (Côte de Nuits), France",
     "Domaine Trapet Père et Fils (Côte de Nuits), France",
+    "Chteau des Quarts (Mâconnais), France",
     "Domaine Manciat-Poncet (Mâconnais), France",
     "Heritiers du Comte Lafon (Mâconnais), France",
     "Nicolas Maillet (Mâconnais), France",
@@ -5360,7 +5410,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
+     "snippet": "42 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
     },
     {
      "url": "https://www.beauneimports.com/about",
@@ -5376,16 +5426,12 @@
      "snippet": "Domaine de la Fontainerie, 2023 Vouvray Sec - Beaune Imports 1490 66th Street • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie"
     },
     {
-     "url": "https://www.beauneimports.com/producer/philippe-alliet",
-     "snippet": "Philippe Alliet - Beaune Imports Philippe Alliet and his wife, Claude, have farmed in Cravant-les-Coteaux, in the heart of the Chinon AOC since 1985. As one of the rare producers in Chinon to"
-    },
-    {
      "url": "https://www.beauneimports.com/product/bourgueil-jour-de-soif",
      "snippet": "Gauthier/Domaine du Bel Air, 2024 Bourgueil, Jour de Soif. Producer ... This is great quaffing wine. Print. View Image. BEAUNE IMPORTS. 1490 66th Street."
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+115 more)"
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+120 more)"
     },
     {
      "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
@@ -5438,7 +5484,7 @@
      "label": "Fit · neighbor French regions",
      "points": 10,
      "status": "fired",
-     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\"",
+     "snippet": "42 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\"",
      "url": "https://www.beauneimports.com/producers"
     },
     {
@@ -5515,10 +5561,10 @@
     },
     {
      "id": "coverage",
-     "label": "catalogue lu : 136 producteurs, 12 pages (total non indiqué)",
+     "label": "catalogue lu : 141 producteurs, 12 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "136 producers read on 12 own-site pages. Coverage OK.",
+     "snippet": "141 producers read on 12 own-site pages. Coverage OK.",
      "url": "https://www.beauneimports.com"
     }
    ]
@@ -7438,6 +7484,109 @@
    ]
   },
   {
+   "portfolioDetail": [],
+   "id": "1bf5f4ab2b",
+   "name": "Quintessential, LLC",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Napa",
+   "address": "1310 2ND ST, NAPA, CA 94559",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-15517",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-15931",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [],
+   "fitScore": 12,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · small growers"
+   ],
+   "sources": [
+    {
+     "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559",
+     "title": "Quintessential Named Wine Enthusiast's Importer of the Year | Newswire",
+     "snippet": "bring the best family-owned wineries from all over the world"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "bring the best family-owned wineries from all over the world",
+     "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559",
+     "title": "Quintessential Named Wine Enthusiast's Importer of the Year | Newswire"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 20/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 12 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
+     "points": 0,
+     "status": "info",
+     "snippet": "No own website found: TTB permit \"QUINTESSENTIAL, LLC\" (CA-I-15517, CA-P-15931, Napa) is not tied to a website",
+     "url": ""
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    }
+   ]
+  },
+  {
    "portfolioDetail": [
     {
      "producer": "Vulpes Wines",
@@ -7694,109 +7843,6 @@
      "status": "info",
      "snippet": "11 producers read on 13 own-site pages. Coverage OK.",
      "url": "https://culturewineco.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "1bf5f4ab2b",
-   "name": "Quintessential, LLC",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Napa",
-   "address": "1310 2ND ST, NAPA, CA 94559",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-15517",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-15931",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 12,
-   "tier": "C",
-   "signals": [
-    "+20 Fit · small growers"
-   ],
-   "sources": [
-    {
-     "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559",
-     "title": "Quintessential Named Wine Enthusiast's Importer of the Year | Newswire",
-     "snippet": "bring the best family-owned wineries from all over the world"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "small_growers",
-     "label": "Fit · small growers",
-     "points": 20,
-     "status": "fired",
-     "snippet": "bring the best family-owned wineries from all over the world",
-     "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559",
-     "title": "Quintessential Named Wine Enthusiast's Importer of the Year | Newswire"
-    },
-    {
-     "id": "price_match",
-     "label": "Fit · price range overlap",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "fit_score",
-     "label": "Fit 20/100",
-     "points": 0,
-     "status": "info",
-     "snippet": "small growers +20",
-     "url": ""
-    },
-    {
-     "id": "opening_score",
-     "label": "Opening 0/100",
-     "points": 0,
-     "status": "info",
-     "snippet": "no opening signal proven",
-     "url": ""
-    },
-    {
-     "id": "final_score",
-     "label": "fitScore 12 → C",
-     "points": 0,
-     "status": "info",
-     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
-     "url": ""
-    },
-    {
-     "id": "angle",
-     "label": "Angle",
-     "points": 0,
-     "status": "info",
-     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
-     "url": ""
-    },
-    {
-     "id": "permit_match",
-     "label": "Permit match unverified — capped at tier C",
-     "points": 0,
-     "status": "info",
-     "snippet": "No own website found: TTB permit \"QUINTESSENTIAL, LLC\" (CA-I-15517, CA-P-15931, Napa) is not tied to a website",
-     "url": ""
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
     }
    ]
   },

@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:28:15.467Z",
+ "createdAt": "2026-11-24T22:34:54.443Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -212,34 +212,6 @@
    "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134"
   },
   {
-   "lead": "The Wine Source Co.",
-   "signal": "loire_presence",
-   "verdict": "same_company",
-   "reason": "The URL is the official website of The Wine Source Inc., and the content is part of their portfolio.",
-   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
-  },
-  {
-   "lead": "The Wine Source Co.",
-   "signal": "tastings_fairs",
-   "verdict": "same_company",
-   "reason": "The URL is the official website of The Wine Source Inc., and the text explicitly names the company.",
-   "url": "https://www.thewinesourceinc.com"
-  },
-  {
-   "lead": "7th Floor Selections",
-   "signal": "organic_natural",
-   "verdict": "same_company",
-   "reason": "The text explicitly names 'Wilson Daniels' as the importer representing organic and biodynamic wineries.",
-   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
-  },
-  {
-   "lead": "7th Floor Selections",
-   "signal": "mega_distributor",
-   "verdict": "same_company",
-   "reason": "The text explicitly names 'Wilson Daniels' as the company producing the Routestock brand.",
-   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
-  },
-  {
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "small_growers",
    "verdict": "unclear",
@@ -289,6 +261,20 @@
    "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
   },
   {
+   "lead": "The Wine Source Co.",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is the official website of The Wine Source Inc., and the content is part of their portfolio.",
+   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+  },
+  {
+   "lead": "The Wine Source Co.",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is the official website of The Wine Source Inc., and the text explicitly names the company.",
+   "url": "https://www.thewinesourceinc.com"
+  },
+  {
    "lead": "Charles Neal Selections",
    "signal": "small_growers",
    "verdict": "same_company",
@@ -308,6 +294,20 @@
    "verdict": "same_company",
    "reason": "The URL and context are from the official website of Charles Neal Selections, and the quote explicitly names the company.",
    "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the importer representing organic and biodynamic wineries.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the company producing the Routestock brand.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
   },
   {
    "lead": "True North Wine Merchants",
@@ -355,14 +355,14 @@
    "lead": "Beaune Imports",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing producers they import.",
-   "url": "https://www.beauneimports.com/producers"
+   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
+   "url": "https://www.beauneimports.com/producer/francois-chidaine"
   },
   {
    "lead": "Beaune Imports",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing regions and producers they import.",
+   "reason": "The URL and context are from Beaune Imports' website, listing their producers by region.",
    "url": "https://www.beauneimports.com/producers"
   },
   {
@@ -376,8 +376,8 @@
    "lead": "Beaune Imports",
    "signal": "loire_saturated",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing Touraine producers they import.",
-   "url": "https://www.beauneimports.com/producers"
+   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
+   "url": "https://www.beauneimports.com/producer/francois-chidaine"
   }
  ]
 }

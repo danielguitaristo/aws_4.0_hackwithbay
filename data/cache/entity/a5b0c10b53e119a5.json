@@ -1,0 +1,27 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The quote is from Beaune Imports' own website, explicitly naming the company."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' website, listing a producer they import."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' website, listing their producers by region."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The quote is from Beaune Imports' own website, explicitly naming the company."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' website, listing a producer they import."
+ }
+]
