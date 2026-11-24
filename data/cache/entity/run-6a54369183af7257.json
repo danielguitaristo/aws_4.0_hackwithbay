@@ -1,0 +1,250 @@
+{
+ "createdAt": "2026-11-24T21:55:40.245Z",
+ "log": [
+  {
+   "lead": "Authentic Wine Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and quote explicitly reference AuthenticWS.com and AWS Direct Import, which is Authentic Wine Selections.",
+   "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
+  },
+  {
+   "lead": "Authentic Wine Selections",
+   "signal": "grower_philosophy",
+   "verdict": "same_company",
+   "reason": "The context explicitly names Authentic Wine Selections and describes its direct-import wines and philosophy.",
+   "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Grand Cru Selections LLC's own website, listing their portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Grand Cru Selections LLC's own website, listing their portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "peer_neighbors",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Grand Cru Selections LLC's own website, listing their portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "grower_philosophy",
+   "verdict": "sister_or_related_company",
+   "reason": "The article discusses Zev Rovine Selections, a separate but related entity to Sylvester/Rovine Selections.",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "boutique_size",
+   "verdict": "sister_or_related_company",
+   "reason": "The article refers to Zev Rovine Selections, a distinct but related company to Sylvester/Rovine Selections.",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "similar_chenin",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Cru Wines' own portfolio page, listing wines they import.",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Cru Wines' own portfolio page, listing wines they import.",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "peer_touraine",
+   "verdict": "same_company",
+   "reason": "The quote explicitly references Cru Wines' portfolio and the URL is from their website.",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "big_houses",
+   "verdict": "same_company",
+   "reason": "The URL is from Cru Wines' website, describing a specific chateau they import.",
+   "url": "https://cruwines.net/chateau-des-graviers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "similar_chenin",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, listing their producers.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, listing their producers.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, listing their producers.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "peer_touraine",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Farm Wine Imports' website and producers.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "grower_philosophy",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, describing their philosophy.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, mentioning their events.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Dime Group International",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The URL and quote explicitly reference 'JVS Imports' and 'JVS Wines Imports', matching the TTB permit holder name 'JVS WINES IMPORT, INC.' for Dime Group International.",
+   "url": "https://jvsimports.com"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "grower_philosophy",
+   "verdict": "same_company",
+   "reason": "The interview explicitly names 'Amy Atwood Selections' as the company and discusses its philosophy.",
+   "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The article explicitly refers to 'Amy Atwood Selections' as the pioneering small-batch organic wine importer.",
+   "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business"
+  },
+  {
+   "lead": "Atherton Wine Imports",
+   "signal": "mega_distributor",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "similar_chenin",
+   "verdict": "same_company",
+   "reason": "The URL is Floraison Selections' own website, and the quote is from their Loire page.",
+   "url": "https://www.floraisonselections.com/loire"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is Floraison Selections' own website, and the quote is from their Growers page.",
+   "url": "https://www.floraisonselections.com/growers"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "peer_touraine",
+   "verdict": "same_company",
+   "reason": "The URL is Floraison Selections' own website, and the quote references their domain.",
+   "url": "https://www.floraisonselections.com/loire"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The quote explicitly names Floraison Selections as the importer of Domaine de Sérol.",
+   "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "grower_philosophy",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/OVD2bMckEubl"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The URL is the official website of Kermit Lynch, Wine Merchant, and the context explicitly references the company.",
+   "url": "https://kermitlynch.com/region/loire"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is the official shop of Kermit Lynch, Wine Merchant, and the context lists wines from their portfolio.",
+   "url": "https://shop.kermitlynch.com"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The quote explicitly names 'Kermit Lynch' as the importer hosting the portfolio tasting.",
+   "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "similar_chenin",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own website, listing a product they import.",
+   "url": "https://www.beauneimports.com/product/vouvray-sec"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own website, listing their producers.",
+   "url": "https://www.beauneimports.com/producers"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own website, listing their producers by region.",
+   "url": "https://www.beauneimports.com/producers"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "peer_touraine",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own website, referencing their imported product.",
+   "url": "https://www.beauneimports.com/product/vouvray-sec"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "grower_philosophy",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own 'About' page, describing the company.",
+   "url": "https://www.beauneimports.com/about"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Beaune Imports' own 'About' page, describing the company.",
+   "url": "https://www.beauneimports.com/about"
+  }
+ ]
+}

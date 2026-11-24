@@ -347,17 +347,9 @@
     "country": "France",
     "region": "Champagne",
     "appellation": "Montagne de Reims",
-    "grapes": [
-     "Pinot Noir",
-     "Chardonnay",
-     "Arbanne",
-     "Petit Meslier",
-     "Pinot Blanc",
-     "Meunier",
-     "Pinot Gris"
-    ],
-    "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
-    "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
+    "grapes": [],
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison +"
    },
    {
     "producer": "R. H. Coutier",
