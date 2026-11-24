@@ -1,4 +1,7 @@
 // Mistral client (owner A). Server-only: reads MISTRAL_API_KEY from .env.local.
+import fs from "node:fs";
+import path from "node:path";
+import crypto from "node:crypto";
 import { Mistral } from "@mistralai/mistralai";
 
 const DEFAULT_MODEL = "mistral-small-latest";
@@ -88,9 +91,8 @@ export function asObject(v: unknown, field: string): Record<string, unknown> {
 }
 
 // ---- Live-call gate -------------------------------------------------------
-// The deployed site is public. Live Mistral/Tavily/Moss calls only run when the
-// request carries the DEMO_PASSWORD (header "x-demo-password") and stays under
-// a small per-IP rate limit. Otherwise routes serve cached / fallback data.
+// The deployed site is public. Routes serve cached results first; a live
+// Mistral/Tavily/Moss call only runs on a cache miss and under a per-IP rate limit.
 
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX = 10;
@@ -99,10 +101,6 @@ const hits = new Map<string, number[]>();
 export type LiveGate = { live: true } | { live: false; reason: string; status?: number };
 
 export function liveGate(req: Request): LiveGate {
-  const password = process.env.DEMO_PASSWORD;
-  if (!password) return { live: false, reason: "DEMO_PASSWORD not set on server" };
-  if (req.headers.get("x-demo-password") !== password) return { live: false, reason: "no or wrong demo password" };
-
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   const now = Date.now();
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
@@ -110,4 +108,30 @@ export function liveGate(req: Request): LiveGate {
   recent.push(now);
   hits.set(ip, recent);
   return { live: true };
+}
+
+// ---- JSON file cache (data/cache) ----------------------------------------
+// Read-only filesystems (serverless deploys) just skip the write.
+
+const CACHE_ROOT = path.join(process.cwd(), "data", "cache");
+
+export function cacheKey(value: unknown): string {
+  return crypto.createHash("sha1").update(typeof value === "string" ? value : JSON.stringify(value)).digest("hex").slice(0, 16);
+}
+
+export function readCache<T>(dir: string, key: string): T | null {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(CACHE_ROOT, dir, `${key}.json`), "utf8")) as T;
+  } catch {
+    return null;
+  }
+}
+
+export function writeCache(dir: string, key: string, data: unknown): void {
+  try {
+    fs.mkdirSync(path.join(CACHE_ROOT, dir), { recursive: true });
+    fs.writeFileSync(path.join(CACHE_ROOT, dir, `${key}.json`), JSON.stringify(data, null, 1));
+  } catch (err) {
+    console.warn(`[cache] could not write ${dir}/${key}: ${String(err)}`);
+  }
 }

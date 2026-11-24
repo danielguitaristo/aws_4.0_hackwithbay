@@ -1,9 +1,9 @@
 // POST /api/icp — Domaine -> ICP (owner A).
-// Live Mistral call only with DEMO_PASSWORD; otherwise FALLBACK_ICP.
+// Cached ICP first (data/cache/icp), else a rate-limited live Mistral call, else FALLBACK_ICP.
 import { NextResponse } from "next/server";
 import type { BuyerType, Domaine, Expansion, ICP } from "@/lib/types";
 import { FALLBACK_ICP } from "@/lib/demo";
-import { asNumber, asObject, asString, asStringArray, chatJSON, hasMistral, liveGate } from "@/lib/llm";
+import { asNumber, asObject, asString, asStringArray, cacheKey, chatJSON, hasMistral, liveGate, readCache, writeCache } from "@/lib/llm";
 
 const BUYER_TYPES: BuyerType[] = ["importer_distributor", "importer", "distributor"];
 const FIELDS = ["buyerTypes", "naicsCodes", "states", "metros", "sizeBand", "personas", "portfolioFit", "priceBand", "triggers", "negativeSignals"];
@@ -52,7 +52,7 @@ confidence (object: one number 0..1 per key above, how sure you are given the in
 expansions (2-3 objects {segment, rationale}: adjacent segments worth testing).
 Base everything on the estate data. Do not name specific companies.`;
 
-function reply(icp: ICP, mode: "live" | "fallback", reason = "", status = 200) {
+function reply(icp: ICP, mode: "live" | "cache" | "fallback", reason = "", status = 200) {
   return NextResponse.json(icp, { status, headers: { "x-mode": mode, "x-reason": reason } });
 }
 
@@ -64,6 +64,10 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "Body must be a Domaine JSON object" }, { status: 400 });
   }
+
+  const key = cacheKey(domaine);
+  const cached = readCache<ICP>("icp", key);
+  if (cached) return reply(cached, "cache");
 
   if (!hasMistral()) return reply(FALLBACK_ICP, "fallback", "MISTRAL_API_KEY not set");
   const gate = liveGate(req);
@@ -77,6 +81,7 @@ export async function POST(req: Request) {
       ],
       validateICP,
     );
+    writeCache("icp", key, icp);
     return reply(icp, "live");
   } catch (err) {
     console.error("[api/icp] Mistral failed, using FALLBACK_ICP:", err);
