@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:11:03.836Z",
+ "createdAt": "2026-11-24T22:18:59.309Z",
  "leads": [
   {
    "portfolioDetail": [
@@ -373,15 +373,14 @@
     "Domaine de la Cadette (Bourgogne), France",
     "Domaine Ostertag (Alsace), France"
    ],
-   "fitScore": 61,
-   "tier": "A",
+   "fitScore": 49,
+   "tier": "B",
    "signals": [
     "+20 Fit · Loire presence",
     "+15 Fit · Loire specialist (no Vouvray/Touraine)",
     "+10 Fit · neighbor French regions",
     "+35 Opening · room: Loire book without Vouvray/Touraine",
-    "+20 Opening · portfolio tastings / fairs",
-    "+20 Fit · small growers (own website)"
+    "+20 Opening · portfolio tastings / fairs"
    ],
    "sources": [
     {
@@ -404,11 +403,6 @@
      "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
      "title": "Kermit Lynch Wines, New & Current wines reviewed",
      "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch"
-    },
-    {
-     "url": "https://kermitlynch.com/files/podere-campriano.pdf",
-     "title": "podere campriano - Kermit Lynch Wine Merchant",
-     "snippet": "It is all family, all artisanal, all natural, and all good."
     },
     {
      "url": "https://kermitlynch.com/region/loire",
@@ -446,15 +440,6 @@
      "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch",
      "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
      "title": "Kermit Lynch Wines, New & Current wines reviewed"
-    },
-    {
-     "id": "small_growers",
-     "label": "Fit · small growers (own website)",
-     "points": 20,
-     "status": "fired",
-     "snippet": "It is all family, all artisanal, all natural, and all good.",
-     "url": "https://kermitlynch.com/files/podere-campriano.pdf",
-     "title": "podere campriano - Kermit Lynch Wine Merchant"
     },
     {
      "id": "loire_specialist",
@@ -500,10 +485,10 @@
     },
     {
      "id": "fit_score",
-     "label": "Fit 65/100",
+     "label": "Fit 45/100",
      "points": 0,
      "status": "info",
-     "snippet": "Loire presence +20, Loire specialist (no Vouvray/Touraine) +15, neighbor French regions +10, small growers (own website) +20",
+     "snippet": "Loire presence +20, Loire specialist (no Vouvray/Touraine) +15, neighbor French regions +10",
      "url": ""
     },
     {
@@ -516,10 +501,10 @@
     },
     {
      "id": "final_score",
-     "label": "fitScore 61 → A",
+     "label": "fitScore 49 → B",
      "points": 0,
      "status": "info",
-     "snippet": "0.6 × Fit 65 + 0.4 × Opening 55 = 61 (A ≥ 60, B ≥ 40)",
+     "snippet": "0.6 × Fit 45 + 0.4 × Opening 55 = 49 (A ≥ 60, B ≥ 40)",
      "url": ""
     },
     {
@@ -5920,171 +5905,6 @@
   {
    "portfolioDetail": [
     {
-     "producer": "Domaines Bunan",
-     "country": "France",
-     "region": "Provence",
-     "appellation": "Bandol, Côte de Provence",
-     "grapes": [],
-     "url": "https://www.thewinesourceinc.com/domaines-bunan",
-     "quote": "Domaines Bunan Bandol Moulin Des Costes Bandol White Moulin Des Costes Bandol Rose Moulin Des Costes Bandol Red Do"
-    },
-    {
-     "producer": "Domaine de L’Ermitage",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Menetou-Salon, Sancerre",
-     "grapes": [
-      "Sauvignon Blanc",
-      "Pinot Noir"
-     ],
-     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
-     "quote": "Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine"
-    },
-    {
-     "producer": "Domaine Chavet",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Menetou-Salon",
-     "grapes": [],
-     "url": "https://www.thewinesourceinc.com/domaine-chavet",
-     "quote": "Domaine Chavet clos des jentonnes.PNG Clos des Jentonnes clos de coquin.PNG Clos de Coquin clos de beauregard.PNG"
-    }
-   ],
-   "id": "6855975c40",
-   "name": "The Wine Source Co.",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Gardena",
-   "address": "14415 S MAIN ST, GARDENA, CA 90248",
-   "website": "https://www.thewinesourceinc.com",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-21110",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-21316",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [
-    "Domaines Bunan (Bandol, Côte de Provence), France",
-    "Domaine de L’Ermitage (Menetou-Salon, Sancerre), France",
-    "Domaine Chavet (Menetou-Salon), France"
-   ],
-   "fitScore": 12,
-   "tier": "C",
-   "signals": [
-    "+20 Fit · Loire presence"
-   ],
-   "sources": [
-    {
-     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
-     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\""
-    },
-    {
-     "url": "https://www.thewinesourceinc.com/domaines-bunan",
-     "snippet": "Producers listed: Domaines Bunan (Bandol, Côte de Provence)"
-    },
-    {
-     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
-     "snippet": "Producers listed: Domaine de L’Ermitage (Menetou-Salon, Sancerre)"
-    },
-    {
-     "url": "https://www.thewinesourceinc.com/domaine-chavet",
-     "snippet": "Producers listed: Domaine Chavet (Menetou-Salon)"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "loire_presence",
-     "label": "Fit · Loire presence",
-     "points": 20,
-     "status": "fired",
-     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\"",
-     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
-    },
-    {
-     "id": "price_match",
-     "label": "Fit · price range overlap",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "portfolio_hole",
-     "label": "Opening · room: Loire book without Vouvray/Touraine",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "Loire: Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon); no Vouvray/Touraine — catalogue lu : 3 producteurs, 8 pages (total non indiqué): absence not provable",
-     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
-    },
-    {
-     "id": "fit_score",
-     "label": "Fit 20/100",
-     "points": 0,
-     "status": "info",
-     "snippet": "Loire presence +20",
-     "url": ""
-    },
-    {
-     "id": "opening_score",
-     "label": "Opening 0/100",
-     "points": 0,
-     "status": "info",
-     "snippet": "no opening signal proven",
-     "url": ""
-    },
-    {
-     "id": "final_score",
-     "label": "fitScore 12 → C",
-     "points": 0,
-     "status": "info",
-     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
-     "url": ""
-    },
-    {
-     "id": "angle",
-     "label": "Angle",
-     "points": 0,
-     "status": "info",
-     "snippet": "Carries Loire (Domaine de L’Ermitage, Domaine Chavet) but the catalogue was not fully read: check for a Vouvray first, then pitch our organic Chenin.",
-     "url": ""
-    },
-    {
-     "id": "permit_match",
-     "label": "Permit match verified",
-     "points": 0,
-     "status": "info",
-     "snippet": "https://www.thewinesourceinc.com shows the TTB permit city (Gardena) — permit \"THE WINE SOURCE INC.\" (CA-I-21110, CA-P-21316, Gardena)",
-     "url": "https://www.thewinesourceinc.com/domaine-chavet"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 3 producteurs, 8 pages (total non indiqué)",
-     "points": 0,
-     "status": "info",
-     "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
-     "url": "https://www.thewinesourceinc.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [
-    {
      "producer": "Chateau de Javernand",
      "country": "France",
      "region": "Beaujolais",
@@ -6483,12 +6303,11 @@
     "Bresolin Bio (Veneto), Italy",
     "Chateau des Graviers (Margaux), France"
    ],
-   "fitScore": 9,
+   "fitScore": 18,
    "tier": "C",
    "signals": [
     "+20 Fit · Loire presence",
-    "+10 Fit · neighbor French regions",
-    "-15 Fit · big houses / grand cru focus"
+    "+10 Fit · neighbor French regions"
    ],
    "sources": [
     {
@@ -6498,11 +6317,6 @@
     {
      "url": "https://cruwines.net/portfolio",
      "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\""
-    },
-    {
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "title": "Chateau des Graviers | Cru Wines, LLC",
-     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla"
     },
     {
      "url": "https://cruwines.net/portfolio",
@@ -6549,6 +6363,15 @@
      "url": ""
     },
     {
+     "id": "big_houses",
+     "label": "Fit · big houses / grand cru focus",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Source rule: producer sheet (/chateau-des-graviers) is not evidence of the importer's focus. Evidence: adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla",
+     "url": "https://cruwines.net/chateau-des-graviers",
+     "title": "Chateau des Graviers | Cru Wines, LLC"
+    },
+    {
      "id": "similar_chenin",
      "label": "Opening · direct competitor?",
      "points": 0,
@@ -6557,20 +6380,11 @@
      "url": "https://cruwines.net/portfolio"
     },
     {
-     "id": "big_houses",
-     "label": "Fit · big houses / grand cru focus",
-     "points": -15,
-     "status": "fired",
-     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla",
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "title": "Chateau des Graviers | Cru Wines, LLC"
-    },
-    {
      "id": "fit_score",
-     "label": "Fit 15/100",
+     "label": "Fit 30/100",
      "points": 0,
      "status": "info",
-     "snippet": "Loire presence +20, neighbor French regions +10, big houses / grand cru focus -15",
+     "snippet": "Loire presence +20, neighbor French regions +10",
      "url": ""
     },
     {
@@ -6583,10 +6397,10 @@
     },
     {
      "id": "final_score",
-     "label": "fitScore 9 → C",
+     "label": "fitScore 18 → C",
      "points": 0,
      "status": "info",
-     "snippet": "0.6 × Fit 15 + 0.4 × Opening 0 = 9 (A ≥ 60, B ≥ 40)",
+     "snippet": "0.6 × Fit 30 + 0.4 × Opening 0 = 18 (A ≥ 60, B ≥ 40)",
      "url": ""
     },
     {
@@ -6620,6 +6434,171 @@
      "status": "info",
      "snippet": "35 producers read on 11 own-site pages. Coverage OK.",
      "url": "https://cruwines.net"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Domaines Bunan",
+     "country": "France",
+     "region": "Provence",
+     "appellation": "Bandol, Côte de Provence",
+     "grapes": [],
+     "url": "https://www.thewinesourceinc.com/domaines-bunan",
+     "quote": "Domaines Bunan Bandol Moulin Des Costes Bandol White Moulin Des Costes Bandol Rose Moulin Des Costes Bandol Red Do"
+    },
+    {
+     "producer": "Domaine de L’Ermitage",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Menetou-Salon, Sancerre",
+     "grapes": [
+      "Sauvignon Blanc",
+      "Pinot Noir"
+     ],
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+     "quote": "Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine"
+    },
+    {
+     "producer": "Domaine Chavet",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.thewinesourceinc.com/domaine-chavet",
+     "quote": "Domaine Chavet clos des jentonnes.PNG Clos des Jentonnes clos de coquin.PNG Clos de Coquin clos de beauregard.PNG"
+    }
+   ],
+   "id": "6855975c40",
+   "name": "The Wine Source Co.",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Gardena",
+   "address": "14415 S MAIN ST, GARDENA, CA 90248",
+   "website": "https://www.thewinesourceinc.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-21110",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-21316",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "Domaines Bunan (Bandol, Côte de Provence), France",
+    "Domaine de L’Ermitage (Menetou-Salon, Sancerre), France",
+    "Domaine Chavet (Menetou-Salon), France"
+   ],
+   "fitScore": 12,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · Loire presence"
+   ],
+   "sources": [
+    {
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\""
+    },
+    {
+     "url": "https://www.thewinesourceinc.com/domaines-bunan",
+     "snippet": "Producers listed: Domaines Bunan (Bandol, Côte de Provence)"
+    },
+    {
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+     "snippet": "Producers listed: Domaine de L’Ermitage (Menetou-Salon, Sancerre)"
+    },
+    {
+     "url": "https://www.thewinesourceinc.com/domaine-chavet",
+     "snippet": "Producers listed: Domaine Chavet (Menetou-Salon)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
+     "status": "fired",
+     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\"",
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "portfolio_hole",
+     "label": "Opening · room: Loire book without Vouvray/Touraine",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Loire: Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon); no Vouvray/Touraine — catalogue lu : 3 producteurs, 8 pages (total non indiqué): absence not provable",
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 20/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 12 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Carries Loire (Domaine de L’Ermitage, Domaine Chavet) but the catalogue was not fully read: check for a Vouvray first, then pitch our organic Chenin.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.thewinesourceinc.com shows the TTB permit city (Gardena) — permit \"THE WINE SOURCE INC.\" (CA-I-21110, CA-P-21316, Gardena)",
+     "url": "https://www.thewinesourceinc.com/domaine-chavet"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 3 producteurs, 8 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "url": "https://www.thewinesourceinc.com"
     }
    ]
   },

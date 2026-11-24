@@ -1,10 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { CaliforniaMap } from "@/components/CaliforniaMap";
+import { useEffect, useState } from "react";
+import { UsMap } from "@/components/UsMap";
 import { Headline, Logo } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
-import { MOCK_LEADS } from "@/lib/demo";
+import { SUPPORTED_STATES } from "@/lib/places";
 
 // Sign in. Simulated for the demo: no real auth, the link "arrives" instantly.
 export default function SignIn() {
@@ -13,6 +13,11 @@ export default function SignIn() {
   const [email, setEmail] = useState("claire@petitespierres.fr");
   const [sent, setSent] = useState(false);
   const valid = /\S+@\S+\.\S+/.test(email);
+  // the whole US market, shaded by licensed importers (TTB)
+  const [counts, setCounts] = useState<Record<string, number>>({});
+  useEffect(() => {
+    fetch("/api/states").then((r) => r.json()).then((d) => setCounts(d.counts ?? {})).catch(() => {});
+  }, []);
 
   const send = () => {
     if (!valid) return;
@@ -24,8 +29,8 @@ export default function SignIn() {
     <main className="grid min-h-screen grid-cols-1 md:grid-cols-2">
       <section className="flex min-h-[45vh] flex-col justify-between gap-8 bg-sand p-6 sm:p-10">
         <Logo size="text-2xl" />
-        <div className="w-1/2 max-w-60 opacity-60">
-          <CaliforniaMap leads={MOCK_LEADS.slice(0, 3)} />
+        <div className="w-full max-w-md opacity-80">
+          <UsMap counts={counts} supported={SUPPORTED_STATES} base="var(--color-paper)" edge="var(--color-sand)" />
         </div>
         <Headline lead="Find the US importer" tail="made for your wine." className="max-w-md" />
       </section>

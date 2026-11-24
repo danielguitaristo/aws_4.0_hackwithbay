@@ -2,7 +2,8 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useApp } from "@/lib/app-state";
+import { stateOf, useApp } from "@/lib/app-state";
+import { STATE_NAMES } from "./UsMap";
 
 export function Logo({ size = "text-xl" }: { size?: string }) {
   return <span className={`font-serif font-light italic ${size}`}>millésime</span>;
@@ -24,12 +25,12 @@ export const SEARCH_STEP_NAMES: Record<string, string> = { "/search/target": "Ta
 
 /** Roman-numeral steps; the current one is spelled out in burgundy (job #2). Every step is a link, so Claire can go back. */
 export function Steps({ current }: { current: number }) {
-  const { onboarded } = useApp();
+  const { onboarded, icp } = useApp();
   const steps = onboarded ? SEARCH : ONBOARDING;
   const idx = onboarded ? current - 1 : current;
   return (
     <nav className="flex flex-wrap items-baseline gap-x-6 gap-y-2" aria-label="Steps">
-      {onboarded && <span className="caps">California ·</span>}
+      {onboarded && <span className="caps">{STATE_NAMES[stateOf(icp)]} ·</span>}
       {steps.map(([label, href], i) => (
         <Link key={href} href={href} aria-current={i === idx ? "step" : undefined} className={`caps hover:text-ink ${i === idx ? "text-wine" : ""}`}>
           {ROMAN[i]}
@@ -95,6 +96,12 @@ export function TopBar({ step }: { step?: number }) {
             ))}
             <button className="block w-full px-4 py-2 text-left font-serif text-base text-taupe hover:bg-sand" onClick={() => router.push("/")}>
               Sign out
+            </button>
+            <button
+              className="block w-full border-t border-rule px-4 py-2 text-left font-serif text-base text-taupe hover:bg-sand"
+              onClick={() => { if (window.confirm("Start over? This clears your estate, searches and letters on this device.")) window.location.href = "/?reset"; }}
+            >
+              Start over
             </button>
           </div>
         )}

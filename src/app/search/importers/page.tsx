@@ -1,20 +1,22 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CaliforniaMap, metroOf, normalizeMetro } from "@/components/CaliforniaMap";
+import { STATE_NAMES, StateMap } from "@/components/UsMap";
+import { metroOf, normalizeMetro } from "@/lib/places";
 import { FALLBACK_ICP } from "@/lib/demo";
 import { Back, Headline, Page, TopUpDialog } from "@/components/ui";
-import { COST, reasonOf, useApp } from "@/lib/app-state";
+import { COST, firstNameOf, reasonOf, stateOf, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
 
-const PROGRESS = [
-  "Licensed importers in California",
+const progress = (name: string) => [
+  `Licensed importers in ${name}`,
   "Those that also distribute to shops and restaurants",
   "Reading their catalogs for Loire wines…",
   "Ranking the best fits",
 ];
 
-function Searching() {
+function Searching({ state }: { state: string }) {
+  const PROGRESS = progress(STATE_NAMES[state]);
   const [step, setStep] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setStep((s) => Math.min(s + 1, PROGRESS.length - 1)), 1500);
@@ -25,7 +27,7 @@ function Searching() {
       <Headline lead="Looking for" tail="your importers." />
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
         <div className="max-w-40 md:max-w-none">
-          <CaliforniaMap leads={MOCK_LEADS.slice(0, step + 1).map((l) => ({ ...l, tier: "C" }))} pulse />
+          <StateMap state={state} leads={state === "CA" ? MOCK_LEADS.slice(0, step + 1).map((l) => ({ ...l, tier: "C" as const })) : []} pulse />
         </div>
         <div>
           {PROGRESS.map((p, i) => (
@@ -52,55 +54,63 @@ export default function Importers() {
     if ((await findContact(id)) === "credits") setTopUp(true);
     setFinding(false);
   };
-  const started = useRef(false);
+  const started = useRef<string | null>(null);
   const [selected, setSelected] = useState<string>();
   const [why, setWhy] = useState(false);
   const [all, setAll] = useState(false);
   const [topUp, setTopUp] = useState(false);
 
+  const state = stateOf(icp);
+  const allRanked = useMemo(() => leads.filter((l) => (l.state || "CA") === state && l.stage !== "lost").sort((a, b) => b.fitScore - a.fitScore), [leads, state]);
   useEffect(() => {
-    if (ready && !leads.length && !searching && !started.current) {
-      started.current = true;
+    if (ready && !allRanked.length && !searching && started.current !== state) {
+      started.current = state;
       discover();
     }
-  }, [ready, leads.length, searching, discover]);
+  }, [ready, allRanked.length, searching, discover, state]);
 
-  const allRanked = useMemo(() => leads.filter((l) => l.stage !== "lost").sort((a, b) => b.fitScore - a.fitScore), [leads]);
   // Only the zones Claire picked on the Target step (California first).
-  const zones = useMemo(() => new Set((icp ?? FALLBACK_ICP).metros.map(normalizeMetro).filter(Boolean)), [icp]);
-  const ranked = useMemo(() => (everywhere || !zones.size ? allRanked : allRanked.filter((l) => zones.has(metroOf(l.city)))), [allRanked, zones, everywhere]);
+  const zones = useMemo(() => new Set(state === "CA" ? (icp ?? FALLBACK_ICP).metros.map(normalizeMetro).filter(Boolean) : []), [icp, state]);
+  // Keep importers we can't place (unknown city) rather than hide them.
+  const inZones = useMemo(() => allRanked.filter((l) => { const m = metroOf(l.city); return !m || zones.has(m); }), [allRanked, zones]);
+  // No dead end: if the chosen zones are empty, show the rest of California and say so.
+  const emptyZones = zones.size > 0 && inZones.length === 0;
+  const ranked = everywhere || !zones.size || emptyZones ? allRanked : inZones;
   const elsewhere = allRanked.length - ranked.length;
   const sel = ranked.find((l) => l.id === selected) ?? ranked[0];
   const pending = letters.filter((l) => l.status === "pending").length;
-  const drafted = (id: string) => letters.some((l) => l.leadId === id);
+  const drafted = (id: string) => letters.some((l) => l.leadId === id && l.status === "pending");
+  const sentTo = (id: string) => letters.some((l) => l.leadId === id && l.status === "sent");
   const shown = all ? ranked : ranked.slice(0, 4);
 
   if (!ready) return null;
-  if (searching || !allRanked.length) return <Page step={2}><Searching /></Page>;
-  if (!ranked.length)
+  if (searching || (!allRanked.length && started.current !== state)) return <Page step={2}><Searching state={state} /></Page>;
+  if (!allRanked.length)
     return (
       <Page step={2}>
-        <Headline lead="No importers in these zones" tail="yet." />
-        <p className="note mt-3 text-lg">{elsewhere} fit your estate elsewhere in California.</p>
-        <div className="mt-8 flex flex-wrap items-center gap-6">
-          <button className="btn" onClick={() => setEverywhere(true)}>Show them</button>
-          <Back href="/search/target" label="Change zones" />
-        </div>
+        <Headline lead={`No importers found in ${STATE_NAMES[state]}`} tail="yet." />
+        <div className="mt-8"><Back href="/search/target" label="Choose another state" /></div>
       </Page>
     );
+  // Leads from the federal permit list only: real licences, catalogs not read yet.
+  const permitsOnly = allRanked.every((l) => (l.scoreBreakdown ?? []).every((b) => b.id.startsWith("permit_")) && !l.portfolio.length);
 
   const good = ranked.filter((l) => l.tier !== "C").length;
-  // "Portfolio Buyer" or "Owner" is a role, not a person: don't pretend to know their first name.
-  const generic = /buyer|owner|team|portfolio|director|founder|info|contact/i.test(sel.contact?.name ?? "");
-  const first = generic ? undefined : sel.contact?.name?.split(" ")[0];
+  const first = firstNameOf(sel); // undefined when the contact is a role, not a person
   const hasEmail = !!sel.contact?.email;
 
   return (
     <Page step={2}>
-      <Headline lead={`${ranked.length} importers,`} tail={good === 0 ? "none an obvious fit yet." : `${good === 1 ? "one" : good} worth a letter.`} />
+      {permitsOnly ? (
+        <Headline lead={`${ranked.length} licensed importers,`} tail="a first look." />
+      ) : (
+        <Headline lead={`${ranked.length} importers,`} tail={good === 0 ? "none an obvious fit yet." : `${good === 1 ? "one" : good} worth a letter.`} />
+      )}
+      {permitsOnly && <p className="note mt-3 text-lg">Licensed importers from the federal registry. Their catalogs haven&apos;t been read yet, so the fit is a first estimate.</p>}
+      {emptyZones && <p className="note mt-3 text-lg">None in your zones yet, so here is the rest of California. <Link href="/search/target" className="caps not-italic underline">Change zones</Link></p>}
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
         <div className="max-w-48 md:max-w-none">
-          <CaliforniaMap leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
+          <StateMap state={state} leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
         </div>
         <div className="min-w-0">
           {shown.map((l) =>
@@ -138,7 +148,9 @@ export default function Importers() {
                   </div>
                 )}
                 <div className="mt-4 flex flex-wrap items-center gap-5">
-                  {drafted(l.id) ? (
+                  {sentTo(l.id) ? (
+                    <span className="caps">Letter sent ✓</span>
+                  ) : drafted(l.id) ? (
                     <Link href="/search/letters" className="caps text-wine underline">Letter ready · review</Link>
                   ) : hasEmail ? (
                     <button className="btn" onClick={() => draft(l.id)}>{first ? `Write to ${first}` : "Write a letter"}</button>
@@ -156,7 +168,7 @@ export default function Importers() {
                   {l.name} <span className="font-sans text-xs text-taupe">{l.city}</span>
                 </span>
                 <span className="flex items-baseline gap-3">
-                  {drafted(l.id) && <span className="caps">letter ready</span>}
+                  {sentTo(l.id) ? <span className="caps">sent</span> : drafted(l.id) && <span className="caps">letter ready</span>}
                   <span className="font-serif text-xl">{l.fitScore}</span>
                 </span>
               </button>
@@ -166,7 +178,7 @@ export default function Importers() {
             {ranked.length > 4 && <button className="caps hover:text-ink" onClick={() => setAll(!all)}>{all ? "Show fewer" : `See all ${ranked.length}`}</button>}
             {(elsewhere > 0 || everywhere) && (
               <button className="caps ml-auto underline hover:text-ink" onClick={() => setEverywhere(!everywhere)}>
-                {everywhere ? "Only my zones" : `${elsewhere} more elsewhere in California`}
+                {everywhere ? "Only my zones" : `${elsewhere} more elsewhere in ${STATE_NAMES[state]}`}
               </button>
             )}
           </div>

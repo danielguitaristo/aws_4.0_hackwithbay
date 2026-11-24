@@ -90,7 +90,7 @@ const LEGAL_SUFFIX = /\b(LLC|L L C|INC|INCORPORATED|CORP|CORPORATION|CO|COMPANY|
 export const normName = (s: string) =>
   s.toUpperCase().replace(/&/g, " AND ").replace(/[^A-Z0-9 ]/g, " ").replace(LEGAL_SUFFIX, " ").replace(/\s+/g, " ").trim();
 
-const GENERIC_TOKENS = new Set(["WINE", "WINES", "IMPORT", "IMPORTS", "IMPORTER", "IMPORTERS", "IMPORTING", "SELECTION", "SELECTIONS", "MERCHANT", "MERCHANTS", "FINE", "AND", "OF", "DE", "DU", "DES", "LA", "LE", "LES", "THE", "GROUP", "INTERNATIONAL", "TRADERS", "TRADING", "DISTRIBUTION", "DISTRIBUTORS", "DISTRIBUTING", "COLLECTION", "PORTFOLIO", "USA", "AMERICA", "AMERICAN", "CALIFORNIA", "ENTERPRISES", "HOLDINGS", "VENTURES", "BRANDS", "BEVERAGE", "BEVERAGES", "AGENCY", "PARTNERS", "ASSOCIATES", "SPIRITS"]);
+const GENERIC_TOKENS = new Set(["WINE", "WINES", "IMPORT", "IMPORTS", "IMPORTER", "IMPORTERS", "IMPORTING", "SELECTION", "SELECTIONS", "MERCHANT", "MERCHANTS", "FINE", "AND", "OF", "DE", "DU", "DES", "LA", "LE", "LES", "THE", "GROUP", "INTERNATIONAL", "TRADERS", "TRADING", "DISTRIBUTION", "DISTRIBUTORS", "DISTRIBUTING", "COLLECTION", "PORTFOLIO", "USA", "AMERICA", "AMERICAN", "CALIFORNIA", "NEW", "YORK", "FLORIDA", "TEXAS", "ILLINOIS", "JERSEY", "WASHINGTON", "OREGON", "MASSACHUSETTS", "CHICAGO", "BOSTON", "MIAMI", "SEATTLE", "PORTLAND", "ENTERPRISES", "HOLDINGS", "VENTURES", "BRANDS", "BEVERAGE", "BEVERAGES", "AGENCY", "PARTNERS", "ASSOCIATES", "SPIRITS"]);
 
 /** Name words that identify a company (drops legal suffixes and wine-trade filler). */
 export const distinctiveTokens = (s: string) => normName(s).split(" ").filter((w) => w.length >= 3 && !GENERIC_TOKENS.has(w));
@@ -113,6 +113,27 @@ const NAME_SIGNALS: [RegExp, number, string][] = [
   [/\bWINES?\b/, 1, '"Wine" in name'],
 ];
 
+// ---- Region (owner C, added for multi-state) --------------------------------
+// The pipeline was built for California; every state-specific string now reads REGION.
+// Scoring is unchanged. discoverLeads() sets the region from icp.states[0].
+export interface Region { code: string; name: string; hubs: string[] }
+export const REGIONS: Record<string, Region> = {
+  CA: { code: "CA", name: "California", hubs: ["San Francisco", "Los Angeles"] },
+  NY: { code: "NY", name: "New York", hubs: ["New York City", "Brooklyn"] },
+  FL: { code: "FL", name: "Florida", hubs: ["Miami", "Tampa"] },
+  TX: { code: "TX", name: "Texas", hubs: ["Austin", "Houston", "Dallas"] },
+  IL: { code: "IL", name: "Illinois", hubs: ["Chicago"] },
+  NJ: { code: "NJ", name: "New Jersey", hubs: ["Newark", "Jersey City"] },
+  WA: { code: "WA", name: "Washington", hubs: ["Seattle"] },
+  OR: { code: "OR", name: "Oregon", hubs: ["Portland"] },
+  MA: { code: "MA", name: "Massachusetts", hubs: ["Boston"] },
+};
+let REGION: Region = REGIONS.CA;
+export function setRegion(code?: string) {
+  REGION = REGIONS[(code ?? "CA").toUpperCase()] ?? REGIONS.CA;
+}
+export const currentRegion = () => REGION;
+
 // ICP metros (Bay Area + Los Angeles), by self-reported premises county.
 const METRO_COUNTIES = new Set(["ALAMEDA", "SAN FRANCISCO", "MARIN", "CONTRA COSTA", "SAN MATEO", "SANTA CLARA", "SONOMA", "NAPA", "LOS ANGELES"]);
 
@@ -122,7 +143,7 @@ interface Company extends Candidate {
   tokens: Set<string>; // distinctive name tokens (operating + owner)
 }
 
-let companiesMemo: Company[] | null = null;
+const companiesMemo = new Map<string, Company[]>(); // per state
 const cityCounty = new Map<string, string>(); // CA city -> premises county, learned from the TTB rows
 
 // Metros for fuzzy city matching (a page saying "Los Angeles" for a Sherman Oaks permit).
@@ -133,7 +154,7 @@ const METROS: Record<string, string> = {
 
 /** Same city, or both cities in the same county / metro. */
 function sameArea(cityA: string, cityB: string): boolean {
-  const clean = (x: string) => normName(x.replace(/,?\s*(CA|California)(\s+\d{5})?\s*$/i, "")); // "Emeryville, CA" -> EMERYVILLE
+  const clean = (x: string) => normName(x.replace(new RegExp(`,?\\s*(${REGION.code}|${REGION.name})(\\s+\\d{5})?\\s*$`, "i"), "")); // "Emeryville, CA" -> EMERYVILLE
   const a = clean(cityA), b = clean(cityB);
   if (a === b) return true;
   const ca = cityCounty.get(a), cb = cityCounty.get(b);
@@ -142,8 +163,9 @@ function sameArea(cityA: string, cityB: string): boolean {
 
 /** Every California importer-permit holder (grouped by owner), minus spirits/beer-only and mega-distributors. */
 function allCompanies(): Company[] {
-  if (companiesMemo) return companiesMemo;
-  const rows = [...readTtb(TTB_FILES.importer), ...readTtb(TTB_FILES.wholesaler)].filter((r) => r.State === "CA");
+  const memo = companiesMemo.get(REGION.code);
+  if (memo) return memo;
+  const rows = [...readTtb(TTB_FILES.importer), ...readTtb(TTB_FILES.wholesaler)].filter((r) => r.State === REGION.code);
   for (const r of rows) if (r.City && r.Prem_County && !cityCounty.has(normName(r.City))) cityCounty.set(normName(r.City), r.Prem_County.toUpperCase());
   const byOwner = new Map<string, TtbRow[]>();
   for (const r of rows) {
@@ -168,12 +190,12 @@ function allCompanies(): Company[] {
       score += pts;
       reasons.push(why);
     };
-    if (whs.length) add(5, "Holds CA importer + wholesaler permits (importer-distributor)");
-    else reasons.push("Holds CA importer permit");
+    if (whs.length) add(5, `Holds ${REGION.code} importer + wholesaler permits (importer-distributor)`);
+    else reasons.push(`Holds ${REGION.code} importer permit`);
     for (const [re, pts, why] of NAME_SIGNALS) if (re.test(names)) add(pts, why);
     const nameScore = score;
     if (OTHER_FOCUS.test(names)) add(-4, "Name suggests another origin or a food business");
-    if (METRO_COUNTIES.has(main.Prem_County.toUpperCase())) add(1, `Premises in ${main.Prem_County} county`);
+    if (REGION.code === "CA" && METRO_COUNTIES.has(main.Prem_County.toUpperCase())) add(1, `Premises in ${main.Prem_County} county`);
     const newPermit = group.some((r) => r.New_Permit_Flag === "1");
     if (newPermit) add(1, "New TTB permit");
 
@@ -183,7 +205,7 @@ function allCompanies(): Company[] {
       ownerName: main.Owner_Name,
       city: titleCase(main.City),
       county: titleCase(main.Prem_County),
-      address: [main.Street, main.City, `CA ${main.Prem_Zip}`].filter(Boolean).join(", "),
+      address: [main.Street, main.City, `${REGION.code} ${main.Prem_Zip}`].filter(Boolean).join(", "),
       permits: [
         ...imp.map((r): Permit => ({ source: "TTB", number: r.Permit_Number, kind: "importer" })),
         ...whs.map((r): Permit => ({ source: "TTB", number: r.Permit_Number, kind: "wholesaler" })),
@@ -198,7 +220,7 @@ function allCompanies(): Company[] {
       tokens: new Set(group.flatMap((r) => distinctiveTokens(`${r.Owner_Name} ${r.Operating_Name}`))),
     });
   }
-  companiesMemo = out;
+  companiesMemo.set(REGION.code, out);
   return out;
 }
 
@@ -320,7 +342,7 @@ function search(query: string, u: Usage, opts: { maxResults?: number; exact?: bo
 }
 
 // Name is quoted + "California" so results are about this company, not lookalikes.
-export const searchQuery = (c: Candidate) => `"${c.name.replace(/\s+(LLC|INC)$/i, "")}" California wine importer portfolio`;
+export const searchQuery = (c: Candidate) => `"${c.name.replace(/\s+(LLC|INC)$/i, "")}" ${REGION.name} wine importer portfolio`;
 
 const GENERIC = new Set(["WINE", "WINES", "IMPORT", "IMPORTS", "IMPORTERS", "SELECTION", "SELECTIONS", "FINE", "AND", "OF", "DE", "LA", "LE", "THE", "GROUP", "INTERNATIONAL", "MERCHANTS", "TRADERS"]);
 
@@ -360,7 +382,7 @@ export const rejectedPages: { candidate: string; url: string; reason: string }[]
 
 function pageVerdict(c: Candidate, keys: ReturnType<typeof nameKeys>, r: RawResult, text: string, forceOwn: boolean): { ownSite: boolean; reason?: string } {
   const named = mentionsName(`${r.title} ${text}`, keys);
-  const local = new RegExp(`\\b(${c.city}|California)\\b`, "i").test(text);
+  const local = new RegExp(`\\b(${c.city}|${REGION.name})\\b`, "i").test(text);
   const t = normName(text);
 
   // Own site: domain spells the name and the page names it or its city; a partial domain match
@@ -368,7 +390,7 @@ function pageVerdict(c: Candidate, keys: ReturnType<typeof nameKeys>, r: RawResu
   const match = siteMatch(r.url, keys);
   if (forceOwn || (match === "full" ? named || local : match === "partial" && named)) return { ownSite: true };
 
-  if (!(named && local)) return { ownSite: false, reason: "does not name the company with California/its city" };
+  if (!(named && local)) return { ownSite: false, reason: `does not name the company with ${REGION.name}/its city` };
   // Homonym: "CRU Winery" is a producer, not the importer Cru Wines LLC.
   const core = distinctiveTokens(c.name).join(" ");
   if (core && new RegExp(`\\b${core} (WINERY|VINEYARDS?|ESTATES?|CELLARS)\\b`).test(t)) return { ownSite: false, reason: `"${core}" refers to a winery/producer` };
@@ -465,7 +487,7 @@ export async function enrichPages(c: Candidate, u: Usage, seed: WebPage[] = [], 
 
 // ---- Reverse search: topic queries -> company names -> TTB permit match -----
 
-export const TOPIC_QUERIES = [
+const CA_TOPIC_QUERIES = [
   "California importer Loire natural growers",
   "Bay Area importer organic French small growers",
   "Los Angeles natural wine importer Chenin Blanc",
@@ -477,6 +499,19 @@ export const TOPIC_QUERIES = [
   "San Diego Orange County wine importer French natural producers",
   "California wine importer distributor Muscadet Saumur Anjou producers",
 ];
+
+export const TOPIC_QUERIES = () =>
+  REGION.code === "CA"
+    ? CA_TOPIC_QUERIES
+    : [
+        `${REGION.name} importer Loire natural growers`,
+        `${REGION.hubs[0]} natural wine importer Chenin Blanc`,
+        `${REGION.hubs[0]} wine importer Loire Valley grower portfolio`,
+        `${REGION.name} importer distributor French organic biodynamic small producers`,
+        `${REGION.name} importer small French growers Loire Beaujolais Champagne portfolio`,
+        `${REGION.hubs[REGION.hubs.length - 1]} importer French family estates organic`,
+        `${REGION.name} wine importer distributor Muscadet Saumur Anjou producers`,
+      ];
 
 interface Mention {
   name: string;
@@ -493,9 +528,9 @@ function validateMentions(raw: unknown): Mention[] {
   });
 }
 
-const MENTION_PROMPT = `You read web search results about wine importers.
-List every wine IMPORTER or importer-distributor company named in the results that appears to be based in California.
-Copy each company name exactly as written in the text. Include its California city only if the text states it.
+const MENTION_PROMPT = () => `You read web search results about wine importers.
+List every wine IMPORTER or importer-distributor company named in the results that appears to be based in ${REGION.name}.
+Copy each company name exactly as written in the text. Include its ${REGION.name} city only if the text states it.
 Do not add companies that are not named in the text. Ignore wineries, shops and restaurants.
 Return JSON: {"companies":[{"name":"...","city":"...","result":<result number>}]}`;
 
@@ -535,14 +570,14 @@ function matchCompany(name: string, city: string, pageText: string): Company | n
 export async function reverseSearch(u: Usage): Promise<{ candidate: Candidate; pages: WebPage[] }[]> {
   const found = new Map<string, { candidate: Candidate; pages: WebPage[] }>();
   await Promise.all(
-    TOPIC_QUERIES.map(async (q) => {
+    TOPIC_QUERIES().map(async (q) => {
       const results = (await search(q, u, { maxResults: 10 }, { topic: true })) ?? [];
       if (!results.length || !hasMistral()) return;
       const key = cacheKey({ q, urls: results.map((r) => r.url) });
       let mentions = readCache<Mention[]>("mentions", key);
       if (!mentions) {
         const listing = results.map((r, i) => `[${i}] ${r.title} (${r.url})\n${(r.rawContent || r.content).slice(0, 4000)}`).join("\n\n");
-        mentions = await chatJSON([{ role: "system", content: MENTION_PROMPT }, { role: "user", content: listing }], validateMentions).catch((err) => {
+        mentions = await chatJSON([{ role: "system", content: MENTION_PROMPT() }, { role: "user", content: listing }], validateMentions).catch((err) => {
           console.error(`[reverseSearch] Mistral failed for "${q}":`, err);
           return null;
         });
@@ -885,7 +920,7 @@ export async function lookalikeImporters(peers: Peer[], pool: Candidate[], u: Us
   for (let i = 0; i < batch.length; i += 4) {
     await Promise.all(
       batch.slice(i, i + 4).map(async (peer) => {
-        const results = (await search(`"${peer.producer}" importer California`, u, { exact: true, maxResults: 5 }, { peer: peer.producer })) ?? [];
+        const results = (await search(`"${peer.producer}" importer ${REGION.name}`, u, { exact: true, maxResults: 5 }, { peer: peer.producer })) ?? [];
         if (!results.length || !hasMistral()) return;
         const key = cacheKey({ peerImp: peer.producer, urls: results.map((r) => r.url) });
         let mentions = readCache<Mention[]>("peer-mentions", key);
@@ -920,11 +955,11 @@ export async function lookalikeImporters(peers: Peer[], pool: Candidate[], u: Us
 
 // ---- Retailer evidence: CA shop product pages that say "imported by" ----------
 
-const RETAIL_QUERIES = [
-  '"imported by" Vouvray Chenin Blanc California wine shop',
-  '"imported by" Touraine Chenin Blanc California wine shop',
-  '"imported by" Chinon Cabernet Franc California wine shop',
-  '"imported by" Montlouis Chenin Blanc California wine shop',
+const RETAIL_QUERIES = () => [
+  `"imported by" Vouvray Chenin Blanc ${REGION.name} wine shop`,
+  `"imported by" Touraine Chenin Blanc ${REGION.name} wine shop`,
+  `"imported by" Chinon Cabernet Franc ${REGION.name} wine shop`,
+  `"imported by" Montlouis Chenin Blanc ${REGION.name} wine shop`,
 ];
 
 function validateRetail(raw: unknown) {
@@ -944,7 +979,7 @@ return {"wine","producer","appellation","importer","price" (USD number or 0),"re
 export async function retailerEvidence(pool: Candidate[], u: Usage): Promise<Link[]> {
   const links: Link[] = [];
   await Promise.all(
-    RETAIL_QUERIES.map(async (q) => {
+    RETAIL_QUERIES().map(async (q) => {
       const results = (await search(q, u, { maxResults: 10 }, { retail: true })) ?? [];
       if (!results.length || !hasMistral()) return;
       const key = cacheKey({ retail: q, urls: results.map((r) => r.url) });
@@ -960,7 +995,7 @@ export async function retailerEvidence(pool: Candidate[], u: Usage): Promise<Lin
         const r = results.find((x) => squash(textOf(x)).includes(squash(it.importer)) && /imported by|importer:/i.test(textOf(x)));
         if (!r) continue;
         const text = textOf(r);
-        if (!/\b(California|, CA\b|\bCA \d{5})/.test(text)) continue; // shop must be in California
+        if (!new RegExp(`\\b(${REGION.name}|, ${REGION.code}\\b|\\b${REGION.code} \\d{5})`).test(text)) continue; // shop must be in the state
         const company = findInPool(pool, text, it.importer);
         if (!company) continue;
         const appellation = `${it.appellation} ${it.wine}`;
@@ -1013,9 +1048,9 @@ function validateJudgement(raw: unknown): Judgement {
   };
 }
 
-const JUDGE_PROMPT = (c: Candidate, icp: ICP) => `You check whether a California wine importer fits a small organic Loire estate (Touraine/Vouvray/Chinon: Chenin Blanc, Cabernet Franc).
+const JUDGE_PROMPT = (c: Candidate, icp: ICP) => `You check whether a ${REGION.name} wine importer fits a small organic Loire estate (Touraine/Vouvray/Chinon: Chenin Blanc, Cabernet Franc).
 Ideal buyer: ${icp.sizeBand}; portfolio fit: ${icp.portfolioFit.join(", ")}; price: ${icp.priceBand}.
-The company is "${c.name}" (TTB owner "${c.ownerName}", ${c.city}, CA).
+The company is "${c.name}" (TTB owner "${c.ownerName}", ${c.city}, ${REGION.code}).
 Use ONLY the numbered snippets. A snippet about another company does not count. Never use outside knowledge.
 For EACH signal below return {"id","fired","snippet","quote"}: fired=true only if a snippet proves it for ${c.name};
 then "snippet" is its number and "quote" is an exact copy (max 200 characters) of the words in that snippet that prove it.
@@ -1086,7 +1121,7 @@ function validateChecks(raw: unknown): { i: number; verdict: EntityVerdict; reas
 }
 
 const ENTITY_PROMPT = (c: Candidate, website?: string) => `You check whether each piece of evidence is about ONE specific US wine importer.
-Company: "${c.name}" — TTB permit holder "${c.ownerName}", ${c.city}, California; website: ${website ?? "unknown"}.
+Company: "${c.name}" — TTB permit holder "${c.ownerName}", ${c.city}, ${REGION.name}; website: ${website ?? "unknown"}.
 For each numbered item (claim, URL, quote and the text around it) answer exactly one verdict:
 - "same_company": the text is clearly about this company (its own website, or a page naming it as the company the claim is about)
 - "sister_or_related_company": about a parent, sister, affiliate or partner company, a similarly named company, or a person's other employer
@@ -1229,9 +1264,31 @@ const OWN_ORGANIC = /\b(organic(ally)?|biodynamic(ally)?|natural wines?|low[- ]i
 const OWN_SMALL = /\b(small (family|producers?|growers?|domaines?|estates?|wineries)|family[- ](owned|run|estates?|domaines?)|independent (growers?|producers?)|grower[- ]producers?|artisanal)\b/i;
 const OWN_TASTING = /\b(portfolio tasting|trade tasting|grand tasting|tasting (event|series|tour)|wine fair)\b/i;
 
-function ownSentence(pages: WebPage[], re: RegExp): { snippet: string; url: string; title?: string } | null {
-  for (const p of pages.filter((x) => x.ownSite)) {
-    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x));
+// Producer sheets (a producer's own page or PDF on the importer's site) describe the producer, never the
+// importer's focus (team rule): /grower/x, /producers/x, /winery/x, /product/x, /files/x.pdf, or a page
+// whose path names a producer of the structured portfolio.
+const PRODUCER_PATH = /\/(growers?|producers?|winer(y|ies)|domaines?|estates?|winemakers?|vignerons?|products?|wines?|brands?)\/[^/]+|\.pdf$/i;
+const FOCUS_IDS = new Set(["organic_natural", "small_growers", "boutique_size", "big_houses"]);
+
+function isProducerSheet(url: string, pf: Portfolio | null): boolean {
+  let pathName = "";
+  try {
+    pathName = new URL(url).pathname;
+  } catch {
+    return false;
+  }
+  if (PRODUCER_PATH.test(pathName)) return true;
+  const flat = ascii(pathName).replace(/[^a-z0-9]+/g, " ");
+  return (pf?.producers ?? []).some((p) => {
+    const toks = estateTokens(p.producer);
+    return toks.length > 0 && toks.every((t) => flat.includes(t));
+  });
+}
+
+function ownSentence(pages: WebPage[], re: RegExp, pf: Portfolio | null = null): { snippet: string; url: string; title?: string } | null {
+  for (const p of pages.filter((x) => x.ownSite && !isProducerSheet(x.url, pf))) {
+    // Importer's own voice ("we / our / us"): a sentence describing a producer is not the importer's focus.
+    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x) && /\b(we|we're|our|us)\b/i.test(x));
     if (sentence) return { snippet: sentence.trim(), url: p.url, title: p.title || undefined };
   }
   return null;
@@ -1329,6 +1386,13 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   const mg = got("mega_distributor");
   if (mg) add("Opening", "mega_distributor", "mega-distributor / high minimums", W.opening.megaDistributor, "fired", mg.snippet, mg.url, mg.title);
 
+  // Source rule: a producer sheet is never evidence of the importer's own focus.
+  for (const it of items) {
+    if (!FOCUS_IDS.has(it.id) || it.status !== "fired" || !isProducerSheet(it.url, pf)) continue;
+    it.points = 0;
+    it.status = "unknown";
+    it.snippet = `Source rule: producer sheet (${new URL(it.url).pathname}) is not evidence of the importer's focus. Evidence: ${it.snippet}`;
+  }
   // Entity check on every fired item (only same_company counts).
   await verifyEntities(c, items, pages, website);
   // Prefer the importer's own site: a claim whose evidence was rejected (source rule / entity check)
@@ -1343,14 +1407,14 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   for (const [id, re, pts] of FALLBACK) {
     const rejected = items.find((h) => h.id === id && h.status === "unknown" && /^(Entity check|Source rule):/.test(h.snippet));
     if (!rejected) continue;
-    let ev = ownSentence(pages, re);
+    let ev = ownSentence(pages, re, pf);
     if (!ev && website && u && !looked) {
       looked = true;
       pages = [...pages, ...(await ownSiteAboutPages(c, website, u))];
-      ev = ownSentence(pages, re);
+      ev = ownSentence(pages, re, pf);
       if (!ev) {
         pages = [...pages, ...(await ownSitePhilosophyPages(c, website, u))];
-        ev = ownSentence(pages, re);
+        ev = ownSentence(pages, re, pf);
       }
     }
     if (!ev) continue;
@@ -1491,7 +1555,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     id: c.id,
     name: c.name,
     type: c.hasWholesaler ? "importer_distributor" : "importer",
-    state: "CA",
+    state: REGION.code,
     city: c.city,
     address: c.address,
     website,
@@ -1554,7 +1618,8 @@ List the importers / distributors it names for the UNITED STATES (USA, États-Un
 with its US city and state if the page gives them. Ignore other countries. Do not guess.
 Return JSON: {"importers":[{"name","city","state","country","page"}]}`;
 
-const US_STATE_CA = /^(ca|california|calif\.?)$/i;
+// The state of the region being searched ("CA", "California", "Calif." / "NY", "New York"...).
+const inRegionState = (st: string) => new RegExp(`^(${REGION.code}|${REGION.name}${REGION.code === "CA" ? "|calif\\.?" : ""})$`, "i").test(st);
 
 /**
  * Competitor estates (peers) -> their own website (search) -> importer pages (map, then one batched
@@ -1631,15 +1696,15 @@ export async function competitorEstates(peers: Peer[], pool: Candidate[], u: Usa
         if (!page) continue; // name must really be on the estate's page
         const text = `${page.title} ${page.rawContent || page.content}`;
         const where = [m.city, m.state].filter(Boolean).join(", ");
-        const inCa = US_STATE_CA.test(m.state.trim()) || (m.city ? cityCounty.has(normName(m.city.replace(/,.*$/, ""))) : false);
-        const outOfState = Boolean(m.state) && !US_STATE_CA.test(m.state.trim());
+        const inCa = inRegionState(m.state.trim()) || (m.city ? cityCounty.has(normName(m.city.replace(/,.*$/, ""))) : false);
+        const outOfState = Boolean(m.state) && !inRegionState(m.state.trim());
         // CA match: pool candidate by name, else TTB (name + city, or exact trade name when the page gives no city).
         let company: Candidate | undefined = outOfState ? undefined : findInPool([...pool, ...[...found.values()].map((f) => f.candidate)], text, m.name);
         if (!company && !outOfState) {
           const co = m.city ? matchCompany(m.name, m.city, text) : caCompanies.filter((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))).length === 1 ? caCompanies.find((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))) : undefined;
           if (co) company = strip(co);
         }
-        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: m.name, where: where || (inCa ? "CA" : ""), url: page.url, match: company ? `${company.name} (${company.permits[0]?.number}, ${company.city})` : undefined });
+        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: m.name, where: where || (inCa ? REGION.code : ""), url: page.url, match: company ? `${company.name} (${company.permits[0]?.number}, ${company.city})` : undefined });
         if (!company) continue;
         links.push({ candidateId: company.id, kind: "estate", producer: peer.producer, appellation: peer.appellation, touraine: peer.touraine, url: page.url, quote: window(text, m.name) });
         if (!pool.some((c) => c.id === company!.id) && !found.has(company.id)) {
@@ -1699,6 +1764,7 @@ export function manualCandidates(): { candidate: Candidate; byName: boolean; not
  * -> CA shop evidence -> Moss index -> per-candidate scoring. Sorted by fitScore.
  */
 export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: ScoredLead[]; backend: string }> {
+  setRegion(icp.states?.[0]);
   const pool = await discoverCandidates(u);
   for (const e of pool) e.pages = await fullLoirePages(e.candidate, e.pages, u);
   // Portfolios first (cached): they seed the peer list.
@@ -1754,4 +1820,46 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   // Audit trail of every entity verdict (incl. leads dropped because no verified source was left).
   writeCache("entity", `run-${cacheKey(icp)}`, { createdAt: new Date().toISOString(), log: entityLog });
   return { leads: leads.sort((a, b) => b.fitScore - a.fitScore), backend: index.backend };
+}
+
+/**
+ * First pass from public permits only (owner C): used when no live run is possible for a state.
+ * Real TTB importer(-distributor) holders, ranked by A's name-based score, no web evidence yet.
+ */
+export function permitLeads(code: string, limit = 15): ScoredLead[] {
+  setRegion(code);
+  const url = "https://www.ttb.gov/public-information/foia/list-of-permittees";
+  return loadCandidates(limit).map((c) => {
+    const fitScore = Math.max(5, Math.min(45, c.score * 3));
+    return {
+      portfolioDetail: [],
+      id: c.id,
+      name: c.name,
+      type: c.hasWholesaler ? "importer_distributor" : "importer",
+      state: REGION.code,
+      city: c.city,
+      address: c.address,
+      permits: c.permits,
+      portfolio: [],
+      fitScore,
+      tier: fitScore >= 30 ? "B" : "C",
+      signals: c.reasons,
+      sources: [{ url, title: "TTB list of permittees", snippet: `${c.reasons.join("; ")} — ${c.address}` }],
+      stage: "matched",
+      enriched: false,
+      scoreBreakdown: c.reasons.map((r, i) => ({ id: `permit_${i}`, label: r, points: 0, status: "info" as const, snippet: c.address, url, title: "TTB list of permittees" })),
+    };
+  });
+}
+
+/** Licensed importer companies per state (distinct owners holding an importer permit), for the US map. */
+export function importerCountsByState(): Record<string, number> {
+  const owners = new Map<string, Set<string>>();
+  for (const r of readTtb(TTB_FILES.importer)) {
+    if (!r.State) continue;
+    const set = owners.get(r.State) ?? new Set<string>();
+    set.add(normName(r.Owner_Name));
+    owners.set(r.State, set);
+  }
+  return Object.fromEntries([...owners].map(([st, set]) => [st, set.size]));
 }

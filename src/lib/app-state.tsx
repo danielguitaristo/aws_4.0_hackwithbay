@@ -61,6 +61,16 @@ async function call<T>(url: string, method = "GET", body?: unknown): Promise<{ o
 }
 const fire = (url: string, method: string, body: unknown) => void call(url, method, body);
 
+/** The state being searched (California first). */
+export const stateOf = (icp: ICP | null) => (icp?.states?.[0] ?? "CA").toUpperCase();
+
+/** A contact's first name, or undefined when the "name" is really a role ("Portfolio Buyer", "Owner"). */
+export function firstNameOf(lead: Lead): string | undefined {
+  const name = lead.contact?.name ?? "";
+  if (!name || /buyer|owner|team|portfolio|director|founder|info|contact|manager/i.test(name)) return undefined;
+  return name.split(" ")[0];
+}
+
 /** The single best reason this importer fits: A's top positive score line, else a cleaned signal. */
 export function reasonOf(lead: Lead): string | undefined {
   const best = (lead.scoreBreakdown ?? []).filter((s) => s.status !== "unknown" && s.points > 0).sort((a, b) => b.points - a.points)[0];
@@ -74,7 +84,7 @@ export function hookOf(lead: Lead): string {
 }
 
 function draftFor(lead: Lead, d: Domaine, variant: string): Pick<Letter, "subject" | "body" | "bodyFr"> {
-  const first = lead.contact?.name?.split(" ")[0] ?? "there";
+  const first = firstNameOf(lead) ?? "there";
   const hook = hookOf(lead);
   const signature = `Claire Martin\n${d.name}`;
   const estate = `We're a small organic estate in ${d.region.split("(")[1]?.replace(")", "") ?? d.region} making mineral ${d.grapes[0]}, still and sparkling, and we're looking for our first US partner.`;
@@ -95,8 +105,15 @@ function useAppState() {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(KEY);
-      if (raw) setS({ ...initial, ...JSON.parse(raw) });
+      // any URL with ?reset starts a clean session (demo recordings, teammates' tests)
+      if (new URLSearchParams(window.location.search).has("reset")) {
+        localStorage.removeItem(KEY);
+        sessionStorage.clear();
+        window.history.replaceState(null, "", window.location.pathname);
+      } else {
+        const raw = localStorage.getItem(KEY);
+        if (raw) setS({ ...initial, ...JSON.parse(raw) });
+      }
     } catch {}
     setReady(true);
     fetch("/api/gmail/status")
@@ -140,17 +157,25 @@ function useAppState() {
   const discover = useCallback(async () => {
     setSearching(true);
     const started = Date.now();
-    const found = await post<Lead[]>("/api/discover", s.icp ?? FALLBACK_ICP);
-    const leads = found && found.length ? found : MOCK_LEADS;
+    const icp = s.icp ?? FALLBACK_ICP;
+    const state = stateOf(icp);
+    const found = await post<Lead[]>("/api/discover", icp);
+    const leads = found && found.length ? found : state === "CA" ? MOCK_LEADS : [];
     // keep the progress visible long enough to read in the demo
     await new Promise((r) => setTimeout(r, Math.max(0, 6000 - (Date.now() - started))));
-    const matched = leads.map((l) => ({ ...l, stage: "matched" as Stage }));
-    setS((st) => ({ ...st, leads: matched }));
+    const matched = leads.map((l) => ({ ...l, state: l.state || state, stage: "matched" as Stage }));
+    // Add this state's importers without wiping other states; relationships already in progress keep their stage.
+    setS((st) => {
+      const old = new Map(st.leads.map((l) => [l.id, l]));
+      const merged = matched.map((m) => (old.get(m.id) && old.get(m.id)!.stage !== "matched" ? old.get(m.id)! : m));
+      const ids = new Set(merged.map((m) => m.id));
+      return { ...st, leads: [...st.leads.filter((l) => !ids.has(l.id)), ...merged] };
+    });
     setSearching(false);
     // Hand the leads to B (store + knowledge graph), then keep the graph's multi-hop insights.
     await call("/api/leads", "POST", { action: "ingest", leads: matched, domaine: s.domaine });
     const g = await call<{ appellationGaps?: { leadId: string; reason: string }[] }>("/api/graph?charge=false");
-    if (g.data?.appellationGaps?.length) setS((st) => ({ ...st, graph: Object.fromEntries(g.data!.appellationGaps!.map((x) => [x.leadId, x.reason])) }));
+    if (g.data?.appellationGaps?.length) setS((st) => ({ ...st, graph: { ...st.graph, ...Object.fromEntries(g.data!.appellationGaps!.map((x) => [x.leadId, x.reason])) } }));
   }, [s.icp, s.domaine]);
 
   /** B's Hunter enrichment (metered by Flexprice). Returns "credits" when the balance is too low. */
@@ -188,9 +213,9 @@ function useAppState() {
     const base = fromApi ??{ id: uid(), leadId, channel: "email" as const, variant, status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine, variant) };
     const letter: Letter =
       kind === "follow_up"
-        ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
+        ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${firstNameOf(lead) ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
         : kind === "reply"
-          ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nWonderful, thank you. I'll ship two bottles this week, one Vouvray sec and one pétillant. Could you share the address and the best name to put on the parcel?\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Merci beaucoup. J'envoie deux bouteilles cette semaine, un Vouvray sec et un pétillant. Pouvez-vous m'indiquer l'adresse et le nom à mettre sur le colis ?" }
+          ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${firstNameOf(lead) ?? "there"},\n\nWonderful, thank you. I'll ship two bottles this week, one Vouvray sec and one pétillant. Could you share the address and the best name to put on the parcel?\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Merci beaucoup. J'envoie deux bouteilles cette semaine, un Vouvray sec et un pétillant. Pouvez-vous m'indiquer l'adresse et le nom à mettre sur le colis ?" }
           : { ...base, kind };
     setS((st) => ({ ...st, letters: [...st.letters.filter((x) => !(x.leadId === leadId && x.status === "pending")), letter], events: log(st, leadId, "drafted", "agent") }));
   }, [s.leads, s.domaine, s.letters, s.graph]);
