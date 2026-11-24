@@ -1,0 +1,27 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and context explicitly reference Kermit Lynch Wine Merchant and its Loire producers."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Kermit Lynch's official website, discussing its Loire portfolio."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is Kermit Lynch's official shop, listing wines from various French regions."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Kermit Lynch's official website, detailing its Loire producers."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names Kermit Lynch as the importer hosting the portfolio tasting."
+ }
+]

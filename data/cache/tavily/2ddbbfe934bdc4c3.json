@@ -1,0 +1,19 @@
+{
+ "query": "extract-about:https://kermitlynch.com/our-company,https://kermitlynch.com/about-kermit,https://shop.kermitlynch.com/about-kermit",
+ "candidate": "Kermit Lynch, Wine Merchant",
+ "fetchedAt": "2026-11-24T22:07:02.493Z",
+ "results": [
+  {
+   "url": "https://kermitlynch.com/our-company",
+   "title": "Kermit Lynch Wine Merchant",
+   "content": "",
+   "rawContent": "KERMIT LYNCH  \nWINE MERCHANT\nKERMIT LYNCH  WINE MERCHANT\nIMPORTERONLINE SHOP\nGrowersWinesRegionsAboutNewslettersContact\nWe use cookies\nWe use cookies to ensure the best experience, understand how the site is used, and support basic functionality. You can choose to accept all cookies or adjust your settings.\nPrivacy Policy"
+  },
+  {
+   "url": "https://kermitlynch.com/about-kermit",
+   "title": "About Kermit | Kermit Lynch Wine Merchant",
+   "content": "",
+   "rawContent": "KERMIT LYNCH  \nWINE MERCHANT\nKERMIT LYNCH  WINE MERCHANT\nONLINE SHOP\nGrowersWinesRegionsAboutNewslettersContact\nAbout Kermit\nSHORTCUTS:\n© Gail Skoff\nKermit Lynch was raised in San Luis Obispo, where they served Welch’s grape juice in communion at his dad’s church; a rebellious son, he would later develop a fondness for fermented grape juice.\nIn 1972, with a $5,000 loan and a bit of gumption, this writer/musician opened Kermit Lynch Wine Merchant with thirty-five cases of wine stacked on the floor. Attracted by the Old World wine cultures of Europe, Kermit became a retailer, distributor, and national importer for authentic wines that express their terroir. Much like his close friends, the late food writer Richard Olney and Chez Panisse’s founder Alice Waters, Kermit’s influence has been enduring. He has had so much success shining the spotlight on small, artisan producers that he has won two James Beard awards and was knighted by the French government with their prestigious “Legion d’Honneur.”\nKermit’s creative nature continues to extend beyond the two doors of his Berkeley storefront. In addition to having four books published, Adventures on the Wine Route (1988, Veuve Cliquot Wine Book of the Year), Inspiring Thirst (2004), the 25th Anniversary Edition: Adventures on the Wine Route (2013), and a novel, At Poupon's Table (2025),his passion for roots music has driven him to record five CDs so far. Kermit and his wife, photographer Gail Skoff, divide their time between Berkeley, California and Provence, France—where Kermit says he is “near enough to Domaine Tempier that I can fill up the trunk of my car whenever I need to.”\nBooks and Music by Kermit Lynch\nWe use cookies\nWe use cookies to ensure the best experience, understand how the site is used, and support basic functionality. You can choose to accept all cookies or adjust your settings.\nPrivacy Policy"
+  }
+ ]
+}

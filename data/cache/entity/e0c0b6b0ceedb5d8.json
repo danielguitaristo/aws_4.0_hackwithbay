@@ -1,0 +1,17 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The article explicitly names 'Amy Atwood Selections' and refers to her as the subject of the interview."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The article explicitly names 'Amy Atwood Selections' and refers to her as the subject of the interview."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The article explicitly names 'Amy Atwood Selections' and refers to her as the subject of the interview."
+ }
+]

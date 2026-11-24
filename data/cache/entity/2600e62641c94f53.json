@@ -1,0 +1,22 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and footer explicitly state 'Cru Wines, LLC'."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is from cruwines.net, the company's official website."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is from cruwines.net, the company's official website."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is from cruwines.net, the company's official website."
+ }
+]

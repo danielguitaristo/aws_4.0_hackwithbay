@@ -1,0 +1,37 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official website, and the PDF is hosted there."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official website, and the PDF is hosted there."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official website, and the text explicitly references 'Kermit's first imports'."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official website, and the context is about their Loire producers."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official shop, listing wines they import."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The URL is from Kermit Lynch's official website, and the text lists their Loire producers."
+ },
+ {
+  "i": 6,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names 'Kermit Lynch' as the importer hosting the portfolio tasting."
+ }
+]

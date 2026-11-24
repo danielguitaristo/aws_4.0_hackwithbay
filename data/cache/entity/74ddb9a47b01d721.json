@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "sister_or_related_company",
+  "reason": "The text refers to 'Rovine Selections' and 'Zev Rovine Selections', which are related to Zev Rovine, not 'Sylvester/Rovine Selections' or 'SYLVESTER WINE IMPORTS, INC.'"
+ },
+ {
+  "i": 1,
+  "verdict": "sister_or_related_company",
+  "reason": "The text refers to 'Zev Rovine Selections', which is a related company to Zev Rovine, not 'Sylvester/Rovine Selections' or 'SYLVESTER WINE IMPORTS, INC.'"
+ }
+]

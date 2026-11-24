@@ -334,22 +334,30 @@
     "quote": "illet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Lerou"
    },
    {
-    "producer": "Pascal Agrapart, Agrapart & Fils",
+    "producer": "Pascal Agrapart, Agrapart & Fils, Avize",
     "country": "France",
     "region": "Champagne",
     "appellation": "Côte de Blancs",
     "grapes": [],
     "url": "https://www.beauneimports.com/producers",
-    "quote": "ernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'A"
+    "quote": "ernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + C"
    },
    {
     "producer": "Champagne Mouzon-Leroux",
     "country": "France",
     "region": "Champagne",
     "appellation": "Montagne de Reims",
-    "grapes": [],
-    "url": "https://www.beauneimports.com/producers",
-    "quote": "Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison +"
+    "grapes": [
+     "Pinot Noir",
+     "Chardonnay",
+     "Arbanne",
+     "Petit Meslier",
+     "Pinot Blanc",
+     "Meunier",
+     "Pinot Gris"
+    ],
+    "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
+    "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
    },
    {
     "producer": "R. H. Coutier",

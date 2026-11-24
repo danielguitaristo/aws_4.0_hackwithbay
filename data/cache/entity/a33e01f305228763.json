@@ -1,0 +1,17 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and context explicitly reference 'The Wine Source Inc.' and its operations."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and context explicitly name 'The Wine Source Inc.' as the company."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is a subpage of 'thewinesourceinc.com', indicating it is part of the same company's website."
+ }
+]

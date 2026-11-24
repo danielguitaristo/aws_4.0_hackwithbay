@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the official website of The Wine Source Inc., and the content is part of their portfolio."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the official website of The Wine Source Inc., and the text explicitly names the company."
+ }
+]

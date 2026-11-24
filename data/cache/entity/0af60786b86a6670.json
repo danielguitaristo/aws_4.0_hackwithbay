@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context is part of their portfolio description."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context describes a producer they represent."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context lists producers in their portfolio, including Loire Valley."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context explicitly states their Loire portfolio details."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context lists French regions in their portfolio."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context details their Loire portfolio, confirming no Vouvray/Touraine."
+ }
+]

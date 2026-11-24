@@ -187,29 +187,38 @@ export function signalQueries(name: string): string[] {
 }
 
 /*
- * Tier thresholds (applied 2026-11-24 with the team's OK). Based on what public data actually proved
- * on 12 CA leads (raw scores before the 0-100 clamp):
- *   +40 Authentic · +35 Sylvester/Rovine · +35 Amy Atwood · +20 Kermit Lynch · +5 Grand Cru Sel.
- *   0 Wine Source, Floraison · -5 Beaune · -10 Farm Wine · -25 Cru Wines · -30 JVS, Atherton
- * What public pages can usually prove: grower_philosophy (20), boutique_size (15), neighbor_regions (10),
- * tastings_fairs (10), recent_or_hiring (10). portfolio_hole (30) / peer_neighbors (25) need a fully
- * readable catalogue (rare: 1 site in 12 had coverage OK), price_match needs a bottle price in the
- * $38-85 estimate (0 found), cola_loire is disabled. The former A >= 60 was out of reach.
- *   A: fitScore >= 45, at least 3 proven (fired) positive signals, and no fired negative
- *   B: fitScore >= 25 and no fired -30 signal
- *   C: otherwise, or as soon as a -30 signal fires
+ * Two sub-scores (team decision 2026-11-24), each 0-100, shown as "info" items in scoreBreakdown:
+ *   Fit     = does their book look like our wine (organic/natural, small growers, Loire, price, neighbors)
+ *   Opening = is there room for our wine (no Vouvray/Touraine yet, small enough, hiring, tastings)
+ *   fitScore = 0.6 x Fit + 0.4 x Opening;  A >= 60, B >= 40, C below.
+ * Rules:
+ *   - Strong Loire presence (>= 5 Loire producers) WITHOUT our appellation = "Loire specialist", +15 Fit.
+ *   - "Loire saturated" (-30 Opening) only with 2+ estates from the SAME appellation (Vouvray or Touraine).
+ *   - Direct competitor (same appellation): -20 Opening if same style (dry/sweet/sparkling) AND similar price
+ *     (within our estimated shelf range +/-20%), -5 if different style (or same style, different price),
+ *     "unknown" if style or price is not found on the page.
+ *   - Absence claims (no Vouvray/Touraine) need coverage OK or a full Loire page, else "unknown".
+ *   - recent_or_hiring: a hiring post needs a date in the last 12 months AND a named role; LinkedIn profile
+ *     activity (undated) never counts. A TTB "new permit" flag counts (dated by the weekly TTB list).
  */
-export const TIERS = { A: 45, minPositivesForA: 3, B: 25, killerNegative: -30 } as const;
+export const SUBSCORE_WEIGHTS = {
+  fit: { organicNatural: 25, smallGrowers: 20, loirePresence: 20, loireSpecialist: 15, priceOverlap: 10, neighborRegions: 10, bigHouses: -15, spiritsOnly: -30 },
+  opening: { room: 35, boutique: 25, hiringOrNewPermit: 20, tastings: 20, saturated: -30, directCompetitor: -20, sameAppellationOtherStyle: -5, megaDistributor: -30 },
+  blend: { fit: 0.6, opening: 0.4 },
+  loireSpecialistMin: 5, // Loire producers needed to call an importer a Loire specialist
+  saturatedMin: 2, // estates from the same appellation (Vouvray or Touraine)
+  priceTolerance: 0.2, // "similar price" = within the estimated shelf range +/- 20%
+  hiringMaxAgeDays: 365,
+} as const;
 
-/** fitScore = sum of fired signal points, clamped to 0..100; tier per TIERS above. */
-export function scoreHits(hits: SignalHit[]): { fitScore: number; tier: "A" | "B" | "C" } {
-  const fitScore = Math.max(0, Math.min(100, hits.reduce((sum, h) => sum + h.points, 0)));
-  const fired = hits.filter((h) => (h.status ?? "fired") === "fired");
-  const positives = fired.filter((h) => h.points > 0).length;
-  const negatives = fired.filter((h) => h.points < 0);
-  if (negatives.some((h) => h.points <= TIERS.killerNegative)) return { fitScore, tier: "C" };
-  if (fitScore >= TIERS.A && positives >= TIERS.minPositivesForA && negatives.length === 0) return { fitScore, tier: "A" };
-  return { fitScore, tier: fitScore >= TIERS.B ? "B" : "C" };
+export const TIERS = { A: 60, B: 40 } as const;
+
+/** fitScore = 0.6 x Fit + 0.4 x Opening (both clamped 0-100); A >= 60, B >= 40, C below. */
+export function blendScores(fit: number, opening: number): { fit: number; opening: number; fitScore: number; tier: "A" | "B" | "C" } {
+  const f = Math.max(0, Math.min(100, fit));
+  const o = Math.max(0, Math.min(100, opening));
+  const fitScore = Math.round(SUBSCORE_WEIGHTS.blend.fit * f + SUBSCORE_WEIGHTS.blend.opening * o);
+  return { fit: f, opening: o, fitScore, tier: fitScore >= TIERS.A ? "A" : fitScore >= TIERS.B ? "B" : "C" };
 }
 
 // ---- US shelf price estimate --------------------------------------------------

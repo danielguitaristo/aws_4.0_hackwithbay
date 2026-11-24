@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' own website, describing a producer they import."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is Beaune Imports' 'About' page, explicitly naming the company."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is Beaune Imports' 'Producers' page, listing their portfolio."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is Beaune Imports' 'Producers' page, listing their portfolio by region."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is Beaune Imports' 'About' page, explicitly naming the company."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The URL is Beaune Imports' product page, with their address and a producer they import."
+ }
+]
