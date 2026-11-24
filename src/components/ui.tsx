@@ -132,6 +132,68 @@ export function Back({ href, label = "Back" }: { href: string; label?: string })
   );
 }
 
+/** Centered dialog on a soft scrim. Esc or a click outside closes it. */
+export function Dialog({ children, onClose }: { children: React.ReactNode; onClose: () => void }) {
+  useEffect(() => {
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
+  }, [onClose]);
+  return (
+    <div className="fixed inset-0 z-20 flex items-center justify-center bg-ink/30 p-5" onClick={onClose}>
+      <div role="dialog" aria-modal="true" className="w-full max-w-md border border-rule bg-cream p-7" onClick={(e) => e.stopPropagation()}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+const PACK = { credits: 200, price: 20 };
+
+/** Shown when an action costs more than the balance: top up in place, then the action runs. */
+export function TopUpDialog({ need, action, onDone, onClose }: { need: number; action: string; onDone: () => void; onClose: () => void }) {
+  const { credits, topUp } = useApp();
+  return (
+    <Dialog onClose={onClose}>
+      <h2 className="headline text-3xl">
+        Not enough <em className="text-wine">credits.</em>
+      </h2>
+      <p className="note mt-3">
+        {action} uses {need} credits; you have {credits}. Add {PACK.credits} credits for ${PACK.price} and we&apos;ll carry on.
+      </p>
+      <div className="mt-6 flex items-center justify-between gap-4">
+        <button className="caps hover:text-ink" onClick={onClose}>Not now</button>
+        <button className="btn" onClick={() => { topUp(PACK.credits); onDone(); }}>Add {PACK.credits} credits</button>
+      </div>
+    </Dialog>
+  );
+}
+
+/** Asked at the first send, not at sign-in: permission comes after Claire has seen the value. */
+export function GmailDialog({ onDone, onClose }: { onDone: () => void; onClose: () => void }) {
+  const { connectGmail } = useApp();
+  const [busy, setBusy] = useState(false);
+  const go = async () => {
+    setBusy(true);
+    await connectGmail();
+    onDone();
+  };
+  return (
+    <Dialog onClose={onClose}>
+      <h2 className="headline text-3xl">
+        Send from <em className="text-wine">your own address.</em>
+      </h2>
+      <p className="note mt-3">
+        Importers answer people, not tools. Connect Gmail and your letters leave from claire@petitespierres.fr. We only send what you approve, and only read replies to these letters. You can disconnect anytime in your profile.
+      </p>
+      <div className="mt-6 flex items-center justify-between gap-4">
+        <button className="caps hover:text-ink" onClick={onClose}>Not now</button>
+        <button className="btn" onClick={go} disabled={busy}>{busy ? "Connecting…" : "Connect Gmail"}</button>
+      </div>
+    </Dialog>
+  );
+}
+
 /** A ruled line: field name on the left (above on phones), value on the right. */
 export function Row({ label, children, aside, first = false }: { label?: string; children: React.ReactNode; aside?: React.ReactNode; first?: boolean }) {
   return (

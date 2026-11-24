@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
-import { Back, Headline, Page } from "@/components/ui";
+import { Back, Headline, Page, TopUpDialog } from "@/components/ui";
 import { COST, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
 
@@ -47,6 +47,7 @@ export default function Importers() {
   const [selected, setSelected] = useState<string>();
   const [why, setWhy] = useState(false);
   const [all, setAll] = useState(false);
+  const [topUp, setTopUp] = useState(false);
 
   useEffect(() => {
     if (ready && !leads.length && !searching && !started.current) {
@@ -102,7 +103,7 @@ export default function Importers() {
                   ) : hasEmail ? (
                     <button className="btn" onClick={() => draft(l.id)}>Write to {first ?? "them"}</button>
                   ) : (
-                    <button className="btn" onClick={() => findContact(l.id)} disabled={credits < COST.contact}>
+                    <button className="btn" onClick={() => (credits < COST.contact ? setTopUp(true) : findContact(l.id))}>
                       Find contact · {COST.contact} credits
                     </button>
                   )}
@@ -130,6 +131,9 @@ export default function Importers() {
         <Back href="/search/target" label="Target" />
         {pending > 0 && <Link href="/search/letters" className="caps text-wine underline">Review {pending} letter{pending > 1 ? "s" : ""} ›</Link>}
       </div>
+      {topUp && (
+        <TopUpDialog need={COST.contact} action="Finding a contact" onClose={() => setTopUp(false)} onDone={() => { findContact(sel.id); setTopUp(false); }} />
+      )}
     </Page>
   );
 }

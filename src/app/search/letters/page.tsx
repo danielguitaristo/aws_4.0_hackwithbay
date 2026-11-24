@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Back, Headline, Page } from "@/components/ui";
+import { Back, GmailDialog, Headline, Page, TopUpDialog } from "@/components/ui";
 import { COST, useApp } from "@/lib/app-state";
 
 const NUM = ["No letters", "One letter", "Two letters", "Three letters", "Four letters", "Five letters"];
@@ -22,7 +22,8 @@ function Body({ text, hook }: { text: string; hook?: string }) {
 
 export default function Letters() {
   const router = useRouter();
-  const { letters, leads, approve, skip, editLetter, credits, onboarded, finishOnboarding } = useApp();
+  const { letters, leads, approve, skip, editLetter, credits, onboarded, finishOnboarding, gmail } = useApp();
+  const [ask, setAsk] = useState<"gmail" | "credits" | null>(null);
   const queue = letters.filter((l) => l.status === "pending");
   const [selected, setSelected] = useState<string>();
   const [editing, setEditing] = useState(false);
@@ -56,6 +57,8 @@ export default function Letters() {
   const startEdit = () => { setSubject(cur.subject); setBody(cur.body); setEditing(true); setFr(false); };
   const saveEdit = () => { editLetter(cur.id, { subject, body }); setEditing(false); };
   const go = (fn: (id: string) => void) => { fn(cur.id); setSelected(undefined); setEditing(false); setFr(false); };
+  // Gmail is asked at the first send; credits are checked right after, both without losing the letter.
+  const send = () => (!gmail ? setAsk("gmail") : credits < COST.send ? setAsk("credits") : go(approve));
 
   return (
     <Page step={3}>
@@ -108,13 +111,15 @@ export default function Letters() {
           <>
             <button className="caps hover:text-ink" onClick={() => go(skip)}>Skip</button>
             <button className="caps underline hover:text-ink" onClick={startEdit}>Edit</button>
-            <button className="btn" onClick={() => go(approve)} disabled={credits < COST.send} title={`Uses ${COST.send} credits`}>
-              Approve and send
+            <button className="btn" onClick={send} title={`Uses ${COST.send} credits`}>
+              {gmail ? "Approve and send" : "Approve · connect Gmail"}
             </button>
           </>
         )}
       </div>
-      {!onboarded && <p className="note mt-3 text-right text-sm">Sent from claire@petitespierres.fr · {COST.send} credits each</p>}
+      {!onboarded && <p className="note mt-3 text-right text-sm">{gmail ? "Sent from claire@petitespierres.fr" : "Sent from your Gmail"} · {COST.send} credits each</p>}
+      {ask === "gmail" && <GmailDialog onClose={() => setAsk(null)} onDone={() => { setAsk(null); if (credits < COST.send) setAsk("credits"); else go(approve); }} />}
+      {ask === "credits" && <TopUpDialog need={COST.send} action="Sending a letter" onClose={() => setAsk(null)} onDone={() => { setAsk(null); go(approve); }} />}
     </Page>
   );
 }

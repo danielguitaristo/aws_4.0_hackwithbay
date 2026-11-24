@@ -20,6 +20,7 @@ interface State {
   onboarded: boolean;
   replies: Record<string, string>; // leadId -> reply excerpt
   lastSearch: string; // last search step Claire was on, for "Resume"
+  gmail: boolean; // Gmail connected for sending (asked at first send, not at sign-in)
 }
 
 const initial: State = {
@@ -32,6 +33,7 @@ const initial: State = {
   onboarded: false,
   replies: {},
   lastSearch: "/search/target",
+  gmail: false,
 };
 
 const KEY = "millesime-state-v1";
@@ -109,11 +111,14 @@ function useAppState() {
   const findContact = useCallback((leadId: string) => {
     setS((st) => {
       if (st.credits < COST.contact) return st;
-      const leads = st.leads.map((l) =>
-        l.id === leadId
-          ? { ...l, enriched: true, contact: l.contact ?? { name: "Owner", role: "Founder", email: `hello@${l.website?.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] ?? "example.com"}`, emailStatus: "valid" as const } }
-          : l,
-      );
+      // Demo fallback until B's enrichment route exists: keep a known name, fill the missing email.
+      const leads = st.leads.map((l) => {
+        if (l.id !== leadId) return l;
+        const domain = l.website?.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] ?? `${l.name.toLowerCase().replace(/[^a-z0-9]+/g, "")}.com`;
+        const name = l.contact?.name ?? "Owner";
+        const email = l.contact?.email ?? `${name.split(" ")[0].toLowerCase()}@${domain}`;
+        return { ...l, enriched: true, contact: { role: "Founder", ...l.contact, name, email, emailStatus: "valid" as const } };
+      });
       return { ...st, leads, credits: st.credits - COST.contact, events: log(st, leadId, "enriched", "agent") };
     });
   }, []);
@@ -168,6 +173,12 @@ function useAppState() {
   const finishOnboarding = useCallback(() => setS((st) => ({ ...st, onboarded: true })), []);
   const rememberSearch = useCallback((path: string) => setS((st) => (st.lastSearch === path ? st : { ...st, lastSearch: path })), []);
   const topUp = useCallback((n: number) => setS((st) => ({ ...st, credits: st.credits + n })), []);
+  /** TODO(B): replace the simulated consent with the real Google OAuth route when it exists. */
+  const connectGmail = useCallback(async () => {
+    await new Promise((r) => setTimeout(r, 900));
+    setS((st) => ({ ...st, gmail: true }));
+  }, []);
+  const disconnectGmail = useCallback(() => setS((st) => ({ ...st, gmail: false })), []);
   const reset = useCallback(() => setS(initial), []);
 
   /** Demo helper: jump "a week later" — first contacted lead replies, another needs a follow-up. */
@@ -187,7 +198,7 @@ function useAppState() {
     });
   }, []);
 
-  return { ...s, ready, searching, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, skip, moveStage, addLead, finishOnboarding, rememberSearch, topUp, reset, weekLater };
+  return { ...s, ready, searching, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, skip, moveStage, addLead, finishOnboarding, rememberSearch, topUp, connectGmail, disconnectGmail, reset, weekLater };
 }
 
 type App = ReturnType<typeof useAppState>;
