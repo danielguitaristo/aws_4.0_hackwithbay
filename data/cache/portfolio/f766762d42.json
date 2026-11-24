@@ -1,5 +1,5 @@
 {
- "key": "b4fe040eaebc4adb",
+ "key": "6d8d63627e670851",
  "portfolio": {
   "candidateId": "f766762d42",
   "website": "https://grandcruselections.com",
@@ -20,7 +20,8 @@
    "https://grandcruselections.com/stephane-bernaudeau-new",
    "https://grandcruselections.com/clos-des-plantes-new",
    "https://grandcruselections.com/enfieldwine-co",
-   "https://grandcruselections.com/venica-venica-new"
+   "https://grandcruselections.com/venica-venica-new",
+   "https://grandcruselections.com/the-team"
   ],
   "producers": [
    {
@@ -207,7 +208,7 @@
     "producer": "Vincent Mothe",
     "country": "France",
     "region": "Chablis",
-    "appellation": "",
+    "appellation": "Chablis",
     "grapes": [],
     "url": "https://grandcruselections.com/france-ca",
     "quote": "blis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain"
@@ -216,7 +217,7 @@
     "producer": "Florence & François Bachelier",
     "country": "France",
     "region": "Chablis",
-    "appellation": "",
+    "appellation": "Chablis",
     "grapes": [],
     "url": "https://grandcruselections.com/france-ca",
     "quote": "oreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Va"
@@ -530,13 +531,13 @@
     "quote": "let Guillaume Lafon Domaine Roulot Domaine Génot-Boulanger Domaine de Cassiopée Chanterêvres Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Doma"
    },
    {
-    "producer": "Chanterêves",
+    "producer": "Chanterêvres",
     "country": "France",
     "region": "Burgundy",
     "appellation": "",
     "grapes": [],
-    "url": "https://grandcruselections.com/france",
-    "quote": "ine Bachelet-Monnot Domaine Simon Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine des Croix Domaine Didier Fornerol Domaine Fourrier"
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "omaine Roulot Domaine Génot-Boulanger Domaine de Cassiopée Chanterêvres Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Domaine du Pélic"
    },
    {
     "producer": "Domaine U Stiliccionu",
@@ -627,6 +628,24 @@
     "grapes": [],
     "url": "https://grandcruselections.com/france-il",
     "quote": "d-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc des Anges 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: newcustomers@grandc"
+   },
+   {
+    "producer": "Champagne Fréderic Savart",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Fréderic Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Bachelet-Monnot Domaine S"
+   },
+   {
+    "producer": "Domaine Bachelet-Monnot",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "gne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Bachelet-Monnot Domaine Simon Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine"
    },
    {
     "producer": "Domaine Simon Bize",
@@ -776,7 +795,7 @@
     "producer": "Stéphane Bernaudeau",
     "country": "France",
     "region": "Loire Valley",
-    "appellation": "Anjou",
+    "appellation": "",
     "grapes": [
      "Chenin Blanc"
     ],
@@ -850,31 +869,6 @@
     "quote": "Roussillon Pedres Blanques Domaine Danjou-Banessy Normandy Domaine Lesuffleur 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: newcustomers@grandc"
    },
    {
-    "producer": "Château de Bonnezeaux",
-    "country": "France",
-    "region": "Loire Valley",
-    "appellation": "Bonnezeaux",
-    "grapes": [
-     "Chenin Blanc"
-    ],
-    "url": "https://grandcruselections.com/chateau-bonnezeaux-new",
-    "quote": "CHÂTEAU DE BONNEZEAUX Bonnezeaux, Anjou, Loire Valley, France Chateau de Bonnezeaux's history as a wine estate goes as fa"
-   },
-   {
-    "producer": "Clos des Plantes",
-    "country": "France",
-    "region": "Loire Valley",
-    "appellation": "Anjou",
-    "grapes": [
-     "Chenin Blanc",
-     "Cabernet Franc",
-     "Grolleau",
-     "Pineau d'Aunis"
-    ],
-    "url": "https://grandcruselections.com/clos-des-plantes-new",
-    "quote": "Grand Cru Selections Grand Cru Selections Clos des Plantes Clos des Plantes Montbenault, Anjou, Loire Valley, France Olivier Lejeune We met Olivier Lejeune ju"
-   },
-   {
     "producer": "Enfield Wine Co.",
     "country": "United States",
     "region": "California",
@@ -888,7 +882,16 @@
     "country": "Italy",
     "region": "Friuli",
     "appellation": "Collio",
-    "grapes": [],
+    "grapes": [
+     "Sauvignon",
+     "Malvasia",
+     "Ribolla Gialla",
+     "Chardonnay",
+     "Traminer",
+     "Friulano",
+     "Pinot Grigio",
+     "Verduzzo"
+    ],
     "url": "https://grandcruselections.com/venica-venica-new",
     "quote": "Grand Cru Selections Grand Cru Selections Venica & Venica (new) Venica & Venica Dolegna, Collio, Friuli, Italy Giampaolo Venica Venica & Venica is one of Fri"
    }

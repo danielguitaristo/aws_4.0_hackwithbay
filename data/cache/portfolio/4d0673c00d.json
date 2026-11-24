@@ -1,5 +1,5 @@
 {
- "key": "34a0537cc5ec4ce9",
+ "key": "16ae943e0cb94fea",
  "portfolio": {
   "candidateId": "4d0673c00d",
   "website": "https://kermitlynch.com",
@@ -18,58 +18,94 @@
   ],
   "producers": [
    {
-    "producer": "Christine de Mianville",
+    "producer": "Thierry Germain",
     "country": "France",
     "region": "Loire",
     "appellation": "",
     "grapes": [],
     "url": "https://kermitlynch.com/region/loire",
-    "quote": "Loire, France · Christine de Mianville. Loire, France · Daniel Chotard. Loire ... Kermit Lynch Wine Merchant. KERMIT LYNCH WINE MERCHANT."
+    "quote": "ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,"
    },
    {
-    "producer": "Daniel Chotard",
+    "producer": "Domaine Roger Neveu",
     "country": "France",
     "region": "Loire",
     "appellation": "",
     "grapes": [],
     "url": "https://kermitlynch.com/region/loire",
-    "quote": "Loire, France · Christine de Mianville. Loire, France · Daniel Chotard. Loire ... Kermit Lynch Wine Merchant. KERMIT LYNCH WINE MERCHANT. est. 1972. Home · Our"
+    "quote": "k today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France B"
    },
    {
-    "producer": "Hubert de Montille",
+    "producer": "Pascal Janvier",
     "country": "France",
-    "region": "Burgundy",
+    "region": "Loire",
     "appellation": "",
     "grapes": [],
-    "url": "https://shop.kermitlynch.com/france",
-    "quote": "hop when he made his first discovery, the red Burgundies of Hubert de Montille, and piggy-backed the shipment into the US in Frank Schoonmaker’s container. In 1976, Richard Olney"
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "rry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France D"
    },
    {
-    "producer": "Château Thivin",
+    "producer": "Eric Chevalier",
     "country": "France",
-    "region": "Beaujolais",
+    "region": "Loire",
     "appellation": "",
     "grapes": [],
-    "url": "https://shop.kermitlynch.com/france",
-    "quote": "maker’s container. In 1976, Richard Olney introduced him to Château Thivin, Auguste Clape, and Domaine Tempier. Since the 1970s our French portfolio has grown to encompass 15"
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "aine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire,"
    },
    {
-    "producer": "Auguste Clape",
+    "producer": "Régis Minet",
     "country": "France",
-    "region": "Rhône",
+    "region": "Loire",
     "appellation": "",
     "grapes": [],
-    "url": "https://shop.kermitlynch.com/france",
-    "quote": "r. In 1976, Richard Olney introduced him to Château Thivin, Auguste Clape, and Domaine Tempier. Since the 1970s our French portfolio has grown to encompass 15 winegrowing re"
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "e Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte R"
    },
    {
-    "producer": "Domaine Tempier",
+    "producer": "Bernard Baudry",
     "country": "France",
-    "region": "Provence",
+    "region": "Loire",
     "appellation": "",
     "grapes": [],
-    "url": "https://shop.kermitlynch.com/france",
-    "quote": "Olney introduced him to Château Thivin, Auguste Clape, and Domaine Tempier. Since the 1970s our French portfolio has grown to encompass 15 winegrowing regions and 143 produce"
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "ance Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all"
+   },
+   {
+    "producer": "Domaine Michel Brégeon",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "ance Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Youn"
+   },
+   {
+    "producer": "Domaine Hippolyte Reverdy",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "d Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Young Sauvignon Blanc | © Camille Huguenot C"
+   },
+   {
+    "producer": "Charles Joguet",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "irst imports came from the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route an"
+   },
+   {
+    "producer": "Château d’Epiré",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://kermitlynch.com/region/loire",
+    "quote": "rom the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route and with whom we still"
    },
    {
     "producer": "Domaine de la Tour du Bon",
@@ -112,7 +148,7 @@
    {
     "producer": "Domaine de Durban",
     "country": "France",
-    "region": "Rhône",
+    "region": "Southern Rhône",
     "appellation": "Beaumes-de-Venise",
     "grapes": [
      "Grenache",
@@ -145,22 +181,13 @@
    {
     "producer": "Domaine Jolivet",
     "country": "France",
-    "region": "Rhône",
+    "region": "Northern Rhône",
     "appellation": "Saint-Joseph",
     "grapes": [
      "Syrah"
     ],
     "url": "https://shop.kermitlynch.com",
     "quote": "cetto d’Alba “V. Pari” 2022 Saint-Joseph Rouge “L’Instinct” Domaine Jolivet October Club Rouge ~ It is a real-deal northern Rhône roasted-slope Syrah that walks the tightrope"
-   },
-   {
-    "producer": "Bernard Baudry",
-    "country": "France",
-    "region": "Loire",
-    "appellation": "Chinon",
-    "grapes": [],
-    "url": "https://shop.kermitlynch.com",
-    "quote": "s du Rhône Villages <i>Rouge</i> 2023 Chinon “Les Grézeaux” Bernard Baudry October Club Gourmand ~ Les Grézeaux comes from the Baudry’s oldest vines, which yield a concentr.."
    },
    {
     "producer": "André & Michel Quenard",
@@ -174,7 +201,7 @@
    {
     "producer": "Lionel Faury",
     "country": "France",
-    "region": "Rhône",
+    "region": "Northern Rhône",
     "appellation": "Collines Rhodaniennes",
     "grapes": [
      "Syrah"
@@ -204,7 +231,7 @@
     "producer": "La Marca di San Michele",
     "country": "Italy",
     "region": "Veneto",
-    "appellation": "Spumante",
+    "appellation": "",
     "grapes": [],
     "url": "https://shop.kermitlynch.com",
     "quote": "Vignes” 2022 Spumante Dosaggio Zero Col Fondo “Numerosette”La Marca di San Michele The wine’s salinity finds balance with a delightfully tart note of lemon rind. $46.00 2022 Spumante"
@@ -225,7 +252,9 @@
     "country": "France",
     "region": "Burgundy",
     "appellation": "Bourgogne",
-    "grapes": [],
+    "grapes": [
+     "Pinot Noir"
+    ],
     "url": "https://shop.kermitlynch.com",
     "quote": "25 Colli Trevigiani Merlot 2025 Bourgogne Rouge “L’Ermitage”Domaine de la Cadette A beautiful Cadette rouge with a bit more structure and plenty of pleasure. $45.00 2025 Bourgogne <"
    },

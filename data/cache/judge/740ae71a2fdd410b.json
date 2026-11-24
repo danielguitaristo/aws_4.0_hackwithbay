@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 8,
+   "quote": "independent & family-owned winemakers offering fantastic quality, authenticity, and value... producers with sustainable practices"
+  },
+  {
+   "id": "boutique_size",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

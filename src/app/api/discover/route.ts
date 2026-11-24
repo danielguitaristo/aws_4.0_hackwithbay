@@ -53,13 +53,13 @@ export async function POST(req: Request) {
   }
 
   try {
-    const u: Usage = { searches: 0 };
+    const u: Usage = { searches: 0, credits: 0, budget: Number(process.env.TAVILY_RUN_BUDGET) || 60 };
     const { leads, backend } = await discoverLeads(icp, u);
     await trackUsage("searches_run", u.searches);
     await trackUsage("leads_discovered", leads.length);
     writeCache("discover", key, { createdAt: new Date().toISOString(), leads } satisfies CachedRun);
-    console.log(`[api/discover] ${leads.length} leads, ${u.searches} paid Tavily calls, retrieval=${backend}`);
-    return reply(leads, "live", `retrieval=${backend}; tavily_paid=${u.searches}`);
+    console.log(`[api/discover] ${leads.length} leads, ${u.searches} paid Tavily calls (${u.credits} credits), retrieval=${backend}`);
+    return reply(leads, "live", `retrieval=${backend}; tavily_calls=${u.searches}; tavily_credits=${u.credits}`);
   } catch (err) {
     console.error("[api/discover] live run failed:", err);
     const latest = latestRun();

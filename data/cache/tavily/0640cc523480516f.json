@@ -1,0 +1,13 @@
+{
+ "query": "search:\"Pierrot Bonhomme\" importer California:{\"exact\":true,\"maxResults\":5}",
+ "peer": "Pierrot Bonhomme",
+ "fetchedAt": "2026-11-24T21:00:55.756Z",
+ "results": [
+  {
+   "url": "https://www.farmwineimports.com/producers",
+   "title": "Producers — Farm Wine Imports",
+   "content": "Paraiso Natural\nNua Roots\n+ Spain\nGalicia\nPaís Vasco\nCastilla y Léon\nRioja\nMadrid\nCatalunya\nMallorca\nLevante\nAndalucía\nTenerife\n+ United States\n+ Mexico\nBaja California [...] + France\nChampagne\nPays Nantais\nTouraine\nCoteaux-du-Loir\nAnjou\nSancerre\nGérard Boulay\nThomas-Labaille\nBugey\nAlsace\nMâconnais\nChablis\nBeaujolais\nBordeaux\nCahors\nRhône\nMarcel Richaud\nÉric Texier\nDard et Ribo\nLes Champs Libres\nProvence\nAuvergne\nLanguedoc\nRoussillon\n+ Germany\n+ Italy\nPiemonte\nTrentino-Alto Adige\nVeneto\nFriuli\nLiguria\nEmilia-Romagna\nLe Marche\nLazio\nCampania\nToscana\nUmbria\nSardegna\nIsola del Giglio\nPuglia\nSicilia\n+ Portugal\nDouro\nVinho Verde\nLisbon\nMinho\nGalactic\nParaiso Natural",
+   "rawContent": "+ France\nChampagne\nPays Nantais\nTouraine\nCoteaux-du-Loir\nAnjou\nSancerre\nGérard Boulay\nThomas-Labaille\nBugey\nAlsace\nMâconnais\nChablis\nBeaujolais\nBordeaux\nCahors\nRhône\nMarcel Richaud\nÉric Texier\nDard et Ribo\nLes Champs Libres\nProvence\nAuvergne\nLanguedoc\nRoussillon\n+ Germany\n+ Italy\nPiemonte\nTrentino-Alto Adige\nVeneto\nFriuli\nLiguria\nEmilia-Romagna\nLe Marche\nLazio\nCampania\nToscana\nUmbria\nSardegna\nIsola del Giglio\nPuglia\nSicilia\n+ Portugal\nDouro\nVinho Verde\nLisbon\nMinho\nGalactic\nParaiso Natural\nNua Roots\n+ Spain\nGalicia\nPaís Vasco\nCastilla y Léon\nRioja\nMadrid\nCatalunya\nMallorca\nLevante\nAndalucía\nTenerife\n+ United States\n+ Mexico\nBaja California"
+  }
+ ]
+}

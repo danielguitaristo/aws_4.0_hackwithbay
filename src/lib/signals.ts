@@ -92,7 +92,8 @@ export const SIGNALS: SignalDef[] = [
     label: "Shelf price range $25-55 matches",
     polarity: "positive",
     weight: 10,
-    instruction: "A snippet shows a retail bottle price between $25 and $55 for a wine this importer sells. The quote MUST contain that dollar price.",
+    // Computed in discovery.ts: prices seen (site or CA shops) vs estimateShelfPrice() below.
+    instruction: "A snippet shows a retail bottle price in USD for a French wine this importer sells. The quote MUST contain that dollar price.",
     source: "web",
     enabled: true,
   },
@@ -106,7 +107,25 @@ export const SIGNALS: SignalDef[] = [
     source: "web",
     enabled: true,
   },
+  {
+    id: "peer_neighbors",
+    label: "Imports Loire peers (lookalike growers) but no Touraine/Vouvray",
+    polarity: "positive",
+    weight: 25,
+    instruction: "Computed: the importer carries at least one peer grower (organic / low-intervention Anjou, Saumur, Chinon, Bourgueil...) and no producer from Touraine/Vouvray/Montlouis, seen on its site, a peer's page or a CA shop page.",
+    source: "portfolio",
+    enabled: true,
+  },
   // Negative
+  {
+    id: "peer_touraine",
+    label: "Already imports a direct peer from Touraine/Vouvray",
+    polarity: "negative",
+    weight: 20,
+    instruction: "Computed: a Touraine / Vouvray / Montlouis peer grower is imported by this company (its site, the peer's page or a CA shop page says so).",
+    source: "portfolio",
+    enabled: true,
+  },
   {
     id: "loire_saturated",
     label: "Loire saturated (10+ Loire producers already)",
@@ -174,4 +193,42 @@ export const TIER_B = 35;
 export function scoreHits(hits: SignalHit[]): { fitScore: number; tier: "A" | "B" | "C" } {
   const fitScore = Math.max(0, Math.min(100, hits.reduce((sum, h) => sum + h.points, 0)));
   return { fitScore, tier: fitScore >= TIER_A ? "A" : fitScore >= TIER_B ? "B" : "C" };
+}
+
+// ---- US shelf price estimate --------------------------------------------------
+// Every number below is an ASSUMPTION (hackathon defaults), editable here.
+
+export interface PriceAssumption {
+  value: number;
+  label: string;
+}
+
+export const PRICE_ASSUMPTIONS = {
+  eurUsd: { value: 1.08, label: "EUR→USD exchange rate (assumption)" },
+  euTariff: { value: 0.15, label: "US tariff on EU wine, on ex-cellar value (assumption: 15%)" },
+  freightUsd: { value: 1.5, label: "Freight, insurance & excise per bottle, USD (assumption)" },
+  importerMargin: { value: 0.3, label: "Importer gross margin on its selling price (assumption: 30%)" },
+  distributorMargin: { value: 0.28, label: "Distributor gross margin on its selling price (assumption: 28%)" },
+  retailerMargin: { value: 0.33, label: "Retailer gross margin on shelf price (assumption: 33%)" },
+} satisfies Record<string, PriceAssumption>;
+
+/** Ex-cellar EUR -> estimated US shelf price (USD), with the calculation spelled out. */
+export function estimateShelfPrice(eur: number, a = PRICE_ASSUMPTIONS): { usd: number; steps: string } {
+  const fob = eur * a.eurUsd.value;
+  const landed = fob * (1 + a.euTariff.value) + a.freightUsd.value;
+  const importer = landed / (1 - a.importerMargin.value);
+  const distributor = importer / (1 - a.distributorMargin.value);
+  const shelf = distributor / (1 - a.retailerMargin.value);
+  const $ = (n: number) => `$${n.toFixed(2)}`;
+  return {
+    usd: shelf,
+    steps: `€${eur} × ${a.eurUsd.value} = ${$(fob)} → +${a.euTariff.value * 100}% tariff +${$(a.freightUsd.value)} freight = ${$(landed)} landed → importer ÷${(1 - a.importerMargin.value).toFixed(2)} = ${$(importer)} → distributor ÷${(1 - a.distributorMargin.value).toFixed(2)} = ${$(distributor)} → retailer ÷${(1 - a.retailerMargin.value).toFixed(2)} = ${$(shelf)}`,
+  };
+}
+
+export function shelfRange(priceRangeEur: { min: number; max: number }) {
+  const lo = estimateShelfPrice(priceRangeEur.min);
+  const hi = estimateShelfPrice(priceRangeEur.max);
+  const assumptions = Object.values(PRICE_ASSUMPTIONS).map((x) => x.label.replace(/ \(assumption[^)]*\)/, "") + ` = ${x.value}`).join("; ");
+  return { min: Math.round(lo.usd), max: Math.round(hi.usd), calculation: `Low: ${lo.steps}. High: ${hi.steps}. Assumptions (editable in signals.ts): ${assumptions}.` };
 }
