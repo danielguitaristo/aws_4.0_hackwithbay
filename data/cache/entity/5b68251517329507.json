@@ -1,0 +1,17 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the official website of Kermit Lynch, Wine Merchant, and the context explicitly references the company."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the official shop of Kermit Lynch, Wine Merchant, and the context lists wines from their portfolio."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names 'Kermit Lynch' as the importer hosting the portfolio tasting."
+ }
+]

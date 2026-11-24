@@ -1037,6 +1037,150 @@ interface ExtraEvidence {
   shelf: ReturnType<typeof shelfRange>;
 }
 
+// ---- Hiring evidence: dated (last 12 months) + named role; LinkedIn activity never counts ----
+
+const HIRING_MAX_AGE_DAYS = 365;
+const ROLE = /\b(sales (rep(resentative)?|manager|director|associate|consultant|executive)|account (manager|executive|representative)|brand (manager|ambassador)|territory manager|regional (sales )?manager|portfolio manager|wine buyer|buyer|sommelier|wine director|marketing (manager|coordinator|director)|operations (manager|coordinator)|office manager|warehouse (associate|manager)|delivery driver|logistics (manager|coordinator))\b/i;
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+function datesIn(text: string): Date[] {
+  const out: Date[] = [];
+  for (const m of text.matchAll(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(?:(\d{1,2}),?\s+)?(20\d{2})\b/gi)) out.push(new Date(Number(m[3]), MONTHS.indexOf(m[1].slice(0, 3).toLowerCase()), Number(m[2] ?? 1)));
+  for (const m of text.matchAll(/\b(20\d{2})-(\d{2})-(\d{2})\b/g)) out.push(new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  for (const m of text.matchAll(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/g)) out.push(new Date(Number(m[3]), Number(m[1]) - 1, Number(m[2])));
+  return out.filter((d) => !Number.isNaN(d.getTime()));
+}
+
+/** Why a hiring/expansion quote does not count (null = it counts). */
+function hiringProblem(quote: string, s: Snippet): string | null {
+  let host = "";
+  try {
+    host = new URL(s.url).hostname;
+  } catch {
+    /* keep empty */
+  }
+  if (host.endsWith("linkedin.com")) return "LinkedIn profile activity is undated (never counts)";
+  const expansion = /expan(d|ds|ding|sion) (in)?to/i.test(quote);
+  if (!expansion && !ROLE.test(s.text)) return "no named role";
+  const cutoff = Date.now() - HIRING_MAX_AGE_DAYS * 86400000;
+  if (!datesIn(s.text).some((d) => d.getTime() >= cutoff && d.getTime() <= Date.now() + 86400000)) return "no date in the last 12 months";
+  return null;
+}
+
+// ---- Entity check: is each piece of evidence about THIS company? -------------------
+
+export type EntityVerdict = "same_company" | "sister_or_related_company" | "different_company" | "unclear";
+const VERDICTS: EntityVerdict[] = ["same_company", "sister_or_related_company", "different_company", "unclear"];
+
+/** Every entity verdict of the last run, for audits (lead, signal, verdict, reason, URL). */
+export const entityLog: { lead: string; signal: string; verdict: EntityVerdict; reason: string; url: string }[] = [];
+
+let pageTextIndex: Map<string, string> | null = null;
+/** Full text of a page from the Tavily cache (pages that are not in the candidate's page list, e.g. peer pages). */
+function cachedPageText(url: string): string {
+  if (!pageTextIndex) {
+    pageTextIndex = new Map();
+    try {
+      for (const f of fs.readdirSync(path.join(CACHE_DIR, "tavily"))) {
+        const d = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "tavily", f), "utf8"));
+        for (const r of Array.isArray(d.results) ? d.results : []) {
+          if (!r || typeof r !== "object" || !r.url) continue;
+          const t = r.rawContent || r.content || "";
+          if (t.length > (pageTextIndex.get(r.url)?.length ?? 0)) pageTextIndex.set(r.url, t);
+        }
+      }
+    } catch {
+      /* no cache */
+    }
+  }
+  return pageTextIndex.get(url) ?? "";
+}
+
+/** The quote of a hit + ~500 characters of surrounding page text. */
+function evidenceContext(h: SignalHit, pages: WebPage[]): { quote: string; context: string } {
+  const quote = (h.snippet.match(/Evidence: "([\s\S]+?)"\s*$/)?.[1] ?? h.snippet.match(/^"([\s\S]+?)"/)?.[1] ?? h.snippet).trim();
+  const text = (pages.find((p) => p.url === h.url)?.text || cachedPageText(h.url) || "").replace(/\s+/g, " ");
+  const i = text.toLowerCase().indexOf(quote.replace(/\s+/g, " ").toLowerCase().slice(0, 60));
+  return { quote, context: i >= 0 ? text.slice(Math.max(0, i - 250), i + quote.length + 250) : quote };
+}
+
+function validateChecks(raw: unknown): { i: number; verdict: EntityVerdict; reason: string }[] {
+  const list = asObject(raw, "root").checks;
+  if (!Array.isArray(list)) throw new Error("checks must be an array");
+  return list.map((x, k) => {
+    const o = asObject(x, `checks[${k}]`);
+    const verdict = VERDICTS.includes(o.verdict as EntityVerdict) ? (o.verdict as EntityVerdict) : "unclear";
+    return { i: asNumber(o.i, "i", 0, 999), verdict, reason: typeof o.reason === "string" ? o.reason : "" };
+  });
+}
+
+const ENTITY_PROMPT = (c: Candidate, website?: string) => `You check whether each piece of evidence is about ONE specific US wine importer.
+Company: "${c.name}" — TTB permit holder "${c.ownerName}", ${c.city}, California; website: ${website ?? "unknown"}.
+For each numbered item (claim, URL, quote and the text around it) answer exactly one verdict:
+- "same_company": the text is clearly about this company (its own website, or a page naming it as the company the claim is about)
+- "sister_or_related_company": about a parent, sister, affiliate or partner company, a similarly named company, or a person's other employer
+- "different_company": about another company
+- "unclear": the text does not show which company
+Give a one-line reason. Return JSON: {"checks":[{"i":<item number>,"verdict":"...","reason":"..."}]}`;
+
+/** Only "same_company" evidence counts; anything else becomes "unknown", 0 points, with the reason. Cached in data/cache/entity. */
+// Auto-generated company profiles (AI summaries, data brokers) never count as evidence.
+const AUTO_PROFILE = /(^|\.)(tavily\.com|contactout\.com|rocketreach\.co|zoominfo\.com|signalhire\.com)$/i;
+
+async function verifyEntities(c: Candidate, hits: SignalHit[], pages: WebPage[], website?: string): Promise<void> {
+  const fired = hits.filter((h) => h.status === "fired" && h.points !== 0 && h.url && h.url !== TTB_LIST_URL);
+  const hostOf = (u: string) => {
+    try {
+      return new URL(u).hostname;
+    } catch {
+      return "";
+    }
+  };
+  for (const h of fired.filter((x) => AUTO_PROFILE.test(hostOf(x.url)))) {
+    const reason = `auto-generated profile page (${hostOf(h.url)}) never counts as evidence`;
+    entityLog.push({ lead: c.name, signal: h.id, verdict: "unclear", reason, url: h.url });
+    h.points = 0;
+    h.status = "unknown";
+    h.snippet = `Source rule: ${reason}. Evidence: ${h.snippet}`;
+  }
+  const targets = fired.filter((x) => !AUTO_PROFILE.test(hostOf(x.url)));
+  if (!targets.length) return;
+  const items = targets.map((h) => ({ h, ...evidenceContext(h, pages) }));
+  const key = cacheKey({ c: c.id, owner: c.ownerName, city: c.city, website, items: items.map((x) => [x.h.id, x.h.url, x.h.snippet]), model: process.env.MISTRAL_MODEL });
+  let checks = readCache<ReturnType<typeof validateChecks>>("entity", key);
+  if (!checks && hasMistral()) {
+    const listing = items.map((x, i) => `[${i}] claim: ${x.h.label}\\nURL: ${x.h.url}\\nquote: "${x.quote}"\\ncontext: …${x.context}…`).join("\\n\\n");
+    checks = await chatJSON([{ role: "system", content: ENTITY_PROMPT(c, website) }, { role: "user", content: listing }], validateChecks).catch((err) => {
+      console.error(`[entity] Mistral failed for ${c.name}:`, err);
+      return null;
+    });
+    if (checks) writeCache("entity", key, checks);
+  }
+  items.forEach((x, i) => {
+    const ch = checks?.find((k) => k.i === i);
+    const verdict: EntityVerdict = ch?.verdict ?? "unclear";
+    const reason = ch?.reason || (checks ? "no answer for this item" : "entity check unavailable");
+    entityLog.push({ lead: c.name, signal: x.h.id, verdict, reason, url: x.h.url });
+    if (verdict === "same_company") return;
+    x.h.points = 0;
+    x.h.status = "unknown";
+    x.h.snippet = `Entity check: ${verdict} — ${reason}. Evidence: ${x.h.snippet}`;
+  });
+}
+
+/** The TTB permit must match the lead's own website: its city (address) or the permit's legal name must appear there. */
+function permitMatch(c: Candidate, pages: WebPage[], website?: string): { verified: boolean; detail: string; url: string } {
+  const own = pages.filter((p) => p.ownSite);
+  const permitName = `"${c.ownerName}" (${c.permits.map((p) => p.number).join(", ")}, ${c.city})`;
+  if (!own.length || !website) return { verified: false, detail: `No own website found: TTB permit ${permitName} is not tied to a website`, url: "" };
+  const cityPage = own.find((p) => new RegExp(`\\b${c.city.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(p.text));
+  if (cityPage) return { verified: true, detail: `${website} shows the TTB permit city (${c.city}) — permit ${permitName}`, url: cityPage.url };
+  const owner = normName(c.ownerName);
+  const ownerPage = owner.length >= 6 ? own.find((p) => normName(p.text).includes(owner)) : undefined;
+  if (ownerPage) return { verified: true, detail: `${website} shows the TTB permit holder name — permit ${permitName}`, url: ownerPage.url };
+  return { verified: false, detail: `${website} shows neither the TTB permit city (${c.city}) nor the holder name "${c.ownerName}" on the ${own.length} own-site page(s) read`, url: website };
+}
+
 /** Overlapping signals (same evidence): keep the stronger one, the other becomes "info" (0 points). */
 const OVERLAPS: [string, string][] = [
   ["similar_chenin", "peer_touraine"],
@@ -1090,7 +1234,14 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
         continue; // scored below against the shelf estimate
       }
       if (def.id === "boutique_size" && pf && pf.producers.length > 150) continue; // the structured portfolio says otherwise
-      if (def.id === "recent_or_hiring" && !/(hiring|(is|are) looking for|open (position|role)|job (opening|posting)|join (our|the) team|expan(d|ds|ding|sion) (in)?to)/i.test(v.quote)) continue;
+      if (def.id === "recent_or_hiring") {
+        if (!/(hiring|(is|are) looking for|open (position|role)|job (opening|posting)|join (our|the) team|expan(d|ds|ding|sion) (in)?to)/i.test(v.quote)) continue;
+        const why = hiringProblem(v.quote, s);
+        if (why) {
+          hits.push({ id: def.id, label: def.label, points: 0, status: "unknown", snippet: `"${v.quote.trim()}" — not counted: ${why}`, url: s.url, title: s.title || undefined });
+          continue;
+        }
+      }
       // Mega-distributor needs hard evidence: a count >= 500 (SKUs/products/brands) or "largest" / "national brands".
       if (def.id === "mega_distributor" && !(/\b(largest|national brands)\b/i.test(v.quote) || (v.quote.match(/\d[\d,]{2,}/g) ?? []).some((n) => Number(n.replace(/,/g, "")) >= 500))) continue;
       hits.push({ id: def.id, label: def.label, points: signalPoints(def), status: "fired", snippet: v.quote.trim(), url: s.url, title: s.title || undefined });
@@ -1114,6 +1265,14 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     hits.push({ id: def.id, label: def.label, points: signalPoints(def), status: "fired", snippet: `TTB permit ${c.permits[0].number} flagged as newly issued`, url: TTB_LIST_URL, title: "TTB List of Permittees" });
   }
 
+  // Correctness first: every fired signal must be about THIS company; then the permit must match its website.
+  const own = e.pages.find((p) => p.ownSite);
+  const website = own ? new URL(own.url).origin : undefined;
+  await verifyEntities(c, hits, e.pages, website);
+  mergeOverlaps(hits);
+  const permit = permitMatch(c, e.pages, website);
+  hits.push({ id: "permit_match", label: permit.verified ? "Permit match verified" : "Permit match unverified — capped at tier C", points: 0, status: "info", snippet: permit.detail, url: permit.url });
+
   const sources: Source[] = [];
   const addSource = (url: string, title: string | undefined, snippet: string) => {
     if (url && !sources.some((x) => x.url === url && x.snippet === snippet)) sources.push({ url, title, snippet });
@@ -1127,9 +1286,9 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   }
   if (!sources.length) return null; // no evidence, no lead
 
-  mergeOverlaps(hits);
-  const { fitScore, tier } = scoreHits(hits);
-  const own = e.pages.find((p) => p.ownSite);
+  const scored = scoreHits(hits);
+  const fitScore = scored.fitScore;
+  const tier = permit.verified ? scored.tier : "C";
   return {
     portfolioDetail: pf?.producers ?? [],
     id: c.id,
@@ -1138,7 +1297,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     state: "CA",
     city: c.city,
     address: c.address,
-    website: own ? new URL(own.url).origin : undefined,
+    website,
     permits: c.permits,
     portfolio: (pf?.producers ?? []).map((p) => `${fmt(p)}${p.country ? `, ${p.country}` : ""}`),
     fitScore,
@@ -1389,10 +1548,13 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);
 
   const index = await buildIndex(all.flatMap((e) => e.pages));
+  entityLog.length = 0;
   const leads: ScoredLead[] = [];
   for (let i = 0; i < all.length; i += 4) {
     const batch = await Promise.all(all.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp, { links, shelf })));
     leads.push(...batch.filter((l): l is ScoredLead => l !== null));
   }
+  // Audit trail of every entity verdict (incl. leads dropped because no verified source was left).
+  writeCache("entity", `run-${cacheKey(icp)}`, { createdAt: new Date().toISOString(), log: entityLog });
   return { leads: leads.sort((a, b) => b.fitScore - a.fitScore), backend: index.backend };
 }
