@@ -45,7 +45,8 @@ US three-tier system: a foreign winery must sell to a licensed US importer, then
 "importer_distributor" = holds both federal importer and wholesaler permits and sells to retailers in-state.
 Given the estate, output the ideal US buyer profile as JSON with exactly these keys:
 buyerTypes (subset of ["importer_distributor","importer","distributor"]), naicsCodes (string[], e.g. "424820"),
-states (2-letter codes), metros (string[]), sizeBand (string), personas (string[]), portfolioFit (string[]),
+states (2-letter codes), metros (string[]), sizeBand (string: size of the US BUYER, e.g. employees and producers in portfolio, not the estate),
+personas (string[] job titles at the buyer), portfolioFit (string[]),
 priceBand (string, US shelf price in USD), triggers (string[] buying signals), negativeSignals (string[]),
 confidence (object: one number 0..1 per key above, how sure you are given the input),
 expansions (2-3 objects {segment, rationale}: adjacent segments worth testing).

@@ -47,6 +47,7 @@ export async function chatJSON<T>(
       return validate(JSON.parse(text));
     } catch (err) {
       lastError = err;
+      console.warn(`[llm] invalid JSON on attempt ${attempt + 1}: ${String(err)}`);
       history.push({ role: "assistant", content: text });
       history.push({ role: "user", content: `Invalid JSON for the requested schema: ${String(err)}. Return corrected JSON only.` });
     }
