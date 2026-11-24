@@ -1,9 +1,10 @@
 {
- "key": "388061e534c2252d",
+ "key": "716092b5eb634b98",
  "portfolio": {
   "candidateId": "1436d8e240",
   "website": "https://www.beauneimports.com",
   "pagesRead": [
+   "https://www.beauneimports.com/producer/francois-chidaine",
    "https://www.beauneimports.com/producers",
    "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
    "https://www.beauneimports.com/producer/pojer-e-sandri",
@@ -14,10 +15,22 @@
    "https://www.beauneimports.com/producer/mas-des-brousses",
    "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
    "https://www.beauneimports.com/producer/freire-lobo",
-   "https://www.beauneimports.com/product/vouvray-sec",
    "https://www.beauneimports.com/about"
   ],
   "producers": [
+   {
+    "producer": "François Chidaine",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "Montlouis, Vouvray, Touraine",
+    "grapes": [
+     "Chenin Blanc",
+     "Sauvignon Blanc",
+     "Gamay"
+    ],
+    "url": "https://www.beauneimports.com/producer/francois-chidaine",
+    "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain"
+   },
    {
     "producer": "Weinkultur Preiss",
     "country": "Austria",
@@ -356,8 +369,8 @@
      "Meunier",
      "Pinot Gris"
     ],
-    "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
-    "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison +"
    },
    {
     "producer": "R. H. Coutier",
@@ -487,8 +500,8 @@
      "Merlot",
      "Cabernet Sauvignon"
     ],
-    "url": "https://www.beauneimports.com/producer/mas-des-brousses",
-    "quote": "Mas des Brousses Region Farming Outside the charming medieval village of Puéchabon, the vineyards of Mas des Brousse"
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "+ Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine de"
    },
    {
     "producer": "Moulin de Gassac",
@@ -543,8 +556,8 @@
     "grapes": [
      "Melon de Bourgogne"
     ],
-    "url": "https://www.beauneimports.com/producer/domaine-du-haut-bourg",
-    "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 Domaine du Haut Bourg Region FranceLoire ValleyAnjou/Nantais/Saumur Farming Natural farming In the Nantais, where the mou"
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des"
    },
    {
     "producer": "Jo Landron-Domaine de la Louvetrie",
@@ -615,17 +628,8 @@
     "region": "Loire Valley",
     "appellation": "Touraine",
     "grapes": [],
-    "url": "https://www.beauneimports.com/product/vouvray-sec",
-    "quote": "t • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie"
-   },
-   {
-    "producer": "François Chidaine",
-    "country": "France",
-    "region": "Loire Valley",
-    "appellation": "Touraine",
-    "grapes": [],
     "url": "https://www.beauneimports.com/producers",
-    "quote": "ailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Ch"
+    "quote": "ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea"
    },
    {
     "producer": "Philippe Alliet",
@@ -636,8 +640,8 @@
      "Cabernet Franc",
      "Chenin Blanc"
     ],
-    "url": "https://www.beauneimports.com/producer/philippe-alliet",
-    "quote": "Philippe Alliet and his wife, Claude, have farmed in Cravant-les-Coteaux, in the heart of the Chinon AOC since 1985"
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue +"
    },
    {
     "producer": "Pierre Gauthier/Domaine du Bel Air",
@@ -1004,8 +1008,8 @@
      "Malvasia",
      "Barcelo"
     ],
-    "url": "https://www.beauneimports.com/producer/freire-lobo",
-    "quote": "Freire Lobo Region Farming Elisa Freire Lobo began her winemaking career in 1996, working and studying in the B"
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "cio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas"
    },
    {
     "producer": "Delgado Zuleta",

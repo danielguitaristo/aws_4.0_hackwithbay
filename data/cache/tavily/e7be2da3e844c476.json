@@ -1,0 +1,6 @@
+{
+ "query": "search:importers USA importateurs export distributeurs:{\"maxResults\":5,\"includeDomains\":[\"paul-buisse.com\"]}",
+ "estate": "Domaine Paul Buisse",
+ "fetchedAt": "2026-11-24T21:20:06.217Z",
+ "results": []
+}
