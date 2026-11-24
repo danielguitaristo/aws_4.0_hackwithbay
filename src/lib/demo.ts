@@ -71,6 +71,19 @@ export const MOCK_LEADS: Lead[] = [
     signals: [], sources: [{ url: "https://example.com/demo-bev", snippet: "Large portfolio, Bordeaux focus." }],
     stage: "matched", enriched: false,
   },
+  {
+    id: "mock4", name: "Coastal Vine Co.", type: "importer_distributor", state: "CA", city: "Napa", fitScore: 61, tier: "B",
+    permits: [{ source: "TTB", number: "CA-I-00002", kind: "importer" }], portfolio: ["Loire (1 grower)", "Alsace"],
+    signals: ["Added a natural-wine page this year"], sources: [{ url: "https://example.com/coastal-vine", snippet: "Natural wines from France and Spain." }],
+    stage: "matched", enriched: false,
+  },
+  {
+    id: "mock5", name: "Pacific Cru", type: "importer", state: "CA", city: "San Francisco", fitScore: 58, tier: "B",
+    permits: [{ source: "TTB", number: "CA-I-00003", kind: "importer" }], portfolio: ["Burgundy", "Loire (2 growers)"],
+    contact: { name: "Nina Park", role: "Buyer" },
+    signals: ["Lists two Loire growers, both from Anjou"], sources: [{ url: "https://example.com/pacific-cru", snippet: "Small French domaines." }],
+    stage: "matched", enriched: false,
+  },
 ];
 
 export const MOCK_MESSAGES: Message[] = [
