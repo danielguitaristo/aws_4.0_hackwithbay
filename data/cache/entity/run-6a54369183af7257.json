@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:18:59.034Z",
+ "createdAt": "2026-11-24T22:25:35.905Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -156,11 +156,32 @@
    "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134"
   },
   {
+   "lead": "The Wine Source Co.",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is from the company's own website (thewinesourceinc.com).",
+   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+  },
+  {
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "small_growers",
    "verdict": "unclear",
    "reason": "auto-generated profile page (tavily.com) never counts as evidence",
    "url": "https://tavily.com/knowledge/company/OVD2bMckEubl"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Culture Wine Co. and its activities.",
+   "url": "https://culturewineco.com"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "tastings_fairs",
+   "verdict": "unclear",
+   "reason": "The text does not mention Culture Wine Co. or any specific importer.",
+   "url": "https://caparoso.substack.com/p/hello-california-south-africa-and"
   },
   {
    "lead": "Kermit Lynch, Wine Merchant",
@@ -173,14 +194,14 @@
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "loire_specialist",
    "verdict": "same_company",
-   "reason": "The URL and quote are from Kermit Lynch's official website, discussing its Loire portfolio.",
+   "reason": "The URL and context are from Kermit Lynch's official website, discussing its Loire portfolio.",
    "url": "https://kermitlynch.com/region/loire"
   },
   {
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The URL is Kermit Lynch's official shop, listing wines from various French regions.",
+   "reason": "The URL is Kermit Lynch's official shop, listing wines from its portfolio.",
    "url": "https://shop.kermitlynch.com"
   },
   {
@@ -192,17 +213,87 @@
   },
   {
    "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL is Kermit Lynch's official shop, describing its French portfolio.",
+   "url": "https://shop.kermitlynch.com/france"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
    "signal": "tastings_fairs",
    "verdict": "same_company",
    "reason": "The quote explicitly names Kermit Lynch as the importer hosting the portfolio tasting.",
    "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
   },
   {
-   "lead": "The Wine Source Co.",
-   "signal": "loire_presence",
+   "lead": "Charles Neal Selections",
+   "signal": "small_growers",
    "verdict": "same_company",
-   "reason": "The URL is from the company's own website (thewinesourceinc.com).",
-   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+   "reason": "The URL is the company's own website, and the context explicitly refers to Charles Neal Selections.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the page lists producers imported by Charles Neal Selections.",
+   "url": "https://www.charlesnealselections.com/french-wines.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote explicitly names Charles Neal Selections.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the context refers to the company's practices and preferences.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "Text explicitly names 'Wilson Daniels' as the importer.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "Text explicitly names 'Wilson Daniels' as the company producing the brand.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "Quintessential, LLC",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The article explicitly names 'Quintessential' and its owners, Steve Kreps, Sr. and Dennis Kreps, as the company in question.",
+   "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "Website URL and content are from True North Wine Merchants' own domain",
+   "url": "https://www.truenorthwines.com/producer-list"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
   },
   {
    "lead": "Beaune Imports",

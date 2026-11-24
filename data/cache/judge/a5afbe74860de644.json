@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 17,
+   "quote": "focusing on small producers whose wines express the authentic style of their native region"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 0,
+   "quote": "our French portfolio has grown to encompass 15 winegrowing regions and 143 producers"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": true,
+   "snippet": 3,
+   "quote": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch"
+  },
+  {
+   "id": "price_match",
+   "fired": true,
+   "snippet": 7,
+   "quote": "2023 Chinon “Les Grézeaux” Bernard Baudry ... $39.00"
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 1,
+   "quote": "I’m #hiring for a new associate role in my department"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 6,
+   "quote": "Kermit Lynch is one whose wines are available more or less, nationally"
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "key": "47c29f87b46b5021",
+ "portfolio": {
+  "candidateId": "5aec0fbec4",
+  "website": "https://www.truenorthwines.com",
+  "pagesRead": [
+   "https://www.truenorthwines.com/producer-list",
+   "https://www.truenorthwines.com"
+  ],
+  "producers": [
+   {
+    "producer": "ALBERT JOLY",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "Puligny-Montrachet",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com/producer-list",
+    "quote": "Skip to Content 0 0 Pay An Invoice 0 0 Pay An Invoice ALBERT JOLY The Joly estate totals just 11 acres, all of which is in Puligny. Nearly half of their holdings are"
+   },
+   {
+    "producer": "CAMILLA SCAVINO",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barolo",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "y, France ALBERT JOLY, Puligny-Montrachet, Burgundy, France CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CORNAREA, Canale, R"
+   },
+   {
+    "producer": "CORNAREA",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Roero",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "rolo, Italy CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CORNAREA, Canale, Roero, Italy CORNAREA, Canale, Roero, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy"
+   },
+   {
+    "producer": "CRISSANTE ALESSANDRIA",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barolo",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "RNAREA, Canale, Roero, Italy CORNAREA, Canale, Roero, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy DIEGO MORRA, Verduno, Barol"
+   },
+   {
+    "producer": "DIEGO MORRA",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barolo",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "arolo, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy FOLLY OF MAN, Willamette Valley, Oregon"
+   },
+   {
+    "producer": "FOLLY OF MAN",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "Willamette Valley",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "Verduno, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy FOLLY OF MAN, Willamette Valley, Oregon FOLLY OF MAN, Willamette Valley, Oregon HUBER-VERDEREAU, Volnay, Burgund"
+   },
+   {
+    "producer": "HUBER-VERDEREAU",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "Volnay",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "ette Valley, Oregon FOLLY OF MAN, Willamette Valley, Oregon HUBER-VERDEREAU, Volnay, Burgundy, France HUBER-VERDEREAU, Volnay, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pomm"
+   },
+   {
+    "producer": "JOANNÈS VIOLOT-GUILLEMARD",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "Pommard",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "Burgundy, France HUBER-VERDEREAU, Volnay, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France MANUEL MARINACCI, S"
+   },
+   {
+    "producer": "MANUEL MARINACCI",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barbaresco",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, Italy MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, It"
+   },
+   {
+    "producer": "MASSIMO MARTINELLI",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barolo",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, Italy MASSIMO MARTINELLI, Barolo, Italy MASSIMO MARTINELLI, Barolo, Italy PATRICE RION, Nuits-Saint-Georges, Burgundy, Franc"
+   },
+   {
+    "producer": "PATRICE RION",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "Nuits-Saint-Georges",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "MARTINELLI, Barolo, Italy MASSIMO MARTINELLI, Barolo, Italy PATRICE RION, Nuits-Saint-Georges, Burgundy, France PATRICE RION, Nuits-Saint-Georges, Burgundy, France PILCROW,"
+   },
+   {
+    "producer": "PILCROW",
+    "country": "USA",
+    "region": "California",
+    "appellation": "Napa Valley",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "France PATRICE RION, Nuits-Saint-Georges, Burgundy, France PILCROW, Napa Valley, California PILCROW, Napa Valley, California RUNCHÉT, Treiso, Barbaresco, Italy RUNCHÉ"
+   },
+   {
+    "producer": "RUNCHÉT",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barbaresco",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "W, Napa Valley, California PILCROW, Napa Valley, California RUNCHÉT, Treiso, Barbaresco, Italy RUNCHÉT, Treiso, Barbaresco, Italy SPOTTSWOODE, Napa Valley, California"
+   },
+   {
+    "producer": "SPOTTSWOODE",
+    "country": "USA",
+    "region": "California",
+    "appellation": "Napa Valley",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "reiso, Barbaresco, Italy RUNCHÉT, Treiso, Barbaresco, Italy SPOTTSWOODE, Napa Valley, California SPOTTSWOODE, Napa Valley, California TIZIANO GRASSO LA BRICCOLINA, Serralu"
+   },
+   {
+    "producer": "TIZIANO GRASSO LA BRICCOLINA",
+    "country": "Italy",
+    "region": "Piedmont",
+    "appellation": "Barolo",
+    "grapes": [],
+    "url": "https://www.truenorthwines.com",
+    "quote": "apa Valley, California SPOTTSWOODE, Napa Valley, California TIZIANO GRASSO LA BRICCOLINA, Serralunga d'Alba, Barolo, Italy TIZIANO GRASSO LA BRICCOLINA, Serralunga d'Alba, Barolo, Italy"
+   }
+  ]
+ }
+}

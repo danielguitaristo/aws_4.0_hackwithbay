@@ -1,0 +1,64 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 0,
+   "quote": "find high quality wines from small growers that display the grape variety from which they come"
+  },
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 2,
+   "quote": "find high quality wines from small growers that display the grape variety from which they come"
+  },
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 12,
+   "quote": "95% of the producers in the CNS Catalogue fall into this final category--humble producers"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 5,
+   "quote": "The producers imported by Charles Neal Selections average 6,000 cases"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

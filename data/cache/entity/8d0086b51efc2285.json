@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "Text explicitly names 'Wilson Daniels' as the importer."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "Text explicitly names 'Wilson Daniels' as the company producing the brand."
+ }
+]
