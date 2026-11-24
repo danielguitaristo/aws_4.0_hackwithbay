@@ -1,5 +1,5 @@
 // Demo product used all day + mock data so the UI can be built before the APIs exist.
-// The domaine is fictional; in the live demo, buyers come from real discovery.
+// The domaine is fictional; in the live demo, importers come from real public permit data.
 import type { Domaine, ICP, Lead, Message } from "./types";
 
 export const DEMO_DOMAINE: Domaine = {
@@ -8,58 +8,67 @@ export const DEMO_DOMAINE: Domaine = {
   appellations: ["Touraine", "Vouvray", "Chinon"],
   grapes: ["Chenin Blanc", "Cabernet Franc", "Sauvignon Blanc"],
   certifications: ["AB (organic)", "low-intervention"],
-  priceRangeEur: { min: 12, max: 25 },
+  priceRangeEur: { min: 9, max: 22 },
   annualBottles: 40000,
-  currentClients: ["2 cavistes in Tours", "1 bistrot in Angers"],
+  exportBottles: 6000,
+  currentExport: ["Belgium (1 importer)", "Denmark (1 importer)"],
+  targetStates: ["CA"],
   description:
     "Family-run 14 ha organic estate in Touraine. Mineral Chenin Blanc (dry & sparkling), " +
-    "light Cabernet Franc reds served chilled. No sales team; sells mostly at the cellar door. " +
-    "Wants independent wine shops and natural-wine bistros in Paris and Lyon.",
+    "light Cabernet Franc reds served chilled. No export team; wants a first US importer, " +
+    "ideally a California importer-distributor focused on small natural-wine growers.",
 };
 
 /** Used when no MISTRAL_API_KEY is set, so the UI always works. */
 export const FALLBACK_ICP: ICP = {
-  buyerTypes: ["caviste", "bar_a_vin", "restaurant"],
-  nafCodes: ["47.25Z", "56.30Z", "56.10A"],
-  cities: ["Paris", "Lyon"],
-  departements: ["75", "69"],
-  sizeBand: "Independent, 1-10 employees",
-  personas: ["Gérant / owner", "Chef sommelier", "Wine buyer"],
-  priceBand: "Shelf price €18-45 (ex-cellar €12-25)",
+  buyerTypes: ["importer_distributor", "importer"],
+  naicsCodes: ["424820"],
+  states: ["CA"],
+  metros: ["San Francisco Bay Area", "Los Angeles"],
+  sizeBand: "Boutique, 2-30 employees, 20-150 producers in portfolio",
+  personas: ["Founder / owner", "Portfolio director / buyer"],
+  portfolioFit: ["French natural / organic wine", "Small family growers", "Loire Valley"],
+  priceBand: "US shelf price $25-55",
   triggers: [
-    "New shop or bistro opened in the last 18 months",
-    "Hiring a sommelier or caviste",
-    "Natural / organic wine focus on website or Instagram",
-    "Already lists other Loire organic producers",
+    "Already imports Loire growers but no Vouvray / Touraine",
+    "Recently issued importer or wholesaler license",
+    "Hiring sales reps or expanding to a new state",
+    "Holds both importer and wholesaler permits (sells direct to CA shops & restaurants)",
   ],
-  negativeSignals: ["National chains (Nicolas, V and B)", "Closed / liquidated companies", "Premium-only Bordeaux/Burgundy focus"],
-  confidence: { buyerTypes: 0.9, nafCodes: 0.95, cities: 0.85, sizeBand: 0.8, personas: 0.75, priceBand: 0.7, triggers: 0.65 },
+  negativeSignals: ["National mega-distributors (500+ brands)", "Spirits-only or beer-only permits", "Bordeaux/Burgundy grand-cru focus"],
+  confidence: { buyerTypes: 0.9, naicsCodes: 0.95, states: 0.9, metros: 0.8, sizeBand: 0.7, personas: 0.75, portfolioFit: 0.8, priceBand: 0.65, triggers: 0.7 },
   expansions: [
-    { id: "exp1", segment: "Épiceries fines in Paris", rationale: "Stock small-producer organic wine at the €15-30 shelf price.", status: "suggested" },
-    { id: "exp2", segment: "Boutique hotels in the Loire Valley", rationale: "Local-sourcing story for wine-tourism guests.", status: "suggested" },
-    { id: "exp3", segment: "Natural-wine importers (Belgium, Denmark)", rationale: "Strong demand for organic Loire Chenin in Northern Europe.", status: "suggested" },
+    { id: "exp1", segment: "New York natural-wine importers", rationale: "Second-largest US market for French natural wine.", status: "suggested" },
+    { id: "exp2", segment: "Wine clubs with import licenses", rationale: "Buy small lots, value the grower story.", status: "suggested" },
+    { id: "exp3", segment: "Restaurant groups that import directly", rationale: "Some CA groups hold importer permits for exclusives.", status: "suggested" },
   ],
 };
 
-// Fictional buyers for UI work only. Do not show these as real leads in the demo.
+// Fictional importers for UI work only. Do not show these as real leads in the demo.
 export const MOCK_LEADS: Lead[] = [
   {
-    id: "mock1", name: "Cave Exemple Oberkampf", type: "caviste", city: "Paris", fitScore: 88, tier: "A",
-    contact: { name: "Julie Martin", role: "Gérante", email: "julie@cave-exemple.fr", emailStatus: "valid" },
-    signals: ["Opened in 2025", "Natural-wine focus on Instagram"],
-    sources: [{ url: "https://example.com/cave-exemple", title: "Cave Exemple", snippet: "Natural wines from small Loire producers." }],
+    id: "mock1", name: "Example Selections", type: "importer_distributor", state: "CA", city: "Oakland", fitScore: 89, tier: "A",
+    permits: [{ source: "TTB", number: "CA-I-00000", kind: "importer" }, { source: "TTB", number: "CA-W-00000", kind: "wholesaler" }],
+    portfolio: ["Loire (4 growers)", "Beaujolais", "Jura"],
+    contact: { name: "Sam Rivera", role: "Founder", email: "sam@example-selections.com", emailStatus: "valid" },
+    signals: ["Imports 4 Loire growers, none from Vouvray", "Sells direct to Bay Area shops"],
+    sources: [{ url: "https://example.com/example-selections", title: "Example Selections — Producers", snippet: "Small growers from the Loire, Beaujolais and Jura." }],
     stage: "matched", enriched: true,
   },
   {
-    id: "mock2", name: "Bistrot Exemple", type: "restaurant", city: "Lyon", fitScore: 64, tier: "B",
-    contact: { name: "Hugo Bernard", role: "Chef sommelier" },
-    signals: ["Hiring a sommelier"],
-    sources: [{ url: "https://example.com/bistrot-exemple", title: "Bistrot Exemple", snippet: "Job post: sommelier wanted." }],
+    id: "mock2", name: "Sample Wine Imports", type: "importer", state: "CA", city: "Los Angeles", fitScore: 66, tier: "B",
+    permits: [{ source: "TTB", number: "CA-I-00001", kind: "importer", issuedAt: "2026-06-01" }],
+    portfolio: ["Rhône", "Languedoc"],
+    contact: { name: "Alex Chen", role: "Portfolio buyer" },
+    signals: ["Importer permit issued 2026", "Hiring a sales rep"],
+    sources: [{ url: "https://example.com/sample-imports", title: "Sample Wine Imports", snippet: "Job post: California sales representative." }],
     stage: "contacted", enriched: false,
   },
   {
-    id: "mock3", name: "Le Bar à Vin Exemple", type: "bar_a_vin", city: "Paris", fitScore: 42, tier: "C",
-    signals: [], sources: [{ url: "https://example.com/bar-exemple", snippet: "Wine bar, Bordeaux focus." }],
+    id: "mock3", name: "Demo Beverage Distributors", type: "distributor", state: "CA", city: "Sacramento", fitScore: 38, tier: "C",
+    permits: [{ source: "CA_ABC", number: "000000", kind: "wholesaler" }],
+    portfolio: ["Bordeaux", "Napa"],
+    signals: [], sources: [{ url: "https://example.com/demo-bev", snippet: "Large portfolio, Bordeaux focus." }],
     stage: "matched", enriched: false,
   },
 ];
@@ -67,7 +76,7 @@ export const MOCK_LEADS: Lead[] = [
 export const MOCK_MESSAGES: Message[] = [
   {
     id: "msg1", leadId: "mock1", channel: "email", variant: "A", status: "pending", createdAt: "2026-11-24T12:00:00Z",
-    subject: "Chenin bio de Touraine pour votre cave ?",
-    body: "Bonjour Julie,\n\nJ'ai vu que vous mettez en avant des vins nature de petits producteurs de Loire. Puis-je vous envoyer deux bouteilles de notre Chenin à déguster ?\n\nBien à vous,\nDomaine des Petites Pierres",
+    subject: "Organic Vouvray for your Loire book?",
+    body: "Hi Sam,\n\nI saw you carry four Loire growers but no Vouvray yet. We're a 14 ha organic family estate in Touraine making mineral Chenin Blanc, still and sparkling, and we're looking for our first US partner.\n\nCould I send you two sample bottles?\n\nBest,\nDomaine des Petites Pierres",
   },
 ];

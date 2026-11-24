@@ -2,31 +2,35 @@
 
 export type Confidence = Record<string, number>; // field name -> 0.00..1.00
 
-/** The winemaker's own product, captured at intake. */
+/** The French winemaker's estate, captured at intake. */
 export interface Domaine {
   name: string;
   region: string;
   appellations: string[];
   grapes: string[];
-  certifications: string[]; // "AB", "Demeter", "nature", ...
+  certifications: string[]; // "AB (organic)", "Demeter", "natural", ...
   priceRangeEur: { min: number; max: number }; // ex-cellar price per bottle
   annualBottles: number;
-  currentClients: string[]; // reference wins
+  exportBottles: number; // volume available for the US
+  currentExport: string[]; // existing export markets / reference wins
+  targetStates: string[]; // e.g. ["CA", "NY"]
   description: string;
 }
 
-export type BuyerType = "caviste" | "restaurant" | "bar_a_vin" | "importer" | "epicerie_fine" | "hotel";
+/** US buyers of imported wine. importer_distributor = imports AND sells to retailers in-state. */
+export type BuyerType = "importer_distributor" | "importer" | "distributor";
 
-/** Ideal Customer Profile inferred from the Domaine. */
+/** Ideal profile of the US importer/distributor that should carry this estate. */
 export interface ICP {
   buyerTypes: BuyerType[];
-  nafCodes: string[]; // French NAF codes, e.g. 47.25Z (cavistes), 56.10A (restaurants)
-  cities: string[];
-  departements: string[]; // e.g. "75", "69"
-  sizeBand: string; // e.g. "1-10 employees, independent"
-  personas: string[]; // e.g. "Gérant / propriétaire", "Chef sommelier"
-  priceBand: string;
-  triggers: string[]; // buying signals to look for
+  naicsCodes: string[]; // e.g. 424820 (wine & spirits merchant wholesalers)
+  states: string[]; // e.g. ["CA"]
+  metros: string[]; // e.g. ["San Francisco Bay Area", "Los Angeles"]
+  sizeBand: string; // e.g. "Boutique, 2-30 employees, 20-150 producers in portfolio"
+  personas: string[]; // e.g. "Founder / owner", "Portfolio buyer"
+  portfolioFit: string[]; // what their book should look like, e.g. "French natural wine", "Loire"
+  priceBand: string; // US shelf price
+  triggers: string[]; // buying signals
   negativeSignals: string[];
   confidence: Confidence;
   expansions: Expansion[];
@@ -45,6 +49,14 @@ export interface Source {
   snippet: string;
 }
 
+/** Public license record proving the buyer can legally import / distribute. */
+export interface Permit {
+  source: "TTB" | "CA_ABC";
+  number: string;
+  kind: "importer" | "wholesaler";
+  issuedAt?: string;
+}
+
 export interface Contact {
   name: string;
   role: string;
@@ -53,14 +65,14 @@ export interface Contact {
   linkedin?: string;
 }
 
-export type Stage = "matched" | "contacted" | "replied" | "meeting" | "won" | "lost";
-export const STAGES: Stage[] = ["matched", "contacted", "replied", "meeting", "won", "lost"];
+export type Stage = "matched" | "contacted" | "samples_sent" | "tasting" | "signed" | "lost";
+export const STAGES: Stage[] = ["matched", "contacted", "samples_sent", "tasting", "signed", "lost"];
 export const STAGE_LABELS: Record<Stage, string> = {
   matched: "Matched",
   contacted: "Contacted",
-  replied: "Replied",
-  meeting: "Tasting booked",
-  won: "Listed (won)",
+  samples_sent: "Samples sent",
+  tasting: "Tasting",
+  signed: "Signed",
   lost: "Lost",
 };
 
@@ -68,10 +80,12 @@ export interface Lead {
   id: string;
   name: string;
   type: BuyerType;
+  state: string;
   city: string;
   address?: string;
-  siren?: string;
   website?: string;
+  permits: Permit[];
+  portfolio: string[]; // French regions / producers they already import
   contact?: Contact;
   fitScore: number; // 0..100
   tier: "A" | "B" | "C";
