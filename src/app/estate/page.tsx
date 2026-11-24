@@ -64,7 +64,7 @@ export default function Estate() {
           </div>
         ))}
       </div>
-      <div className="mt-8 flex items-center justify-between">
+      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
         <span className="note">Click any line to change it.</span>
         {onboarded ? (
           <span className="note">Changes save on their own.</span>

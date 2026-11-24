@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
-import { Headline, Page } from "@/components/ui";
+import { Back, Headline, Page } from "@/components/ui";
 import { COST, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
 
@@ -22,8 +22,10 @@ function Searching() {
   return (
     <>
       <Headline lead="Looking for" tail="your importers." />
-      <div className="mt-8 grid grid-cols-[200px_1fr] gap-10">
-        <CaliforniaMap leads={MOCK_LEADS.slice(0, step + 1).map((l) => ({ ...l, tier: "C" }))} pulse />
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
+        <div className="max-w-40 md:max-w-none">
+          <CaliforniaMap leads={MOCK_LEADS.slice(0, step + 1).map((l) => ({ ...l, tier: "C" }))} pulse />
+        </div>
         <div>
           {PROGRESS.map((p, i) => (
             <div key={p} className={`grid grid-cols-[24px_1fr] border-t py-3 font-serif text-lg ${i === step ? "border-wine text-wine" : i < step ? "border-rule text-taupe" : "border-rule text-faint"} ${i === PROGRESS.length - 1 ? "border-b border-b-rule" : ""}`}>
@@ -68,8 +70,10 @@ export default function Importers() {
   return (
     <Page step={2}>
       <Headline lead={`${ranked.length} importers`} tail="fit your estate." />
-      <div className="mt-8 grid grid-cols-[200px_1fr] gap-10">
-        <CaliforniaMap leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
+        <div className="max-w-48 md:max-w-none">
+          <CaliforniaMap leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
+        </div>
         <div className="min-w-0">
           {shown.map((l) =>
             l.id === sel.id ? (
@@ -92,7 +96,7 @@ export default function Importers() {
                     ))}
                   </div>
                 )}
-                <div className="mt-4 flex items-center gap-5">
+                <div className="mt-4 flex flex-wrap items-center gap-5">
                   {drafted(l.id) ? (
                     <Link href="/search/letters" className="caps text-wine underline">Letter ready · review</Link>
                   ) : hasEmail ? (
@@ -119,9 +123,12 @@ export default function Importers() {
           )}
           <div className="flex justify-between border-t border-rule pt-3">
             {ranked.length > 4 && <button className="caps hover:text-ink" onClick={() => setAll(!all)}>{all ? "Show fewer" : `See all ${ranked.length}`}</button>}
-            {pending > 0 && <Link href="/search/letters" className="caps ml-auto underline hover:text-ink">Review {pending} letter{pending > 1 ? "s" : ""} →</Link>}
           </div>
         </div>
+      </div>
+      <div className="mt-10 flex items-center justify-between gap-4">
+        <Back href="/search/target" label="Target" />
+        {pending > 0 && <Link href="/search/letters" className="caps text-wine underline">Review {pending} letter{pending > 1 ? "s" : ""} ›</Link>}
       </div>
     </Page>
   );

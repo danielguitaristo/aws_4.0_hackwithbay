@@ -2,12 +2,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { Headline, Page } from "@/components/ui";
+import { Headline, Page, SEARCH_STEP_NAMES } from "@/components/ui";
 import { lastTouch, useApp } from "@/lib/app-state";
 
 export default function Home() {
   const router = useRouter();
-  const { leads, letters, events, replies, icp, draft, weekLater, ready } = useApp();
+  const { leads, letters, events, replies, icp, draft, weekLater, ready, lastSearch } = useApp();
 
   // Demo helper: /home?demo=later jumps a week ahead (a reply + a follow-up to write).
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Home() {
   const tail = top ? `${top.contact?.name?.split(" ")[0] ?? top.name} wrote back.` : pending.length ? "Letters are waiting." : "All quiet today.";
   const items = [
     ...replied.map((l, i) => (
-      <div key={l.id} className={`flex items-center justify-between gap-6 border-t py-4 ${i === 0 ? "border-wine" : "border-rule"}`}>
+      <div key={l.id} className={`flex flex-col items-start justify-between gap-3 border-t py-4 sm:flex-row sm:items-center sm:gap-6 ${i === 0 ? "border-wine" : "border-rule"}`}>
         <div>
           <span className="font-serif text-xl">{l.name} replied</span>
           <p className="note mt-1">&ldquo;{replies[l.id]}&rdquo;</p>
@@ -47,13 +47,13 @@ export default function Home() {
       </div>
     )),
     pending.length > 0 && (
-      <div key="pending" className={`flex items-baseline justify-between border-t py-4 ${replied.length ? "border-rule" : "border-wine"}`}>
+      <div key="pending" className={`flex flex-wrap items-baseline justify-between gap-x-4 border-t py-4 ${replied.length ? "border-rule" : "border-wine"}`}>
         <span className="font-serif text-xl">{pending.length} letter{pending.length > 1 ? "s" : ""} waiting for you</span>
         <Link href="/search/letters" className="caps underline hover:text-ink">Review</Link>
       </div>
     ),
     ...followUps.map((l) => (
-      <div key={`f-${l.id}`} className="flex items-baseline justify-between border-t border-rule py-4">
+      <div key={`f-${l.id}`} className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-rule py-4">
         <span className="font-serif text-xl">{l.name}, no answer in 7 days</span>
         <button className="caps underline hover:text-ink" onClick={() => write(l.id, "follow_up")}>Write a follow-up</button>
       </div>
@@ -73,12 +73,15 @@ export default function Home() {
         <span className="caps">Your searches</span>
         <Link href="/search/target" className="caps underline hover:text-ink">New search</Link>
       </div>
-      <Link href="/search/importers" className="flex items-baseline justify-between border-t border-rule py-4 hover:text-wine">
+      <Link href={lastSearch} className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-rule py-4 hover:text-wine">
         <span className="font-serif text-xl">California importers</span>
-        <span className="note">{found} found · {sent} letter{sent === 1 ? "" : "s"} sent</span>
+        <span className="note">
+          {sent > 0 ? `${found} found · ${sent} letter${sent === 1 ? "" : "s"} sent` : `Stopped at ${SEARCH_STEP_NAMES[lastSearch] ?? "Target"} · `}
+          {sent === 0 && <span className="caps not-italic underline">Resume</span>}
+        </span>
       </Link>
       {nextSearch && (
-        <div className="flex items-baseline justify-between border-y border-rule py-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 border-y border-rule py-4">
           <span className="font-serif text-xl text-taupe">{nextSearch.segment}</span>
           <Link href="/search/target" className="caps underline hover:text-ink">Start</Link>
         </div>

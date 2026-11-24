@@ -22,14 +22,14 @@ export default function SignIn() {
 
   return (
     <main className="grid min-h-screen grid-cols-1 md:grid-cols-2">
-      <section className="flex flex-col justify-between bg-sand p-10">
+      <section className="flex min-h-[45vh] flex-col justify-between gap-8 bg-sand p-6 sm:p-10">
         <Logo size="text-2xl" />
         <div className="w-1/2 max-w-60 opacity-60">
           <CaliforniaMap leads={MOCK_LEADS.slice(0, 3)} />
         </div>
         <Headline lead="Find the US importer" tail="made for your wine." className="max-w-md" />
       </section>
-      <section className="relative flex flex-col justify-center px-12 py-10">
+      <section className="relative flex flex-col justify-center px-6 py-14 sm:px-12 sm:py-10">
         <span className="caps absolute top-8 right-10">EN · <u>FR</u></span>
         <div className="mx-auto w-full max-w-sm">
           {sent ? (

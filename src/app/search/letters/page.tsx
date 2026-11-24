@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Headline, Page } from "@/components/ui";
+import { Back, Headline, Page } from "@/components/ui";
 import { COST, useApp } from "@/lib/app-state";
 
 const NUM = ["No letters", "One letter", "Two letters", "Three letters", "Four letters", "Five letters"];
@@ -39,9 +39,12 @@ export default function Letters() {
       <Page step={3}>
         <Headline lead={sent ? "All sent." : "No letters yet."} tail={sent ? "Now we wait." : "Pick an importer first."} />
         <p className="note mt-3 text-lg">{sent ? "We'll email you when someone replies." : "Choose who to write to on the importers step."}</p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap items-center gap-6">
           {sent ? (
-            <button className="btn" onClick={() => { finishOnboarding(); router.push("/home"); }}>Go to my home</button>
+            <>
+              <button className="btn" onClick={() => { finishOnboarding(); router.push("/home"); }}>Go to my home</button>
+              <Link href="/search/importers" className="caps underline hover:text-ink">Write to more importers</Link>
+            </>
           ) : (
             <Link href="/search/importers" className="btn">See importers</Link>
           )}
@@ -57,7 +60,7 @@ export default function Letters() {
   return (
     <Page step={3}>
       <Headline lead={NUM[Math.min(queue.length, 5)] ?? `${queue.length} letters`} tail="to approve." />
-      <div className="mt-8 grid grid-cols-[180px_1fr] gap-10">
+      <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-[180px_1fr] md:gap-10">
         <div className="min-w-0">
           {queue.map((l, i) => {
             const name = leads.find((x) => x.id === l.leadId)?.name;
@@ -71,8 +74,8 @@ export default function Letters() {
           })}
         </div>
 
-        <article className="border border-rule bg-paper p-7">
-          <p className="caps">To {lead?.contact?.name || lead?.name} {lead?.contact?.email && `· ${lead.contact.email}`}</p>
+        <article className="min-w-0 border border-rule bg-paper p-5 sm:p-7">
+          <p className="caps break-words">To {lead?.contact?.name || lead?.name} {lead?.contact?.email && `· ${lead.contact.email}`}</p>
           {editing ? (
             <>
               <input value={subject} onChange={(e) => setSubject(e.target.value)} className="mt-2 w-full border-b border-rule bg-transparent font-serif text-2xl outline-none focus:border-wine" />
@@ -94,7 +97,8 @@ export default function Letters() {
         </article>
       </div>
 
-      <div className="mt-6 flex items-center justify-end gap-6">
+      <div className="mt-6 flex flex-wrap items-center justify-end gap-6">
+        {!editing && <span className="mr-auto"><Back href="/search/importers" label="Importers" /></span>}
         {editing ? (
           <>
             <button className="caps hover:text-ink" onClick={() => setEditing(false)}>Cancel</button>

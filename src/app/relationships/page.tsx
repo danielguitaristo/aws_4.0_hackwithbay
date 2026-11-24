@@ -29,13 +29,13 @@ export default function Relationships() {
 
   return (
     <Page wide>
-      <div className="flex items-end justify-between gap-6">
+      <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <Headline lead={`${word(active.length)} importer${active.length === 1 ? "" : "s"},`} tail={`${word(talking).toLowerCase()} talking with you.`} />
         <button className="caps whitespace-nowrap underline hover:text-ink" onClick={() => setAdding(!adding)}>Add one you know</button>
       </div>
 
       {adding && (
-        <div className="mt-6 grid grid-cols-[1fr_1fr_1fr_auto] items-end gap-4 border-t border-wine pt-4">
+        <div className="mt-6 grid grid-cols-1 items-end gap-4 border-t md:grid-cols-[1fr_1fr_1fr_auto] border-wine pt-4">
           {(["name", "email", "note"] as const).map((k) => (
             <label key={k} className="block">
               <span className="caps">{k === "note" ? "Where you met" : k}</span>
@@ -46,7 +46,7 @@ export default function Relationships() {
         </div>
       )}
 
-      <div className="mt-10 grid grid-cols-5 gap-5">
+      <div className="-mx-5 mt-10 overflow-x-auto px-5 sm:mx-0 sm:px-0"><div className="grid min-w-[720px] grid-cols-5 gap-5">
         {COLUMNS.map((stage) => {
           const cards = active.filter((l) => l.stage === stage);
           const hot = stage === "replied" && cards.length > 0;
@@ -79,7 +79,7 @@ export default function Relationships() {
             </div>
           );
         })}
-      </div>
+      </div></div>
       {active.length > 0 && (
         <p className="note mt-8 text-lg">
           {replied}% replied.{" "}

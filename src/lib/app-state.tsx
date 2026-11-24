@@ -19,6 +19,7 @@ interface State {
   credits: number;
   onboarded: boolean;
   replies: Record<string, string>; // leadId -> reply excerpt
+  lastSearch: string; // last search step Claire was on, for "Resume"
 }
 
 const initial: State = {
@@ -30,6 +31,7 @@ const initial: State = {
   credits: 150,
   onboarded: false,
   replies: {},
+  lastSearch: "/search/target",
 };
 
 const KEY = "millesime-state-v1";
@@ -164,6 +166,7 @@ function useAppState() {
   }, []);
 
   const finishOnboarding = useCallback(() => setS((st) => ({ ...st, onboarded: true })), []);
+  const rememberSearch = useCallback((path: string) => setS((st) => (st.lastSearch === path ? st : { ...st, lastSearch: path })), []);
   const topUp = useCallback((n: number) => setS((st) => ({ ...st, credits: st.credits + n })), []);
   const reset = useCallback(() => setS(initial), []);
 
@@ -184,7 +187,7 @@ function useAppState() {
     });
   }, []);
 
-  return { ...s, ready, searching, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, skip, moveStage, addLead, finishOnboarding, topUp, reset, weekLater };
+  return { ...s, ready, searching, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, skip, moveStage, addLead, finishOnboarding, rememberSearch, topUp, reset, weekLater };
 }
 
 type App = ReturnType<typeof useAppState>;

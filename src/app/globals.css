@@ -31,7 +31,7 @@ body {
     @apply bg-wine px-5 py-3 text-[11px] uppercase tracking-[0.14em] text-cream transition-opacity hover:opacity-90 disabled:opacity-40;
   }
   .headline {
-    @apply font-serif text-4xl leading-tight font-light;
+    @apply font-serif text-3xl leading-tight font-light sm:text-4xl;
   }
   .note {
     @apply font-serif text-base italic text-taupe;

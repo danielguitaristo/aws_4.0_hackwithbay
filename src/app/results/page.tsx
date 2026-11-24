@@ -5,82 +5,64 @@ import { STAGE_LABELS, type Lead, type Stage } from "@/lib/types";
 
 const FUNNEL: Stage[] = ["contacted", "replied", "samples_sent", "tasting", "signed"];
 const TYPE: Record<string, string> = { importer_distributor: "Importer-distributors", importer: "Importers", distributor: "Distributors" };
-const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0);
+const pct = (a: number, b: number) => (b ? `${Math.round((a / b) * 100)}%` : "—");
 const reached = (l: Lead, s: Stage) => FUNNEL.indexOf(l.stage) >= FUNNEL.indexOf(s);
 
-function Bar({ label, value, total, note }: { label: string; value: number; total: number; note?: string }) {
+/** A plain table: name, count, rate — each in its own labelled column. */
+function Table({ title, cols, rows }: { title: string; cols: [string, string]; rows: [string, number, string][] }) {
   return (
-    <div className="grid grid-cols-[180px_1fr_110px] items-center gap-4 border-t border-rule py-3">
-      <span className="font-serif text-lg">{label}</span>
-      <div className="h-px bg-rule">
-        <div className="h-px bg-ink" style={{ width: `${pct(value, total)}%` }} />
+    <div>
+      <div className="grid grid-cols-[1fr_44px_52px] sm:grid-cols-[1fr_80px_90px] items-baseline gap-4 pb-2">
+        <span className="caps">{title}</span>
+        <span className="caps text-right">{cols[0]}</span>
+        <span className="caps text-right">{cols[1]}</span>
       </div>
-      <span className="text-right font-serif text-lg">
-        {value} <span className="note text-sm">{note ?? `${pct(value, total)}%`}</span>
-      </span>
+      {rows.map(([label, n, rate], i) => (
+        <div key={label} className={`grid grid-cols-[1fr_44px_52px] sm:grid-cols-[1fr_80px_90px] items-baseline gap-4 border-t py-3 font-serif text-lg ${i === rows.length - 1 ? "border-b" : ""} border-rule`}>
+          <span className="min-w-0 truncate">{label}</span>
+          <span className="text-right">{n}</span>
+          <span className="text-right text-taupe">{rate}</span>
+        </div>
+      ))}
     </div>
   );
 }
 
 export default function Results() {
-  const { leads, letters, events, ready } = useApp();
+  const { leads, letters, ready } = useApp();
   if (!ready) return null;
 
   const active = leads.filter((l) => FUNNEL.includes(l.stage));
-  const contacted = active.length;
-  const replied = active.filter((l) => reached(l, "replied")).length;
-  const tastings = active.filter((l) => reached(l, "tasting")).length;
+  const count = (s: Stage) => active.filter((l) => reached(l, s)).length;
+  const replied = count("replied");
+  const tastings = count("tasting");
+
+  const funnel: [string, number, string][] = FUNNEL.map((s, i) => [STAGE_LABELS[s], count(s), i ? pct(count(s), count(FUNNEL[i - 1])) : ""]);
 
   const sentIntro = letters.filter((l) => l.status === "sent" && (l.kind ?? "intro") === "intro");
-  const variants = ["A", "B"].map((v) => {
+  const openings: [string, number, string][] = ["A", "B"].map((v) => {
     const ids = sentIntro.filter((l) => l.variant === v).map((l) => l.leadId);
     const got = active.filter((l) => ids.includes(l.id) && reached(l, "replied")).length;
-    return { v, sent: ids.length, got };
+    return [v === "A" ? "Their catalog first" : "Your estate first", ids.length, pct(got, ids.length)];
   });
-  const types = Object.keys(TYPE)
+
+  const types: [string, number, string][] = Object.keys(TYPE)
     .map((t) => {
       const group = active.filter((l) => l.type === t);
-      return { t, n: group.length, got: group.filter((l) => reached(l, "replied")).length };
+      return [TYPE[t], group.length, pct(group.filter((l) => reached(l, "replied")).length, group.length)] as [string, number, string];
     })
-    .filter((g) => g.n);
-  const ai = events.filter((e) => e.actor === "agent").length;
-  const you = events.filter((e) => e.actor === "rep").length;
+    .filter(([, n]) => n > 0);
 
   return (
     <Page>
-      <Headline lead={`${pct(replied, contacted)}% replied,`} tail={tastings === 0 ? "no tasting yet." : `${tastings === 1 ? "one tasting" : `${tastings} tastings`} booked.`} />
-
-      <p className="caps mt-10 mb-1">From first letter to signature</p>
-      <div className="border-b border-rule">
-        {FUNNEL.map((s, i) => {
-          const n = active.filter((l) => reached(l, s)).length;
-          const prev = i ? active.filter((l) => reached(l, FUNNEL[i - 1])).length : n;
-          return <Bar key={s} label={STAGE_LABELS[s]} value={n} total={contacted} note={i ? `${pct(n, prev)}% of previous` : ""} />;
-        })}
+      <Headline lead={`${pct(replied, active.length)} replied,`} tail={tastings === 0 ? "no tasting yet." : `${tastings === 1 ? "one tasting" : `${tastings} tastings`} booked.`} />
+      <div className="mt-10">
+        <Table title="From first letter to signature" cols={["Importers", "Kept"]} rows={funnel} />
       </div>
-
-      <div className="mt-12 grid grid-cols-2 gap-12">
-        <div>
-          <p className="caps mb-1">Which opening works</p>
-          <div className="border-b border-rule">
-            {variants.map(({ v, sent, got }) => (
-              <Bar key={v} label={v === "A" ? "Their catalog first" : "Your estate first"} value={got} total={sent} note={`of ${sent} · ${pct(got, sent)}%`} />
-            ))}
-          </div>
-        </div>
-        <div>
-          <p className="caps mb-1">Who answers</p>
-          <div className="border-b border-rule">
-            {types.map(({ t, n, got }) => (
-              <Bar key={t} label={TYPE[t]} value={got} total={n} note={`of ${n} · ${pct(got, n)}%`} />
-            ))}
-          </div>
-        </div>
+      <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
+        <Table title="Which opening works" cols={["Sent", "Replied"]} rows={openings} />
+        <Table title="Who answers" cols={["Sent", "Replied"]} rows={types} />
       </div>
-
-      <p className="note mt-10 text-lg">
-        The assistant did {ai} things for you; you made {you} decisions. Nothing was sent without your approval.
-      </p>
     </Page>
   );
 }

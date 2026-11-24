@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useApp } from "@/lib/app-state";
 
 export function Logo({ size = "text-xl" }: { size?: string }) {
@@ -18,60 +18,72 @@ export function Headline({ lead, tail, className = "" }: { lead: string; tail: s
 }
 
 const ROMAN = ["I", "II", "III", "IV"];
-const ONBOARDING = ["Estate", "Importer", "Importers", "Letters"];
-const SEARCH = ["Target", "Importers", "Letters"];
+const ONBOARDING: [string, string][] = [["Estate", "/estate"], ["Importer", "/search/target"], ["Importers", "/search/importers"], ["Letters", "/search/letters"]];
+const SEARCH = ONBOARDING.slice(1);
+export const SEARCH_STEP_NAMES: Record<string, string> = { "/search/target": "Target", "/search/importers": "Importers", "/search/letters": "Letters" };
 
-/** Roman-numeral steps; only the current one is spelled out, in burgundy — job #2. */
+/** Roman-numeral steps; the current one is spelled out in burgundy (job #2). Every step is a link, so Claire can go back. */
 export function Steps({ current }: { current: number }) {
   const { onboarded } = useApp();
-  const labels = onboarded ? SEARCH : ONBOARDING;
+  const steps = onboarded ? SEARCH : ONBOARDING;
   const idx = onboarded ? current - 1 : current;
   return (
-    <div className="flex gap-6">
+    <nav className="flex flex-wrap items-baseline gap-x-6 gap-y-2" aria-label="Steps">
       {onboarded && <span className="caps">California ·</span>}
-      {labels.map((l, i) => (
-        <span key={l} className={`caps ${i === idx ? "text-wine" : ""}`}>
+      {steps.map(([label, href], i) => (
+        <Link key={href} href={href} aria-current={i === idx ? "step" : undefined} className={`caps hover:text-ink ${i === idx ? "text-wine" : ""}`}>
           {ROMAN[i]}
-          {i === idx && ` · ${l}`}
-        </span>
+          {i === idx && ` · ${label}`}
+        </Link>
       ))}
-    </div>
+    </nav>
   );
 }
 
-/** Top bar. During the first visit it shows only the logo and steps, to keep Claire focused. */
+/** Top bar. During the first visit: logo, steps and "Finish later" only, to keep Claire focused. */
 export function TopBar({ step }: { step?: number }) {
-  const { onboarded, credits } = useApp();
+  const { onboarded, credits, finishOnboarding } = useApp();
   const path = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const tabs = [
     ["Home", "/home"],
-    ["Searches", "/search/importers"],
+    ["Searches", "/search"],
     ["Relationships", "/relationships"],
   ];
+  const later = () => {
+    finishOnboarding();
+    router.push("/home");
+  };
   return (
-    <header className="flex items-baseline justify-between gap-6">
+    <header className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3">
       <Link href={onboarded ? "/home" : "/"}>
         <Logo />
       </Link>
       {onboarded ? (
-        <nav className="flex gap-6">
+        <nav className="order-3 flex w-full gap-6 sm:order-none sm:w-auto">
           {tabs.map(([label, href]) => (
-            <Link key={href} href={href} className={`caps hover:text-ink ${path.startsWith(href.split("/").slice(0, 2).join("/")) ? "text-wine" : ""}`}>
+            <Link key={href} href={href === "/search" ? "/search/importers" : href} className={`caps hover:text-ink ${path.startsWith(href) ? "text-wine" : ""}`}>
               {label}
             </Link>
           ))}
         </nav>
       ) : (
-        step !== undefined && <Steps current={step} />
+        step !== undefined && (
+          <div className="order-3 w-full sm:order-none sm:w-auto">
+            <Steps current={step} />
+          </div>
+        )
       )}
-      <div className="relative">
+      <div className="relative flex items-baseline gap-6">
+        {!onboarded && step !== undefined && step > 0 && (
+          <button onClick={later} className="caps underline hover:text-ink">Finish later</button>
+        )}
         <button onClick={() => setOpen(!open)} className="caps hover:text-ink" aria-expanded={open}>
           CL
         </button>
         {open && (
-          <div className="absolute right-0 z-10 mt-3 w-44 border border-rule bg-paper py-2">
+          <div className="absolute top-6 right-0 z-10 w-44 border border-rule bg-paper py-2">
             {[
               ["Your estate", "/estate"],
               ["Profile", "/profile"],
@@ -92,26 +104,41 @@ export function TopBar({ step }: { step?: number }) {
 }
 
 export function Page({ children, step, wide = false }: { children: React.ReactNode; step?: number; wide?: boolean }) {
-  const { onboarded } = useApp();
+  const { onboarded, rememberSearch } = useApp();
+  const path = usePathname();
+  // remember where Claire stopped in her search, so Home can offer "Resume"
+  useEffect(() => {
+    if (step && step > 0) rememberSearch(path);
+  }, [step, path, rememberSearch]);
   return (
-    <main className={`mx-auto px-8 py-8 ${wide ? "max-w-6xl" : "max-w-4xl"}`}>
+    <main className={`mx-auto px-5 py-6 sm:px-8 sm:py-8 ${wide ? "max-w-6xl" : "max-w-4xl"}`}>
       <TopBar step={step} />
       {onboarded && step !== undefined && step > 0 && (
-        <div className="mt-8">
+        <div className="mt-6 sm:mt-8">
           <Steps current={step} />
         </div>
       )}
-      <div className="mt-12">{children}</div>
+      <div className="mt-10 sm:mt-12">{children}</div>
     </main>
   );
 }
 
-/** A ruled line: field name on the left, value on the right. */
+/** "Back" link shown beside a step's main action. */
+export function Back({ href, label = "Back" }: { href: string; label?: string }) {
+  return (
+    <Link href={href} className="caps hover:text-ink">
+      ‹ {label}
+    </Link>
+  );
+}
+
+/** A ruled line: field name on the left (above on phones), value on the right. */
 export function Row({ label, children, aside, first = false }: { label?: string; children: React.ReactNode; aside?: React.ReactNode; first?: boolean }) {
   return (
-    <div className={`grid grid-cols-[170px_1fr_auto] items-baseline gap-4 border-t py-3 ${first ? "border-wine" : "border-rule"}`}>
-      <span className="caps">{label}</span>
-      <div className="font-serif text-lg">{children}</div>
+    <div className={`grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 border-t py-3 sm:grid-cols-[170px_1fr_auto] ${first ? "border-wine" : "border-rule"}`}>
+      {label !== undefined && <span className="caps col-span-2 sm:col-span-1">{label}</span>}
+      {label === undefined && <span className="hidden sm:block" />}
+      <div className="min-w-0 font-serif text-lg">{children}</div>
       <div>{aside}</div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Headline, Page, Row } from "@/components/ui";
+import { Back, Headline, Page, Row } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
 import { FALLBACK_ICP } from "@/lib/demo";
 import type { ICP } from "@/lib/types";
@@ -20,7 +20,7 @@ const FIELDS: Field[] = [
 
 export default function Target() {
   const router = useRouter();
-  const { icp: stored, updateIcp } = useApp();
+  const { icp: stored, updateIcp, onboarded } = useApp();
   const icp = stored ?? FALLBACK_ICP;
   const [editing, setEditing] = useState<keyof ICP | null>(null);
   const [draft, setDraft] = useState("");
@@ -60,7 +60,8 @@ export default function Target() {
         </div>
       ))}
 
-      <div className="mt-8 flex justify-end">
+      <div className="mt-8 flex items-center justify-between gap-4">
+        <Back href={onboarded ? "/home" : "/estate"} label={onboarded ? "Home" : "Your estate"} />
         <button className="btn" onClick={() => router.push("/search/importers")}>Find importers</button>
       </div>
     </Page>
