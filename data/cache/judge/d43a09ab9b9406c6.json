@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 10,
+   "quote": "growing a meaningful and sustainable business for their clients and family of growers"
+  },
+  {
+   "id": "boutique_size",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 5,
+   "quote": "Champagne Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet"
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": true,
+   "snippet": 5,
+   "quote": "Domaine des Comtes Lafon Guillaume Lafon Domaine Roulot Domaine Georges Roumier"
+  }
+ ]
+}

@@ -114,7 +114,11 @@ async function mistralIndex(docs: DocumentInfo[]): Promise<PageIndex> {
   const vectors = await embed(docs.map((d) => d.text));
   const cos = (a: number[], b: number[]) => {
     let dot = 0, na = 0, nb = 0;
-    for (let i = 0; i < a.length; i++) (dot += a[i] * b[i]), (na += a[i] * a[i]), (nb += b[i] * b[i]);
+    for (let i = 0; i < a.length; i++) {
+      dot += a[i] * b[i];
+      na += a[i] * a[i];
+      nb += b[i] * b[i];
+    }
     return dot / (Math.sqrt(na * nb) || 1);
   };
   return {

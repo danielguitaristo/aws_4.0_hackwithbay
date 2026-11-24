@@ -1,0 +1,364 @@
+{
+ "key": "efd8e49f85f3aff8",
+ "portfolio": {
+  "candidateId": "92f57946f6",
+  "website": "https://cruwines.net",
+  "pagesRead": [
+   "https://cruwines.net/portfolio",
+   "https://cruwines.net/domaine-rebourgeon-mure",
+   "https://cruwines.net/domaine-de-la-ferme-saint-martin",
+   "https://cruwines.net/domaine-de-monteils",
+   "https://cruwines.net/chateau-tour-haut-vignoble",
+   "https://cruwines.net/chateau-flotis",
+   "https://cruwines.net/chateau-des-graviers",
+   "https://cruwines.net/chateau-des-capucins",
+   "https://cruwines.net/domaine-boissonnet",
+   "https://cruwines.net/domaine-de-la-madone",
+   "https://cruwines.net"
+  ],
+  "producers": [
+   {
+    "producer": "Chateau de Javernand",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de"
+   },
+   {
+    "producer": "Domaine de la Madone",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "Fleurie",
+    "grapes": [
+     "Gamay",
+     "Viognier"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos"
+   },
+   {
+    "producer": "Domaine Frederic Sornin",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "lais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonnier"
+   },
+   {
+    "producer": "Chateau des Capucins",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Lalande de Pomerol",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sa"
+   },
+   {
+    "producer": "Chateau Clos Dufourg",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Margaux",
+    "grapes": [
+     "Cabernet Sauvignon",
+     "Merlot",
+     "Cabernet Franc",
+     "Petit Verdot",
+     "Malbec"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ric Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feyti"
+   },
+   {
+    "producer": "Chateau La Tessonniere",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Margaux",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "es Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emi"
+   },
+   {
+    "producer": "Domaine de Monteils",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Sauternes",
+    "grapes": [
+     "Semillon",
+     "Sauvignon Blanc",
+     "Muscadelle"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "l Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand C"
+   },
+   {
+    "producer": "Vignobles Feytit & Chateau Feytit-Divon",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Saint-Georges Saint-Emilion",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgo"
+   },
+   {
+    "producer": "Chateau Tour Haut Vignoble",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Saint-Estephe",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "t-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Co"
+   },
+   {
+    "producer": "Domaine Denis Pere & Fils",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "rand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Cotes de Beaune Pernand-Vergelesses Pernand-Vergeles"
+   },
+   {
+    "producer": "Domaine Millet",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Corton-Charlemagne Grand Cru Corton Les Paulands Grand Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Pul"
+   },
+   {
+    "producer": "Domaine Moissenet-Bonnard",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "nd Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1"
+   },
+   {
+    "producer": "Maison Pagnotta",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fui"
+   },
+   {
+    "producer": "Domaine Besson",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "on Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fuisse 1er Cru Domaine Rebourgeon-Mure Bourgogne Beaune 1er Cru Po"
+   },
+   {
+    "producer": "Domaine Rebourgeon-Mure",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [
+     "Pinot Noir"
+    ],
+    "url": "https://cruwines.net/domaine-rebourgeon-mure",
+    "quote": "te of Bouillard. 2021 Bourgogne Maison Dieu Rebourgeon-Mure DOMAINE REBOURGEON-MURE 2021 Bourgogne Cuvée de Maison Dieu Vegan 2019 Beaune 1er Cru Vignes Franches Rebourgeon-Mure DOMAI"
+   },
+   {
+    "producer": "Domaine Philippe Robert et Fils",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "eaune 1er Cru Pommard Pommard 1er Cru Volnay Volnay 1er Cru Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut L"
+   },
+   {
+    "producer": "Champagne Jacques Copin",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "u Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut Le Beauchet Single Vineyard Vintage Champagne Loire"
+   },
+   {
+    "producer": "Domaine Guy Allion",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Touraine",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou"
+   },
+   {
+    "producer": "Le Pavillon du Roy",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Muscadet Sevre et Maine",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sa"
+   },
+   {
+    "producer": "Denis Breussin",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil"
+   },
+   {
+    "producer": "Domaine Gueneau",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Sancerre",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ne Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique"
+   },
+   {
+    "producer": "Domaine des Mailloches",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Bourgueil",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Prove"
+   },
+   {
+    "producer": "Domaine Sourdais-Taveau",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Chinon",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "t Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bando"
+   },
+   {
+    "producer": "Chateau L'Afrique",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Med"
+   },
+   {
+    "producer": "Domaine Ray-Jane",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "ovence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet"
+   },
+   {
+    "producer": "Domaine Terre de Mistral",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "iterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu S"
+   },
+   {
+    "producer": "Domaine Boissonnet",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [
+     "Viognier"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "e Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone"
+   },
+   {
+    "producer": "Jean-Pierre Boisson",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "issonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes d"
+   },
+   {
+    "producer": "Domaine de la Ferme Saint-Martin",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "Beaumes de Venise",
+    "grapes": [
+     "Grenache",
+     "Cinsault",
+     "Syrah",
+     "Roussanne",
+     "Clairette"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "on IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis A"
+   },
+   {
+    "producer": "Domaine Vial-Magneres",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "Collioure",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "maine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy -"
+   },
+   {
+    "producer": "Chateau Flotis",
+    "country": "France",
+    "region": "Southwest",
+    "appellation": "Fronton",
+    "grapes": [
+     "Negrette"
+    ],
+    "url": "https://cruwines.net/chateau-flotis",
+    "quote": "llier and is the winemaker of the estate. 2022 Fronton Rose Chateau Flotis CHATEAU FLOTIS 2024 Pét-Nat Sparkling Rosé Organic Conversion & Vegan 2022 Fronton Rose Chateau Flo"
+   },
+   {
+    "producer": "Geniesserhof Haimer",
+    "country": "Austria",
+    "region": "",
+    "appellation": "",
+    "grapes": [
+     "Gruner Veltliner"
+    ],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "eres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cer"
+   },
+   {
+    "producer": "Tenute Senia",
+    "country": "Italy",
+    "region": "Sicily",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cerasuolo di Vittoria DOCG Vittoria Nero d'Avola"
+   },
+   {
+    "producer": "Bresolin Bio",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://cruwines.net/portfolio",
+    "quote": "o di Vittoria DOCG Vittoria Nero d'Avola DOC Italy - Veneto Bresolin Bio Asolo Montello Cabernet Sauvignon DOC Asolo Montello Recantina DOC Souvignier Gris Veneto IGT Asolo"
+   },
+   {
+    "producer": "Chateau des Graviers",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "Margaux",
+    "grapes": [],
+    "url": "https://cruwines.net/chateau-des-graviers",
+    "quote": "The 17 acre Bordeaux vineyard of Chateau des Graviers is located in the Arsac region of Margaux and has been in the Dufourg-Landry family for generations"
+   }
+  ]
+ }
+}

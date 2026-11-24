@@ -5,9 +5,10 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { tavily } from "@tavily/core";
-import type { Permit } from "./types";
+import type { ICP, Lead, Permit, Source } from "./types";
 import { asNumber, asObject, asString, cacheKey, chatJSON, hasMistral, readCache, writeCache } from "./llm";
-import { signalQueries } from "./signals";
+import { SIGNALS, WEB_SIGNALS, scoreHits, signalPoints, signalQueries, type SignalHit } from "./signals";
+import { buildIndex, type PageIndex, type Snippet } from "./retrieval";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const TTB_FILES = {
@@ -39,11 +40,16 @@ function parseCsvLine(line: string): string[] {
   for (let i = 0; i < line.length; i++) {
     const c = line[i];
     if (quoted) {
-      if (c === '"' && line[i + 1] === '"') (cur += '"'), i++;
-      else if (c === '"') quoted = false;
+      if (c === '"' && line[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else if (c === '"') quoted = false;
       else cur += c;
     } else if (c === '"') quoted = true;
-    else if (c === ",") cells.push(cur), (cur = "");
+    else if (c === ",") {
+      cells.push(cur);
+      cur = "";
+    }
     else cur += c;
   }
   cells.push(cur);
@@ -156,14 +162,18 @@ function allCompanies(): Company[] {
 
     const reasons: string[] = [];
     let score = 0;
-    if (whs.length) (score += 5), reasons.push("Holds CA importer + wholesaler permits (importer-distributor)");
+    const add = (pts: number, why: string) => {
+      score += pts;
+      reasons.push(why);
+    };
+    if (whs.length) add(5, "Holds CA importer + wholesaler permits (importer-distributor)");
     else reasons.push("Holds CA importer permit");
-    for (const [re, pts, why] of NAME_SIGNALS) if (re.test(names)) (score += pts), reasons.push(why);
+    for (const [re, pts, why] of NAME_SIGNALS) if (re.test(names)) add(pts, why);
     const nameScore = score;
-    if (OTHER_FOCUS.test(names)) (score -= 4), reasons.push("Name suggests another origin or a food business");
-    if (METRO_COUNTIES.has(main.Prem_County.toUpperCase())) (score += 1), reasons.push(`Premises in ${main.Prem_County} county`);
+    if (OTHER_FOCUS.test(names)) add(-4, "Name suggests another origin or a food business");
+    if (METRO_COUNTIES.has(main.Prem_County.toUpperCase())) add(1, `Premises in ${main.Prem_County} county`);
     const newPermit = group.some((r) => r.New_Permit_Flag === "1");
-    if (newPermit) (score += 1), reasons.push("New TTB permit");
+    if (newPermit) add(1, "New TTB permit");
 
     out.push({
       id: crypto.createHash("sha1").update(key).digest("hex").slice(0, 10),
@@ -313,7 +323,7 @@ function nameKeys(c: Candidate) {
 function siteMatch(url: string, keys: ReturnType<typeof nameKeys>): "full" | "partial" | false {
   let host = "";
   try {
-    host = new URL(url).hostname.replace(/^www\./, "").split(".")[0].replace(/-/g, "");
+    host = new URL(url).hostname.replace(/^www\./, "").split(".").slice(-2)[0].replace(/-/g, ""); // shop.kermitlynch.com -> kermitlynch
   } catch {
     return false;
   }
@@ -327,22 +337,54 @@ function mentionsName(text: string, keys: ReturnType<typeof nameKeys>) {
   return keys.names.some((n) => t.includes(n));
 }
 
-/** Keep only pages on the company's own site or that name it, so no claim is borrowed from another importer. */
+// A third-party page must use the name as an importer/distributor, not as a winery or a passing mention.
+const IMPORTER_CONTEXT = /\b(IMPORT\w*|DISTRIBUT\w*|WHOLESAL\w*|PORTFOLIO|SELECTIONS?|MERCHANT|NEGOCIANT)\b/;
+// Titles of pages that belong to another wine company (its own portfolio / about page).
+const OTHER_COMPANY_TITLE = /\b(imports|selections|wine company|portfolio|about us)\b/i;
+
+/** Pages dropped by relevantPages(), with the reason (for audits). */
+export const rejectedPages: { candidate: string; url: string; reason: string }[] = [];
+
+function pageVerdict(c: Candidate, keys: ReturnType<typeof nameKeys>, r: RawResult, text: string, forceOwn: boolean): { ownSite: boolean; reason?: string } {
+  const named = mentionsName(`${r.title} ${text}`, keys);
+  const local = new RegExp(`\\b(${c.city}|California)\\b`, "i").test(text);
+  const t = normName(text);
+
+  // Own site: domain spells the name and the page names it or its city; a partial domain match
+  // must name the company in full (so grandcruselections.com is not "Grand Cru Imports").
+  const match = siteMatch(r.url, keys);
+  if (forceOwn || (match === "full" ? named || local : match === "partial" && named)) return { ownSite: true };
+
+  if (!(named && local)) return { ownSite: false, reason: "does not name the company with California/its city" };
+  // Homonym: "CRU Winery" is a producer, not the importer Cru Wines LLC.
+  const core = distinctiveTokens(c.name).join(" ");
+  if (core && new RegExp(`\\b${core} (WINERY|VINEYARDS?|ESTATES?|CELLARS)\\b`).test(t)) return { ownSite: false, reason: `"${core}" refers to a winery/producer` };
+  const host = (() => { try { return new URL(r.url).hostname; } catch { return ""; } })();
+  if (host.endsWith("linkedin.com") && !mentionsName(r.title, keys)) return { ownSite: false, reason: "LinkedIn profile of someone at another company" };
+  if (OTHER_COMPANY_TITLE.test(r.title) && !mentionsName(r.title, keys) && !/importers|distributors/i.test(r.title)) return { ownSite: false, reason: "page belongs to another wine company" };
+  const nearImporter = keys.names.some((n) => {
+    for (let i = t.indexOf(n); i >= 0; i = t.indexOf(n, i + 1)) if (IMPORTER_CONTEXT.test(t.slice(Math.max(0, i - 300), i + n.length + 300))) return true;
+    return false;
+  });
+  if (!nearImporter && !host.endsWith("linkedin.com")) return { ownSite: false, reason: "name not used as an importer/distributor" };
+  return { ownSite: false };
+}
+
+/** Keep only pages on the company's own site or that name it as an importer, so no claim is borrowed from another company. */
 function relevantPages(c: Candidate, results: RawResult[], forceOwn = false): WebPage[] {
   const keys = nameKeys(c);
-  return results
-    .map((r) => {
-      const text = (r.rawContent || r.content || "").trim();
-      const named = mentionsName(`${r.title} ${text}`, keys);
-      const local = new RegExp(`\\b(${c.city}|California)\\b`, "i").test(text);
-      // Own site: domain spells the name and the page names it or its city; a partial domain match
-      // must name the company in full (so grandcruselections.com is not "Grand Cru Imports").
-      const match = siteMatch(r.url, keys);
-      const ownSite = forceOwn || (match === "full" ? named || local : match === "partial" && named);
-      return { candidateId: c.id, url: r.url, title: r.title, text, ownSite, keep: ownSite || (named && local) };
-    })
-    .filter((p) => p.text.length > 0 && p.keep)
-    .map(({ keep, ...p }) => (void keep, p));
+  const out: WebPage[] = [];
+  for (const r of results) {
+    const text = (r.rawContent || r.content || "").trim();
+    if (!text) continue;
+    const v = pageVerdict(c, keys, r, text, forceOwn);
+    if (v.reason) {
+      if (!rejectedPages.some((x) => x.candidate === c.name && x.url === r.url)) rejectedPages.push({ candidate: c.name, url: r.url, reason: v.reason });
+      continue;
+    }
+    out.push({ candidateId: c.id, url: r.url, title: r.title, text, ownSite: v.ownSite });
+  }
+  return out;
 }
 
 /** Base search for one candidate (README step 4). `paid` is true when Tavily was actually called. */
@@ -352,16 +394,28 @@ export async function fetchPages(c: Candidate, opts: { cacheOnly?: boolean } = {
   return { pages: relevantPages(c, results), paid: u.searches > 0 };
 }
 
-// Producer / portfolio pages on an importer's own site.
-const PORTFOLIO_PATH = /(producer|portfolio|grower|winemaker|vigneron|domaine|estate|france|french|loire|our-wines|wines|brands|book)/i;
+// Producer / portfolio pages on an importer's own site: index pages first, then producer pages.
+const PORTFOLIO_INDEX = /(producers?|growers?|portfolio|our-wines|winemakers|vignerons|region|by-region|loire|france|french|domaines)/i;
+const PORTFOLIO_PATH = /(producer|portfolio|grower|winemaker|vigneron|domaine|chateau|estate|france|french|loire|our-wines|wines|brands|book)/i;
+
+const baseDomain = (host: string) => host.replace(/^www\./, "").split(".").slice(-2).join(".");
 
 /**
  * Best-practice two-step on the importer's own site: map() to list URLs, then extract()
- * the producer/portfolio pages (full producer lists are needed to count Loire growers).
+ * the producer/portfolio pages (full producer lists are needed to build the structured portfolio).
  */
 async function ownSitePages(c: Candidate, origin: string, u: Usage): Promise<WebPage[]> {
+  const domain = baseDomain(new URL(origin).hostname);
   const urls = await cachedTavily<string[]>(`map:${origin}`, u, async () => (await tavilyClient().map(origin, { maxDepth: 2, limit: 60 })).results, { candidate: c.name });
-  const picks = [...new Set((urls ?? []).filter((x) => PORTFOLIO_PATH.test(new URL(x).pathname)))].slice(0, 5);
+  const sameSite = (urls ?? []).filter((x) => {
+    try {
+      return baseDomain(new URL(x).hostname) === domain; // map can return external links (e.g. another importer's producer pages)
+    } catch {
+      return false;
+    }
+  });
+  const rank = (x: string) => (PORTFOLIO_INDEX.test(new URL(x).pathname) ? 2 : PORTFOLIO_PATH.test(new URL(x).pathname) ? 1 : 0);
+  const picks = [...new Set(sameSite)].filter((x) => rank(x) > 0).sort((a, b) => rank(b) - rank(a)).slice(0, 10);
   if (!picks.length) return [];
   const extracted = await cachedTavily<RawResult[]>(
     `extract:${picks.join(",")}`,
@@ -533,4 +587,251 @@ export async function discoverCandidates(u: Usage, opts: { ttbLimit?: number; co
     out.push(...(await Promise.all(batch.map(async (e) => ({ candidate: e.candidate, pages: await enrichPages(e.candidate, u, e.pages) })))));
   }
   return out.filter((e) => e.pages.length > 0);
+}
+
+// ---- Structured portfolio (own website -> producers) ------------------------
+
+export interface PortfolioEntry {
+  producer: string;
+  country: string;
+  region: string;
+  appellation: string;
+  grapes: string[];
+  url: string; // own-site page where the producer is listed
+  quote: string; // verbatim text around the producer name on that page (cut by code, not by the LLM)
+}
+
+export interface Portfolio {
+  candidateId: string;
+  website: string;
+  pagesRead: string[];
+  producers: PortfolioEntry[];
+}
+
+const LOIRE = /\b(loire|muscadet|anjou|saumur|savenni[eè]res|bonnezeaux|quarts de chaume|coteaux du layon|chinon|bourgueil|saint-nicolas|touraine|vouvray|montlouis|cheverny|cour-cheverny|sancerre|pouilly-fum[eé]|menetou|quincy|reuilly|jasni[eè]res|coteaux du loir|valen[cç]ay|cr[eé]mant de loire|fiefs vend[eé]ens|orl[eé]ans)\b/i;
+const TOURAINE = /\b(touraine|vouvray|montlouis|amboise|azay-le-rideau|chenonceaux|mesland|oisly)\b/i;
+const NEIGHBORS = /\b(burgundy|bourgogne|beaujolais|jura|savoie|champagne|alsace|chablis|m[aâ]con)\b/i;
+
+function validatePortfolio(raw: unknown): Omit<PortfolioEntry, "url" | "quote">[] & { page?: number }[] {
+  const list = asObject(raw, "root").producers;
+  if (!Array.isArray(list)) throw new Error("producers must be an array");
+  return list.map((x, i) => {
+    const o = asObject(x, `producers[${i}]`);
+    const str = (v: unknown) => (typeof v === "string" ? v : "");
+    return {
+      producer: asString(o.producer, "producer"),
+      country: str(o.country),
+      region: str(o.region),
+      appellation: str(o.appellation),
+      grapes: Array.isArray(o.grapes) ? o.grapes.filter((g): g is string => typeof g === "string") : [],
+      page: asNumber(o.page, "page", 0, 99),
+    };
+  });
+}
+
+const PORTFOLIO_PROMPT = (c: Candidate) => `These numbered pages come from the website of the US wine importer "${c.name}".
+List the wine producers (domaines, châteaux, estates, growers) this importer carries.
+For each: {"producer": name exactly as written on the page, "country", "region" (wine region, e.g. "Loire", "Burgundy", "Rhône"),
+"appellation" (if the page states it, else ""), "grapes" (if stated, else []), "page": page number}.
+Only producers named in the pages. Do not include the importer itself, people, shops or restaurants.
+Return JSON: {"producers":[...]}`;
+
+const MAX_PORTFOLIO_CHARS = 45000;
+
+/** Mistral reads the importer's own producer/portfolio pages; each producer must appear verbatim on its page. Cached in data/cache/portfolio. */
+export async function extractPortfolio(c: Candidate, pages: WebPage[]): Promise<Portfolio | null> {
+  const rank = (p: WebPage) => {
+    const path = new URL(p.url).pathname;
+    return PORTFOLIO_INDEX.test(path) ? 2 : PORTFOLIO_PATH.test(path) ? 1 : 0;
+  };
+  const own = pages.filter((p) => p.ownSite).sort((a, b) => rank(b) - rank(a));
+  if (!own.length) return null;
+  const picked: WebPage[] = [];
+  let budget = MAX_PORTFOLIO_CHARS;
+  for (const p of own) {
+    if (budget <= 0) break;
+    const text = p.text.slice(0, Math.min(rank(p) === 2 ? 15000 : 6000, budget)); // index pages in full
+    picked.push({ ...p, text });
+    budget -= text.length;
+  }
+
+  const key = cacheKey({ c: c.id, pages: picked.map((p) => [p.url, p.text.length]), model: process.env.MISTRAL_MODEL });
+  const cached = readCache<{ key: string; portfolio: Portfolio }>("portfolio", c.id);
+  if (cached?.key === key) return cached.portfolio;
+  if (!hasMistral()) return null;
+
+  const listing = picked.map((p, i) => `[${i}] ${p.url}\n${p.text}`).join("\n\n");
+  const raw = await chatJSON([{ role: "system", content: PORTFOLIO_PROMPT(c) }, { role: "user", content: listing }], validatePortfolio).catch((err) => {
+    console.error(`[portfolio] Mistral failed for ${c.name}:`, err);
+    return null;
+  });
+  if (!raw) return null;
+
+  const producers: PortfolioEntry[] = [];
+  for (const r of raw as (Omit<PortfolioEntry, "url" | "quote"> & { page: number })[]) {
+    // The producer must be on the page Mistral cites, else on any page read; otherwise it is dropped.
+    const onPage = (p?: WebPage) => Boolean(p && squash(p.text).includes(squash(r.producer)));
+    const page = onPage(picked[r.page]) ? picked[r.page] : picked.find(onPage);
+    if (!page || squash(r.producer).length < 3 || producers.some((x) => squash(x.producer) === squash(r.producer))) continue;
+    const flat = page.text.replace(/\s+/g, " ");
+    const i = flat.toLowerCase().indexOf(r.producer.toLowerCase().replace(/\s+/g, " "));
+    const quote = i >= 0 ? flat.slice(Math.max(0, i - 60), i + r.producer.length + 100).trim() : r.producer;
+    producers.push({ producer: r.producer.trim(), country: r.country, region: r.region, appellation: r.appellation, grapes: r.grapes, url: page.url, quote });
+  }
+  const portfolio: Portfolio = { candidateId: c.id, website: new URL(own[0].url).origin, pagesRead: picked.map((p) => p.url), producers };
+  writeCache("portfolio", c.id, { key, portfolio });
+  return portfolio;
+}
+
+const isLoire = (p: PortfolioEntry) => LOIRE.test(`${p.region} ${p.appellation}`);
+const isTouraine = (p: PortfolioEntry) => TOURAINE.test(`${p.region} ${p.appellation}`);
+const fmt = (p: PortfolioEntry) => `${p.producer}${p.appellation || p.region ? ` (${p.appellation || p.region})` : ""}`;
+
+/** Portfolio signals computed by code from the structured portfolio (never guessed by the LLM). */
+function portfolioHits(pf: Portfolio): SignalHit[] {
+  const def = (id: string) => SIGNALS.find((s) => s.id === id && s.enabled);
+  const hit = (id: string, summary: string, e: PortfolioEntry): SignalHit[] => {
+    const d = def(id);
+    return d ? [{ id, label: d.label, points: signalPoints(d), snippet: `${summary}. Evidence: "${e.quote}"`, url: e.url }] : [];
+  };
+  const site = new URL(pf.website).hostname.replace(/^www\./, "");
+  const loire = pf.producers.filter(isLoire);
+  const touraine = loire.filter(isTouraine);
+  const neighbors = pf.producers.filter((p) => NEIGHBORS.test(`${p.region} ${p.appellation}`));
+  const out: SignalHit[] = [];
+  // Absence of Touraine is only meaningful on a real list (>=10 producers read) that is not already Loire-saturated.
+  if (loire.length && loire.length < 10 && !touraine.length && pf.producers.length >= 10)
+    out.push(...hit("portfolio_hole", `${loire.length} Loire producer(s) — ${loire.slice(0, 5).map(fmt).join("; ")} — and none from Touraine/Vouvray among ${pf.producers.length} producers read on ${site}`, loire[0]));
+  if (loire.length >= 10) out.push(...hit("loire_saturated", `${loire.length} Loire producers listed on ${site}`, loire[0]));
+  if (touraine.length) out.push(...hit("similar_chenin", `Already carries Touraine/Vouvray: ${touraine.map(fmt).join("; ")}`, touraine[0]));
+  if (neighbors.length) out.push(...hit("neighbor_regions", `${neighbors.length} producer(s) from neighboring regions — ${neighbors.slice(0, 4).map(fmt).join("; ")}`, neighbors[0]));
+  return out;
+}
+
+// ---- Scoring: Mistral reads ONLY retrieved snippets, code verifies every quote ----
+
+/** Lead + extras for the UI: score breakdown and structured portfolio (not yet in types.ts). */
+export type ScoredLead = Lead & { scoreBreakdown: SignalHit[]; portfolioDetail: PortfolioEntry[] };
+
+const TTB_LIST_URL = "https://www.ttb.gov/public-information/foia/list-of-permittees";
+
+interface Judgement {
+  signals: { id: string; fired: boolean; snippet: number; quote: string }[];
+}
+
+function validateJudgement(raw: unknown): Judgement {
+  const o = asObject(raw, "root");
+  if (!Array.isArray(o.signals)) throw new Error("signals must be an array");
+  return {
+    signals: o.signals.map((x, i) => {
+      const s = asObject(x, `signals[${i}]`);
+      return { id: asString(s.id, "id"), fired: s.fired === true, snippet: s.fired === true ? asNumber(s.snippet, "snippet") : -1, quote: typeof s.quote === "string" ? s.quote : "" };
+    }),
+  };
+}
+
+const JUDGE_PROMPT = (c: Candidate, icp: ICP) => `You check whether a California wine importer fits a small organic Loire estate (Touraine/Vouvray/Chinon: Chenin Blanc, Cabernet Franc).
+Ideal buyer: ${icp.sizeBand}; portfolio fit: ${icp.portfolioFit.join(", ")}; price: ${icp.priceBand}.
+The company is "${c.name}" (TTB owner "${c.ownerName}", ${c.city}, CA).
+Use ONLY the numbered snippets. A snippet about another company does not count. Never use outside knowledge.
+For EACH signal below return {"id","fired","snippet","quote"}: fired=true only if a snippet proves it for ${c.name};
+then "snippet" is its number and "quote" is an exact copy (max 200 characters) of the words in that snippet that prove it.
+Signals:
+${WEB_SIGNALS.map((s) => `- ${s.id}: ${s.instruction}`).join("\n")}
+Return JSON: {"signals":[...]}`;
+
+const squash = (s: string) => s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
+
+/** Snippets that may be used as evidence: own-site chunks, or third-party chunks that name the company. */
+function usableSnippets(c: Candidate, snippets: Snippet[]): Snippet[] {
+  const keys = nameKeys(c);
+  const tokens = distinctiveTokens(`${c.name} ${c.ownerName}`).map((t) => t.toLowerCase());
+  return snippets.filter((s) => s.ownSite || mentionsName(s.text, keys) || tokens.some((t) => t.length >= 5 && s.text.toLowerCase().includes(t)));
+}
+
+async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP): Promise<ScoredLead | null> {
+  const c = e.candidate;
+  const queries = [`${icp.portfolioFit.join(", ")} importer`, ...WEB_SIGNALS.map((s) => s.label)];
+  const snippets = usableSnippets(c, await index.query(c.id, queries, 4)).slice(0, 24);
+  const hits: SignalHit[] = [];
+  const pf = await extractPortfolio(c, e.pages);
+  if (pf) hits.push(...portfolioHits(pf));
+
+  if (snippets.length && hasMistral()) {
+    const key = cacheKey({ c: c.id, s: snippets.map((s) => s.id), sig: WEB_SIGNALS.map((s) => [s.id, s.instruction]), icp: icp.portfolioFit, model: process.env.MISTRAL_MODEL });
+    let j = readCache<Judgement>("judge", key);
+    if (!j) {
+      const listing = snippets.map((s, i) => `[${i}] (${s.url})\n${s.text}`).join("\n\n");
+      j = await chatJSON([{ role: "system", content: JUDGE_PROMPT(c, icp) }, { role: "user", content: listing }], validateJudgement).catch((err) => {
+        console.error(`[discover] Mistral failed for ${c.name}:`, err);
+        return null;
+      });
+      if (j) writeCache("judge", key, j);
+    }
+    for (const v of j?.signals ?? []) {
+      const def = WEB_SIGNALS.find((s) => s.id === v.id);
+      const s = snippets[v.snippet];
+      // Every claim must be a verbatim quote from a retrieved snippet; otherwise it is dropped.
+      if (!def || !v.fired || !s || squash(v.quote).length < 8 || !squash(s.text).includes(squash(v.quote))) continue;
+      if (hits.some((h) => h.id === def.id)) continue;
+      if (def.id === "price_match" && !(v.quote.match(/\$\s?(\d+(?:\.\d+)?)/g) ?? []).some((m) => { const n = Number(m.replace(/[$\s]/g, "")); return n >= 25 && n <= 55; })) continue;
+      if (def.id === "boutique_size" && pf && pf.producers.length > 150) continue; // the structured portfolio says otherwise
+      if (def.id === "recent_or_hiring" && !/(hiring|(is|are) looking for|open (position|role)|job (opening|posting)|join (our|the) team|expan(d|ds|ding|sion) (in)?to)/i.test(v.quote)) continue;
+      // Mega-distributor needs hard evidence: a count >= 500 (SKUs/products/brands) or "largest" / "national brands".
+      if (def.id === "mega_distributor" && !(/\b(largest|national brands)\b/i.test(v.quote) || (v.quote.match(/\d[\d,]{2,}/g) ?? []).some((n) => Number(n.replace(/,/g, "")) >= 500))) continue;
+      hits.push({ id: def.id, label: def.label, points: signalPoints(def), snippet: v.quote.trim(), url: s.url, title: s.title || undefined });
+    }
+  }
+
+  // TTB evidence: "issued since the last publication" flag in the permit list.
+  if (c.newPermit && !hits.some((h) => h.id === "recent_or_hiring")) {
+    const def = SIGNALS.find((s) => s.id === "recent_or_hiring")!;
+    hits.push({ id: def.id, label: def.label, points: signalPoints(def), snippet: `TTB permit ${c.permits[0].number} flagged as newly issued`, url: TTB_LIST_URL, title: "TTB List of Permittees" });
+  }
+
+  const sources: Source[] = [];
+  const addSource = (url: string, title: string | undefined, snippet: string) => {
+    if (url && !sources.some((x) => x.url === url && x.snippet === snippet)) sources.push({ url, title, snippet });
+  };
+  for (const h of hits) addSource(h.url, h.title, h.snippet);
+  // Portfolio evidence: one source per own-site page, listing the producers found there.
+  for (const url of [...new Set((pf?.producers ?? []).map((p) => p.url))].slice(0, 5)) {
+    const names = pf!.producers.filter((p) => p.url === url).map(fmt);
+    addSource(url, undefined, `Producers listed: ${names.slice(0, 12).join("; ")}${names.length > 12 ? ` (+${names.length - 12} more)` : ""}`);
+  }
+  if (!sources.length) return null; // no evidence, no lead
+
+  const { fitScore, tier } = scoreHits(hits);
+  const own = e.pages.find((p) => p.ownSite);
+  return {
+    portfolioDetail: pf?.producers ?? [],
+    id: c.id,
+    name: c.name,
+    type: c.hasWholesaler ? "importer_distributor" : "importer",
+    state: "CA",
+    city: c.city,
+    address: c.address,
+    website: own ? new URL(own.url).origin : undefined,
+    permits: c.permits,
+    portfolio: (pf?.producers ?? []).map((p) => `${fmt(p)}${p.country ? `, ${p.country}` : ""}`),
+    fitScore,
+    tier,
+    signals: hits.map((h) => `${h.points > 0 ? "+" : ""}${h.points} ${h.label}`),
+    sources,
+    stage: "matched",
+    enriched: false,
+    scoreBreakdown: hits.sort((a, b) => b.points - a.points),
+  };
+}
+
+/** Full pipeline: candidate pool -> Moss index -> per-candidate Mistral scoring. Sorted by fitScore. */
+export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: ScoredLead[]; backend: string }> {
+  const pool = await discoverCandidates(u);
+  const index = await buildIndex(pool.flatMap((e) => e.pages));
+  const leads: ScoredLead[] = [];
+  for (let i = 0; i < pool.length; i += 4) {
+    const batch = await Promise.all(pool.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp)));
+    leads.push(...batch.filter((l): l is ScoredLead => l !== null));
+  }
+  return { leads: leads.sort((a, b) => b.fitScore - a.fitScore), backend: index.backend };
 }

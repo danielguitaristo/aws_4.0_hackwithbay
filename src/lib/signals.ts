@@ -10,8 +10,11 @@ export interface SignalDef {
   query?: string;
   /** What Mistral must find in the snippets for the signal to fire. */
   instruction: string;
-  /** "web" = detected by Mistral in retrieved snippets, "ttb" = computed from the permit file. */
-  source: "web" | "ttb";
+  /**
+   * "web" = detected by Mistral in retrieved snippets; "portfolio" = computed by code from the
+   * structured portfolio extracted from the importer's own site; "ttb" = from the permit file.
+   */
+  source: "web" | "portfolio" | "ttb";
   enabled: boolean;
 }
 
@@ -35,9 +38,10 @@ export const SIGNALS: SignalDef[] = [
     polarity: "positive",
     weight: 30,
     query: PORTFOLIO_QUERY,
+    // Computed in discovery.ts: >=1 and <10 Loire producers, none from Touraine/Vouvray, >=10 producers read.
     instruction:
       "The importer's book lists at least one Loire Valley producer (Loire appellations: Muscadet, Anjou, Saumur, Chinon, Bourgueil, Sancerre, Pouilly-Fumé, Montlouis, Cheverny...) and NO producer from Touraine or Vouvray. Quote the Loire producer/appellation.",
-    source: "web",
+    source: "portfolio",
     enabled: true,
   },
   {
@@ -56,7 +60,7 @@ export const SIGNALS: SignalDef[] = [
     polarity: "positive",
     weight: 15,
     query: PORTFOLIO_QUERY,
-    instruction: "The importer is small: a stated or listable portfolio of roughly 10-150 producers, a small team, or 'boutique' wording. Do not fire for national brands.",
+    instruction: "A snippet explicitly states the importer is small: a stated number of producers between about 10 and 150, a small team, or 'boutique'/'small' wording about the company. A list of producer names is NOT evidence.",
     source: "web",
     enabled: true,
   },
@@ -76,7 +80,7 @@ export const SIGNALS: SignalDef[] = [
     weight: 10,
     query: PORTFOLIO_QUERY,
     instruction: "The importer carries producers from French regions near the Loire or with similar styles: Burgundy (Bourgogne), Beaujolais, Jura, Savoie, Champagne, Alsace, or Bordeaux small growers.",
-    source: "web",
+    source: "portfolio",
     enabled: true,
   },
   {
@@ -94,7 +98,7 @@ export const SIGNALS: SignalDef[] = [
     label: "Shelf price range $25-55 matches",
     polarity: "positive",
     weight: 10,
-    instruction: "Snippets show bottle prices for this importer's wines mostly between $25 and $55 (retail/shelf). Quote a price.",
+    instruction: "A snippet shows a retail bottle price between $25 and $55 for a wine this importer sells. The quote MUST contain that dollar price.",
     source: "web",
     enabled: true,
   },
@@ -104,7 +108,7 @@ export const SIGNALS: SignalDef[] = [
     polarity: "positive",
     weight: 10,
     query: '"{name}" hiring sales representative',
-    instruction: "The importer is hiring sales reps/staff, or announces expansion into new states or markets.",
+    instruction: "A snippet explicitly says the importer is hiring (job post, 'we are hiring', open sales position) or announces expansion into a new state/market. Contact pages, 'find your rep' and someone's current job title are NOT evidence.",
     source: "web",
     enabled: true,
   },
@@ -116,7 +120,7 @@ export const SIGNALS: SignalDef[] = [
     weight: 30,
     query: PORTFOLIO_QUERY,
     instruction: "The importer's book already lists 10 or more distinct Loire Valley producers. Quote the list or the count.",
-    source: "web",
+    source: "portfolio",
     enabled: true,
   },
   {
@@ -124,7 +128,7 @@ export const SIGNALS: SignalDef[] = [
     label: "Mega-distributor or high minimum volumes (national brands, 500+ SKUs)",
     polarity: "negative",
     weight: 30,
-    instruction: "The company is a large national distributor: national brands, 500+ SKUs, many states, or high minimum volumes.",
+    instruction: "A snippet explicitly states national scale: 500+ SKUs/products, distribution in many states, 'one of the largest', national brands, or high minimum volumes. A list of producers is NOT evidence.",
     source: "web",
     enabled: true,
   },
@@ -144,7 +148,7 @@ export const SIGNALS: SignalDef[] = [
     weight: 20,
     query: PORTFOLIO_QUERY,
     instruction: "The importer already lists a producer from Vouvray, Montlouis or Touraine making Chenin Blanc (especially organic). Quote it.",
-    source: "web",
+    source: "portfolio",
     enabled: true,
   },
   {
@@ -152,7 +156,7 @@ export const SIGNALS: SignalDef[] = [
     label: "Focus on big houses / Bordeaux-Burgundy grand cru",
     polarity: "negative",
     weight: 15,
-    instruction: "The importer focuses on famous houses, classified-growth Bordeaux or Burgundy grand cru, luxury/allocated wines.",
+    instruction: "A snippet explicitly says the importer's focus is famous houses, classified-growth Bordeaux, Burgundy grand cru or luxury/allocated wines. A list that merely includes some famous names is NOT evidence.",
     source: "web",
     enabled: true,
   },

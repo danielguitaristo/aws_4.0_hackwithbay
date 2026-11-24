@@ -1,0 +1,97 @@
+{
+ "key": "d52ab1de45ca95ed",
+ "portfolio": {
+  "candidateId": "d199132879",
+  "website": "https://www.authenticws.com",
+  "pagesRead": [
+   "https://www.authenticws.com/portfolio",
+   "https://www.authenticws.com/california",
+   "https://www.authenticws.com/voix-de-la-vigne-story",
+   "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
+  ],
+  "producers": [
+   {
+    "producer": "Anderson’s Conn Valley Vineyards",
+    "country": "USA",
+    "region": "Napa Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+    "quote": "Introducing Anderson’s Conn Valley Vineyards Anderson’s Conn Valley Vineyards was founded in 1983 by Gus and Todd Anderson and released their fi"
+   },
+   {
+    "producer": "Philippe & Sylvain Ravier",
+    "country": "France",
+    "region": "Savoie",
+    "appellation": "Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron",
+    "grapes": [
+     "Roussanne (Bergeron)",
+     "Jacquère"
+    ],
+    "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+    "quote": "eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell"
+   },
+   {
+    "producer": "Voix de la Vigne",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "Willamette Valley, Red Mountain",
+    "grapes": [
+     "Pinot Noir",
+     "Cabernet Franc",
+     "Pinot Gris"
+    ],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "“Voix de la Vigne started as a natural next step for me in the wine business. In addition to my distribution company,"
+   },
+   {
+    "producer": "Accent de la Vigne",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "",
+    "grapes": [
+     "Pinot Noir",
+     "Sauvignon Blanc"
+    ],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "ernet Franc Voix de la Vigne, Willamette Valley, Pinot Gris Accent de la Vigne Pinot Noir Sauvignon Blanc Learn more at voixdelavigne.com National Distributors ARIZONA Quench 255"
+   },
+   {
+    "producer": "Solena Estate",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "Willamette Valley",
+    "grapes": [],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "I have been distributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we de"
+   },
+   {
+    "producer": "Hyland Estate",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "Willamette Valley",
+    "grapes": [],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "tributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collab"
+   },
+   {
+    "producer": "Brella",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "Willamette Valley",
+    "grapes": [],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collaborate on a n"
+   },
+   {
+    "producer": "Domaine Loubejac",
+    "country": "USA",
+    "region": "Oregon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+    "quote": "Hyland, Elvenglade, Kliewer, Olsen, Kramer, Wildewood, and Domaine Loubejac.” – Robert Morrison Featuring: Voix de la Vigne, Willamette Valley, Pinot Noir Voix de la Vigne, Re"
+   }
+  ]
+ }
+}
