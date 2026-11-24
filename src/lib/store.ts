@@ -118,8 +118,8 @@ function makeInitialState(): RuntimeState {
       at: now,
       agent: "planner",
       text: usingRealLeads
-        ? `Initialized WineGTM workspace for ${DEMO_DOMAINE.name} with ${discoveredLeads.length} real TTB/CA discovered importers.`
-        : `Initialized WineGTM workspace for ${DEMO_DOMAINE.name} (fallback mock leads).`,
+        ? `Initialized Millésime workspace for ${DEMO_DOMAINE.name} with ${discoveredLeads.length} real TTB/CA discovered importers.`
+        : `Initialized Millésime workspace for ${DEMO_DOMAINE.name} (fallback mock leads).`,
     },
     {
       id: "th_init_2",
