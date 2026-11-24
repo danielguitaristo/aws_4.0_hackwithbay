@@ -70,7 +70,7 @@ export async function POST(req: Request) {
   if (cached) return reply(cached, "cache");
 
   if (!hasMistral()) return reply(FALLBACK_ICP, "fallback", "MISTRAL_API_KEY not set");
-  const gate = liveGate(req);
+  const gate = liveGate(req, "icp"); // own counters: never uses the discover cap
   if (!gate.live) return reply(FALLBACK_ICP, "fallback", gate.reason, gate.status);
 
   try {

@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:33:51.132Z",
+ "createdAt": "2026-11-24T22:42:47.078Z",
  "leads": [
   {
    "portfolioDetail": [
@@ -2086,7 +2086,7 @@
      "label": "catalogue lu : 22/200",
      "points": 0,
      "status": "info",
-     "snippet": "22 producers read on 9 own-site pages; the site states 200. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "snippet": "22 producers read on 9 own-site pages; the site states 200. Coverage LOW: absence claims (no Vouvray/Touraine) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.charlesnealselections.com"
     }
    ]
@@ -4237,7 +4237,7 @@
      "producer": "Chteau des Quarts",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Mâconnais",
+     "appellation": "Maconnais",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "+ Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épern"
@@ -4246,7 +4246,7 @@
      "producer": "Domaine Manciat-Poncet",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Mâconnais",
+     "appellation": "Maconnais",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier +"
@@ -4255,7 +4255,7 @@
      "producer": "Heritiers du Comte Lafon",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Mâconnais",
+     "appellation": "Maconnais",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "ls Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blan"
@@ -4264,7 +4264,7 @@
      "producer": "Nicolas Maillet",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Mâconnais",
+     "appellation": "Maconnais",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "uarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapa"
@@ -4301,15 +4301,7 @@
      "country": "France",
      "region": "Champagne",
      "appellation": "Montagne de Reims",
-     "grapes": [
-      "Pinot Noir",
-      "Chardonnay",
-      "Arbanne",
-      "Petit Meslier",
-      "Pinot Blanc",
-      "Meunier",
-      "Pinot Gris"
-     ],
+     "grapes": [],
      "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
      "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
     },
@@ -4601,6 +4593,24 @@
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "e de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des E"
+    },
+    {
+     "producer": "Chteau de Montmirail",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "iet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domain"
+    },
+    {
+     "producer": "Chteau la Canorgue",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "omaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabott"
     },
     {
      "producer": "Domaine de Trévallon",
@@ -5281,10 +5291,10 @@
     "Domaine Confuron-Cotetidot (Côte de Nuits), France",
     "Domaine Duroché (Côte de Nuits), France",
     "Domaine Trapet Père et Fils (Côte de Nuits), France",
-    "Chteau des Quarts (Mâconnais), France",
-    "Domaine Manciat-Poncet (Mâconnais), France",
-    "Heritiers du Comte Lafon (Mâconnais), France",
-    "Nicolas Maillet (Mâconnais), France",
+    "Chteau des Quarts (Maconnais), France",
+    "Domaine Manciat-Poncet (Maconnais), France",
+    "Heritiers du Comte Lafon (Maconnais), France",
+    "Nicolas Maillet (Maconnais), France",
     "Champagne Tellier (Coteaux Sud d'Épernay), France",
     "Laherte Frères (Coteaux Sud d'Épernay), France",
     "Pascal Agrapart, Agrapart & Fils (Côte de Blancs), France",
@@ -5320,6 +5330,8 @@
     "François Chidaine (Touraine), France",
     "Philippe Alliet (Chinon), France",
     "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
+    "Chteau de Montmirail (Rhône & Provence), France",
+    "Chteau la Canorgue (Rhône & Provence), France",
     "Domaine de Trévallon (Rhône & Provence), France",
     "Domaine des Entrefaux (Rhône & Provence), France",
     "Domaine Verset A & E (Rhône & Provence), France",
@@ -5431,7 +5443,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+120 more)"
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+122 more)"
     },
     {
      "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
@@ -5561,10 +5573,10 @@
     },
     {
      "id": "coverage",
-     "label": "catalogue lu : 141 producteurs, 12 pages (total non indiqué)",
+     "label": "catalogue lu : 143 producteurs, 12 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "141 producers read on 12 own-site pages. Coverage OK.",
+     "snippet": "143 producers read on 12 own-site pages. Coverage OK.",
      "url": "https://www.beauneimports.com"
     }
    ]
@@ -6426,7 +6438,7 @@
      "label": "catalogue lu : 0 producteurs, 2 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Vouvray/Touraine) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.amyatwood.com"
     }
    ]
@@ -6660,7 +6672,7 @@
      "label": "catalogue lu : 8 producteurs, 4 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Vouvray/Touraine) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.authenticws.com"
     }
    ]
@@ -7478,7 +7490,7 @@
      "label": "catalogue lu : 3 producteurs, 8 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Vouvray/Touraine) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.thewinesourceinc.com"
     }
    ]

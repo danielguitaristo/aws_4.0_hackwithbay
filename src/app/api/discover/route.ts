@@ -4,7 +4,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import type { ICP } from "@/lib/types";
+import type { Domaine, ICP } from "@/lib/types";
+import { DEMO_DOMAINE } from "@/lib/demo";
 import { discoverLeads, permitLeads, REGIONS, type ScoredLead, type Usage } from "@/lib/discovery";
 import { cacheKey, liveGate, readCache, writeCache } from "@/lib/llm";
 import { trackUsage } from "@/lib/billing";
@@ -47,15 +48,22 @@ function latestRun(state: string): CachedRun | null {
 }
 
 export async function POST(req: Request) {
+  // Body: { icp, domaine } for any estate, or an ICP alone (backward compatible: domaine = DEMO_DOMAINE).
   let icp: ICP;
+  let domaine: Domaine = DEMO_DOMAINE;
   try {
-    icp = (await req.json()) as ICP;
+    const body = (await req.json()) as { icp?: ICP; domaine?: Domaine } & ICP;
+    icp = body?.icp ?? body;
+    if (body?.icp && body.domaine) domaine = body.domaine;
     if (!Array.isArray(icp?.portfolioFit) || typeof icp.sizeBand !== "string") throw new Error();
+    if (typeof domaine?.name !== "string" || !Array.isArray(domaine.grapes) || typeof domaine.priceRangeEur?.min !== "number") throw new Error();
   } catch {
-    return NextResponse.json({ error: "Body must be an ICP JSON object" }, { status: 400 });
+    return NextResponse.json({ error: "Body must be an ICP, or { icp: ICP, domaine: Domaine }" }, { status: 400 });
   }
 
-  const key = cacheKey(icp);
+  // The demo estate keeps its historical cache key (hash of the ICP); other estates hash ICP + domaine.
+  const isDemo = cacheKey(domaine) === cacheKey(DEMO_DOMAINE);
+  const key = isDemo ? cacheKey(icp) : cacheKey({ icp, domaine });
   const cached = readCache<CachedRun>("discover", key);
   if (cached) return persistAndReply(cached.leads, "cache");
 
@@ -75,7 +83,7 @@ export async function POST(req: Request) {
   try {
     const budgetEnv = Number(process.env.TAVILY_RUN_BUDGET);
     const u: Usage = { searches: 0, credits: 0, budget: process.env.TAVILY_RUN_BUDGET && Number.isFinite(budgetEnv) ? budgetEnv : 60 }; // 0 = cache only
-    const { leads, backend } = await discoverLeads(icp, u);
+    const { leads, backend } = await discoverLeads(icp, u, domaine);
     await trackUsage("searches_run", u.searches);
     await trackUsage("leads_discovered", leads.length);
     writeCache("discover", key, { createdAt: new Date().toISOString(), leads } satisfies CachedRun);

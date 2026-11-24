@@ -1,0 +1,106 @@
+{
+ "region": "Loire",
+ "ourAppellations": [
+  "Vouvray",
+  "Touraine"
+ ],
+ "ourAreaTerms": [
+  "touraine",
+  "vouvray",
+  "montlouis",
+  "amboise",
+  "azay-le-rideau",
+  "chenonceaux",
+  "mesland",
+  "oisly"
+ ],
+ "sameRegionAppellations": [
+  "loire",
+  "muscadet",
+  "anjou",
+  "saumur",
+  "savennières",
+  "bonnezeaux",
+  "quarts de chaume",
+  "coteaux du layon",
+  "chinon",
+  "bourgueil",
+  "saint-nicolas",
+  "touraine",
+  "vouvray",
+  "montlouis",
+  "cheverny",
+  "cour-cheverny",
+  "sancerre",
+  "pouilly-fumé",
+  "menetou",
+  "quincy",
+  "reuilly",
+  "jasnières",
+  "coteaux du loir",
+  "valençay",
+  "crémant de loire",
+  "fiefs vendéens",
+  "orléans"
+ ],
+ "peerAppellations": [
+  "touraine",
+  "montlouis",
+  "vouvray",
+  "anjou",
+  "saumur",
+  "chinon",
+  "bourgueil",
+  "savennières",
+  "layon",
+  "bonnezeaux",
+  "jasnières",
+  "amboise"
+ ],
+ "neighborRegions": [
+  "burgundy",
+  "bourgogne",
+  "beaujolais",
+  "jura",
+  "savoie",
+  "champagne",
+  "alsace",
+  "chablis",
+  "mâcon"
+ ],
+ "styles": [
+  "dry",
+  "sparkling"
+ ],
+ "reverseQueries": [
+  "{state} importer Loire natural growers",
+  "{hub} natural wine importer Chenin Blanc",
+  "{hub} wine importer Loire Valley grower portfolio",
+  "{state} importer distributor French organic biodynamic small producers",
+  "{state} importer small French growers Loire Beaujolais Champagne portfolio",
+  "{hubLast} importer French family estates organic",
+  "{state} wine importer distributor Muscadet Saumur Anjou producers"
+ ],
+ "reverseQueriesCA": [
+  "California importer Loire natural growers",
+  "Bay Area importer organic French small growers",
+  "Los Angeles natural wine importer Chenin Blanc",
+  "San Francisco wine importer Loire Valley grower portfolio",
+  "California importer distributor French organic biodynamic small producers",
+  "Oakland Berkeley natural wine importer France Jura Loire",
+  "California importer small French growers Loire Beaujolais Champagne portfolio",
+  "Sonoma Napa importer French family estates organic",
+  "San Diego Orange County wine importer French natural producers",
+  "California wine importer distributor Muscadet Saumur Anjou producers"
+ ],
+ "peerSeedQueries": [
+  "organic Vouvray Montlouis domaine Chenin Blanc vigneron",
+  "organic Touraine Chinon Anjou Saumur domaine low-intervention vigneron"
+ ],
+ "retailQueries": [
+  "\"imported by\" Vouvray Chenin Blanc {state} wine shop",
+  "\"imported by\" Touraine Chenin Blanc {state} wine shop",
+  "\"imported by\" Chinon Cabernet Franc {state} wine shop",
+  "\"imported by\" Montlouis Chenin Blanc {state} wine shop"
+ ]
+}

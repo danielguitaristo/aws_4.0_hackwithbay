@@ -5,9 +5,9 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { tavily } from "@tavily/core";
-import type { ICP, Lead, Permit, PortfolioItem, Source } from "./types";
-import { asNumber, asObject, asString, cacheKey, chatJSON, hasMistral, readCache, writeCache } from "./llm";
-import { SIGNALS, SUBSCORE_WEIGHTS, WEB_SIGNALS, blendScores, shelfRange, signalPoints, signalQueries, type SignalHit } from "./signals";
+import type { Domaine, ICP, Lead, Permit, PortfolioItem, Source } from "./types";
+import { asNumber, asObject, asString, asStringArray, cacheKey, chatJSON, hasMistral, readCache, writeCache } from "./llm";
+import { SIGNALS, SUBSCORE_WEIGHTS, WEB_SIGNALS, applySignalProfile, blendScores, shelfRange, signalPoints, signalQueries, type SignalHit } from "./signals";
 import { DEMO_DOMAINE } from "./demo";
 import { buildIndex, type PageIndex, type Snippet } from "./retrieval";
 
@@ -133,6 +133,123 @@ export function setRegion(code?: string) {
   REGION = REGIONS[(code ?? "CA").toUpperCase()] ?? REGIONS.CA;
 }
 export const currentRegion = () => REGION;
+
+// ---- Estate profile (per domaine) ------------------------------------------------------
+// Everything that used to be hardcoded to the demo estate (region, appellations, styles,
+// queries) now comes from regionProfile(domaine): Mistral JSON, cached by hash of the domaine.
+// The demo estate's profile is a committed cache file holding the previous hardcoded values.
+
+export type WineStyle = "dry" | "sweet" | "sparkling" | "red" | "rose";
+export interface RegionProfile {
+  region: string; // main wine region, e.g. "Loire", "Burgundy"
+  ourAppellations: string[]; // the estate's own appellations: "same appellation" for saturation / competitors
+  ourAreaTerms: string[]; // its sub-region + appellation names (direct-peer flags)
+  sameRegionAppellations: string[]; // the region and its appellations (region presence)
+  peerAppellations: string[]; // appellations of comparable growers (lookalike peers)
+  neighborRegions: string[]; // neighboring / similar French regions
+  styles: WineStyle[]; // what the estate makes
+  reverseQueries: string[]; // topic searches for importers; {state} {hub} {hubLast} placeholders
+  reverseQueriesCA?: string[]; // exact California list (optional)
+  peerSeedQueries: string[]; // searches for comparable estates
+  retailQueries: string[]; // '"imported by" <appellation> <grape> {state} wine shop'
+}
+
+const NEUTRAL_PROFILE: RegionProfile = { region: "France", ourAppellations: [], ourAreaTerms: [], sameRegionAppellations: [], peerAppellations: [], neighborRegions: [], styles: [], reverseQueries: [], peerSeedQueries: [], retailQueries: [] };
+let PROFILE: RegionProfile = NEUTRAL_PROFILE;
+let DOMAINE: Domaine = DEMO_DOMAINE;
+export const currentProfile = () => PROFILE;
+
+/** Accent-insensitive word regex from a list of names ("savennières" also matches "savennieres"). */
+function termRe(terms: string[]): RegExp {
+  const fold = (t: string) =>
+    t
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      .replace(/a/g, "[aàâä]")
+      .replace(/e/g, "[eéèêë]")
+      .replace(/i/g, "[iîï]")
+      .replace(/o/g, "[oôö]")
+      .replace(/u/g, "[uùûü]")
+      .replace(/c/g, "[cç]");
+  const list = [...new Set(terms.map((t) => t.trim()).filter(Boolean))];
+  return list.length ? new RegExp(`\\b(${list.map(fold).join("|")})\\b`, "i") : /(?!)/;
+}
+
+/** Fills {state} {hub} {hubLast} {region} placeholders of a query template. */
+const fillQuery = (t: string) =>
+  t.replaceAll("{state}", REGION.name).replaceAll("{hub}", REGION.hubs[0]).replaceAll("{hubLast}", REGION.hubs[REGION.hubs.length - 1]).replaceAll("{region}", PROFILE.region);
+
+const organicWord = (d: Domaine) => (d.certifications.some((x) => /organic|biodynam|\bbio\b|\bAB\b|demeter/i.test(x)) ? "organic " : "");
+const mainGrape = (d: Domaine) => (d.grapes[0] ?? "wine").split(" ")[0]; // "Chenin Blanc" -> "Chenin"
+const altWine = (d: Domaine) => (d.grapes[1] ? `${/chill/i.test(d.description) ? "chilled " : ""}${d.grapes[1]}` : "other wines");
+
+/** Sets the estate profile for this run: rebuilds the region regexes and the signal texts. */
+export function setProfile(p: RegionProfile, d: Domaine) {
+  PROFILE = p;
+  DOMAINE = d;
+  LOIRE = termRe([p.region, ...p.sameRegionAppellations]);
+  TOURAINE = termRe(p.ourAreaTerms.length ? p.ourAreaTerms : p.ourAppellations);
+  OUR_APPELLATION = termRe(p.ourAppellations);
+  PEER_AOC = termRe(p.peerAppellations.length ? p.peerAppellations : p.sameRegionAppellations);
+  NEIGHBORS = termRe(p.neighborRegions);
+  REGION_PATH = termRe([p.region]);
+  OUR_STYLES = p.styles.filter((x) => x in STYLE_RE);
+  applySignalProfile({ region: p.region, ours: p.ourAppellations.join("/") || "our appellation", area: (p.ourAreaTerms.length ? p.ourAreaTerms : p.ourAppellations).slice(0, 4).join(" / "), peers: p.peerAppellations.slice(0, 6).join(", "), grape: d.grapes[0] ?? "", neighbors: p.neighborRegions.join(", ") });
+}
+
+const PROFILE_PROMPT = `You prepare search settings for a French wine estate that wants a US importer.
+From the estate JSON, return JSON with exactly these keys:
+region (main wine region in English, e.g. "Loire", "Burgundy"),
+ourAppellations (the estate's own appellations, as written),
+ourAreaTerms (lowercase names of its sub-region and its own appellations),
+sameRegionAppellations (15-30 lowercase names: the region and its appellations),
+peerAppellations (8-15 lowercase appellations of comparable growers in the same region),
+neighborRegions (5-10 lowercase neighboring or similar French regions, English and French names),
+styles (subset of ["dry","sweet","sparkling","red","rose"] that the estate makes),
+reverseQueries (7 short web searches to find US importers of this region's small organic growers; use {state} for the US state and {hub} for its main city),
+peerSeedQueries (2 searches for comparable organic estates of this region),
+retailQueries (4 searches like "\"imported by\" <appellation> <grape> {state} wine shop").
+Use only real appellations. Return JSON only.`;
+
+function validateProfile(raw: unknown): RegionProfile {
+  const o = asObject(raw, "profile");
+  const list = (k: string, min = 0) => {
+    const v = asStringArray(o[k], k).map((x) => x.trim()).filter(Boolean);
+    if (v.length < min) throw new Error(`${k} needs at least ${min} items`);
+    return v;
+  };
+  const styles = list("styles", 1).map((x) => x.toLowerCase().replace("rosé", "rose")).filter((x): x is WineStyle => ["dry", "sweet", "sparkling", "red", "rose"].includes(x));
+  if (!styles.length) throw new Error("styles must use dry/sweet/sparkling/red/rose");
+  return {
+    region: asString(o.region, "region"),
+    ourAppellations: list("ourAppellations", 1),
+    ourAreaTerms: list("ourAreaTerms"),
+    sameRegionAppellations: list("sameRegionAppellations", 5),
+    peerAppellations: list("peerAppellations", 3),
+    neighborRegions: list("neighborRegions", 2),
+    styles,
+    reverseQueries: list("reverseQueries", 3),
+    peerSeedQueries: list("peerSeedQueries", 1),
+    retailQueries: list("retailQueries", 1),
+  };
+}
+
+/** The estate's region profile: cached by hash of the domaine (data/cache/profile), else Mistral JSON mode. */
+export async function regionProfile(domaine: Domaine): Promise<RegionProfile> {
+  const key = cacheKey(domaine);
+  const cached = readCache<RegionProfile>("profile", key);
+  if (cached) return cached;
+  if (!hasMistral()) return { ...NEUTRAL_PROFILE, region: domaine.region };
+  const p = await chatJSON([{ role: "system", content: PROFILE_PROMPT }, { role: "user", content: JSON.stringify(domaine) }], validateProfile).catch((err) => {
+    console.error("[profile] Mistral failed:", err);
+    return null;
+  });
+  if (!p) return { ...NEUTRAL_PROFILE, region: domaine.region };
+  writeCache("profile", key, p);
+  return p;
+}
 
 // ICP metros (Bay Area + Los Angeles), by self-reported premises county.
 const METRO_COUNTIES = new Set(["ALAMEDA", "SAN FRANCISCO", "MARIN", "CONTRA COSTA", "SAN MATEO", "SANTA CLARA", "SONOMA", "NAPA", "LOS ANGELES"]);
@@ -430,8 +547,10 @@ export async function fetchPages(c: Candidate, opts: { cacheOnly?: boolean } = {
 }
 
 // Producer / portfolio pages on an importer's own site: index pages first, then producer pages.
-const PORTFOLIO_INDEX = /(producers?|growers?|portfolio|our-wines|winemakers|vignerons|region|by-region|loire|france|french|domaines)/i;
-const PORTFOLIO_PATH = /(producer|portfolio|grower|winemaker|vigneron|domaine|chateau|estate|france|french|loire|our-wines|wines|brands|book)/i;
+const PORTFOLIO_INDEX = /(producers?|growers?|portfolio|our-wines|winemakers|vignerons|region|by-region|france|french|domaines)/i;
+const PORTFOLIO_PATH = /(producer|portfolio|grower|winemaker|vigneron|domaine|chateau|estate|france|french|our-wines|wines|brands|book)/i;
+const isIndexPath = (path: string) => PORTFOLIO_INDEX.test(path) || REGION_PATH.test(path);
+const isPortfolioPath = (path: string) => PORTFOLIO_PATH.test(path) || REGION_PATH.test(path);
 
 const baseDomain = (host: string) => host.replace(/^www\./, "").split(".").slice(-2).join(".");
 
@@ -452,7 +571,7 @@ async function ownSitePages(c: Candidate, origin: string, u: Usage): Promise<Web
       return false;
     }
   });
-  const rank = (x: string) => (PORTFOLIO_INDEX.test(new URL(x).pathname) ? 2 : PORTFOLIO_PATH.test(new URL(x).pathname) ? 1 : 0);
+  const rank = (x: string) => (isIndexPath(new URL(x).pathname) ? 2 : isPortfolioPath(new URL(x).pathname) ? 1 : 0);
   const picks = [...new Set(sameSite)].filter((x) => rank(x) > 0).sort((a, b) => rank(b) - rank(a)).slice(0, 10);
   if (!picks.length) return [];
   const extracted = await cachedTavily<RawResult[]>(
@@ -487,31 +606,8 @@ export async function enrichPages(c: Candidate, u: Usage, seed: WebPage[] = [], 
 
 // ---- Reverse search: topic queries -> company names -> TTB permit match -----
 
-const CA_TOPIC_QUERIES = [
-  "California importer Loire natural growers",
-  "Bay Area importer organic French small growers",
-  "Los Angeles natural wine importer Chenin Blanc",
-  "San Francisco wine importer Loire Valley grower portfolio",
-  "California importer distributor French organic biodynamic small producers",
-  "Oakland Berkeley natural wine importer France Jura Loire",
-  "California importer small French growers Loire Beaujolais Champagne portfolio",
-  "Sonoma Napa importer French family estates organic",
-  "San Diego Orange County wine importer French natural producers",
-  "California wine importer distributor Muscadet Saumur Anjou producers",
-];
-
-export const TOPIC_QUERIES = () =>
-  REGION.code === "CA"
-    ? CA_TOPIC_QUERIES
-    : [
-        `${REGION.name} importer Loire natural growers`,
-        `${REGION.hubs[0]} natural wine importer Chenin Blanc`,
-        `${REGION.hubs[0]} wine importer Loire Valley grower portfolio`,
-        `${REGION.name} importer distributor French organic biodynamic small producers`,
-        `${REGION.name} importer small French growers Loire Beaujolais Champagne portfolio`,
-        `${REGION.hubs[REGION.hubs.length - 1]} importer French family estates organic`,
-        `${REGION.name} wine importer distributor Muscadet Saumur Anjou producers`,
-      ];
+/** Topic searches for importers, from the estate profile (exact California list when the profile has one). */
+export const TOPIC_QUERIES = () => (REGION.code === "CA" && PROFILE.reverseQueriesCA?.length ? PROFILE.reverseQueriesCA : PROFILE.reverseQueries.map(fillQuery));
 
 // Wider search (step 3, California only): more CA geographies and our styles. Companies found ONLY by
 // these queries get the light enrichment (base search + own site) to stay within the Tavily budget.
@@ -522,10 +618,12 @@ const CA_WIDE_TOPIC_QUERIES = [
   "Santa Barbara Central Coast wine importer European small producers",
   "Sacramento wine importer distributor French wines portfolio",
   "San Diego wine importer distributor France portfolio",
-  "California wine importer Loire Chenin Blanc Cabernet Franc producers",
   "California natural wine distributor importer France growers portfolio",
 ];
-export const WIDE_TOPIC_QUERIES = () => (REGION.code === "CA" ? CA_WIDE_TOPIC_QUERIES : []);
+export const WIDE_TOPIC_QUERIES = () =>
+  REGION.code === "CA"
+    ? [...CA_WIDE_TOPIC_QUERIES.slice(0, 6), `California wine importer ${PROFILE.region} ${DOMAINE.grapes.slice(0, 2).join(" ")} producers`, CA_WIDE_TOPIC_QUERIES[6]]
+    : [];
 
 interface Mention {
   name: string;
@@ -653,7 +751,9 @@ export async function discoverCandidates(u: Usage, opts: { ttbLimit?: number; co
   const limit = opts.concurrency ?? 4;
   for (let i = 0; i < entries.length; i += limit) {
     const batch = entries.slice(i, i + limit);
-    out.push(...(await Promise.all(batch.map(async (e) => ({ candidate: e.candidate, pages: await enrichPages(e.candidate, u, e.pages, { light: light.has(e.candidate.id) }) })))));
+    // Estates other than the demo: light enrichment for everyone (the budget goes to region-specific searches).
+    const lightAll = cacheKey(DOMAINE) !== cacheKey(DEMO_DOMAINE);
+    out.push(...(await Promise.all(batch.map(async (e) => ({ candidate: e.candidate, pages: await enrichPages(e.candidate, u, e.pages, { light: lightAll || light.has(e.candidate.id) }) })))));
   }
   return out.filter((e) => e.pages.length > 0);
 }
@@ -669,9 +769,10 @@ export interface Portfolio {
   producers: PortfolioEntry[];
 }
 
-const LOIRE = /\b(loire|muscadet|anjou|saumur|savenni[eè]res|bonnezeaux|quarts de chaume|coteaux du layon|chinon|bourgueil|saint-nicolas|touraine|vouvray|montlouis|cheverny|cour-cheverny|sancerre|pouilly-fum[eé]|menetou|quincy|reuilly|jasni[eè]res|coteaux du loir|valen[cç]ay|cr[eé]mant de loire|fiefs vend[eé]ens|orl[eé]ans)\b/i;
-const TOURAINE = /\b(touraine|vouvray|montlouis|amboise|azay-le-rideau|chenonceaux|mesland|oisly)\b/i;
-const NEIGHBORS = /\b(burgundy|bourgogne|beaujolais|jura|savoie|champagne|alsace|chablis|m[aâ]con)\b/i;
+let LOIRE: RegExp = /(?!)/; // region + its appellations (profile)
+let TOURAINE: RegExp = /(?!)/; // our sub-region / appellations (profile)
+let REGION_PATH: RegExp = /(?!)/; // region name in a URL path (profile)
+let NEIGHBORS: RegExp = /(?!)/; // neighboring regions (profile)
 
 function validatePortfolio(raw: unknown): Omit<PortfolioEntry, "url" | "quote">[] & { page?: number }[] {
   const list = asObject(raw, "root").producers;
@@ -703,7 +804,7 @@ const MAX_PORTFOLIO_CHARS = 70000;
 export async function extractPortfolio(c: Candidate, pages: WebPage[]): Promise<Portfolio | null> {
   const rank = (p: WebPage) => {
     const path = new URL(p.url).pathname;
-    return PORTFOLIO_INDEX.test(path) ? 2 : PORTFOLIO_PATH.test(path) ? 1 : 0;
+    return isIndexPath(path) ? 2 : isPortfolioPath(path) ? 1 : 0;
   };
   const own = pages.filter((p) => p.ownSite).sort((a, b) => rank(b) - rank(a));
   if (!own.length) return null;
@@ -711,7 +812,7 @@ export async function extractPortfolio(c: Candidate, pages: WebPage[]): Promise<
   let budget = MAX_PORTFOLIO_CHARS;
   for (const p of own) {
     if (budget <= 0) break;
-    const cap = /loire/i.test(new URL(p.url).pathname) ? 40000 : rank(p) === 2 ? 15000 : 6000; // Loire + index pages in full
+    const cap = REGION_PATH.test(new URL(p.url).pathname) ? 40000 : rank(p) === 2 ? 15000 : 6000; // region + index pages in full
     const text = p.text.slice(0, Math.min(cap, budget));
     picked.push({ ...p, text });
     budget -= text.length;
@@ -766,11 +867,11 @@ export function coverageOf(pf: Portfolio, pages: WebPage[]): Coverage {
   const totals = own.flatMap((p) => [...p.text.matchAll(/\b(\d{2,4})\s+(?:[A-Za-zÀ-ÿ-]+\s+){0,3}(producers|growers|winemakers|vignerons|domaines|estates|wineries)\b/gi)].map((m) => Number(m[1]))).filter((n) => n >= 10 && n <= 1500 && !(n >= 1900 && n <= 2100)); // not "est. 1972"
   const total = totals.length ? Math.max(...totals) : undefined;
   const read = pf.producers.length;
-  const loirePages = own.filter((p) => /loire/i.test(new URL(p.url).pathname) && pf.pagesRead.includes(p.url));
+  const loirePages = own.filter((p) => REGION_PATH.test(new URL(p.url).pathname) && pf.pagesRead.includes(p.url));
   const loireFull = loirePages.some((p) => p.full === true && p.text.length < FULL_PAGE_CHARS - 10 && pf.producers.some((x) => x.url === p.url));
   const low = total ? read / total < 0.6 : read < 10;
   const label = total ? `catalogue lu : ${read}/${total}` : `catalogue lu : ${read} producteurs, ${pf.pagesRead.length} pages (total non indiqué)`;
-  const detail = `${read} producers read on ${pf.pagesRead.length} own-site pages${total ? `; the site states ${total}` : ""}${loireFull ? "; Loire region page read in full" : ""}. Coverage ${low ? "LOW" : "OK"}${low && !loireFull ? ": absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms" : ""}.`;
+  const detail = `${read} producers read on ${pf.pagesRead.length} own-site pages${total ? `; the site states ${total}` : ""}${loireFull ? `; ${PROFILE.region} region page read in full` : ""}. Coverage ${low ? "LOW" : "OK"}${low && !loireFull ? `: absence claims (no ${PROFILE.ourAppellations.join("/")}) are marked unknown unless a peer or CA shop page confirms` : ""}.`;
   return { read, total, pagesRead: pf.pagesRead.length, loireFull, low, label, detail };
 }
 
@@ -799,23 +900,23 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
   const confirm = linkLoire.filter((l) => !l.touraine)[0];
   const linkNote = (l: Link) => `${whereOf(l)}: "${l.quote}"`;
 
-  // Presence: already carries Touraine/Vouvray (site listing, peer page or CA shop page).
-  if (touraine.length) push("similar_chenin", "fired", `Already carries Touraine/Vouvray: ${touraine.map(fmt).join("; ")}. Evidence: "${touraine[0].quote}"`, touraine[0].url);
-  else if (linkTouraine.length) push("similar_chenin", "fired", `Touraine/Vouvray wine linked to this importer — ${linkNote(linkTouraine[0])}`, linkTouraine[0].url);
+  // Presence: already carries ${PROFILE.ourAppellations.join("/")} (site listing, peer page or CA shop page).
+  if (touraine.length) push("similar_chenin", "fired", `Already carries ${PROFILE.ourAppellations.join("/")}: ${touraine.map(fmt).join("; ")}. Evidence: "${touraine[0].quote}"`, touraine[0].url);
+  else if (linkTouraine.length) push("similar_chenin", "fired", `${PROFILE.ourAppellations.join("/")} wine linked to this importer — ${linkNote(linkTouraine[0])}`, linkTouraine[0].url);
   const tourainePresent = touraine.length > 0 || linkTouraine.length > 0;
 
-  // Absence: Loire but no Touraine/Vouvray.
+  // Absence: Loire but no ${PROFILE.ourAppellations.join("/")}.
   const loireCount = loire.length;
   if ((loireCount || linkLoire.length) && !tourainePresent && loireCount < 10) {
-    const summary = loireCount ? `${loireCount} Loire producer(s) — ${loire.slice(0, 5).map(fmt).join("; ")} — none from Touraine/Vouvray (${cov?.label ?? "site not read"})` : `Loire wine(s) linked to this importer, none from Touraine/Vouvray`;
+    const summary = loireCount ? `${loireCount} ${PROFILE.region} producer(s) — ${loire.slice(0, 5).map(fmt).join("; ")} — none from ${PROFILE.ourAppellations.join("/")} (${cov?.label ?? "site not read"})` : `${PROFILE.region} wine(s) linked to this importer, none from ${PROFILE.ourAppellations.join("/")}`;
     if (absenceOk) push("portfolio_hole", "fired", `${summary}. Evidence: "${loire[0].quote}"`, loire[0].url);
     else if (confirm) push("portfolio_hole", "fired", `${summary}; confirmed by ${linkNote(confirm)}`, confirm.url);
-    else push("portfolio_hole", "unknown", `${summary}; coverage too low to claim the absence of Touraine/Vouvray`, loire[0]?.url ?? linkLoire[0].url);
+    else push("portfolio_hole", "unknown", `${summary}; coverage too low to claim the absence of ${PROFILE.ourAppellations.join("/")}`, loire[0]?.url ?? linkLoire[0].url);
   }
-  if (loireCount >= 10) push("loire_saturated", "fired", `${loireCount} Loire producers listed on ${site}. Evidence: "${loire[0].quote}"`, loire[0].url);
+  if (loireCount >= 10) push("loire_saturated", "fired", `${loireCount} ${PROFILE.region} producers listed on ${site}. Evidence: "${loire[0].quote}"`, loire[0].url);
   if (neighbors.length) push("neighbor_regions", "fired", `${neighbors.length} producer(s) from neighboring regions — ${neighbors.slice(0, 4).map(fmt).join("; ")}. Evidence: "${neighbors[0].quote}"`, neighbors[0].url);
 
-  // Lookalike peers (Anjou/Saumur/Chinon/... growers, and Touraine/Vouvray/Montlouis direct peers).
+  // Lookalike peers (Anjou/Saumur/Chinon/... growers, and ${PROFILE.ourAppellations.join("/")}/Montlouis direct peers).
   const peerSite = producers.filter((p) => PEER_AOC.test(`${p.region} ${p.appellation}`));
   const peerTouraine = [...peerSite.filter(isTouraine).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => l.touraine).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
   const peerOther = [...peerSite.filter((p) => !isTouraine(p)).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => !l.touraine && PEER_AOC.test(l.appellation)).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
@@ -824,14 +925,14 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
     const p = peerOther[0];
     const names = [...new Set(peerOther.map((x) => x.name))].slice(0, 4).join("; ");
     const confirmed = absenceOk || peerOther.some((x) => x.where !== site);
-    push("peer_neighbors", confirmed ? "fired" : "unknown", `Peers ${names}, no Touraine/Vouvray${confirmed ? "" : " (coverage too low to claim the absence)"}. Evidence (${p.where}): "${p.quote}"`, p.url);
+    push("peer_neighbors", confirmed ? "fired" : "unknown", `Peers ${names}, no ${PROFILE.ourAppellations.join("/")}${confirmed ? "" : " (coverage too low to claim the absence)"}. Evidence (${p.where}): "${p.quote}"`, p.url);
   }
   return out;
 }
 
 // ---- Lookalike importers: peer Loire growers -> who imports them in California ----
 
-const PEER_AOC = /\b(touraine|montlouis|vouvray|anjou|saumur|chinon|bourgueil|savenni[eè]res|layon|bonnezeaux|jasni[eè]res|amboise)\b/i;
+let PEER_AOC: RegExp = /(?!)/; // peer growers' appellations (profile)
 const FULL_PAGE_CHARS = 60000;
 
 export interface Peer {
@@ -853,7 +954,7 @@ export interface Link {
   price?: number;
 }
 
-const PEER_QUERIES = ["organic Vouvray Montlouis domaine Chenin Blanc vigneron", "organic Touraine Chinon Anjou Saumur domaine low-intervention vigneron"];
+const PEER_QUERIES = () => PROFILE.peerSeedQueries.map(fillQuery);
 const PEER_SEARCH_LIMIT = 16;
 
 function window(text: string, needle: string, before = 120, after = 160): string {
@@ -899,14 +1000,14 @@ export async function buildPeers(u: Usage): Promise<Peer[]> {
   for (const pf of readAllPortfolios()) for (const p of pf.producers) add(p.producer, `${p.region} ${p.appellation}`, p.url);
 
   await Promise.all(
-    PEER_QUERIES.map(async (q) => {
+    PEER_QUERIES().map(async (q) => {
       const results = (await search(q, u, { maxResults: 8 }, { peers: true })) ?? [];
       if (!results.length || !hasMistral()) return;
       const key = cacheKey({ peers: q, urls: results.map((r) => r.url) });
       let list = readCache<{ producer: string; appellation: string; result: number }[]>("peers", key);
       if (!list) {
         const listing = results.map((r, i) => `[${i}] ${r.title} (${r.url})\n${(r.rawContent || r.content).slice(0, 4000)}`).join("\n\n");
-        const prompt = `List the Loire Valley wine producers (domaines, growers) named in these pages, with their appellation if stated (Vouvray, Montlouis, Touraine, Chinon, Anjou, Saumur...). Copy names exactly. Return JSON: {"producers":[{"producer","appellation","result"}]}`;
+        const prompt = `List the ${PROFILE.region} wine producers (domaines, growers) named in these pages, with their appellation if stated (${PROFILE.peerAppellations.slice(0, 6).join(", ")}...). Copy names exactly. Return JSON: {"producers":[{"producer","appellation","result"}]}`;
         list = await chatJSON([{ role: "system", content: prompt }, { role: "user", content: listing }], validateProducers).catch(() => null);
         if (!list) return;
         writeCache("peers", key, list);
@@ -975,12 +1076,7 @@ export async function lookalikeImporters(peers: Peer[], pool: Candidate[], u: Us
 
 // ---- Retailer evidence: CA shop product pages that say "imported by" ----------
 
-const RETAIL_QUERIES = () => [
-  `"imported by" Vouvray Chenin Blanc ${REGION.name} wine shop`,
-  `"imported by" Touraine Chenin Blanc ${REGION.name} wine shop`,
-  `"imported by" Chinon Cabernet Franc ${REGION.name} wine shop`,
-  `"imported by" Montlouis Chenin Blanc ${REGION.name} wine shop`,
-];
+const RETAIL_QUERIES = () => PROFILE.retailQueries.map(fillQuery);
 
 function validateRetail(raw: unknown) {
   const list = asObject(raw, "root").items;
@@ -992,7 +1088,7 @@ function validateRetail(raw: unknown) {
   });
 }
 
-const RETAIL_PROMPT = `These are wine shop product pages. For each Loire wine whose page explicitly says "imported by <company>" (or "importer: <company>"),
+const RETAIL_PROMPT = () => `These are wine shop product pages. For each ${PROFILE.region} wine whose page explicitly says "imported by <company>" (or "importer: <company>"),
 return {"wine","producer","appellation","importer","price" (USD number or 0),"result"}. Copy names exactly as written. Return JSON: {"items":[...]}`;
 
 /** Maps importer -> Loire wines seen on California shop pages ("imported by"), for pool candidates only. */
@@ -1006,7 +1102,7 @@ export async function retailerEvidence(pool: Candidate[], u: Usage): Promise<Lin
       let items = readCache<ReturnType<typeof validateRetail>>("retail", key);
       if (!items) {
         const listing = results.map((r, k) => `[${k}] ${r.title} (${r.url})\n${(r.rawContent || r.content).slice(0, 3500)}`).join("\n\n");
-        items = await chatJSON([{ role: "system", content: RETAIL_PROMPT }, { role: "user", content: listing }], validateRetail).catch(() => null);
+        items = await chatJSON([{ role: "system", content: RETAIL_PROMPT() }, { role: "user", content: listing }], validateRetail).catch(() => null);
         if (!items) return;
         writeCache("retail", key, items);
       }
@@ -1031,7 +1127,7 @@ export async function retailerEvidence(pool: Candidate[], u: Usage): Promise<Lin
 /** Re-extracts own-site Loire region pages that were truncated, so the Loire list is read in full. */
 async function fullLoirePages(c: Candidate, pages: WebPage[], u: Usage): Promise<WebPage[]> {
   // Truncated pages, or pages we only have as a short search snippet.
-  const truncated = pages.filter((p) => p.ownSite && /loire/i.test(new URL(p.url).pathname) && (p.text.length >= MAX_PAGE_CHARS - 10 || p.text.length < 2000));
+  const truncated = pages.filter((p) => p.ownSite && REGION_PATH.test(new URL(p.url).pathname) && (p.text.length >= MAX_PAGE_CHARS - 10 || p.text.length < 2000));
   if (!truncated.length) return pages;
   const res = await cachedTavily<RawResult[]>(
     `extract-full-advanced:${truncated.map((p) => p.url).join(",")}`,
@@ -1068,7 +1164,7 @@ function validateJudgement(raw: unknown): Judgement {
   };
 }
 
-const JUDGE_PROMPT = (c: Candidate, icp: ICP) => `You check whether a ${REGION.name} wine importer fits a small organic Loire estate (Touraine/Vouvray/Chinon: Chenin Blanc, Cabernet Franc).
+const JUDGE_PROMPT = (c: Candidate, icp: ICP) => `You check whether a ${REGION.name} wine importer fits a small ${organicWord(DOMAINE)}${PROFILE.region} estate (${DOMAINE.appellations.join("/")}: ${DOMAINE.grapes.slice(0, 2).join(", ")}).
 Ideal buyer: ${icp.sizeBand}; portfolio fit: ${icp.portfolioFit.join(", ")}; price: ${icp.priceBand}.
 The company is "${c.name}" (TTB owner "${c.ownerName}", ${c.city}, ${REGION.code}).
 Use ONLY the numbered snippets. A snippet about another company does not count. Never use outside knowledge.
@@ -1238,13 +1334,17 @@ function hiringProblem(quote: string, s: Snippet): string | null {
 
 // ---- Fit / Opening sub-scores (weights in signals.ts) ------------------------------
 
-const OUR_APPELLATION = /\b(vouvray|touraine)\b/i; // team rule: "same appellation" = Vouvray or Touraine
-const STYLE_RE: Record<"dry" | "sweet" | "sparkling", RegExp> = {
+let OUR_APPELLATION: RegExp = /(?!)/; // "same appellation" = the estate's own appellations (profile)
+const STYLE_RE: Record<WineStyle, RegExp> = {
   sparkling: /\b(p[ée]tillant|mousseux|sparkling|brut|cr[ée]mant|m[ée]thode (?:traditionnelle|ancestrale)|p[ée]t[- ]?nat|fines bulles)\b/i,
   sweet: /\b(moelleux|liquoreux|demi[- ]sec|sweet|doux|off[- ]dry)\b/i,
   dry: /(?<!demi[- ])\b(sec|dry)\b/i,
+  red: /\b(red|reds|rouge)\b/i,
+  rose: /\b(ros[ée]|rosado)\b/i,
 };
-const OUR_STYLES = (Object.keys(STYLE_RE) as (keyof typeof STYLE_RE)[]).filter((k) => STYLE_RE[k].test(DEMO_DOMAINE.description)); // dry + sparkling
+let OUR_STYLES: WineStyle[] = []; // the estate's styles (profile)
+/** Styles detected on competitors' pages: dry/sweet/sparkling always, red/rose only if the estate makes them. */
+const styleKeys = (): WineStyle[] => ["sparkling", "sweet", "dry", ...OUR_STYLES.filter((x) => x === "red" || x === "rose")];
 const ORGANIC_RE = /\b(organic|natural|biodynamic|low[- ]intervention|minimal intervention|sustainab\w*|additives?|zero intervention)\b/i;
 const SMALL_RE = /\b(small|micro|family|growers?|artisan\w*|vignerons?)\b/i;
 
@@ -1274,7 +1374,7 @@ function competitorOf(p: { producer: string; appellation: string; url: string; q
     const i = flat.toLowerCase().indexOf(p.producer.toLowerCase());
     if (i >= 0) text = flat.slice(Math.max(0, i - 40), i + p.producer.length + 220);
   }
-  const styles = (Object.keys(STYLE_RE) as (keyof typeof STYLE_RE)[]).filter((k) => STYLE_RE[k].test(text));
+  const styles = styleKeys().filter((k) => STYLE_RE[k].test(text));
   const prices = [...text.matchAll(/\$\s?(\d{2,3}(?:\.\d{2})?)\b/g)].map((m) => Number(m[1]));
   return { producer: p.producer, appellation: p.appellation, styles, prices, url: p.url, text };
 }
@@ -1352,8 +1452,10 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   const distinct = <T extends { producer: string }>(xs: T[]) => xs.filter((x, i) => xs.findIndex((y) => squash(y.producer) === squash(x.producer)) === i);
   const loire = distinct(entries.filter((x) => LOIRE.test(x.region)));
   const ours = distinct(loire.filter((x) => OUR_APPELLATION.test(x.appellation)));
-  const vouvray = ours.filter((x) => /vouvray/i.test(x.appellation));
-  const touraine = ours.filter((x) => /touraine/i.test(x.appellation));
+  // Estates per own appellation (saturation picks the most represented; ties -> first appellation).
+  const perApp = PROFILE.ourAppellations.map((app) => ({ app, xs: ours.filter((x) => termRe([app]).test(x.appellation)) }));
+  const R = PROFILE.region;
+  const OURS = PROFILE.ourAppellations.join("/") || "our appellation";
   const absenceOk = Boolean(pf && cov && (!cov.low || cov.loireFull) && pf.producers.length >= 10);
   const confirmLink = links.find((l) => LOIRE.test(l.appellation) && !OUR_APPELLATION.test(l.appellation));
   const names = (xs: { producer: string; appellation: string }[], n = 4) => xs.slice(0, n).map((x) => `${x.producer} (${x.appellation})`).join("; ");
@@ -1362,9 +1464,9 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   const gp = got("grower_philosophy");
   if (gp && ORGANIC_RE.test(gp.snippet)) add("Fit", "organic_natural", "organic / natural", W.fit.organicNatural, "fired", gp.snippet, gp.url, gp.title);
   if (gp && (SMALL_RE.test(gp.snippet) || !ORGANIC_RE.test(gp.snippet))) add("Fit", "small_growers", "small growers", W.fit.smallGrowers, "fired", gp.snippet, gp.url, gp.title);
-  if (loire.length) add("Fit", "loire_presence", "Loire presence", W.fit.loirePresence, "fired", `${loire.length} Loire producer(s): ${names(loire)}. Evidence: "${loire[0].quote}"`, loire[0].url);
+  if (loire.length) add("Fit", "loire_presence", `${R} presence`, W.fit.loirePresence, "fired", `${loire.length} ${R} producer(s): ${names(loire)}. Evidence: "${loire[0].quote}"`, loire[0].url);
   if (loire.length >= W.loireSpecialistMin && !ours.length)
-    add("Fit", "loire_specialist", "Loire specialist (no Vouvray/Touraine)", W.fit.loireSpecialist, absenceOk ? "fired" : "unknown", `${loire.length} Loire producers, none from Vouvray/Touraine${absenceOk ? "" : ` — ${cov?.label ?? "catalogue not read"}: too little read to claim the absence`}`, loire[0].url);
+    add("Fit", "loire_specialist", `${R} specialist (no ${OURS})`, W.fit.loireSpecialist, absenceOk ? "fired" : "unknown", `${loire.length} ${R} producers, none from ${OURS}${absenceOk ? "" : ` — ${cov?.label ?? "catalogue not read"}: too little read to claim the absence`}`, loire[0].url);
   const price = hits.find((h) => h.id === "price_match");
   if (price) add("Fit", "price_match", "price range overlap", W.fit.priceOverlap, price.status === "fired" ? "fired" : "unknown", price.snippet, price.url, price.title);
   const nb = got("neighbor_regions");
@@ -1377,7 +1479,7 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   // ---- Opening
   if (loire.length && !ours.length) {
     const status = absenceOk || confirmLink ? "fired" : "unknown";
-    add("Opening", "portfolio_hole", "room: Loire book without Vouvray/Touraine", W.opening.room, status, `Loire: ${names(loire, 3)}; no Vouvray/Touraine${status === "fired" ? (absenceOk ? ` (${cov?.label})` : ` — confirmed by ${whereOf(confirmLink!)}`) : ` — ${cov?.label ?? "catalogue not read"}: absence not provable`}`, loire[0].url);
+    add("Opening", "portfolio_hole", `room: ${R} book without ${OURS}`, W.opening.room, status, `${R}: ${names(loire, 3)}; no ${OURS}${status === "fired" ? (absenceOk ? ` (${cov?.label})` : ` — confirmed by ${whereOf(confirmLink!)}`) : ` — ${cov?.label ?? "catalogue not read"}: absence not provable`}`, loire[0].url);
   }
   const bq = got("boutique_size");
   if (bq) add("Opening", "boutique_size", "boutique size", W.opening.boutique, "fired", bq.snippet, bq.url, bq.title);
@@ -1385,7 +1487,7 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   if (rh) add("Opening", "recent_or_hiring", "hiring / new permit", W.opening.hiringOrNewPermit, rh.status === "fired" ? "fired" : "unknown", rh.snippet, rh.url, rh.title);
   const tf = got("tastings_fairs");
   if (tf) add("Opening", "tastings_fairs", "portfolio tastings / fairs", W.opening.tastings, "fired", tf.snippet, tf.url, tf.title);
-  const sat = vouvray.length >= touraine.length ? { app: "Vouvray", xs: vouvray } : { app: "Touraine", xs: touraine };
+  const sat = perApp.reduce((best, cur) => (cur.xs.length > best.xs.length ? cur : best), perApp[0] ?? { app: OURS, xs: [] as typeof ours });
   if (sat.xs.length >= W.saturatedMin) add("Opening", "loire_saturated", `saturated: ${sat.xs.length} ${sat.app} estates`, W.opening.saturated, "fired", `Already carries ${sat.xs.length} ${sat.app} estates: ${names(sat.xs)}. Evidence: "${sat.xs[0].quote}"`, sat.xs[0].url);
   const comps = ours.map((x) => competitorOf(x, pages));
   if (comps.length) {
@@ -1470,17 +1572,21 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
 
 /** One line on how to approach the importer, built only from the evidence above. */
 function angleFor(x: { ours: { producer: string; appellation: string }[]; rated: Competitor[]; loire: { producer: string; appellation: string }[]; sat: { app: string; xs: unknown[] }; hiring: boolean; tastings: boolean; organic: boolean; mega?: SignalHit; bigHouses?: SignalHit; absenceOk: boolean }): string {
+  const R = PROFILE.region, OURS = PROFILE.ourAppellations.join("/") || "our appellation", A0 = PROFILE.ourAppellations[0] ?? R;
+  const G = mainGrape(DOMAINE), ALT = altWine(DOMAINE), ORG = organicWord(DOMAINE);
+  const STY = OUR_STYLES.filter((x) => x === "dry" || x === "sweet" || x === "sparkling").join(" and ") || OUR_STYLES[0] || "";
+  const LEAD = OUR_STYLES.includes("sparkling") ? "sparkling" : OUR_STYLES[0] ?? "";
   const tail = `${x.tastings ? " Ask for a slot at their portfolio tasting." : ""}${x.hiring ? " They are hiring: time the outreach now." : ""}`;
-  if (x.mega) return `Large distributor ("${x.mega.snippet.slice(0, 80)}"): low priority, volumes too high for a ${DEMO_DOMAINE.exportBottles.toLocaleString("en-US")}-bottle export allocation.`;
+  if (x.mega) return `Large distributor ("${x.mega.snippet.slice(0, 80)}"): low priority, volumes too high for a ${DOMAINE.exportBottles.toLocaleString("en-US")}-bottle export allocation.`;
   const sweet = x.rated.find((k) => k.styles.includes("sweet") && !k.styles.some((st) => (OUR_STYLES as string[]).includes(st)));
-  if (sweet) return `Has a sweet ${sweet.appellation} (${sweet.producer}): pitch our dry and sparkling Chenin as the missing styles.${tail}`;
-  if (x.sat.xs.length >= SUBSCORE_WEIGHTS.saturatedMin) return `Already ${x.sat.xs.length} ${x.sat.app} estates (${x.ours.slice(0, 3).map((o) => o.producer).join(", ")}): no room for another Chenin; at most pitch our chilled Cabernet Franc.${tail}`;
-  if (x.ours.length) return `Already carries ${x.ours[0].producer} (${x.ours[0].appellation}); style/price unknown: check their bottling before pitching, lead with our sparkling Chenin.${tail}`;
-  if (x.loire.length && x.absenceOk) return `Loire book without Vouvray/Touraine (${x.loire.slice(0, 3).map((o) => o.producer).join(", ")}): pitch our organic Vouvray as the missing appellation.${tail}`;
-  if (x.loire.length) return `Carries Loire (${x.loire.slice(0, 2).map((o) => o.producer).join(", ")}) but the catalogue was not fully read: check for a Vouvray first, then pitch our organic Chenin.${tail}`;
+  if (sweet) return `Has a sweet ${sweet.appellation} (${sweet.producer}): pitch our ${STY} ${G} as the missing styles.${tail}`;
+  if (x.sat.xs.length >= SUBSCORE_WEIGHTS.saturatedMin) return `Already ${x.sat.xs.length} ${x.sat.app} estates (${x.ours.slice(0, 3).map((o) => o.producer).join(", ")}): no room for another ${G}; at most pitch our ${ALT}.${tail}`;
+  if (x.ours.length) return `Already carries ${x.ours[0].producer} (${x.ours[0].appellation}); style/price unknown: check their bottling before pitching, lead with our ${LEAD} ${G}.${tail}`;
+  if (x.loire.length && x.absenceOk) return `${R} book without ${OURS} (${x.loire.slice(0, 3).map((o) => o.producer).join(", ")}): pitch our ${ORG}${A0} as the missing appellation.${tail}`;
+  if (x.loire.length) return `Carries ${R} (${x.loire.slice(0, 2).map((o) => o.producer).join(", ")}) but the catalogue was not fully read: check for a ${A0} first, then pitch our ${ORG}${G}.${tail}`;
   if (x.bigHouses) return `Focus on big houses / grand crus: weak fit for a small organic estate.${tail}`;
-  if (x.organic) return `Natural/organic importer with no Loire proven: lead with organic farming and low intervention, send the dry Chenin and the chilled Cabernet Franc.${tail}`;
-  return `No Loire or style evidence yet: qualify with a short intro email before sending samples.${tail}`;
+  if (x.organic) return `Natural/organic importer with no ${R} proven: lead with organic farming and low intervention, send the ${OUR_STYLES[0] ?? ""} ${G} and the ${ALT}.${tail}`;
+  return `No ${R} or style evidence yet: qualify with a short intro email before sending samples.${tail}`;
 }
 
 async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, extra: ExtraEvidence): Promise<ScoredLead | null> {
@@ -1783,8 +1889,9 @@ export function manualCandidates(): { candidate: Candidate; byName: boolean; not
  * Full pipeline: candidate pool (TTB + reverse search) -> lookalike importers (peer growers)
  * -> CA shop evidence -> Moss index -> per-candidate scoring. Sorted by fitScore.
  */
-export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: ScoredLead[]; backend: string }> {
+export async function discoverLeads(icp: ICP, u: Usage, domaine: Domaine = DEMO_DOMAINE): Promise<{ leads: ScoredLead[]; backend: string }> {
   setRegion(icp.states?.[0]);
+  setProfile(await regionProfile(domaine), domaine);
   const pool = await discoverCandidates(u);
   for (const e of pool) e.pages = await fullLoirePages(e.candidate, e.pages, u);
   // Portfolios first (cached): they seed the peer list.
@@ -1827,7 +1934,7 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   }
   console.log(`[discover] manual: ${manualLog.join(" | ")}`);
   const links = [...look.links, ...(await retailerEvidence(all.map((e) => e.candidate), u))];
-  const shelf = shelfRange(DEMO_DOMAINE.priceRangeEur);
+  const shelf = shelfRange(domaine.priceRangeEur);
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);
 
   const index = await buildIndex(all.flatMap((e) => e.pages));
