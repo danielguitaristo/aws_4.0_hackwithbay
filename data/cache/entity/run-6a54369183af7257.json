@@ -1,0 +1,257 @@
+{
+ "createdAt": "2026-11-24T22:11:03.423Z",
+ "log": [
+  {
+   "lead": "Authentic Wine Selections",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The context explicitly names 'Authentic Wine Selections' as the importer.",
+   "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm"
+  },
+  {
+   "lead": "Authentic Wine Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and context reference 'AuthenticWS.com' and 'AWS Direct Import', which are associated with Authentic Wine Selections.",
+   "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote lists producers under its portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "loire_specialist",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote explicitly references its Loire producers.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote lists French regions under its portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Grand Cru Selections LLC",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote details its Loire portfolio.",
+   "url": "https://grandcruselections.com/france-ca"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "organic_natural",
+   "verdict": "sister_or_related_company",
+   "reason": "The text refers to 'Rovine Selections' and 'Zev Rovine Selections', which are related to Zev Rovine, not 'Sylvester/Rovine Selections' or 'SYLVESTER WINE IMPORTS, INC.'",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Sylvester/Rovine Selections",
+   "signal": "boutique_size",
+   "verdict": "sister_or_related_company",
+   "reason": "The text refers to 'Zev Rovine Selections', which is a related company to Zev Rovine, not 'Sylvester/Rovine Selections' or 'SYLVESTER WINE IMPORTS, INC.'",
+   "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is Cru Wines' own portfolio page, explicitly listing their offerings.",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is Cru Wines' own portfolio page, explicitly listing their offerings.",
+   "url": "https://cruwines.net/portfolio"
+  },
+  {
+   "lead": "Cru Wines",
+   "signal": "big_houses",
+   "verdict": "same_company",
+   "reason": "The URL is a subpage of Cru Wines' website, detailing a specific wine they import.",
+   "url": "https://cruwines.net/chateau-des-graviers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Farm Wine Imports' own website.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' producers page, listing their portfolio.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' producers page, listing their portfolio.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' own website, mentioning their events.",
+   "url": "https://www.farmwineimports.com"
+  },
+  {
+   "lead": "Farm Wine Imports",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The URL is Farm Wine Imports' producers page, listing their portfolio.",
+   "url": "https://www.farmwineimports.com/producers"
+  },
+  {
+   "lead": "Dime Group International",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The URL and quote explicitly reference 'JVS Imports' and 'JVS Wines Imports', matching the TTB permit holder name 'JVS WINES IMPORT, INC.' for Dime Group International.",
+   "url": "https://jvsimports.com"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The interview explicitly names 'Amy Atwood Selections' as the company and discusses its focus on natural wines.",
+   "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections"
+  },
+  {
+   "lead": "Amy Atwood Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The article directly refers to 'Amy Atwood Selections' as the pioneering small-batch organic wine importer.",
+   "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business"
+  },
+  {
+   "lead": "Atherton Wine Imports",
+   "signal": "mega_distributor",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly mention 'Floraison Selections' as the importer and distributor.",
+   "url": "https://www.floraisonselections.com/loire"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Floraison Selections' own website, listing growers and domaines.",
+   "url": "https://www.floraisonselections.com/growers"
+  },
+  {
+   "lead": "Floraison Selections",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The quote explicitly states 'Domaine de Sérol (from Floraison Selections)', identifying Floraison Selections as the importer.",
+   "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "small_growers",
+   "verdict": "unclear",
+   "reason": "auto-generated profile page (tavily.com) never counts as evidence",
+   "url": "https://tavily.com/knowledge/company/OVD2bMckEubl"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Kermit Lynch Wine Merchant and its Loire producers.",
+   "url": "https://kermitlynch.com/region/loire"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "loire_specialist",
+   "verdict": "same_company",
+   "reason": "The URL and quote are from Kermit Lynch's official website, discussing its Loire portfolio.",
+   "url": "https://kermitlynch.com/region/loire"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is Kermit Lynch's official shop, listing wines from various French regions.",
+   "url": "https://shop.kermitlynch.com"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "portfolio_hole",
+   "verdict": "same_company",
+   "reason": "The URL and context are from Kermit Lynch's official website, detailing its Loire producers.",
+   "url": "https://kermitlynch.com/region/loire"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The quote explicitly names Kermit Lynch as the importer hosting the portfolio tasting.",
+   "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "URL is from the official website of Kermit Lynch, Wine Merchant",
+   "url": "https://kermitlynch.com/files/podere-campriano.pdf"
+  },
+  {
+   "lead": "The Wine Source Co.",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The URL is from the company's own website (thewinesourceinc.com).",
+   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' own website, explicitly naming the company.",
+   "url": "https://www.beauneimports.com/about"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "loire_presence",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' own website, listing producers they work with.",
+   "url": "https://www.beauneimports.com/producers"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' own website, listing regions and producers they represent.",
+   "url": "https://www.beauneimports.com/producers"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' own website, describing the company.",
+   "url": "https://www.beauneimports.com/about"
+  },
+  {
+   "lead": "Beaune Imports",
+   "signal": "loire_saturated",
+   "verdict": "same_company",
+   "reason": "The quote is from Beaune Imports' own website, listing a product and producer they carry.",
+   "url": "https://www.beauneimports.com/product/vouvray-sec"
+  }
+ ]
+}

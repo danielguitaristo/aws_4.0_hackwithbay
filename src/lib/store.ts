@@ -29,46 +29,86 @@ export interface RuntimeState {
 }
 
 const STATE_FILE = path.join(process.cwd(), "data", "runtime", "state.json");
+const DISCOVER_CACHE_DIR = path.join(process.cwd(), "data", "cache", "discover");
+
+function loadCachedDiscoverLeads(): Lead[] {
+  try {
+    if (!fs.existsSync(DISCOVER_CACHE_DIR)) return [];
+    const files = fs.readdirSync(DISCOVER_CACHE_DIR).filter((file) => file.endsWith(".json"));
+    const runs: { createdAt: string; leads: Lead[] }[] = [];
+
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(path.join(DISCOVER_CACHE_DIR, file), "utf8");
+        const parsed = JSON.parse(raw) as { createdAt?: string; leads?: Lead[] };
+        if (parsed && Array.isArray(parsed.leads) && parsed.leads.length > 0) {
+          runs.push({
+            createdAt: parsed.createdAt || "",
+            leads: parsed.leads,
+          });
+        }
+      } catch {
+        // Ignore malformed cache file and continue scanning others.
+      }
+    }
+
+    if (runs.length === 0) return [];
+    runs.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+    return runs[0].leads.map((lead) => ({
+      ...lead,
+      stage: lead.stage || "matched",
+      enriched: Boolean(lead.enriched),
+    }));
+  } catch {
+    return [];
+  }
+}
 
 function makeInitialState(): RuntimeState {
   const startingCredits = Number(process.env.STARTING_CREDITS || "200");
   const safeCredits = Number.isFinite(startingCredits) && startingCredits > 0 ? startingCredits : 200;
   const now = new Date().toISOString();
+  const discoveredLeads = loadCachedDiscoverLeads();
+  const usingRealLeads = discoveredLeads.length > 0;
 
-  const initialEvents: LeadEvent[] = [
-    {
-      id: "evt_init_1",
-      leadId: "mock1",
-      type: "enriched",
-      actor: "agent",
-      at: now,
-      note: "Resolved contact email for Example Selections",
-    },
-    {
-      id: "evt_init_2",
-      leadId: "mock1",
-      type: "drafted",
-      actor: "agent",
-      at: now,
-      note: "Drafted Variant A email awaiting human approval",
-    },
-    {
-      id: "evt_init_3",
-      leadId: "mock2",
-      type: "stage",
-      stage: "contacted",
-      actor: "rep",
-      at: now,
-      note: "Moved to Contacted by sales rep",
-    },
-  ];
+  const initialEvents: LeadEvent[] = usingRealLeads
+    ? []
+    : [
+        {
+          id: "evt_init_1",
+          leadId: "mock1",
+          type: "enriched",
+          actor: "agent",
+          at: now,
+          note: "Resolved contact email for Example Selections",
+        },
+        {
+          id: "evt_init_2",
+          leadId: "mock1",
+          type: "drafted",
+          actor: "agent",
+          at: now,
+          note: "Drafted Variant A email awaiting human approval",
+        },
+        {
+          id: "evt_init_3",
+          leadId: "mock2",
+          type: "stage",
+          stage: "contacted",
+          actor: "rep",
+          at: now,
+          note: "Moved to Contacted by sales rep",
+        },
+      ];
 
   const initialThoughts: ThoughtLog[] = [
     {
       id: "th_init_1",
       at: now,
       agent: "planner",
-      text: "Initialized WineGTM workspace for Domaine des Petites Pierres (Loire Valley).",
+      text: usingRealLeads
+        ? `Initialized WineGTM workspace for ${DEMO_DOMAINE.name} with ${discoveredLeads.length} real TTB/CA discovered importers.`
+        : `Initialized WineGTM workspace for ${DEMO_DOMAINE.name} (fallback mock leads).`,
     },
     {
       id: "th_init_2",
@@ -80,8 +120,8 @@ function makeInitialState(): RuntimeState {
 
   return {
     domaine: structuredClone(DEMO_DOMAINE),
-    leads: structuredClone(MOCK_LEADS),
-    messages: structuredClone(MOCK_MESSAGES),
+    leads: usingRealLeads ? discoveredLeads : structuredClone(MOCK_LEADS),
+    messages: usingRealLeads ? [] : structuredClone(MOCK_MESSAGES),
     events: initialEvents,
     thoughts: initialThoughts,
     creditsRemaining: safeCredits,
@@ -159,13 +199,25 @@ export function getLead(id: string): Lead | undefined {
 
 export function upsertLeads(incoming: Lead[]): Lead[] {
   const state = getState();
+  const hasRealIncoming = incoming.some((item) => !item.id.startsWith("mock"));
+  if (hasRealIncoming) {
+    state.leads = state.leads.filter((lead) => !lead.id.startsWith("mock"));
+  }
+
   const updated: Lead[] = [];
 
   for (const item of incoming) {
     const existingIndex = state.leads.findIndex((lead) => lead.id === item.id);
     if (existingIndex >= 0) {
-      state.leads[existingIndex] = item;
-      updated.push(item);
+      const existing = state.leads[existingIndex];
+      const merged: Lead = {
+        ...item,
+        contact: existing.contact?.email ? existing.contact : item.contact || existing.contact,
+        enriched: existing.enriched || item.enriched,
+        stage: existing.stage !== "matched" ? existing.stage : item.stage || "matched",
+      };
+      state.leads[existingIndex] = merged;
+      updated.push(merged);
     } else {
       state.leads.push(item);
       updated.push(item);

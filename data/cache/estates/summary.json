@@ -1,0 +1,53 @@
+{
+ "createdAt": "2026-11-24T22:11:04.308Z",
+ "rows": [
+  {
+   "estate": "Domaine de la Taille aux Loups",
+   "appellation": "Montlouis",
+   "touraine": true,
+   "importer": "(own website not found)",
+   "where": "",
+   "url": ""
+  },
+  {
+   "estate": "Domaine de la Fontainerie",
+   "appellation": "Loire Valley Touraine",
+   "touraine": true,
+   "importer": "(own website not found)",
+   "where": "",
+   "url": ""
+  },
+  {
+   "estate": "Domaine du Matin Calme",
+   "appellation": "Anjou & the Coteaux du Layon",
+   "touraine": false,
+   "importer": "(no US importer named)",
+   "where": "",
+   "url": "https://www.domainedumatincalme.fr/vie-privee"
+  },
+  {
+   "estate": "Domaine de la Noblaie",
+   "appellation": "Chinon, Bourgueil",
+   "touraine": false,
+   "importer": "(no importer page found)",
+   "where": "",
+   "url": "https://lanoblaie.fr"
+  },
+  {
+   "estate": "Domaine Paul Buisse",
+   "appellation": "Touraine",
+   "touraine": true,
+   "importer": "(no importer page found)",
+   "where": "",
+   "url": "https://www.paul-buisse.com"
+  },
+  {
+   "estate": "Domaine la Bonnelière",
+   "appellation": "Saumur, Saumur-Champigny",
+   "touraine": false,
+   "importer": "(no importer page found)",
+   "where": "",
+   "url": "https://www.labonneliere.com"
+  }
+ ]
+}

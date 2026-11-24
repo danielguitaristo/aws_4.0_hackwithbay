@@ -1,0 +1,27 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is Cru Wines' own portfolio page, listing their imported wines."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is Cru Wines' own portfolio page, listing their imported wines from French regions."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The quote explicitly references Cru Wines' portfolio and includes their domain (cruwines.net)."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is Cru Wines' own page for Chateau des Graviers, with footer noting 'Cru Wines, LLC'."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is Cru Wines' own portfolio page, listing Bordeaux wines they import."
+ }
+]

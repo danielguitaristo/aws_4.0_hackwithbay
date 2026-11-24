@@ -89,16 +89,12 @@ async function queryHunterDomain(domain: string, apiKey: string): Promise<Contac
 
 function buildFallbackContact(lead: Lead): Contact {
   const existing = lead.contact;
-  const slug = lead.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  const name = existing?.name || "Portfolio Buyer";
-  const firstName = name.split(" ")[0].toLowerCase().replace(/[^a-z0-9]/g, "") || "buyer";
-
   return {
-    name,
-    role: existing?.role || "Portfolio Director / Buyer",
-    email: existing?.email || `${firstName}@${slug || "importer"}.com`,
-    emailStatus: existing?.emailStatus || "valid",
-    linkedin: existing?.linkedin || `https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(lead.name)}`,
+    name: existing?.name || "No verified contact found",
+    role: existing?.role || "Unverified",
+    email: existing?.email,
+    emailStatus: existing?.emailStatus || "unknown",
+    linkedin: existing?.linkedin,
   };
 }
 
@@ -137,7 +133,7 @@ export async function enrichLead(lead: Lead): Promise<EnrichResult> {
 
   const updated = updateLead(lead.id, {
     contact: resolvedContact,
-    enriched: true,
+    enriched: Boolean(resolvedContact.email),
   });
 
   if (!updated) {
@@ -159,12 +155,16 @@ export async function enrichLead(lead: Lead): Promise<EnrichResult> {
     leadId: lead.id,
     type: "enriched",
     actor: "agent",
-    note: `Resolved contact ${resolvedContact.name} (${resolvedContact.email || "no email"}) via ${source === "hunter" ? "Hunter.io" : "fallback"}.`,
+    note: resolvedContact.email
+      ? `Resolved contact ${resolvedContact.name} (${resolvedContact.email}) via Hunter.io.`
+      : `No verified contact found for ${lead.name} (status: ${resolvedContact.emailStatus || "unknown"}).`,
   });
 
   addThought(
     "enrichment",
-    `Enriched ${lead.name} via ${source === "hunter" ? "Hunter.io" : "fallback"} -> ${resolvedContact.name} <${resolvedContact.email}> (${resolvedContact.emailStatus}).`,
+    resolvedContact.email
+      ? `Enriched ${lead.name} via Hunter.io -> ${resolvedContact.name} <${resolvedContact.email}> (${resolvedContact.emailStatus}).`
+      : `Checked ${lead.name} via Hunter.io -> no verified contact found (status: ${resolvedContact.emailStatus || "unknown"}).`,
   );
 
   return {
@@ -181,7 +181,8 @@ function buildFallbackOutreach(
   channel: "email" | "linkedin",
   variant: string,
 ): { subject: string; body: string } {
-  const contactFirst = lead.contact?.name?.split(" ")[0] || "there";
+  const hasNamedContact = Boolean(lead.contact?.name && lead.contact.name !== "No verified contact found");
+  const contactFirst = hasNamedContact ? lead.contact!.name.split(" ")[0] : "there";
   const topSignal = lead.signals[0] || `your focus on ${lead.portfolio.slice(0, 2).join(" and ") || "grower wines"}`;
   const appellations = domaine.appellations.join(" & ");
 
@@ -227,6 +228,9 @@ export async function generateOutreachDraft(params: {
           ? "Variant B style: lead with winery story, certification, ex-cellar pricing, and a direct sample bottle offer."
           : "Variant A style: ultra-concise (under 110 words), open immediately with the buyer's trigger signal and portfolio gap.";
 
+      const hasNamedContact = Boolean(
+        params.lead.contact?.name && params.lead.contact.name !== "No verified contact found",
+      );
       const promptPayload = {
         estate: params.domaine,
         buyer: {
@@ -236,7 +240,7 @@ export async function generateOutreachDraft(params: {
           state: params.lead.state,
           portfolio: params.lead.portfolio,
           signals: params.lead.signals,
-          contact: params.lead.contact,
+          contact: hasNamedContact ? params.lead.contact : undefined,
         },
         graphInsight: params.graphReason || null,
         channel,

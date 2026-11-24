@@ -1,371 +1,6 @@
 {
- "createdAt": "2026-11-24T21:04:10.228Z",
+ "createdAt": "2026-11-24T22:11:03.836Z",
  "leads": [
-  {
-   "portfolioDetail": [
-    {
-     "producer": "Anderson’s Conn Valley Vineyards",
-     "country": "USA",
-     "region": "Napa Valley",
-     "appellation": "",
-     "grapes": [],
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
-     "quote": "Introducing Anderson’s Conn Valley Vineyards Anderson’s Conn Valley Vineyards was founded in 1983 by Gus and Todd Anderson and released their fi"
-    },
-    {
-     "producer": "Philippe & Sylvain Ravier",
-     "country": "France",
-     "region": "Savoie",
-     "appellation": "Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron",
-     "grapes": [
-      "Roussanne (Bergeron)",
-      "Jacquère"
-     ],
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
-     "quote": "eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell"
-    },
-    {
-     "producer": "Voix de la Vigne",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "Willamette Valley, Red Mountain",
-     "grapes": [
-      "Pinot Noir",
-      "Cabernet Franc",
-      "Pinot Gris"
-     ],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "“Voix de la Vigne started as a natural next step for me in the wine business. In addition to my distribution company,"
-    },
-    {
-     "producer": "Accent de la Vigne",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "",
-     "grapes": [
-      "Pinot Noir",
-      "Sauvignon Blanc"
-     ],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "ernet Franc Voix de la Vigne, Willamette Valley, Pinot Gris Accent de la Vigne Pinot Noir Sauvignon Blanc Learn more at voixdelavigne.com National Distributors ARIZONA Quench 255"
-    },
-    {
-     "producer": "Solena Estate",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "Willamette Valley",
-     "grapes": [],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "I have been distributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we de"
-    },
-    {
-     "producer": "Hyland Estate",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "Willamette Valley",
-     "grapes": [],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "tributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collab"
-    },
-    {
-     "producer": "Brella",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "Willamette Valley",
-     "grapes": [],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collaborate on a n"
-    },
-    {
-     "producer": "Domaine Loubejac",
-     "country": "USA",
-     "region": "Oregon",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "quote": "Hyland, Elvenglade, Kliewer, Olsen, Kramer, Wildewood, and Domaine Loubejac.” – Robert Morrison Featuring: Voix de la Vigne, Willamette Valley, Pinot Noir Voix de la Vigne, Re"
-    }
-   ],
-   "id": "d199132879",
-   "name": "Authentic Wine Selections",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Oakland",
-   "address": "3841 MACARTHUR BLVD STE C, OAKLAND, CA 94619",
-   "website": "https://www.authenticws.com",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-21354",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-21883",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [
-    "Anderson’s Conn Valley Vineyards (Napa Valley), USA",
-    "Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron), France",
-    "Voix de la Vigne (Willamette Valley, Red Mountain), USA",
-    "Accent de la Vigne (Oregon), USA",
-    "Solena Estate (Willamette Valley), USA",
-    "Hyland Estate (Willamette Valley), USA",
-    "Brella (Willamette Valley), USA",
-    "Domaine Loubejac (Oregon), USA"
-   ],
-   "fitScore": 40,
-   "tier": "B",
-   "signals": [
-    "+10 Already imports from neighboring French regions",
-    "+20 Small family / grower / low-intervention philosophy",
-    "+10 New permit, or hiring sales reps / expanding to new states"
-   ],
-   "sources": [
-    {
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
-     "snippet": "1 producer(s) from neighboring regions — Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron). Evidence: \"eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell\""
-    },
-    {
-     "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm",
-     "title": "List Of Wine Importers In USA",
-     "snippet": "small or micro-production wines made by accomplished wine makers"
-    },
-    {
-     "url": "https://www.linkedin.com/in/robert-morrison-b08a598",
-     "title": "Robert Morrison - Owner at Authentic Wine Selections & Voix de la ...",
-     "snippet": "is looking for a dynamic,"
-    },
-    {
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
-     "snippet": "Producers listed: Anderson’s Conn Valley Vineyards (Napa Valley); Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron)"
-    },
-    {
-     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
-     "snippet": "Producers listed: Voix de la Vigne (Willamette Valley, Red Mountain); Accent de la Vigne (Oregon); Solena Estate (Willamette Valley); Hyland Estate (Willamette Valley); Brella (Willamette Valley); Domaine Loubejac (Oregon)"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "small or micro-production wines made by accomplished wine makers",
-     "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm",
-     "title": "List Of Wine Importers In USA"
-    },
-    {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
-     "status": "fired",
-     "snippet": "1 producer(s) from neighboring regions — Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron). Evidence: \"eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell\"",
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
-    },
-    {
-     "id": "recent_or_hiring",
-     "label": "New permit, or hiring sales reps / expanding to new states",
-     "points": 10,
-     "status": "fired",
-     "snippet": "is looking for a dynamic,",
-     "url": "https://www.linkedin.com/in/robert-morrison-b08a598",
-     "title": "Robert Morrison - Owner at Authentic Wine Selections & Voix de la ..."
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "Prices seen ($144, $120) outside estimated shelf range $38-85",
-     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 8 producteurs, 4 pages (total non indiqué)",
-     "points": 0,
-     "status": "info",
-     "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
-     "url": "https://www.authenticws.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "ce9536416b",
-   "name": "Sylvester/Rovine Selections",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Benicia",
-   "address": "4325 INDUSTRIAL WAY, BENICIA, CA 94510",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-16942",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-19055",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 35,
-   "tier": "B",
-   "signals": [
-    "+20 Small family / grower / low-intervention philosophy",
-    "+15 Boutique size (≈10-150 producers), fits a ~500-case first order"
-   ],
-   "sources": [
-    {
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily",
-     "snippet": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives."
-    },
-    {
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily",
-     "snippet": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives.",
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily"
-    },
-    {
-     "id": "boutique_size",
-     "label": "Boutique size (≈10-150 producers), fits a ~500-case first order",
-     "points": 15,
-     "status": "fired",
-     "snippet": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers",
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "f7fc232351",
-   "name": "Amy Atwood Selections",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Los Angeles",
-   "address": "2658 GRIFFITH PARK BLVD UNIT 732, LOS ANGELES, CA 90039",
-   "website": "http://www.amyatwood.com",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-16648",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-17401",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 35,
-   "tier": "B",
-   "signals": [
-    "+20 Small family / grower / low-intervention philosophy",
-    "+15 Boutique size (≈10-150 producers), fits a ~500-case first order"
-   ],
-   "sources": [
-    {
-     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
-     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide",
-     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention"
-    },
-    {
-     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
-     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily",
-     "snippet": "pioneering small-batch organic wine importer, distributor, and producer"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention",
-     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
-     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide"
-    },
-    {
-     "id": "boutique_size",
-     "label": "Boutique size (≈10-150 producers), fits a ~500-case first order",
-     "points": 15,
-     "status": "fired",
-     "snippet": "pioneering small-batch organic wine importer, distributor, and producer",
-     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
-     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "Prices seen ($29.99) outside estimated shelf range $38-85",
-     "url": "https://theepicureantrader.com/pages/makers/amy-atwood"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 0 producteurs, 2 pages (total non indiqué)",
-     "points": 0,
-     "status": "info",
-     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
-     "url": "https://www.amyatwood.com"
-    }
-   ]
-  },
   {
    "portfolioDetail": [
     {
@@ -738,28 +373,32 @@
     "Domaine de la Cadette (Bourgogne), France",
     "Domaine Ostertag (Alsace), France"
    ],
-   "fitScore": 20,
-   "tier": "C",
+   "fitScore": 61,
+   "tier": "A",
    "signals": [
-    "-30 Loire saturated (10+ Loire producers already)",
-    "+10 Already imports from neighboring French regions",
-    "+20 Small family / grower / low-intervention philosophy",
-    "+10 Runs portfolio tastings or attends trade / natural wine fairs",
-    "+10 New permit, or hiring sales reps / expanding to new states"
+    "+20 Fit · Loire presence",
+    "+15 Fit · Loire specialist (no Vouvray/Touraine)",
+    "+10 Fit · neighbor French regions",
+    "+35 Opening · room: Loire book without Vouvray/Touraine",
+    "+20 Opening · portfolio tastings / fairs",
+    "+20 Fit · small growers (own website)"
    ],
    "sources": [
     {
      "url": "https://kermitlynch.com/region/loire",
-     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\""
+     "snippet": "11 Loire producer(s): Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); Eric Chevalier (Loire). Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\""
+    },
+    {
+     "url": "https://kermitlynch.com/region/loire",
+     "snippet": "11 Loire producers, none from Vouvray/Touraine"
     },
     {
      "url": "https://shop.kermitlynch.com",
      "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\""
     },
     {
-     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
-     "title": "Kermit Lynch Wine Merchant",
-     "snippet": "purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region"
+     "url": "https://kermitlynch.com/region/loire",
+     "snippet": "Loire: Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); no Vouvray/Touraine (catalogue lu : 26/143)"
     },
     {
      "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
@@ -767,9 +406,9 @@
      "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch"
     },
     {
-     "url": "https://www.linkedin.com/in/clarkzterry",
-     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant",
-     "snippet": "I’m #hiring for a new associate role in my department"
+     "url": "https://kermitlynch.com/files/podere-campriano.pdf",
+     "title": "podere campriano - Kermit Lynch Wine Merchant",
+     "snippet": "It is all family, all artisanal, all natural, and all good."
     },
     {
      "url": "https://kermitlynch.com/region/loire",
@@ -784,55 +423,120 @@
    "enriched": false,
    "scoreBreakdown": [
     {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
+     "id": "portfolio_hole",
+     "label": "Opening · room: Loire book without Vouvray/Touraine",
+     "points": 35,
      "status": "fired",
-     "snippet": "purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region",
-     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
-     "title": "Kermit Lynch Wine Merchant"
+     "snippet": "Loire: Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); no Vouvray/Touraine (catalogue lu : 26/143)",
+     "url": "https://kermitlynch.com/region/loire"
     },
     {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
      "status": "fired",
-     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\"",
-     "url": "https://shop.kermitlynch.com"
+     "snippet": "11 Loire producer(s): Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); Eric Chevalier (Loire). Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\"",
+     "url": "https://kermitlynch.com/region/loire"
     },
     {
      "id": "tastings_fairs",
-     "label": "Runs portfolio tastings or attends trade / natural wine fairs",
-     "points": 10,
+     "label": "Opening · portfolio tastings / fairs",
+     "points": 20,
      "status": "fired",
      "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch",
      "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
      "title": "Kermit Lynch Wines, New & Current wines reviewed"
     },
     {
-     "id": "recent_or_hiring",
-     "label": "New permit, or hiring sales reps / expanding to new states",
+     "id": "small_growers",
+     "label": "Fit · small growers (own website)",
+     "points": 20,
+     "status": "fired",
+     "snippet": "It is all family, all artisanal, all natural, and all good.",
+     "url": "https://kermitlynch.com/files/podere-campriano.pdf",
+     "title": "podere campriano - Kermit Lynch Wine Merchant"
+    },
+    {
+     "id": "loire_specialist",
+     "label": "Fit · Loire specialist (no Vouvray/Touraine)",
+     "points": 15,
+     "status": "fired",
+     "snippet": "11 Loire producers, none from Vouvray/Touraine",
+     "url": "https://kermitlynch.com/region/loire"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
      "points": 10,
      "status": "fired",
-     "snippet": "I’m #hiring for a new associate role in my department",
-     "url": "https://www.linkedin.com/in/clarkzterry",
-     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant"
+     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\"",
+     "url": "https://shop.kermitlynch.com"
+    },
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Source rule: auto-generated profile page (tavily.com) never counts as evidence. Evidence: purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region",
+     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
+     "title": "Kermit Lynch Wine Merchant"
     },
     {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "Prices seen ($36) outside estimated shelf range $38-85",
      "url": "https://shop.kermitlynch.com/wines"
     },
     {
-     "id": "loire_saturated",
-     "label": "Loire saturated (10+ Loire producers already)",
-     "points": -30,
-     "status": "fired",
-     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\"",
-     "url": "https://kermitlynch.com/region/loire"
+     "id": "recent_or_hiring",
+     "label": "Opening · hiring / new permit",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "\"I’m #hiring for a new associate role in my department\" — not counted: LinkedIn profile activity is undated (never counts)",
+     "url": "https://www.linkedin.com/in/clarkzterry",
+     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 65/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20, Loire specialist (no Vouvray/Touraine) +15, neighbor French regions +10, small growers (own website) +20",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 55/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "room: Loire book without Vouvray/Touraine +35, portfolio tastings / fairs +20",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 61 → A",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 65 + 0.4 × Opening 55 = 61 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire book without Vouvray/Touraine (Thierry Germain, Domaine Roger Neveu, Pascal Janvier): pitch our organic Vouvray as the missing appellation. Ask for a slot at their portfolio tasting.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://kermitlynch.com shows the TTB permit city (Berkeley) — permit \"KERMIT LYNCH, WINE MERCHANT\" (CA-I-16447, CA-I-21694, CA-I-2216, CA-I-22286, CA-I-22289, CA-I-22788, CA-I-22789, CA-I-23548, CA-P-22890, CA-P-22891, CA-P-24174, CA-P-24178, CA-P-25121, CA-P-25122, CA-P-26304, CA-P-5084, Berkeley)",
+     "url": "https://shop.kermitlynch.com/wine-clubs"
     },
     {
      "id": "price_estimate",
@@ -1842,17 +1546,22 @@
     "Enfield Wine Co. (California), United States",
     "Venica & Venica (Collio), Italy"
    ],
-   "fitScore": 5,
-   "tier": "C",
+   "fitScore": 41,
+   "tier": "B",
    "signals": [
-    "-30 Loire saturated (10+ Loire producers already)",
-    "+10 Already imports from neighboring French regions",
-    "+25 Imports Loire peers (lookalike growers) but no Touraine/Vouvray"
+    "+20 Fit · Loire presence",
+    "+15 Fit · Loire specialist (no Vouvray/Touraine)",
+    "+10 Fit · neighbor French regions",
+    "+35 Opening · room: Loire book without Vouvray/Touraine"
    ],
    "sources": [
     {
      "url": "https://grandcruselections.com/france-ca",
-     "snippet": "14 Loire producers listed on grandcruselections.com. Evidence: \"orsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine D\""
+     "snippet": "14 Loire producer(s): Domaine Bailly-Reverdy (Loire Valley); Chateau de Bonnezeaux (Bonnezeaux); Domaine Siret-Courtaud (Loire Valley); Domaine Fief aux Dames (Loire Valley). Evidence: \"orsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine D\""
+    },
+    {
+     "url": "https://grandcruselections.com/france-ca",
+     "snippet": "14 Loire producers, none from Vouvray/Touraine"
     },
     {
      "url": "https://grandcruselections.com/france-ca",
@@ -1860,7 +1569,7 @@
     },
     {
      "url": "https://grandcruselections.com/france-ca",
-     "snippet": "Peers Chateau de Bonnezeaux, no Touraine/Vouvray. Evidence (grandcruselections.com): \"DEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot\""
+     "snippet": "Loire: Domaine Bailly-Reverdy (Loire Valley); Chateau de Bonnezeaux (Bonnezeaux); Domaine Siret-Courtaud (Loire Valley); no Vouvray/Touraine (catalogue lu : 95 producteurs, 18 pages (total non indiqué))"
     },
     {
      "url": "https://grandcruselections.com/france-ca",
@@ -1887,16 +1596,32 @@
    "enriched": false,
    "scoreBreakdown": [
     {
-     "id": "peer_neighbors",
-     "label": "Imports Loire peers (lookalike growers) but no Touraine/Vouvray",
-     "points": 25,
+     "id": "portfolio_hole",
+     "label": "Opening · room: Loire book without Vouvray/Touraine",
+     "points": 35,
      "status": "fired",
-     "snippet": "Peers Chateau de Bonnezeaux, no Touraine/Vouvray. Evidence (grandcruselections.com): \"DEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot\"",
+     "snippet": "Loire: Domaine Bailly-Reverdy (Loire Valley); Chateau de Bonnezeaux (Bonnezeaux); Domaine Siret-Courtaud (Loire Valley); no Vouvray/Touraine (catalogue lu : 95 producteurs, 18 pages (total non indiqué))",
+     "url": "https://grandcruselections.com/france-ca"
+    },
+    {
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
+     "status": "fired",
+     "snippet": "14 Loire producer(s): Domaine Bailly-Reverdy (Loire Valley); Chateau de Bonnezeaux (Bonnezeaux); Domaine Siret-Courtaud (Loire Valley); Domaine Fief aux Dames (Loire Valley). Evidence: \"orsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine D\"",
+     "url": "https://grandcruselections.com/france-ca"
+    },
+    {
+     "id": "loire_specialist",
+     "label": "Fit · Loire specialist (no Vouvray/Touraine)",
+     "points": 15,
+     "status": "fired",
+     "snippet": "14 Loire producers, none from Vouvray/Touraine",
      "url": "https://grandcruselections.com/france-ca"
     },
     {
      "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
+     "label": "Fit · neighbor French regions",
      "points": 10,
      "status": "fired",
      "snippet": "56 producer(s) from neighboring regions — Champagne Noël Bazin (Champagne); Champagne A Bergère (Champagne); Champagne Chartogne-Taillet (Champagne); Champagne Dhondt-Grellet (Champagne). Evidence: \"Contact Us Become a Customer Inquiries Payments France (CA) Champagne Noël Bazin Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Cha\"",
@@ -1904,19 +1629,51 @@
     },
     {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "No bottle price found on the site or in CA shops",
      "url": ""
     },
     {
-     "id": "loire_saturated",
-     "label": "Loire saturated (10+ Loire producers already)",
-     "points": -30,
-     "status": "fired",
-     "snippet": "14 Loire producers listed on grandcruselections.com. Evidence: \"orsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine D\"",
-     "url": "https://grandcruselections.com/france-ca"
+     "id": "fit_score",
+     "label": "Fit 45/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20, Loire specialist (no Vouvray/Touraine) +15, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 35/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "room: Loire book without Vouvray/Touraine +35",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 41 → B",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 45 + 0.4 × Opening 35 = 41 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire book without Vouvray/Touraine (Domaine Bailly-Reverdy, Chateau de Bonnezeaux, Domaine Siret-Courtaud): pitch our organic Vouvray as the missing appellation.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://grandcruselections.com shows the TTB permit holder name — permit \"GRAND CRU SELECTIONS LLC\" (CA-I-24059, CA-P-27027, Benicia)",
+     "url": "https://grandcruselections.com/gcs-cali-team"
     },
     {
      "id": "price_estimate",
@@ -1933,512 +1690,6 @@
      "status": "info",
      "snippet": "95 producers read on 18 own-site pages. Coverage OK.",
      "url": "https://grandcruselections.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [
-    {
-     "producer": "Chateau de Javernand",
-     "country": "France",
-     "region": "Beaujolais",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de"
-    },
-    {
-     "producer": "Domaine de la Madone",
-     "country": "France",
-     "region": "Beaujolais",
-     "appellation": "Fleurie",
-     "grapes": [
-      "Gamay",
-      "Viognier"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos"
-    },
-    {
-     "producer": "Domaine Frederic Sornin",
-     "country": "France",
-     "region": "Beaujolais",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "lais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonnier"
-    },
-    {
-     "producer": "Chateau des Capucins",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Lalande de Pomerol",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sa"
-    },
-    {
-     "producer": "Chateau Clos Dufourg",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Margaux",
-     "grapes": [
-      "Cabernet Sauvignon",
-      "Merlot",
-      "Cabernet Franc",
-      "Petit Verdot",
-      "Malbec"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ric Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feyti"
-    },
-    {
-     "producer": "Chateau La Tessonniere",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Margaux",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "es Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emi"
-    },
-    {
-     "producer": "Domaine de Monteils",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Sauternes",
-     "grapes": [
-      "Semillon",
-      "Sauvignon Blanc",
-      "Muscadelle"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "l Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand C"
-    },
-    {
-     "producer": "Vignobles Feytit & Chateau Feytit-Divon",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Saint-Georges Saint-Emilion",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgo"
-    },
-    {
-     "producer": "Chateau Tour Haut Vignoble",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Saint-Estephe",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "t-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Co"
-    },
-    {
-     "producer": "Domaine Denis Pere & Fils",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "rand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Cotes de Beaune Pernand-Vergelesses Pernand-Vergeles"
-    },
-    {
-     "producer": "Domaine Millet",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Corton-Charlemagne Grand Cru Corton Les Paulands Grand Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Pul"
-    },
-    {
-     "producer": "Domaine Moissenet-Bonnard",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "nd Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1"
-    },
-    {
-     "producer": "Maison Pagnotta",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fui"
-    },
-    {
-     "producer": "Domaine Besson",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "on Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fuisse 1er Cru Domaine Rebourgeon-Mure Bourgogne Beaune 1er Cru Po"
-    },
-    {
-     "producer": "Domaine Rebourgeon-Mure",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [
-      "Pinot Noir"
-     ],
-     "url": "https://cruwines.net/domaine-rebourgeon-mure",
-     "quote": "te of Bouillard. 2021 Bourgogne Maison Dieu Rebourgeon-Mure DOMAINE REBOURGEON-MURE 2021 Bourgogne Cuvée de Maison Dieu Vegan 2019 Beaune 1er Cru Vignes Franches Rebourgeon-Mure DOMAI"
-    },
-    {
-     "producer": "Domaine Philippe Robert et Fils",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "eaune 1er Cru Pommard Pommard 1er Cru Volnay Volnay 1er Cru Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut L"
-    },
-    {
-     "producer": "Champagne Jacques Copin",
-     "country": "France",
-     "region": "Champagne",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "u Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut Le Beauchet Single Vineyard Vintage Champagne Loire"
-    },
-    {
-     "producer": "Domaine Guy Allion",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Touraine",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou"
-    },
-    {
-     "producer": "Le Pavillon du Roy",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Muscadet Sevre et Maine",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sa"
-    },
-    {
-     "producer": "Denis Breussin",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil"
-    },
-    {
-     "producer": "Domaine Gueneau",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Sancerre",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ne Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique"
-    },
-    {
-     "producer": "Domaine des Mailloches",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Bourgueil",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Prove"
-    },
-    {
-     "producer": "Domaine Sourdais-Taveau",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Chinon",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "t Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bando"
-    },
-    {
-     "producer": "Chateau L'Afrique",
-     "country": "France",
-     "region": "Provence",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Med"
-    },
-    {
-     "producer": "Domaine Ray-Jane",
-     "country": "France",
-     "region": "Provence",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "ovence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet"
-    },
-    {
-     "producer": "Domaine Terre de Mistral",
-     "country": "France",
-     "region": "Provence",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "iterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu S"
-    },
-    {
-     "producer": "Domaine Boissonnet",
-     "country": "France",
-     "region": "Rhône",
-     "appellation": "",
-     "grapes": [
-      "Viognier"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "e Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone"
-    },
-    {
-     "producer": "Jean-Pierre Boisson",
-     "country": "France",
-     "region": "Rhône",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "issonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes d"
-    },
-    {
-     "producer": "Domaine de la Ferme Saint-Martin",
-     "country": "France",
-     "region": "Rhône",
-     "appellation": "Beaumes de Venise",
-     "grapes": [
-      "Grenache",
-      "Cinsault",
-      "Syrah",
-      "Roussanne",
-      "Clairette"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "on IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis A"
-    },
-    {
-     "producer": "Domaine Vial-Magneres",
-     "country": "France",
-     "region": "Roussillon",
-     "appellation": "Collioure",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "maine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy -"
-    },
-    {
-     "producer": "Chateau Flotis",
-     "country": "France",
-     "region": "Southwest",
-     "appellation": "Fronton",
-     "grapes": [
-      "Negrette"
-     ],
-     "url": "https://cruwines.net/chateau-flotis",
-     "quote": "llier and is the winemaker of the estate. 2022 Fronton Rose Chateau Flotis CHATEAU FLOTIS 2024 Pét-Nat Sparkling Rosé Organic Conversion & Vegan 2022 Fronton Rose Chateau Flo"
-    },
-    {
-     "producer": "Geniesserhof Haimer",
-     "country": "Austria",
-     "region": "",
-     "appellation": "",
-     "grapes": [
-      "Gruner Veltliner"
-     ],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "eres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cer"
-    },
-    {
-     "producer": "Tenute Senia",
-     "country": "Italy",
-     "region": "Sicily",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cerasuolo di Vittoria DOCG Vittoria Nero d'Avola"
-    },
-    {
-     "producer": "Bresolin Bio",
-     "country": "Italy",
-     "region": "Veneto",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://cruwines.net/portfolio",
-     "quote": "o di Vittoria DOCG Vittoria Nero d'Avola DOC Italy - Veneto Bresolin Bio Asolo Montello Cabernet Sauvignon DOC Asolo Montello Recantina DOC Souvignier Gris Veneto IGT Asolo"
-    },
-    {
-     "producer": "Chateau des Graviers",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "Margaux",
-     "grapes": [],
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "quote": "The 17 acre Bordeaux vineyard of Chateau des Graviers is located in the Arsac region of Margaux and has been in the Dufourg-Landry family for generations"
-    }
-   ],
-   "id": "92f57946f6",
-   "name": "Cru Wines",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Los Angeles",
-   "address": "554 S SAN VICENTE BLVD SUITE #205, LOS ANGELES, CA 90048",
-   "website": "https://cruwines.net",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-15507",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-15905",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [
-    "Chateau de Javernand (Beaujolais), France",
-    "Domaine de la Madone (Fleurie), France",
-    "Domaine Frederic Sornin (Beaujolais), France",
-    "Chateau des Capucins (Lalande de Pomerol), France",
-    "Chateau Clos Dufourg (Margaux), France",
-    "Chateau La Tessonniere (Margaux), France",
-    "Domaine de Monteils (Sauternes), France",
-    "Vignobles Feytit & Chateau Feytit-Divon (Saint-Georges Saint-Emilion), France",
-    "Chateau Tour Haut Vignoble (Saint-Estephe), France",
-    "Domaine Denis Pere & Fils (Burgundy), France",
-    "Domaine Millet (Burgundy), France",
-    "Domaine Moissenet-Bonnard (Burgundy), France",
-    "Maison Pagnotta (Burgundy), France",
-    "Domaine Besson (Burgundy), France",
-    "Domaine Rebourgeon-Mure (Burgundy), France",
-    "Domaine Philippe Robert et Fils (Burgundy), France",
-    "Champagne Jacques Copin (Champagne), France",
-    "Domaine Guy Allion (Touraine), France",
-    "Le Pavillon du Roy (Muscadet Sevre et Maine), France",
-    "Denis Breussin (Loire), France",
-    "Domaine Gueneau (Sancerre), France",
-    "Domaine des Mailloches (Bourgueil), France",
-    "Domaine Sourdais-Taveau (Chinon), France",
-    "Chateau L'Afrique (Provence), France",
-    "Domaine Ray-Jane (Provence), France",
-    "Domaine Terre de Mistral (Provence), France",
-    "Domaine Boissonnet (Rhône), France",
-    "Jean-Pierre Boisson (Rhône), France",
-    "Domaine de la Ferme Saint-Martin (Beaumes de Venise), France",
-    "Domaine Vial-Magneres (Collioure), France",
-    "Chateau Flotis (Fronton), France",
-    "Geniesserhof Haimer, Austria",
-    "Tenute Senia (Sicily), Italy",
-    "Bresolin Bio (Veneto), Italy",
-    "Chateau des Graviers (Margaux), France"
-   ],
-   "fitScore": 0,
-   "tier": "C",
-   "signals": [
-    "-20 Already carries a similar organic Chenin from Touraine/Vouvray",
-    "+10 Already imports from neighboring French regions",
-    "-20 Already imports a direct peer from Touraine/Vouvray",
-    "-15 Focus on big houses / Bordeaux-Burgundy grand cru"
-   ],
-   "sources": [
-    {
-     "url": "https://cruwines.net/portfolio",
-     "snippet": "Already carries Touraine/Vouvray: Domaine Guy Allion (Touraine). Evidence: \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\""
-    },
-    {
-     "url": "https://cruwines.net/portfolio",
-     "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\""
-    },
-    {
-     "url": "https://cruwines.net/portfolio",
-     "snippet": "Direct peer Domaine Guy Allion (cruwines.net): \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\""
-    },
-    {
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "title": "Chateau des Graviers | Cru Wines, LLC",
-     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla"
-    },
-    {
-     "url": "https://cruwines.net/portfolio",
-     "snippet": "Producers listed: Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Chateau des Capucins (Lalande de Pomerol); Chateau Clos Dufourg (Margaux); Chateau La Tessonniere (Margaux); Domaine de Monteils (Sauternes); Vignobles Feytit & Chateau Feytit-Divon (Saint-Georges Saint-Emilion); Chateau Tour Haut Vignoble (Saint-Estephe); Domaine Denis Pere & Fils (Burgundy); Domaine Millet (Burgundy); Domaine Moissenet-Bonnard (Burgundy) (+20 more)"
-    },
-    {
-     "url": "https://cruwines.net/domaine-rebourgeon-mure",
-     "snippet": "Producers listed: Domaine Rebourgeon-Mure (Burgundy)"
-    },
-    {
-     "url": "https://cruwines.net/chateau-flotis",
-     "snippet": "Producers listed: Chateau Flotis (Fronton)"
-    },
-    {
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "snippet": "Producers listed: Chateau des Graviers (Margaux)"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
-     "status": "fired",
-     "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\"",
-     "url": "https://cruwines.net/portfolio"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "big_houses",
-     "label": "Focus on big houses / Bordeaux-Burgundy grand cru",
-     "points": -15,
-     "status": "fired",
-     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla",
-     "url": "https://cruwines.net/chateau-des-graviers",
-     "title": "Chateau des Graviers | Cru Wines, LLC"
-    },
-    {
-     "id": "similar_chenin",
-     "label": "Already carries a similar organic Chenin from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Already carries Touraine/Vouvray: Domaine Guy Allion (Touraine). Evidence: \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\"",
-     "url": "https://cruwines.net/portfolio"
-    },
-    {
-     "id": "peer_touraine",
-     "label": "Already imports a direct peer from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Direct peer Domaine Guy Allion (cruwines.net): \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\"",
-     "url": "https://cruwines.net/portfolio"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 35 producteurs, 11 pages (total non indiqué)",
-     "points": 0,
-     "status": "info",
-     "snippet": "35 producers read on 11 own-site pages. Coverage OK.",
-     "url": "https://cruwines.net"
     }
    ]
   },
@@ -4116,42 +3367,37 @@
     "Alberto Nanclares (Galicia), Spain",
     "Martha Stoumen (California), United States"
    ],
-   "fitScore": 0,
+   "fitScore": 30,
    "tier": "C",
    "signals": [
-    "-20 Already carries a similar organic Chenin from Touraine/Vouvray",
-    "-30 Loire saturated (10+ Loire producers already)",
-    "+10 Already imports from neighboring French regions",
-    "-20 Already imports a direct peer from Touraine/Vouvray",
-    "+20 Small family / grower / low-intervention philosophy",
-    "+10 Runs portfolio tastings or attends trade / natural wine fairs"
+    "+20 Fit · small growers",
+    "+20 Fit · Loire presence",
+    "+10 Fit · neighbor French regions",
+    "+20 Opening · portfolio tastings / fairs",
+    "-30 Opening · saturated: 13 Touraine estates"
    ],
    "sources": [
-    {
-     "url": "https://www.farmwineimports.com/producers",
-     "snippet": "Already carries Touraine/Vouvray: Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine); François Cazin (Touraine); François and Julien Pinon (Touraine); La Grange Tiphaine (Touraine); Thomas Puechavy (Touraine); À La Vôtre - Laurent and Barbara Lebled (Touraine); Claire & Florent Béjon (Touraine); Olga Raffault (Touraine); Ferme de la Sansonnière - Mark Angeli (Touraine); Valérie Forgues (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
-    },
-    {
-     "url": "https://www.farmwineimports.com/producers",
-     "snippet": "18 Loire producers listed on farmwineimports.com. Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
-    },
-    {
-     "url": "https://www.farmwineimports.com/producers",
-     "snippet": "16 producer(s) from neighboring regions — Andre Beaufort (Champagne); Benoît Marguet (Champagne); Olivier & Marie Horiot (Champagne); Tarlant (Champagne). Evidence: \"+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse\""
-    },
-    {
-     "url": "https://www.farmwineimports.com/producers",
-     "snippet": "Direct peer Julien Pineau (farmwineimports.com): \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
-    },
     {
      "url": "https://www.farmwineimports.com",
      "title": "Farm Wine Imports - California Natural Wine Wholesaler",
      "snippet": "We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it."
     },
     {
+     "url": "https://www.farmwineimports.com/producers",
+     "snippet": "18 Loire producer(s): Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
+    },
+    {
+     "url": "https://www.farmwineimports.com/producers",
+     "snippet": "16 producer(s) from neighboring regions — Andre Beaufort (Champagne); Benoît Marguet (Champagne); Olivier & Marie Horiot (Champagne); Tarlant (Champagne). Evidence: \"+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse\""
+    },
+    {
      "url": "https://www.farmwineimports.com",
      "title": "Farm Wine Imports - California Natural Wine Wholesaler",
      "snippet": "THU MAY 14 - @biondivino event at @belso_by_flipp"
+    },
+    {
+     "url": "https://www.farmwineimports.com/producers",
+     "snippet": "Already carries 13 Touraine estates: Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
     },
     {
      "url": "https://www.farmwineimports.com/producers",
@@ -4166,8 +3412,8 @@
    "enriched": false,
    "scoreBreakdown": [
     {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
+     "id": "small_growers",
+     "label": "Fit · small growers",
      "points": 20,
      "status": "fired",
      "snippet": "We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it.",
@@ -4175,25 +3421,33 @@
      "title": "Farm Wine Imports - California Natural Wine Wholesaler"
     },
     {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
      "status": "fired",
-     "snippet": "16 producer(s) from neighboring regions — Andre Beaufort (Champagne); Benoît Marguet (Champagne); Olivier & Marie Horiot (Champagne); Tarlant (Champagne). Evidence: \"+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse\"",
+     "snippet": "18 Loire producer(s): Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\"",
      "url": "https://www.farmwineimports.com/producers"
     },
     {
      "id": "tastings_fairs",
-     "label": "Runs portfolio tastings or attends trade / natural wine fairs",
-     "points": 10,
+     "label": "Opening · portfolio tastings / fairs",
+     "points": 20,
      "status": "fired",
      "snippet": "THU MAY 14 - @biondivino event at @belso_by_flipp",
      "url": "https://www.farmwineimports.com",
      "title": "Farm Wine Imports - California Natural Wine Wholesaler"
     },
     {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "16 producer(s) from neighboring regions — Andre Beaufort (Champagne); Benoît Marguet (Champagne); Olivier & Marie Horiot (Champagne); Tarlant (Champagne). Evidence: \"+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse\"",
+     "url": "https://www.farmwineimports.com/producers"
+    },
+    {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "No bottle price found on the site or in CA shops",
@@ -4201,27 +3455,59 @@
     },
     {
      "id": "similar_chenin",
-     "label": "Already carries a similar organic Chenin from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Already carries Touraine/Vouvray: Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine); François Cazin (Touraine); François and Julien Pinon (Touraine); La Grange Tiphaine (Touraine); Thomas Puechavy (Touraine); À La Vôtre - Laurent and Barbara Lebled (Touraine); Claire & Florent Béjon (Touraine); Olga Raffault (Touraine); Ferme de la Sansonnière - Mark Angeli (Touraine); Valérie Forgues (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\"",
-     "url": "https://www.farmwineimports.com/producers"
-    },
-    {
-     "id": "peer_touraine",
-     "label": "Already imports a direct peer from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Direct peer Julien Pineau (farmwineimports.com): \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\"",
+     "label": "Opening · direct competitor?",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Julien Pineau (Touraine): style not found; Noëlla Morantin (Touraine): style not found; Clos du Tue-Boeuf (Touraine): style not found; Pierrot Bonhomme (Touraine): style not found; François Cazin (Touraine): style not found; François and Julien Pinon (Touraine): style not found; La Grange Tiphaine (Touraine): style not found; Thomas Puechavy (Touraine): style not found; À La Vôtre - Laurent and Barbara Lebled (Touraine): style not found; Claire & Florent Béjon (Touraine): style not found; Olga Raffault (Touraine): style not found; Ferme de la Sansonnière - Mark Angeli (Touraine): style not found; Valérie Forgues (Touraine): style not found",
      "url": "https://www.farmwineimports.com/producers"
     },
     {
      "id": "loire_saturated",
-     "label": "Loire saturated (10+ Loire producers already)",
+     "label": "Opening · saturated: 13 Touraine estates",
      "points": -30,
      "status": "fired",
-     "snippet": "18 Loire producers listed on farmwineimports.com. Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\"",
+     "snippet": "Already carries 13 Touraine estates: Julien Pineau (Touraine); Noëlla Morantin (Touraine); Clos du Tue-Boeuf (Touraine); Pierrot Bonhomme (Touraine). Evidence: \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\"",
      "url": "https://www.farmwineimports.com/producers"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 50/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20, Loire presence +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "portfolio tastings / fairs +20, saturated: 13 Touraine estates -30",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 30 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 50 + 0.4 × Opening 0 = 30 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Already 13 Touraine estates (Julien Pineau, Noëlla Morantin, Clos du Tue-Boeuf): no room for another Chenin; at most pitch our chilled Cabernet Franc. Ask for a slot at their portfolio tasting.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.farmwineimports.com shows the TTB permit city (Berkeley) — permit \"FARM WINE IMPORTS LLC\" (CA-I-22444, CA-P-24511, Berkeley)",
+     "url": "https://www.farmwineimports.com/contact"
     },
     {
      "id": "price_estimate",
@@ -4242,62 +3528,1580 @@
    ]
   },
   {
-   "portfolioDetail": [],
-   "id": "6ff993610b",
-   "name": "Dime Group International",
-   "type": "importer_distributor",
+   "portfolioDetail": [
+    {
+     "producer": "Weinkultur Preiss",
+     "country": "Austria",
+     "region": "Traisental",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ce Online Retail Shop Our Producers ## Austria Traisental + Weinkultur Preiss Wachau + Weingut Donabaum ## Beer, Cider & Non-Alcoholic California + Eye Cyder + Hanabi Lager + Su"
+    },
+    {
+     "producer": "Weingut Donabaum",
+     "country": "Austria",
+     "region": "Wachau",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "roducers ## Austria Traisental + Weinkultur Preiss Wachau + Weingut Donabaum ## Beer, Cider & Non-Alcoholic California + Eye Cyder + Hanabi Lager + Susurrus Sparkling Teas Fran"
+    },
+    {
+     "producer": "Eye Cyder",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "eingut Donabaum ## Beer, Cider & Non-Alcoholic California + Eye Cyder + Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bord"
+    },
+    {
+     "producer": "Hanabi Lager",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "aum ## Beer, Cider & Non-Alcoholic California + Eye Cyder + Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France"
+    },
+    {
+     "producer": "Susurrus Sparkling Teas",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "der & Non-Alcoholic California + Eye Cyder + Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Sc"
+    },
+    {
+     "producer": "eclectik",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace"
+    },
+    {
+     "producer": "Eric Bordelet",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "kling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace Beaujolais + Antoine Sunier + Dom"
+    },
+    {
+     "producer": "Domaine Roland Schmitt",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "lectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux"
+    },
+    {
+     "producer": "Domaine Trapet Alsace",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chtea"
+    },
+    {
+     "producer": "Antoine Sunier",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Domaine Roland Schmitt + Domaine Trapet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon La"
+    },
+    {
+     "producer": "Dominique Piron",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "hmitt + Domaine Trapet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau"
+    },
+    {
+     "producer": "Jean-Claude Lapalu",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "apet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos d"
+    },
+    {
+     "producer": "Clos de la Cure",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri +"
+    },
+    {
+     "producer": "Domaine Hervé Azo",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Chablis/Auxerre",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "u Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnais"
+    },
+    {
+     "producer": "Guilhem & Jean-Hugues Goisot",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Chablis/Auxerre",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "s de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune"
+    },
+    {
+     "producer": "Le Domaine d’Henri",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Chablis/Auxerre",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "uxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils +"
+    },
+    {
+     "producer": "Michel Laroche et Ses Enfants",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Chablis",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
+     "quote": "ertified organically grown. Henceforth, the necociant brand Michel Laroche et ses Enfants will use a combination of estate grown and purchased fruit, all certified organic. The former label"
+    },
+    {
+     "producer": "Domaine MIA",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte Chalonnaise",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus-Bruchon + Domaine de Montille"
+    },
+    {
+     "producer": "Chapelle et Fils",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus-Bruchon + Domaine de Montille + Domaine des Comtes Lafon + Guill"
+    },
+    {
+     "producer": "David Trousselle",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "alonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus-Bruchon + Domaine de Montille + Domaine des Comtes Lafon + Guillaume (formerly Domi"
+    },
+    {
+     "producer": "Domaine Camus-Bruchon",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus-Bruchon + Domaine de Montille + Domaine des Comtes Lafon + Guillaume (formerly Dominique) Lafon + Maison de"
+    },
+    {
+     "producer": "Domaine de Montille",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producer/domaine-de-montille",
+     "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 Domaine de Montille Region FranceBurgundyCôte de Beaune Farming Biodynamic Domaine de Montille is not only one of the g"
+    },
+    {
+     "producer": "Domaine des Comtes Lafon",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producer/domaine-des-comtes-lafon",
+     "quote": "ore about the region’s great terroirs, tasting the wines of Domaine des Comtes Lafon is a true education. Jules Lafon migrated to Burgundy’s Côte d’Or from his native Tarn-et-Garonne i"
+    },
+    {
+     "producer": "Guillaume (formerly Dominique) Lafon",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "-Bruchon + Domaine de Montille + Domaine des Comtes Lafon + Guillaume (formerly Dominique) Lafon + Maison de Montille + Maxime Crotet Côte de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot"
+    },
+    {
+     "producer": "Maison de Montille",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "e des Comtes Lafon + Guillaume (formerly Dominique) Lafon + Maison de Montille + Maxime Crotet Côte de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché +"
+    },
+    {
+     "producer": "Maxime Crotet",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Beaune",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Guillaume (formerly Dominique) Lafon + Maison de Montille + Maxime Crotet Côte de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet P"
+    },
+    {
+     "producer": "Antoine Lienhardt",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Nuits",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Lafon + Maison de Montille + Maxime Crotet Côte de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des"
+    },
+    {
+     "producer": "Domaine Confuron-Cotetidot",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Nuits",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ontille + Maxime Crotet Côte de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Pon"
+    },
+    {
+     "producer": "Domaine Duroché",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Nuits",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "de Nuits + Antoine Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du"
+    },
+    {
+     "producer": "Domaine Trapet Père et Fils",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Côte de Nuits",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet"
+    },
+    {
+     "producer": "Domaine Manciat-Poncet",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Mâconnais",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier +"
+    },
+    {
+     "producer": "Heritiers du Comte Lafon",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Mâconnais",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ls Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blan"
+    },
+    {
+     "producer": "Nicolas Maillet",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Mâconnais",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "uarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapa"
+    },
+    {
+     "producer": "Champagne Tellier",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Coteaux Sud d'Épernay",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "e Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champ"
+    },
+    {
+     "producer": "Laherte Frères",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Coteaux Sud d'Épernay",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "illet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Lerou"
+    },
+    {
+     "producer": "Pascal Agrapart, Agrapart & Fils",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Côte de Blancs",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'A"
+    },
+    {
+     "producer": "Champagne Mouzon-Leroux",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Montagne de Reims",
+     "grapes": [
+      "Pinot Noir",
+      "Chardonnay",
+      "Arbanne",
+      "Petit Meslier",
+      "Pinot Blanc",
+      "Meunier",
+      "Pinot Gris"
+     ],
+     "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
+     "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
+    },
+    {
+     "producer": "R. H. Coutier",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Montagne de Reims",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "& Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison + Vouette et Sorbe"
+    },
+    {
+     "producer": "Vincent Cuillier",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Montagne de Reims",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ntagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison + Vouette et Sorbee Vallée de la Marn"
+    },
+    {
+     "producer": "Champagne Clandestin",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Vallée de l'Aube",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "eroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison + Vouette et Sorbee Vallée de la Marne + Christophe Mignon + Georges Laval Ju"
+    },
+    {
+     "producer": "De Marne/Val Frison",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Vallée de l'Aube",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison + Vouette et Sorbee Vallée de la Marne + Christophe Mignon + Georges Laval Jura + Domaine Courbet +"
+    },
+    {
+     "producer": "Vouette et Sorbee",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Vallée de l'Aube",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ée de l'Aube + Champagne Clandestin + De Marne/Val Frison + Vouette et Sorbee Vallée de la Marne + Christophe Mignon + Georges Laval Jura + Domaine Courbet + Domaine de Saint Pi"
+    },
+    {
+     "producer": "Christophe Mignon",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Vallée de la Marne",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "e Marne/Val Frison + Vouette et Sorbee Vallée de la Marne + Christophe Mignon + Georges Laval Jura + Domaine Courbet + Domaine de Saint Pierre/Fabrice Dodane + Julien Crinquand"
+    },
+    {
+     "producer": "Georges Laval",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "Vallée de la Marne",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Vouette et Sorbee Vallée de la Marne + Christophe Mignon + Georges Laval Jura + Domaine Courbet + Domaine de Saint Pierre/Fabrice Dodane + Julien Crinquand Languedoc & Rous"
+    },
+    {
+     "producer": "Domaine Courbet",
+     "country": "France",
+     "region": "Jura",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "llée de la Marne + Christophe Mignon + Georges Laval Jura + Domaine Courbet + Domaine de Saint Pierre/Fabrice Dodane + Julien Crinquand Languedoc & Roussillon + Clos Marie + D"
+    },
+    {
+     "producer": "Domaine de Saint Pierre/Fabrice Dodane",
+     "country": "France",
+     "region": "Jura",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Christophe Mignon + Georges Laval Jura + Domaine Courbet + Domaine de Saint Pierre/Fabrice Dodane + Julien Crinquand Languedoc & Roussillon + Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac"
+    },
+    {
+     "producer": "Julien Crinquand",
+     "country": "France",
+     "region": "Jura",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Domaine Courbet + Domaine de Saint Pierre/Fabrice Dodane + Julien Crinquand Languedoc & Roussillon + Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses"
+    },
+    {
+     "producer": "Clos Marie",
+     "country": "France",
+     "region": "Languedoc & Roussillon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "/Fabrice Dodane + Julien Crinquand Languedoc & Roussillon + Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anj"
+    },
+    {
+     "producer": "Domaine de l'Hortus",
+     "country": "France",
+     "region": "Languedoc & Roussillon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ne + Julien Crinquand Languedoc & Roussillon + Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Cl"
+    },
+    {
+     "producer": "Mas de Daumas Gassac",
+     "country": "France",
+     "region": "Languedoc & Roussillon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Languedoc & Roussillon + Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-D"
+    },
+    {
+     "producer": "Mas des Brousses",
+     "country": "France",
+     "region": "Languedoc & Roussillon",
+     "appellation": "Terrasses du Larzac",
+     "grapes": [
+      "Grenache",
+      "Syrah",
+      "Merlot",
+      "Cabernet Sauvignon"
+     ],
+     "url": "https://www.beauneimports.com/producer/mas-des-brousses",
+     "quote": "Mas des Brousses Region Farming Outside the charming medieval village of Puéchabon, the vineyards of Mas des Brousse"
+    },
+    {
+     "producer": "Moulin de Gassac",
+     "country": "France",
+     "region": "Languedoc & Roussillon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine"
+    },
+    {
+     "producer": "Clos Rougeard",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "sses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Dom"
+    },
+    {
+     "producer": "Delrieu-Ducleux",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetr"
+    },
+    {
+     "producer": "Domaine des Sanzay",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ey Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais"
+    },
+    {
+     "producer": "Domaine du Closel",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Men"
+    },
+    {
+     "producer": "Domaine du Haut Bourg",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Muscadet Côtes de Grandlieu",
+     "grapes": [
+      "Melon de Bourgogne"
+     ],
+     "url": "https://www.beauneimports.com/producer/domaine-du-haut-bourg",
+     "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 Domaine du Haut Bourg Region FranceLoire ValleyAnjou/Nantais/Saumur Farming Natural farming In the Nantais, where the mou"
+    },
+    {
+     "producer": "Jo Landron-Domaine de la Louvetrie",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ne des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des Vieux Pruniers + Domaine Didier Dagu"
+    },
+    {
+     "producer": "Moulin Touchais",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Anjou/Nantais/Saumur",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "omaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des Vieux Pruniers + Domaine Didier Dagueneau + Domaine Pe"
+    },
+    {
+     "producer": "Domaine des Vieux Pruniers",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Sancerre/Pouilly/Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ouvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des Vieux Pruniers + Domaine Didier Dagueneau + Domaine Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domai"
+    },
+    {
+     "producer": "Domaine Didier Dagueneau",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Sancerre/Pouilly/Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ncerre/Pouilly/Menetou-Salon + Domaine des Vieux Pruniers + Domaine Didier Dagueneau + Domaine Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + Fran"
+    },
+    {
+     "producer": "Domaine Pellé",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Sancerre/Pouilly/Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "n + Domaine des Vieux Pruniers + Domaine Didier Dagueneau + Domaine Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine +"
+    },
+    {
+     "producer": "Domaine Sylvain Bailly",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Sancerre/Pouilly/Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Vieux Pruniers + Domaine Didier Dagueneau + Domaine Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre"
+    },
+    {
+     "producer": "Firmin Dezat",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Sancerre/Pouilly/Menetou-Salon",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Didier Dagueneau + Domaine Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domain"
+    },
+    {
+     "producer": "Domaine de la Fontainerie",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Touraine",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/product/vouvray-sec",
+     "quote": "t • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie"
+    },
+    {
+     "producer": "François Chidaine",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Touraine",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Ch"
+    },
+    {
+     "producer": "Philippe Alliet",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Chinon",
+     "grapes": [
+      "Cabernet Franc",
+      "Chenin Blanc"
+     ],
+     "url": "https://www.beauneimports.com/producer/philippe-alliet",
+     "quote": "Philippe Alliet and his wife, Claude, have farmed in Cravant-les-Coteaux, in the heart of the Chinon AOC since 1985"
+    },
+    {
+     "producer": "Pierre Gauthier/Domaine du Bel Air",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Touraine",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "e de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des E"
+    },
+    {
+     "producer": "Domaine de Trévallon",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ne & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Bali"
+    },
+    {
+     "producer": "Domaine des Entrefaux",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Balivet Southwest France + D"
+    },
+    {
+     "producer": "Domaine Verset A & E",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "a Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Balivet Southwest France + Domaine de Mouscaillo +"
+    },
+    {
+     "producer": "Domaine Verzier",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Balivet Southwest France + Domaine de Mouscaillo + Domaine Didier Dag"
+    },
+    {
+     "producer": "La Cabotte",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ne des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Balivet Southwest France + Domaine de Mouscaillo + Domaine Didier Dagueneau ## Ger"
+    },
+    {
+     "producer": "Domaine Balivet",
+     "country": "France",
+     "region": "Savoie",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "omaine Verset A & E + Domaine Verzier + La Cabotte Savoie + Domaine Balivet Southwest France + Domaine de Mouscaillo + Domaine Didier Dagueneau ## Germany Mosel + Dr. Lippold"
+    },
+    {
+     "producer": "Domaine de Mouscaillo",
+     "country": "France",
+     "region": "Southwest France",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "er + La Cabotte Savoie + Domaine Balivet Southwest France + Domaine de Mouscaillo + Domaine Didier Dagueneau ## Germany Mosel + Dr. Lippold ## Italy Abruzzo + Cirelli + De Sterlich"
+    },
+    {
+     "producer": "Dr. Lippold",
+     "country": "Germany",
+     "region": "Mosel",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "de Mouscaillo + Domaine Didier Dagueneau ## Germany Mosel + Dr. Lippold ## Italy Abruzzo + Cirelli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emil"
+    },
+    {
+     "producer": "Cirelli",
+     "country": "Italy",
+     "region": "Abruzzo",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Dagueneau ## Germany Mosel + Dr. Lippold ## Italy Abruzzo + Cirelli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friu"
+    },
+    {
+     "producer": "De Sterlich",
+     "country": "Italy",
+     "region": "Abruzzo",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "## Germany Mosel + Dr. Lippold ## Italy Abruzzo + Cirelli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di"
+    },
+    {
+     "producer": "Praesidium",
+     "country": "Italy",
+     "region": "Abruzzo",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "el + Dr. Lippold ## Italy Abruzzo + Cirelli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ron"
+    },
+    {
+     "producer": "AIA dei Colombi",
+     "country": "Italy",
+     "region": "Campania",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "aly Abruzzo + Cirelli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantal"
+    },
+    {
+     "producer": "Zampaglione",
+     "country": "Italy",
+     "region": "Campania",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "lli + De Sterlich + Praesidium Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina"
+    },
+    {
+     "producer": "Tre Monti",
+     "country": "Italy",
+     "region": "Emilia-Romagna",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "m Campania + AIA dei Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Lu"
+    },
+    {
+     "producer": "Ronchi di Cialla",
+     "country": "Italy",
+     "region": "Friuli",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "i Colombi + Zampaglione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G"
+    },
+    {
+     "producer": "Ronco Severo",
+     "country": "Italy",
+     "region": "Friuli",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ione Emilia-Romagna + Tre Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Ro"
+    },
+    {
+     "producer": "Cantalupo",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "e Monti Friuli + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Al"
+    },
+    {
+     "producer": "Cascina Morassino",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "li + Ronchi di Cialla + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan +"
+    },
+    {
+     "producer": "G.D. Vajra",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "a + Ronco Severo Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan + Serafino Rive"
+    },
+    {
+     "producer": "Luigi Baudana (Famiglia di G.D. Vajra)",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ero Piemonte + Cantalupo + Cascina Morassino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Tos"
+    },
+    {
+     "producer": "Roagna",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ino + G.D. Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fa"
+    },
+    {
+     "producer": "San Lorenzo Alto-Clay McLachlan",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": ". Vajra + Luigi Baudana (Famiglia di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martin"
+    },
+    {
+     "producer": "Serafino Rivella",
+     "country": "Italy",
+     "region": "Piemonte",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "di G.D. Vajra) + Roagna + San Lorenzo Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le R"
+    },
+    {
+     "producer": "Ayunta",
+     "country": "Italy",
+     "region": "Sicilia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "an Lorenzo Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenid"
+    },
+    {
+     "producer": "COS",
+     "country": "Italy",
+     "region": "Sicilia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "o Alto-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli +"
+    },
+    {
+     "producer": "Naturale",
+     "country": "Italy",
+     "region": "Sicilia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "-Clay McLachlan + Serafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Ca"
+    },
+    {
+     "producer": "Fabio Motta",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "erafino Rivella Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le C"
+    },
+    {
+     "producer": "La Vigna di San Martino ad Argiano",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "a Sicilia + Ayunta + COS + Naturale Toscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée"
+    },
+    {
+     "producer": "Le Ragnaie",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "oscana + Fabio Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Ca"
+    },
+    {
+     "producer": "Montenidoli",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "o Motta + La Vigna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Caves de Donnas"
+    },
+    {
+     "producer": "Soldera® Case Basse®",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "igna di San Martino ad Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Caves de Donnas Veneto + Monte Santocci"
+    },
+    {
+     "producer": "Villa Le Corti",
+     "country": "Italy",
+     "region": "Toscana",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Argiano + Le Ragnaie + Montenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Caves de Donnas Veneto + Monte Santoccio + Tamellini ##"
+    },
+    {
+     "producer": "Pojer e Sandri",
+     "country": "Italy",
+     "region": "Trentino",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "tenidoli + Soldera® Case Basse® + Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Caves de Donnas Veneto + Monte Santoccio + Tamellini ## Portugal Alentejo + Cortes"
+    },
+    {
+     "producer": "Caves de Donnas",
+     "country": "Italy",
+     "region": "Vallée d'Aoste",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Villa Le Corti Trentino + Pojer e Sandri Vallée d'Aoste + Caves de Donnas Veneto + Monte Santoccio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spa"
+    },
+    {
+     "producer": "Monte Santoccio",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Pojer e Sandri Vallée d'Aoste + Caves de Donnas Veneto + Monte Santoccio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zu"
+    },
+    {
+     "producer": "Tamellini",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Vallée d'Aoste + Caves de Donnas Veneto + Monte Santoccio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequ"
+    },
+    {
+     "producer": "Cortes de Cima",
+     "country": "Portugal",
+     "region": "Alentejo",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Veneto + Monte Santoccio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Jav"
+    },
+    {
+     "producer": "Freire Lobo",
+     "country": "Portugal",
+     "region": "Dão",
+     "appellation": "",
+     "grapes": [
+      "Touriga Nacional",
+      "Alfrocheiro",
+      "Tinta Roriz",
+      "Jaen",
+      "Alvarelhão",
+      "Baga",
+      "Bastardo",
+      "Tinto Cão",
+      "Camarate",
+      "Rufete",
+      "Encruzado",
+      "Cerceal",
+      "Bical",
+      "Fernão Pires",
+      "Malvasia",
+      "Barcelo"
+     ],
+     "url": "https://www.beauneimports.com/producer/freire-lobo",
+     "quote": "Freire Lobo Region Farming Elisa Freire Lobo began her winemaking career in 1996, working and studying in the B"
+    },
+    {
+     "producer": "Delgado Zuleta",
+     "country": "Spain",
+     "region": "Andalucia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas Ismael Arroyo + El Hato y el Garaba"
+    },
+    {
+     "producer": "Flequi Berruti",
+     "country": "Spain",
+     "region": "Andalucia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas Ismael Arroyo + El Hato y el Garabato, HG Wines + Ma"
+    },
+    {
+     "producer": "Bodega Javier Sanz",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "dalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas Ismael Arroyo + El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del J"
+    },
+    {
+     "producer": "Bodegas Ismael Arroyo",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "eta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas Ismael Arroyo + El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas"
+    },
+    {
+     "producer": "El Hato y el Garabato, HG Wines",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "tilla y Leon + Bodega Javier Sanz + Bodegas Ismael Arroyo + El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier C"
+    },
+    {
+     "producer": "Margón",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Bodegas Ismael Arroyo + El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galic"
+    },
+    {
+     "producer": "Viñas Serranas",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Ismael Arroyo + El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal +"
+    },
+    {
+     "producer": "Viñedos del Jorco",
+     "country": "Spain",
+     "region": "Castilla y Leon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "El Hato y el Garabato, HG Wines + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Va"
+    },
+    {
+     "producer": "Bohigas",
+     "country": "Spain",
+     "region": "Catalunya",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "s + Margón + Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canaria"
+    },
+    {
+     "producer": "Josep-Maria Vendrell",
+     "country": "Spain",
+     "region": "Catalunya",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Viñas Serranas + Viñedos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes"
+    },
+    {
+     "producer": "Xavier Clua",
+     "country": "Spain",
+     "region": "Catalunya",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "edos del Jorco Catalunya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués +"
+    },
+    {
+     "producer": "Carballal",
+     "country": "Spain",
+     "region": "Galicia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "ya + Bohigas + Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vasc"
+    },
+    {
+     "producer": "Rafael Palacios",
+     "country": "Spain",
+     "region": "Galicia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Josep-Maria Vendrell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri R"
+    },
+    {
+     "producer": "Valdesil",
+     "country": "Spain",
+     "region": "Galicia",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "drell + Xavier Clua Galicia + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bode"
+    },
+    {
+     "producer": "Sortevera",
+     "country": "Spain",
+     "region": "Islas Canarias",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "a + Carballal + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bodegas Exopto ## United States"
+    },
+    {
+     "producer": "Suertes del Marqués",
+     "country": "Spain",
+     "region": "Islas Canarias",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "l + Rafael Palacios + Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bodegas Exopto ## United States California + Arnot-Ro"
+    },
+    {
+     "producer": "Tamerán",
+     "country": "Spain",
+     "region": "Islas Canarias",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Valdesil Islas Canarias + Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bodegas Exopto ## United States California + Arnot-Roberts + Co"
+    },
+    {
+     "producer": "Talai Berri",
+     "country": "Spain",
+     "region": "Países Vascos",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "+ Sortevera + Suertes del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bodegas Exopto ## United States California + Arnot-Roberts + County Line Vineyards + Enfiel"
+    },
+    {
+     "producer": "Bodegas Exopto",
+     "country": "Spain",
+     "region": "Rioja",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "s del Marqués + Tamerán Países Vascos + Talai Berri Rioja + Bodegas Exopto ## United States California + Arnot-Roberts + County Line Vineyards + Enfield Wine Co. + Inconnu +"
+    },
+    {
+     "producer": "Arnot-Roberts",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Berri Rioja + Bodegas Exopto ## United States California + Arnot-Roberts + County Line Vineyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau"
+    },
+    {
+     "producer": "County Line Vineyards",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "odegas Exopto ## United States California + Arnot-Roberts + County Line Vineyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon +"
+    },
+    {
+     "producer": "Enfield Wine Co.",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "States California + Arnot-Roberts + County Line Vineyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + M"
+    },
+    {
+     "producer": "Inconnu",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Arnot-Roberts + County Line Vineyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long"
+    },
+    {
+     "producer": "Popelouchum Estate",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "erts + County Line Vineyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Ai"
+    },
+    {
+     "producer": "Racines",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "neyards + Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Pro"
+    },
+    {
+     "producer": "Radio-Coteau",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "Enfield Wine Co. + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Provisions & Cookw"
+    },
+    {
+     "producer": "Sky Vineyards",
+     "country": "United States",
+     "region": "California",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": ". + Inconnu + Popelouchum Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Provisions & Cookware France - Coo"
+    },
+    {
+     "producer": "Cameron Winery",
+     "country": "United States",
+     "region": "Oregon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "um Estate + Racines + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Provisions & Cookware France - Cookware + Manufacture de D"
+    },
+    {
+     "producer": "Morgen Long Wine",
+     "country": "United States",
+     "region": "Oregon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "es + Radio-Coteau + Sky Vineyards Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Provisions & Cookware France - Cookware + Manufacture de Digoin Italy - Olive"
+    },
+    {
+     "producer": "Aitia",
+     "country": "United States",
+     "region": "Washington",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "rds Oregon + Cameron Winery + Morgen Long Wine Washington + Aitia ## Provisions & Cookware France - Cookware + Manufacture de Digoin Italy - Olive Oils & Vinegars +"
+    }
+   ],
+   "id": "1436d8e240",
+   "name": "Beaune Imports",
+   "type": "importer",
    "state": "CA",
-   "city": "South San Francisco",
-   "address": "360 SWIFT AVENUE, SUITE #9, SOUTH SAN FRANCISCO, CA 94080",
+   "city": "Berkeley",
+   "address": "1179 ARCH ST, BERKELEY, CA 94708",
+   "website": "https://www.beauneimports.com",
    "permits": [
     {
      "source": "TTB",
-     "number": "CA-I-4794",
+     "number": "CA-I-15182",
      "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-16320",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-8525",
-     "kind": "wholesaler"
     }
    ],
-   "portfolio": [],
-   "fitScore": 0,
+   "portfolio": [
+    "Weinkultur Preiss (Traisental), Austria",
+    "Weingut Donabaum (Wachau), Austria",
+    "Eye Cyder (California), United States",
+    "Hanabi Lager (California), United States",
+    "Susurrus Sparkling Teas (California), United States",
+    "eclectik (Burgundy), France",
+    "Eric Bordelet (Normandy), France",
+    "Domaine Roland Schmitt (Alsace), France",
+    "Domaine Trapet Alsace (Alsace), France",
+    "Antoine Sunier (Beaujolais), France",
+    "Dominique Piron (Beaujolais), France",
+    "Jean-Claude Lapalu (Beaujolais), France",
+    "Clos de la Cure (Bordeaux), France",
+    "Domaine Hervé Azo (Chablis/Auxerre), France",
+    "Guilhem & Jean-Hugues Goisot (Chablis/Auxerre), France",
+    "Le Domaine d’Henri (Chablis/Auxerre), France",
+    "Michel Laroche et Ses Enfants (Chablis), France",
+    "Domaine MIA (Côte Chalonnaise), France",
+    "Chapelle et Fils (Côte de Beaune), France",
+    "David Trousselle (Côte de Beaune), France",
+    "Domaine Camus-Bruchon (Côte de Beaune), France",
+    "Domaine de Montille (Côte de Beaune), France",
+    "Domaine des Comtes Lafon (Côte de Beaune), France",
+    "Guillaume (formerly Dominique) Lafon (Côte de Beaune), France",
+    "Maison de Montille (Côte de Beaune), France",
+    "Maxime Crotet (Côte de Beaune), France",
+    "Antoine Lienhardt (Côte de Nuits), France",
+    "Domaine Confuron-Cotetidot (Côte de Nuits), France",
+    "Domaine Duroché (Côte de Nuits), France",
+    "Domaine Trapet Père et Fils (Côte de Nuits), France",
+    "Domaine Manciat-Poncet (Mâconnais), France",
+    "Heritiers du Comte Lafon (Mâconnais), France",
+    "Nicolas Maillet (Mâconnais), France",
+    "Champagne Tellier (Coteaux Sud d'Épernay), France",
+    "Laherte Frères (Coteaux Sud d'Épernay), France",
+    "Pascal Agrapart, Agrapart & Fils (Côte de Blancs), France",
+    "Champagne Mouzon-Leroux (Montagne de Reims), France",
+    "R. H. Coutier (Montagne de Reims), France",
+    "Vincent Cuillier (Montagne de Reims), France",
+    "Champagne Clandestin (Vallée de l'Aube), France",
+    "De Marne/Val Frison (Vallée de l'Aube), France",
+    "Vouette et Sorbee (Vallée de l'Aube), France",
+    "Christophe Mignon (Vallée de la Marne), France",
+    "Georges Laval (Vallée de la Marne), France",
+    "Domaine Courbet (Jura), France",
+    "Domaine de Saint Pierre/Fabrice Dodane (Jura), France",
+    "Julien Crinquand (Jura), France",
+    "Clos Marie (Languedoc & Roussillon), France",
+    "Domaine de l'Hortus (Languedoc & Roussillon), France",
+    "Mas de Daumas Gassac (Languedoc & Roussillon), France",
+    "Mas des Brousses (Terrasses du Larzac), France",
+    "Moulin de Gassac (Languedoc & Roussillon), France",
+    "Clos Rougeard (Anjou/Nantais/Saumur), France",
+    "Delrieu-Ducleux (Anjou/Nantais/Saumur), France",
+    "Domaine des Sanzay (Anjou/Nantais/Saumur), France",
+    "Domaine du Closel (Anjou/Nantais/Saumur), France",
+    "Domaine du Haut Bourg (Muscadet Côtes de Grandlieu), France",
+    "Jo Landron-Domaine de la Louvetrie (Anjou/Nantais/Saumur), France",
+    "Moulin Touchais (Anjou/Nantais/Saumur), France",
+    "Domaine des Vieux Pruniers (Sancerre/Pouilly/Menetou-Salon), France",
+    "Domaine Didier Dagueneau (Sancerre/Pouilly/Menetou-Salon), France",
+    "Domaine Pellé (Sancerre/Pouilly/Menetou-Salon), France",
+    "Domaine Sylvain Bailly (Sancerre/Pouilly/Menetou-Salon), France",
+    "Firmin Dezat (Sancerre/Pouilly/Menetou-Salon), France",
+    "Domaine de la Fontainerie (Touraine), France",
+    "François Chidaine (Touraine), France",
+    "Philippe Alliet (Chinon), France",
+    "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
+    "Domaine de Trévallon (Rhône & Provence), France",
+    "Domaine des Entrefaux (Rhône & Provence), France",
+    "Domaine Verset A & E (Rhône & Provence), France",
+    "Domaine Verzier (Rhône & Provence), France",
+    "La Cabotte (Rhône & Provence), France",
+    "Domaine Balivet (Savoie), France",
+    "Domaine de Mouscaillo (Southwest France), France",
+    "Dr. Lippold (Mosel), Germany",
+    "Cirelli (Abruzzo), Italy",
+    "De Sterlich (Abruzzo), Italy",
+    "Praesidium (Abruzzo), Italy",
+    "AIA dei Colombi (Campania), Italy",
+    "Zampaglione (Campania), Italy",
+    "Tre Monti (Emilia-Romagna), Italy",
+    "Ronchi di Cialla (Friuli), Italy",
+    "Ronco Severo (Friuli), Italy",
+    "Cantalupo (Piemonte), Italy",
+    "Cascina Morassino (Piemonte), Italy",
+    "G.D. Vajra (Piemonte), Italy",
+    "Luigi Baudana (Famiglia di G.D. Vajra) (Piemonte), Italy",
+    "Roagna (Piemonte), Italy",
+    "San Lorenzo Alto-Clay McLachlan (Piemonte), Italy",
+    "Serafino Rivella (Piemonte), Italy",
+    "Ayunta (Sicilia), Italy",
+    "COS (Sicilia), Italy",
+    "Naturale (Sicilia), Italy",
+    "Fabio Motta (Toscana), Italy",
+    "La Vigna di San Martino ad Argiano (Toscana), Italy",
+    "Le Ragnaie (Toscana), Italy",
+    "Montenidoli (Toscana), Italy",
+    "Soldera® Case Basse® (Toscana), Italy",
+    "Villa Le Corti (Toscana), Italy",
+    "Pojer e Sandri (Trentino), Italy",
+    "Caves de Donnas (Vallée d'Aoste), Italy",
+    "Monte Santoccio (Veneto), Italy",
+    "Tamellini (Veneto), Italy",
+    "Cortes de Cima (Alentejo), Portugal",
+    "Freire Lobo (Dão), Portugal",
+    "Delgado Zuleta (Andalucia), Spain",
+    "Flequi Berruti (Andalucia), Spain",
+    "Bodega Javier Sanz (Castilla y Leon), Spain",
+    "Bodegas Ismael Arroyo (Castilla y Leon), Spain",
+    "El Hato y el Garabato, HG Wines (Castilla y Leon), Spain",
+    "Margón (Castilla y Leon), Spain",
+    "Viñas Serranas (Castilla y Leon), Spain",
+    "Viñedos del Jorco (Castilla y Leon), Spain",
+    "Bohigas (Catalunya), Spain",
+    "Josep-Maria Vendrell (Catalunya), Spain",
+    "Xavier Clua (Catalunya), Spain",
+    "Carballal (Galicia), Spain",
+    "Rafael Palacios (Galicia), Spain",
+    "Valdesil (Galicia), Spain",
+    "Sortevera (Islas Canarias), Spain",
+    "Suertes del Marqués (Islas Canarias), Spain",
+    "Tamerán (Islas Canarias), Spain",
+    "Talai Berri (Países Vascos), Spain",
+    "Bodegas Exopto (Rioja), Spain",
+    "Arnot-Roberts (California), United States",
+    "County Line Vineyards (California), United States",
+    "Enfield Wine Co. (California), United States",
+    "Inconnu (California), United States",
+    "Popelouchum Estate (California), United States",
+    "Racines (California), United States",
+    "Radio-Coteau (California), United States",
+    "Sky Vineyards (California), United States",
+    "Cameron Winery (Oregon), United States",
+    "Morgen Long Wine (Oregon), United States",
+    "Aitia (Washington), United States"
+   ],
+   "fitScore": 30,
    "tier": "C",
    "signals": [
-    "-30 Mega-distributor or high minimum volumes (national brands, 500+ SKUs)"
+    "+20 Fit · small growers",
+    "+20 Fit · Loire presence",
+    "+10 Fit · neighbor French regions",
+    "+25 Opening · boutique size",
+    "-30 Opening · saturated: 3 Touraine estates"
    ],
    "sources": [
     {
-     "url": "https://jvsimports.com",
-     "title": "JVS Wines Imports – Taste The Flavor of The World…",
-     "snippet": "JVS sells over 1,000 products to California Retailers, Bars, and Restaurants"
+     "url": "https://www.beauneimports.com/about",
+     "title": "About Us - Beaune Imports",
+     "snippet": "small, family owned and operated importer of fine wine"
+    },
+    {
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "16 Loire producer(s): Clos Rougeard (Anjou/Nantais/Saumur); Delrieu-Ducleux (Anjou/Nantais/Saumur); Domaine des Sanzay (Anjou/Nantais/Saumur); Domaine du Closel (Anjou/Nantais/Saumur). Evidence: \"sses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Dom\""
+    },
+    {
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
+    },
+    {
+     "url": "https://www.beauneimports.com/about",
+     "title": "About Us - Beaune Imports",
+     "snippet": "small, family owned and operated importer"
+    },
+    {
+     "url": "https://www.beauneimports.com/product/vouvray-sec",
+     "snippet": "Already carries 3 Touraine estates: Domaine de la Fontainerie (Touraine); François Chidaine (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"t • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie\""
+    },
+    {
+     "url": "https://www.beauneimports.com/product/vouvray-sec",
+     "snippet": "Domaine de la Fontainerie, 2023 Vouvray Sec - Beaune Imports 1490 66th Street • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie"
+    },
+    {
+     "url": "https://www.beauneimports.com/product/bourgueil-jour-de-soif",
+     "snippet": "Gauthier/Domaine du Bel Air, 2024 Bourgueil, Jour de Soif. Producer ... This is great quaffing wine. Print. View Image. BEAUNE IMPORTS. 1490 66th Street."
+    },
+    {
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+115 more)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
+     "snippet": "Producers listed: Michel Laroche et Ses Enfants (Chablis)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/domaine-de-montille",
+     "snippet": "Producers listed: Domaine de Montille (Côte de Beaune)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/domaine-des-comtes-lafon",
+     "snippet": "Producers listed: Domaine des Comtes Lafon (Côte de Beaune)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
+     "snippet": "Producers listed: Champagne Mouzon-Leroux (Montagne de Reims)"
     }
    ],
    "stage": "matched",
    "enriched": false,
    "scoreBreakdown": [
     {
+     "id": "boutique_size",
+     "label": "Opening · boutique size",
+     "points": 25,
+     "status": "fired",
+     "snippet": "small, family owned and operated importer",
+     "url": "https://www.beauneimports.com/about",
+     "title": "About Us - Beaune Imports"
+    },
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "small, family owned and operated importer of fine wine",
+     "url": "https://www.beauneimports.com/about",
+     "title": "About Us - Beaune Imports"
+    },
+    {
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
+     "status": "fired",
+     "snippet": "16 Loire producer(s): Clos Rougeard (Anjou/Nantais/Saumur); Delrieu-Ducleux (Anjou/Nantais/Saumur); Domaine des Sanzay (Anjou/Nantais/Saumur); Domaine du Closel (Anjou/Nantais/Saumur). Evidence: \"sses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Dom\"",
+     "url": "https://www.beauneimports.com/producers"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\"",
+     "url": "https://www.beauneimports.com/producers"
+    },
+    {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "No bottle price found on the site or in CA shops",
      "url": ""
     },
     {
-     "id": "mega_distributor",
-     "label": "Mega-distributor or high minimum volumes (national brands, 500+ SKUs)",
+     "id": "similar_chenin",
+     "label": "Opening · direct competitor?",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Domaine de la Fontainerie (Touraine): same style (dry), price not found; François Chidaine (Touraine): style not found; Pierre Gauthier/Domaine du Bel Air (Touraine): style not found",
+     "url": "https://www.beauneimports.com/product/vouvray-sec"
+    },
+    {
+     "id": "loire_saturated",
+     "label": "Opening · saturated: 3 Touraine estates",
      "points": -30,
      "status": "fired",
-     "snippet": "JVS sells over 1,000 products to California Retailers, Bars, and Restaurants",
-     "url": "https://jvsimports.com",
-     "title": "JVS Wines Imports – Taste The Flavor of The World…"
+     "snippet": "Already carries 3 Touraine estates: Domaine de la Fontainerie (Touraine); François Chidaine (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"t • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie\"",
+     "url": "https://www.beauneimports.com/product/vouvray-sec"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 50/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20, Loire presence +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "boutique size +25, saturated: 3 Touraine estates -30",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 30 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 50 + 0.4 × Opening 0 = 30 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Already 3 Touraine estates (Domaine de la Fontainerie, François Chidaine, Pierre Gauthier/Domaine du Bel Air): no room for another Chenin; at most pitch our chilled Cabernet Franc.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.beauneimports.com shows neither the TTB permit city (Berkeley) nor the holder name \"LE POIL INC\" on the 12 own-site page(s) read",
+     "url": "https://www.beauneimports.com"
     },
     {
      "id": "price_estimate",
@@ -4306,69 +5110,14 @@
      "status": "info",
      "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
      "url": ""
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "c285a1779c",
-   "name": "Atherton Wine Imports",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "San Jose",
-   "address": "2038 CONCOURSE DR STE 20, SAN JOSE, CA 95131",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-3090",
-     "kind": "importer"
     },
     {
-     "source": "TTB",
-     "number": "CA-P-6013",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 0,
-   "tier": "C",
-   "signals": [
-    "-30 Mega-distributor or high minimum volumes (national brands, 500+ SKUs)"
-   ],
-   "sources": [
-    {
-     "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4",
-     "title": "Atherton Wine Imports",
-     "snippet": "one of the largest importers of Bordeaux and burgundy on the west coast"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "mega_distributor",
-     "label": "Mega-distributor or high minimum volumes (national brands, 500+ SKUs)",
-     "points": -30,
-     "status": "fired",
-     "snippet": "one of the largest importers of Bordeaux and burgundy on the west coast",
-     "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4",
-     "title": "Atherton Wine Imports"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
+     "id": "coverage",
+     "label": "catalogue lu : 136 producteurs, 12 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
+     "snippet": "136 producers read on 12 own-site pages. Coverage OK.",
+     "url": "https://www.beauneimports.com"
     }
    ]
   },
@@ -4667,26 +5416,21 @@
     "Six Cloves",
     "Sylvain Dittière (Saumur-Champigny), France"
    ],
-   "fitScore": 0,
+   "fitScore": 26,
    "tier": "C",
    "signals": [
-    "-20 Already carries a similar organic Chenin from Touraine/Vouvray",
-    "+10 Already imports from neighboring French regions",
-    "-20 Already imports a direct peer from Touraine/Vouvray",
-    "+10 Runs portfolio tastings or attends trade / natural wine fairs"
+    "+20 Fit · Loire presence",
+    "+10 Fit · neighbor French regions",
+    "+20 Opening · portfolio tastings / fairs"
    ],
    "sources": [
     {
      "url": "https://www.floraisonselections.com/loire",
-     "snippet": "Already carries Touraine/Vouvray: Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise). Evidence: \"Bourgueil with 1ha of Cabernet Franc. (read more) Touraine Domaine Bonnigal-Bodet | Limeray / Amboise Certified Organic Long time best friends Jean-Baptiste Bonnigal and Stéphane Bo\""
+     "snippet": "9 Loire producer(s): Domaine de l’Austral (Saumur-Puy Notre Dame); Sylvain Dittière - La Porte Saint Jean (Saumur-Champigny); Laurent Herlin (Bourgueil); Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise). Evidence: \"r & Distributor of Wine & Cider Floraison Selections Saumur Domaine de l’Austral | Saumur-Puy Notre Dame Certified Organic While working on a farm in Australia, Pauline Mourrain an\""
     },
     {
      "url": "https://www.floraisonselections.com/growers",
      "snippet": "8 producer(s) from neighboring regions — Julien Sunier (Beaujolais-Villages); Marie Courtin (Champagne); Flavien Nowack (Alsace); Domaine de la Tournelle (Arbois). Evidence: \"the world may be. prev / next Back to Growers & Domaines 0 Julien Sunier 0 Thomas Pico - Pattes Loup/ Bois d'Yver 0 Domaine de la Sarazinière 0 Marie Courtin 0 Flavien Nowa\""
-    },
-    {
-     "url": "https://www.floraisonselections.com/loire",
-     "snippet": "Direct peer Domaine Bonnigal-Bodet (floraisonselections.com): \"Bourgueil with 1ha of Cabernet Franc. (read more) Touraine Domaine Bonnigal-Bodet | Limeray / Amboise Certified Organic Long time best friends Jean-Baptiste Bonnigal and Stéphane Bo\""
     },
     {
      "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134",
@@ -4714,25 +5458,33 @@
    "enriched": false,
    "scoreBreakdown": [
     {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
      "status": "fired",
-     "snippet": "8 producer(s) from neighboring regions — Julien Sunier (Beaujolais-Villages); Marie Courtin (Champagne); Flavien Nowack (Alsace); Domaine de la Tournelle (Arbois). Evidence: \"the world may be. prev / next Back to Growers & Domaines 0 Julien Sunier 0 Thomas Pico - Pattes Loup/ Bois d'Yver 0 Domaine de la Sarazinière 0 Marie Courtin 0 Flavien Nowa\"",
-     "url": "https://www.floraisonselections.com/growers"
+     "snippet": "9 Loire producer(s): Domaine de l’Austral (Saumur-Puy Notre Dame); Sylvain Dittière - La Porte Saint Jean (Saumur-Champigny); Laurent Herlin (Bourgueil); Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise). Evidence: \"r & Distributor of Wine & Cider Floraison Selections Saumur Domaine de l’Austral | Saumur-Puy Notre Dame Certified Organic While working on a farm in Australia, Pauline Mourrain an\"",
+     "url": "https://www.floraisonselections.com/loire"
     },
     {
      "id": "tastings_fairs",
-     "label": "Runs portfolio tastings or attends trade / natural wine fairs",
-     "points": 10,
+     "label": "Opening · portfolio tastings / fairs",
+     "points": 20,
      "status": "fired",
      "snippet": "Domaine de Sérol (from Floraison Selections)",
      "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134",
      "title": "Notes from the third annual WINeFare tasting in San Francisco – March 7th, 2020 - WINE TALK - WineBerserkers"
     },
     {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "8 producer(s) from neighboring regions — Julien Sunier (Beaujolais-Villages); Marie Courtin (Champagne); Flavien Nowack (Alsace); Domaine de la Tournelle (Arbois). Evidence: \"the world may be. prev / next Back to Growers & Domaines 0 Julien Sunier 0 Thomas Pico - Pattes Loup/ Bois d'Yver 0 Domaine de la Sarazinière 0 Marie Courtin 0 Flavien Nowa\"",
+     "url": "https://www.floraisonselections.com/growers"
+    },
+    {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "No bottle price found on the site or in CA shops",
@@ -4740,18 +5492,50 @@
     },
     {
      "id": "similar_chenin",
-     "label": "Already carries a similar organic Chenin from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Already carries Touraine/Vouvray: Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise). Evidence: \"Bourgueil with 1ha of Cabernet Franc. (read more) Touraine Domaine Bonnigal-Bodet | Limeray / Amboise Certified Organic Long time best friends Jean-Baptiste Bonnigal and Stéphane Bo\"",
+     "label": "Opening · direct competitor?",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise): style not found",
      "url": "https://www.floraisonselections.com/loire"
     },
     {
-     "id": "peer_touraine",
-     "label": "Already imports a direct peer from Touraine/Vouvray",
-     "points": -20,
-     "status": "fired",
-     "snippet": "Direct peer Domaine Bonnigal-Bodet (floraisonselections.com): \"Bourgueil with 1ha of Cabernet Franc. (read more) Touraine Domaine Bonnigal-Bodet | Limeray / Amboise Certified Organic Long time best friends Jean-Baptiste Bonnigal and Stéphane Bo\"",
+     "id": "fit_score",
+     "label": "Fit 30/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 20/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "portfolio tastings / fairs +20",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 26 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 30 + 0.4 × Opening 20 = 26 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Already carries Domaine Bonnigal-Bodet (Touraine / Touraine-Amboise); style/price unknown: check their bottling before pitching, lead with our sparkling Chenin. Ask for a slot at their portfolio tasting.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.floraisonselections.com shows the TTB permit city (Emeryville) — permit \"NBD WINES, LLC\" (CA-I-22099, CA-P-23814, Emeryville)",
      "url": "https://www.floraisonselections.com/loire"
     },
     {
@@ -4769,6 +5553,367 @@
      "status": "info",
      "snippet": "24 producers read on 13 own-site pages. Coverage OK.",
      "url": "https://www.floraisonselections.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [],
+   "id": "f7fc232351",
+   "name": "Amy Atwood Selections",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Los Angeles",
+   "address": "2658 GRIFFITH PARK BLVD UNIT 732, LOS ANGELES, CA 90039",
+   "website": "http://www.amyatwood.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-16648",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-17401",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [],
+   "fitScore": 25,
+   "tier": "C",
+   "signals": [
+    "+25 Fit · organic / natural",
+    "+25 Opening · boutique size"
+   ],
+   "sources": [
+    {
+     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
+     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide",
+     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention"
+    },
+    {
+     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
+     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily",
+     "snippet": "pioneering small-batch organic wine importer, distributor, and producer"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "organic_natural",
+     "label": "Fit · organic / natural",
+     "points": 25,
+     "status": "fired",
+     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention",
+     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
+     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide"
+    },
+    {
+     "id": "boutique_size",
+     "label": "Opening · boutique size",
+     "points": 25,
+     "status": "fired",
+     "snippet": "pioneering small-batch organic wine importer, distributor, and producer",
+     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
+     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Prices seen ($29.99) outside estimated shelf range $38-85",
+     "url": "https://theepicureantrader.com/pages/makers/amy-atwood"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 25/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "organic / natural +25",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 25/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "boutique size +25",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 25 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 25 + 0.4 × Opening 25 = 25 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Natural/organic importer with no Loire proven: lead with organic farming and low intervention, send the dry Chenin and the chilled Cabernet Franc.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "http://www.amyatwood.com shows the TTB permit holder name — permit \"CLEANSKINS WINE LLC\" (CA-I-16648, CA-P-17401, Los Angeles)",
+     "url": "http://www.amyatwood.com"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 0 producteurs, 2 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "url": "https://www.amyatwood.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Anderson’s Conn Valley Vineyards",
+     "country": "USA",
+     "region": "Napa Valley",
+     "appellation": "",
+     "grapes": [],
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+     "quote": "Introducing Anderson’s Conn Valley Vineyards Anderson’s Conn Valley Vineyards was founded in 1983 by Gus and Todd Anderson and released their fi"
+    },
+    {
+     "producer": "Philippe & Sylvain Ravier",
+     "country": "France",
+     "region": "Savoie",
+     "appellation": "Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron",
+     "grapes": [
+      "Roussanne (Bergeron)",
+      "Jacquère"
+     ],
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+     "quote": "eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell"
+    },
+    {
+     "producer": "Voix de la Vigne",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "Willamette Valley, Red Mountain",
+     "grapes": [
+      "Pinot Noir",
+      "Cabernet Franc",
+      "Pinot Gris"
+     ],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "“Voix de la Vigne started as a natural next step for me in the wine business. In addition to my distribution company,"
+    },
+    {
+     "producer": "Accent de la Vigne",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "",
+     "grapes": [
+      "Pinot Noir",
+      "Sauvignon Blanc"
+     ],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "ernet Franc Voix de la Vigne, Willamette Valley, Pinot Gris Accent de la Vigne Pinot Noir Sauvignon Blanc Learn more at voixdelavigne.com National Distributors ARIZONA Quench 255"
+    },
+    {
+     "producer": "Solena Estate",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "Willamette Valley",
+     "grapes": [],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "I have been distributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we de"
+    },
+    {
+     "producer": "Hyland Estate",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "Willamette Valley",
+     "grapes": [],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "tributing Laurent’s three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collab"
+    },
+    {
+     "producer": "Brella",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "Willamette Valley",
+     "grapes": [],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "three brands since 2009: Solena Estate, Hyland Estate, and Brella. Based on my close working relationship with Laurent and his team, we decided to collaborate on a n"
+    },
+    {
+     "producer": "Domaine Loubejac",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "quote": "Hyland, Elvenglade, Kliewer, Olsen, Kramer, Wildewood, and Domaine Loubejac.” – Robert Morrison Featuring: Voix de la Vigne, Willamette Valley, Pinot Noir Voix de la Vigne, Re"
+    }
+   ],
+   "id": "d199132879",
+   "name": "Authentic Wine Selections",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Oakland",
+   "address": "3841 MACARTHUR BLVD STE C, OAKLAND, CA 94619",
+   "website": "https://www.authenticws.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-21354",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-21883",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "Anderson’s Conn Valley Vineyards (Napa Valley), USA",
+    "Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron), France",
+    "Voix de la Vigne (Willamette Valley, Red Mountain), USA",
+    "Accent de la Vigne (Oregon), USA",
+    "Solena Estate (Willamette Valley), USA",
+    "Hyland Estate (Willamette Valley), USA",
+    "Brella (Willamette Valley), USA",
+    "Domaine Loubejac (Oregon), USA"
+   ],
+   "fitScore": 18,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · small growers",
+    "+10 Fit · neighbor French regions"
+   ],
+   "sources": [
+    {
+     "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm",
+     "title": "List Of Wine Importers In USA",
+     "snippet": "small or micro-production wines made by accomplished wine makers"
+    },
+    {
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+     "snippet": "1 producer(s) from neighboring regions — Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron). Evidence: \"eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell\""
+    },
+    {
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
+     "snippet": "Producers listed: Anderson’s Conn Valley Vineyards (Napa Valley); Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron)"
+    },
+    {
+     "url": "https://www.authenticws.com/voix-de-la-vigne-story",
+     "snippet": "Producers listed: Voix de la Vigne (Willamette Valley, Red Mountain); Accent de la Vigne (Oregon); Solena Estate (Willamette Valley); Hyland Estate (Willamette Valley); Brella (Willamette Valley); Domaine Loubejac (Oregon)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "small or micro-production wines made by accomplished wine makers",
+     "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm",
+     "title": "List Of Wine Importers In USA"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "1 producer(s) from neighboring regions — Philippe & Sylvain Ravier (Apremont, Abymes, Chignin, Saint Jean de la Porte, Chignin-Bergeron). Evidence: \"eley, CA 94710 | 510-486-8347 | AuthenticWS.com Introducing Philippe & Sylvain Ravier (AWS Direct Import) Philippe and Sylvain Ravier cultivate 35 hectares of vines in the Savoie appell\"",
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Prices seen ($144, $120) outside estimated shelf range $38-85",
+     "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf"
+    },
+    {
+     "id": "recent_or_hiring",
+     "label": "Opening · hiring / new permit",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "\"is looking for a dynamic,\" — not counted: LinkedIn profile activity is undated (never counts)",
+     "url": "https://www.linkedin.com/in/robert-morrison-b08a598",
+     "title": "Robert Morrison - Owner at Authentic Wine Selections & Voix de la ..."
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 30/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 18 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 30 + 0.4 × Opening 0 = 18 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.authenticws.com shows the TTB permit city (Oakland) — permit \"NATURAL MYSTIC, INC.\" (CA-I-21354, CA-P-21883, Oakland)",
+     "url": "https://www.authenticws.com/california"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 8 producteurs, 4 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "url": "https://www.authenticws.com"
     }
    ]
   },
@@ -4829,10 +5974,16 @@
     "Domaine de L’Ermitage (Menetou-Salon, Sancerre), France",
     "Domaine Chavet (Menetou-Salon), France"
    ],
-   "fitScore": 0,
+   "fitScore": 12,
    "tier": "C",
-   "signals": [],
+   "signals": [
+    "+20 Fit · Loire presence"
+   ],
    "sources": [
+    {
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\""
+    },
     {
      "url": "https://www.thewinesourceinc.com/domaines-bunan",
      "snippet": "Producers listed: Domaines Bunan (Bandol, Côte de Provence)"
@@ -4850,20 +6001,68 @@
    "enriched": false,
    "scoreBreakdown": [
     {
-     "id": "portfolio_hole",
-     "label": "Portfolio hole: imports Loire growers but none from Touraine/Vouvray",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "2 Loire producer(s) — Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon) — none from Touraine/Vouvray (catalogue lu : 3 producteurs, 8 pages (total non indiqué)); coverage too low to claim the absence of Touraine/Vouvray",
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
+     "status": "fired",
+     "snippet": "2 Loire producer(s): Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon). Evidence: \"Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine\"",
      "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
     },
     {
      "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
+     "label": "Fit · price range overlap",
      "points": 0,
      "status": "unknown",
      "snippet": "No bottle price found on the site or in CA shops",
      "url": ""
+    },
+    {
+     "id": "portfolio_hole",
+     "label": "Opening · room: Loire book without Vouvray/Touraine",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Loire: Domaine de L’Ermitage (Menetou-Salon, Sancerre); Domaine Chavet (Menetou-Salon); no Vouvray/Touraine — catalogue lu : 3 producteurs, 8 pages (total non indiqué): absence not provable",
+     "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 20/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 12 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Carries Loire (Domaine de L’Ermitage, Domaine Chavet) but the catalogue was not fully read: check for a Vouvray first, then pitch our organic Chenin.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.thewinesourceinc.com shows the TTB permit city (Gardena) — permit \"THE WINE SOURCE INC.\" (CA-I-21110, CA-P-21316, Gardena)",
+     "url": "https://www.thewinesourceinc.com/domaine-chavet"
     },
     {
      "id": "price_estimate",
@@ -4880,6 +6079,655 @@
      "status": "info",
      "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.thewinesourceinc.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Chateau de Javernand",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de"
+    },
+    {
+     "producer": "Domaine de la Madone",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "Fleurie",
+     "grapes": [
+      "Gamay",
+      "Viognier"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos"
+    },
+    {
+     "producer": "Domaine Frederic Sornin",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "lais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonnier"
+    },
+    {
+     "producer": "Chateau des Capucins",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Lalande de Pomerol",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sa"
+    },
+    {
+     "producer": "Chateau Clos Dufourg",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Margaux",
+     "grapes": [
+      "Cabernet Sauvignon",
+      "Merlot",
+      "Cabernet Franc",
+      "Petit Verdot",
+      "Malbec"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ric Sornin Bordeaux Chateau des Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feyti"
+    },
+    {
+     "producer": "Chateau La Tessonniere",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Margaux",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "es Capucins Lalande de Pomerol Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emi"
+    },
+    {
+     "producer": "Domaine de Monteils",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Sauternes",
+     "grapes": [
+      "Semillon",
+      "Sauvignon Blanc",
+      "Muscadelle"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "l Chateau Clos Dufourg Margaux Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand C"
+    },
+    {
+     "producer": "Vignobles Feytit & Chateau Feytit-Divon",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Saint-Georges Saint-Emilion",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Chateau La Tessonniere Medoc Domaine de Monteils Sauternes Vignobles Feytit & Chateau Feytit-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgo"
+    },
+    {
+     "producer": "Chateau Tour Haut Vignoble",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Saint-Estephe",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "t-Divon Saint-Georges Saint-Emilion Saint-Emilion Grand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Co"
+    },
+    {
+     "producer": "Domaine Denis Pere & Fils",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "rand Cru Chateau Tour Haut Vignoble Saint-Estephe Bourgogne Domaine Denis Pere & Fils Cremant de Bourgogne Savigny-les-Beaune Hautes-Cotes de Beaune Pernand-Vergelesses Pernand-Vergeles"
+    },
+    {
+     "producer": "Domaine Millet",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Corton-Charlemagne Grand Cru Corton Les Paulands Grand Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Pul"
+    },
+    {
+     "producer": "Domaine Moissenet-Bonnard",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "nd Cru Domaine Millet Petit Chablis Chablis Chablis 1er Cru Domaine Moissenet-Bonnard Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1"
+    },
+    {
+     "producer": "Maison Pagnotta",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Auxey-Duresses Beaune Meursault Puligny-Montrachet 1er Cru Maison Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fui"
+    },
+    {
+     "producer": "Domaine Besson",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "on Pagnotta Givry 1er Cru Maranges 1er Cru Mercurey 1er Cru Domaine Besson Bourgogne Pouilly-Fuisse Pouilly-Fuisse 1er Cru Domaine Rebourgeon-Mure Bourgogne Beaune 1er Cru Po"
+    },
+    {
+     "producer": "Domaine Rebourgeon-Mure",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [
+      "Pinot Noir"
+     ],
+     "url": "https://cruwines.net/domaine-rebourgeon-mure",
+     "quote": "te of Bouillard. 2021 Bourgogne Maison Dieu Rebourgeon-Mure DOMAINE REBOURGEON-MURE 2021 Bourgogne Cuvée de Maison Dieu Vegan 2019 Beaune 1er Cru Vignes Franches Rebourgeon-Mure DOMAI"
+    },
+    {
+     "producer": "Domaine Philippe Robert et Fils",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "eaune 1er Cru Pommard Pommard 1er Cru Volnay Volnay 1er Cru Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut L"
+    },
+    {
+     "producer": "Champagne Jacques Copin",
+     "country": "France",
+     "region": "Champagne",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "u Domaine Philippe Robert et Fils Fixin Marsannay Champagne Champagne Jacques Copin Brut Champagne Blanc de Blanc Brut Vintage Brut Le Beauchet Single Vineyard Vintage Champagne Loire"
+    },
+    {
+     "producer": "Domaine Guy Allion",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Touraine",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou"
+    },
+    {
+     "producer": "Le Pavillon du Roy",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Muscadet Sevre et Maine",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sa"
+    },
+    {
+     "producer": "Denis Breussin",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil"
+    },
+    {
+     "producer": "Domaine Gueneau",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Sancerre",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ne Denis Breussin Vouvray Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique"
+    },
+    {
+     "producer": "Domaine des Mailloches",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Bourgueil",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Sec Vouvray Demi Sec Vouvray Brut Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Prove"
+    },
+    {
+     "producer": "Domaine Sourdais-Taveau",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Chinon",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "t Domaine Gueneau Sancerre Domaine des Mailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bando"
+    },
+    {
+     "producer": "Chateau L'Afrique",
+     "country": "France",
+     "region": "Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ailloches Bourgueil Domaine Sourdais-Taveau Chinon Provence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Med"
+    },
+    {
+     "producer": "Domaine Ray-Jane",
+     "country": "France",
+     "region": "Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "ovence Chateau L'Afrique IGP Mediterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet"
+    },
+    {
+     "producer": "Domaine Terre de Mistral",
+     "country": "France",
+     "region": "Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "iterranee Cotes de Provence Domaine Ray-Jane IGP Var Bandol Domaine Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu S"
+    },
+    {
+     "producer": "Domaine Boissonnet",
+     "country": "France",
+     "region": "Rhône",
+     "appellation": "",
+     "grapes": [
+      "Viognier"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "e Terre de Mistral IGP Mediterranee Cotes de Provence Rhone Domaine Boissonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone"
+    },
+    {
+     "producer": "Jean-Pierre Boisson",
+     "country": "France",
+     "region": "Rhône",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "issonnet AOP Rhodaniennes IGP Ardeche Condrieu Saint-Joseph Jean-Pierre Boisson IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes d"
+    },
+    {
+     "producer": "Domaine de la Ferme Saint-Martin",
+     "country": "France",
+     "region": "Rhône",
+     "appellation": "Beaumes de Venise",
+     "grapes": [
+      "Grenache",
+      "Cinsault",
+      "Syrah",
+      "Roussanne",
+      "Clairette"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "on IGP Vaucluse Cotes du Rhone Villages Chateauneuf-du-Pape Domaine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis A"
+    },
+    {
+     "producer": "Domaine Vial-Magneres",
+     "country": "France",
+     "region": "Roussillon",
+     "appellation": "Collioure",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "maine de la Ferme Saint-Martin Beaumes de Venise Roussillon Domaine Vial-Magneres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy -"
+    },
+    {
+     "producer": "Chateau Flotis",
+     "country": "France",
+     "region": "Southwest",
+     "appellation": "Fronton",
+     "grapes": [
+      "Negrette"
+     ],
+     "url": "https://cruwines.net/chateau-flotis",
+     "quote": "llier and is the winemaker of the estate. 2022 Fronton Rose Chateau Flotis CHATEAU FLOTIS 2024 Pét-Nat Sparkling Rosé Organic Conversion & Vegan 2022 Fronton Rose Chateau Flo"
+    },
+    {
+     "producer": "Geniesserhof Haimer",
+     "country": "Austria",
+     "region": "",
+     "appellation": "",
+     "grapes": [
+      "Gruner Veltliner"
+     ],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "eres AOP Collioure Banyuls Southwest Chateau Flotis Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cer"
+    },
+    {
+     "producer": "Tenute Senia",
+     "country": "Italy",
+     "region": "Sicily",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "Austria Geniesserhof Haimer Gruner Veltliner Italy - Sicily Tenute Senia Grillo Sicilia DOC Frappato IGT Vittoria Rosso DOC Cerasuolo di Vittoria DOCG Vittoria Nero d'Avola"
+    },
+    {
+     "producer": "Bresolin Bio",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://cruwines.net/portfolio",
+     "quote": "o di Vittoria DOCG Vittoria Nero d'Avola DOC Italy - Veneto Bresolin Bio Asolo Montello Cabernet Sauvignon DOC Asolo Montello Recantina DOC Souvignier Gris Veneto IGT Asolo"
+    },
+    {
+     "producer": "Chateau des Graviers",
+     "country": "France",
+     "region": "Bordeaux",
+     "appellation": "Margaux",
+     "grapes": [],
+     "url": "https://cruwines.net/chateau-des-graviers",
+     "quote": "The 17 acre Bordeaux vineyard of Chateau des Graviers is located in the Arsac region of Margaux and has been in the Dufourg-Landry family for generations"
+    }
+   ],
+   "id": "92f57946f6",
+   "name": "Cru Wines",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Los Angeles",
+   "address": "554 S SAN VICENTE BLVD SUITE #205, LOS ANGELES, CA 90048",
+   "website": "https://cruwines.net",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-15507",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-15905",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "Chateau de Javernand (Beaujolais), France",
+    "Domaine de la Madone (Fleurie), France",
+    "Domaine Frederic Sornin (Beaujolais), France",
+    "Chateau des Capucins (Lalande de Pomerol), France",
+    "Chateau Clos Dufourg (Margaux), France",
+    "Chateau La Tessonniere (Margaux), France",
+    "Domaine de Monteils (Sauternes), France",
+    "Vignobles Feytit & Chateau Feytit-Divon (Saint-Georges Saint-Emilion), France",
+    "Chateau Tour Haut Vignoble (Saint-Estephe), France",
+    "Domaine Denis Pere & Fils (Burgundy), France",
+    "Domaine Millet (Burgundy), France",
+    "Domaine Moissenet-Bonnard (Burgundy), France",
+    "Maison Pagnotta (Burgundy), France",
+    "Domaine Besson (Burgundy), France",
+    "Domaine Rebourgeon-Mure (Burgundy), France",
+    "Domaine Philippe Robert et Fils (Burgundy), France",
+    "Champagne Jacques Copin (Champagne), France",
+    "Domaine Guy Allion (Touraine), France",
+    "Le Pavillon du Roy (Muscadet Sevre et Maine), France",
+    "Denis Breussin (Loire), France",
+    "Domaine Gueneau (Sancerre), France",
+    "Domaine des Mailloches (Bourgueil), France",
+    "Domaine Sourdais-Taveau (Chinon), France",
+    "Chateau L'Afrique (Provence), France",
+    "Domaine Ray-Jane (Provence), France",
+    "Domaine Terre de Mistral (Provence), France",
+    "Domaine Boissonnet (Rhône), France",
+    "Jean-Pierre Boisson (Rhône), France",
+    "Domaine de la Ferme Saint-Martin (Beaumes de Venise), France",
+    "Domaine Vial-Magneres (Collioure), France",
+    "Chateau Flotis (Fronton), France",
+    "Geniesserhof Haimer, Austria",
+    "Tenute Senia (Sicily), Italy",
+    "Bresolin Bio (Veneto), Italy",
+    "Chateau des Graviers (Margaux), France"
+   ],
+   "fitScore": 9,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · Loire presence",
+    "+10 Fit · neighbor French regions",
+    "-15 Fit · big houses / grand cru focus"
+   ],
+   "sources": [
+    {
+     "url": "https://cruwines.net/portfolio",
+     "snippet": "6 Loire producer(s): Domaine Guy Allion (Touraine); Le Pavillon du Roy (Muscadet Sevre et Maine); Denis Breussin (Loire); Domaine Gueneau (Sancerre). Evidence: \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\""
+    },
+    {
+     "url": "https://cruwines.net/portfolio",
+     "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\""
+    },
+    {
+     "url": "https://cruwines.net/chateau-des-graviers",
+     "title": "Chateau des Graviers | Cru Wines, LLC",
+     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla"
+    },
+    {
+     "url": "https://cruwines.net/portfolio",
+     "snippet": "Producers listed: Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Chateau des Capucins (Lalande de Pomerol); Chateau Clos Dufourg (Margaux); Chateau La Tessonniere (Margaux); Domaine de Monteils (Sauternes); Vignobles Feytit & Chateau Feytit-Divon (Saint-Georges Saint-Emilion); Chateau Tour Haut Vignoble (Saint-Estephe); Domaine Denis Pere & Fils (Burgundy); Domaine Millet (Burgundy); Domaine Moissenet-Bonnard (Burgundy) (+20 more)"
+    },
+    {
+     "url": "https://cruwines.net/domaine-rebourgeon-mure",
+     "snippet": "Producers listed: Domaine Rebourgeon-Mure (Burgundy)"
+    },
+    {
+     "url": "https://cruwines.net/chateau-flotis",
+     "snippet": "Producers listed: Chateau Flotis (Fronton)"
+    },
+    {
+     "url": "https://cruwines.net/chateau-des-graviers",
+     "snippet": "Producers listed: Chateau des Graviers (Margaux)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "loire_presence",
+     "label": "Fit · Loire presence",
+     "points": 20,
+     "status": "fired",
+     "snippet": "6 Loire producer(s): Domaine Guy Allion (Touraine); Le Pavillon du Roy (Muscadet Sevre et Maine); Denis Breussin (Loire); Domaine Gueneau (Sancerre). Evidence: \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\"",
+     "url": "https://cruwines.net/portfolio"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\"",
+     "url": "https://cruwines.net/portfolio"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "similar_chenin",
+     "label": "Opening · direct competitor?",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Domaine Guy Allion (Touraine): same style (sparkling/sweet/dry), price not found",
+     "url": "https://cruwines.net/portfolio"
+    },
+    {
+     "id": "big_houses",
+     "label": "Fit · big houses / grand cru focus",
+     "points": -15,
+     "status": "fired",
+     "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla",
+     "url": "https://cruwines.net/chateau-des-graviers",
+     "title": "Chateau des Graviers | Cru Wines, LLC"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 15/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "Loire presence +20, neighbor French regions +10, big houses / grand cru focus -15",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 9 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 15 + 0.4 × Opening 0 = 9 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Already carries Domaine Guy Allion (Touraine); style/price unknown: check their bottling before pitching, lead with our sparkling Chenin.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://cruwines.net shows the TTB permit holder name — permit \"CRU WINES, LLC\" (CA-I-15507, CA-P-15905, Los Angeles)",
+     "url": "https://cruwines.net"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 35 producteurs, 11 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "35 producers read on 11 own-site pages. Coverage OK.",
+     "url": "https://cruwines.net"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [],
+   "id": "6ff993610b",
+   "name": "Dime Group International",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "South San Francisco",
+   "address": "360 SWIFT AVENUE, SUITE #9, SOUTH SAN FRANCISCO, CA 94080",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-4794",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-16320",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-8525",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [],
+   "fitScore": 0,
+   "tier": "C",
+   "signals": [
+    "-30 Opening · mega-distributor / high minimums"
+   ],
+   "sources": [
+    {
+     "url": "https://jvsimports.com",
+     "title": "JVS Wines Imports – Taste The Flavor of The World…",
+     "snippet": "JVS sells over 1,000 products to California Retailers, Bars, and Restaurants"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "mega_distributor",
+     "label": "Opening · mega-distributor / high minimums",
+     "points": -30,
+     "status": "fired",
+     "snippet": "JVS sells over 1,000 products to California Retailers, Bars, and Restaurants",
+     "url": "https://jvsimports.com",
+     "title": "JVS Wines Imports – Taste The Flavor of The World…"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no fit signal proven",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "mega-distributor / high minimums -30",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 0 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 0 + 0.4 × Opening 0 = 0 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Large distributor (\"JVS sells over 1,000 products to California Retailers, Bars, and Restaurants\"): low priority, volumes too high for a 6,000-bottle export allocation.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
+     "points": 0,
+     "status": "info",
+     "snippet": "No own website found: TTB permit \"JVS WINES IMPORT, INC.\" (CA-I-4794, CA-P-16320, CA-P-8525, South San Francisco) is not tied to a website",
+     "url": ""
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
     }
    ]
   }

@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, explicitly naming the company."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, explicitly naming the company."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, listing producers in their portfolio."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, describing their Loire portfolio."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, listing French regions in their portfolio."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The quote is from Grand Cru Selections' own website, detailing their Loire producers and absence of Vouvray/Touraine."
+ }
+]

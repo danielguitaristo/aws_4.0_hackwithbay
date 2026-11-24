@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The context explicitly names 'Authentic Wine Selections' as the importer."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and context reference 'AuthenticWS.com' and 'AWS Direct Import', which are associated with Authentic Wine Selections."
+ }
+]

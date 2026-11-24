@@ -7,7 +7,7 @@ import crypto from "node:crypto";
 import { tavily } from "@tavily/core";
 import type { ICP, Lead, Permit, PortfolioItem, Source } from "./types";
 import { asNumber, asObject, asString, cacheKey, chatJSON, hasMistral, readCache, writeCache } from "./llm";
-import { SIGNALS, WEB_SIGNALS, scoreHits, shelfRange, signalPoints, signalQueries, type SignalHit } from "./signals";
+import { SIGNALS, SUBSCORE_WEIGHTS, WEB_SIGNALS, blendScores, shelfRange, signalPoints, signalQueries, type SignalHit } from "./signals";
 import { DEMO_DOMAINE } from "./demo";
 import { buildIndex, type PageIndex, type Snippet } from "./retrieval";
 
@@ -154,7 +154,8 @@ const METROS: Record<string, string> = {
 
 /** Same city, or both cities in the same county / metro. */
 function sameArea(cityA: string, cityB: string): boolean {
-  const a = normName(cityA), b = normName(cityB);
+  const clean = (x: string) => normName(x.replace(new RegExp(`,?\\s*(${REGION.code}|${REGION.name})(\\s+\\d{5})?\\s*$`, "i"), "")); // "Emeryville, CA" -> EMERYVILLE
+  const a = clean(cityA), b = clean(cityB);
   if (a === b) return true;
   const ca = cityCounty.get(a), cb = cityCounty.get(b);
   return Boolean(ca && cb && (ca === cb || (METROS[ca] && METROS[ca] === METROS[cb])));
@@ -753,6 +754,8 @@ export function coverageOf(pf: Portfolio, pages: WebPage[]): Coverage {
   return { read, total, pagesRead: pf.pagesRead.length, loireFull, low, label, detail };
 }
 
+const whereOf = (l: Link) => (l.kind === "retail" ? "CA shop" : l.kind === "estate" ? `${l.producer}'s own website` : "peer page");
+
 /**
  * Portfolio signals computed by code from the structured portfolio + peer/shop links.
  * Presence claims (carries X) need one verified listing; absence claims (no Touraine) need
@@ -774,7 +777,7 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
   const linkTouraine = linkLoire.filter((l) => l.touraine);
   const absenceOk = Boolean(pf && cov && (!cov.low || cov.loireFull) && producers.length >= 10);
   const confirm = linkLoire.filter((l) => !l.touraine)[0];
-  const linkNote = (l: Link) => `${l.kind === "retail" ? "CA shop" : "peer page"}: "${l.quote}"`;
+  const linkNote = (l: Link) => `${whereOf(l)}: "${l.quote}"`;
 
   // Presence: already carries Touraine/Vouvray (site listing, peer page or CA shop page).
   if (touraine.length) push("similar_chenin", "fired", `Already carries Touraine/Vouvray: ${touraine.map(fmt).join("; ")}. Evidence: "${touraine[0].quote}"`, touraine[0].url);
@@ -794,8 +797,8 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
 
   // Lookalike peers (Anjou/Saumur/Chinon/... growers, and Touraine/Vouvray/Montlouis direct peers).
   const peerSite = producers.filter((p) => PEER_AOC.test(`${p.region} ${p.appellation}`));
-  const peerTouraine = [...peerSite.filter(isTouraine).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => l.touraine).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: l.kind === "retail" ? "CA shop" : "peer page" }))];
-  const peerOther = [...peerSite.filter((p) => !isTouraine(p)).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => !l.touraine && PEER_AOC.test(l.appellation)).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: l.kind === "retail" ? "CA shop" : "peer page" }))];
+  const peerTouraine = [...peerSite.filter(isTouraine).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => l.touraine).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
+  const peerOther = [...peerSite.filter((p) => !isTouraine(p)).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => !l.touraine && PEER_AOC.test(l.appellation)).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
   if (peerTouraine.length) push("peer_touraine", "fired", `Direct peer ${peerTouraine[0].name} (${peerTouraine[0].where}): "${peerTouraine[0].quote}"`, peerTouraine[0].url);
   else if (peerOther.length) {
     const p = peerOther[0];
@@ -821,7 +824,7 @@ export interface Peer {
 /** Evidence linking a candidate to a Loire wine/producer, from a peer's page or a CA shop page. */
 export interface Link {
   candidateId: string;
-  kind: "peer" | "retail";
+  kind: "peer" | "retail" | "estate"; // estate = the competitor estate's own website names this importer
   producer: string;
   appellation: string;
   touraine: boolean;
@@ -837,6 +840,15 @@ function window(text: string, needle: string, before = 120, after = 160): string
   const flat = text.replace(/\s+/g, " ");
   const i = flat.toLowerCase().indexOf(needle.toLowerCase());
   return i < 0 ? "" : flat.slice(Math.max(0, i - before), i + needle.length + after).trim();
+}
+
+function listCache(dir: string): Mention[] {
+  try {
+    const d = path.join(CACHE_DIR, dir);
+    return fs.readdirSync(d).flatMap((f) => JSON.parse(fs.readFileSync(path.join(d, f), "utf8")) as Mention[]);
+  } catch {
+    return [];
+  }
 }
 
 function readAllPortfolios(): Portfolio[] {
@@ -1058,6 +1070,368 @@ function usableSnippets(c: Candidate, snippets: Snippet[]): Snippet[] {
 interface ExtraEvidence {
   links: Link[]; // peer pages + CA shop pages naming this importer
   shelf: ReturnType<typeof shelfRange>;
+  u: Usage; // Tavily budget for the own-site philosophy lookup
+}
+
+// ---- Entity check: is each piece of evidence about THIS company? -------------------
+
+export type EntityVerdict = "same_company" | "sister_or_related_company" | "different_company" | "unclear";
+const VERDICTS: EntityVerdict[] = ["same_company", "sister_or_related_company", "different_company", "unclear"];
+
+/** Every entity verdict of the last run, for audits (lead, signal, verdict, reason, URL). */
+export const entityLog: { lead: string; signal: string; verdict: EntityVerdict; reason: string; url: string }[] = [];
+
+let pageTextIndex: Map<string, string> | null = null;
+/** Full text of a page from the Tavily cache (pages that are not in the candidate's page list, e.g. peer pages). */
+function cachedPageText(url: string): string {
+  if (!pageTextIndex) {
+    pageTextIndex = new Map();
+    try {
+      for (const f of fs.readdirSync(path.join(CACHE_DIR, "tavily"))) {
+        const d = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "tavily", f), "utf8"));
+        for (const r of Array.isArray(d.results) ? d.results : []) {
+          if (!r || typeof r !== "object" || !r.url) continue;
+          const t = r.rawContent || r.content || "";
+          if (t.length > (pageTextIndex.get(r.url)?.length ?? 0)) pageTextIndex.set(r.url, t);
+        }
+      }
+    } catch {
+      /* no cache */
+    }
+  }
+  return pageTextIndex.get(url) ?? "";
+}
+
+/** The quote of a hit + ~500 characters of surrounding page text. */
+function evidenceContext(h: SignalHit, pages: WebPage[]): { quote: string; context: string } {
+  const quote = (h.snippet.match(/Evidence: "([\s\S]+?)"\s*$/)?.[1] ?? h.snippet.match(/^"([\s\S]+?)"/)?.[1] ?? h.snippet).trim();
+  const text = (pages.find((p) => p.url === h.url)?.text || cachedPageText(h.url) || "").replace(/\s+/g, " ");
+  const i = text.toLowerCase().indexOf(quote.replace(/\s+/g, " ").toLowerCase().slice(0, 60));
+  return { quote, context: i >= 0 ? text.slice(Math.max(0, i - 250), i + quote.length + 250) : quote };
+}
+
+function validateChecks(raw: unknown): { i: number; verdict: EntityVerdict; reason: string }[] {
+  const list = asObject(raw, "root").checks;
+  if (!Array.isArray(list)) throw new Error("checks must be an array");
+  return list.map((x, k) => {
+    const o = asObject(x, `checks[${k}]`);
+    const verdict = VERDICTS.includes(o.verdict as EntityVerdict) ? (o.verdict as EntityVerdict) : "unclear";
+    return { i: asNumber(o.i, "i", 0, 999), verdict, reason: typeof o.reason === "string" ? o.reason : "" };
+  });
+}
+
+const ENTITY_PROMPT = (c: Candidate, website?: string) => `You check whether each piece of evidence is about ONE specific US wine importer.
+Company: "${c.name}" — TTB permit holder "${c.ownerName}", ${c.city}, ${REGION.name}; website: ${website ?? "unknown"}.
+For each numbered item (claim, URL, quote and the text around it) answer exactly one verdict:
+- "same_company": the text is clearly about this company (its own website, or a page naming it as the company the claim is about)
+- "sister_or_related_company": about a parent, sister, affiliate or partner company, a similarly named company, or a person's other employer
+- "different_company": about another company
+- "unclear": the text does not show which company
+Give a one-line reason. Return JSON: {"checks":[{"i":<item number>,"verdict":"...","reason":"..."}]}`;
+
+/** Only "same_company" evidence counts; anything else becomes "unknown", 0 points, with the reason. Cached in data/cache/entity. */
+// Auto-generated company profiles (AI summaries, data brokers) never count as evidence.
+const AUTO_PROFILE = /(^|\.)(tavily\.com|contactout\.com|rocketreach\.co|zoominfo\.com|signalhire\.com)$/i;
+
+async function verifyEntities(c: Candidate, hits: SignalHit[], pages: WebPage[], website?: string): Promise<void> {
+  const fired = hits.filter((h) => h.status === "fired" && h.points !== 0 && h.url && h.url !== TTB_LIST_URL);
+  const hostOf = (u: string) => {
+    try {
+      return new URL(u).hostname;
+    } catch {
+      return "";
+    }
+  };
+  for (const h of fired.filter((x) => AUTO_PROFILE.test(hostOf(x.url)))) {
+    const reason = `auto-generated profile page (${hostOf(h.url)}) never counts as evidence`;
+    entityLog.push({ lead: c.name, signal: h.id, verdict: "unclear", reason, url: h.url });
+    h.points = 0;
+    h.status = "unknown";
+    h.snippet = `Source rule: ${reason}. Evidence: ${h.snippet}`;
+  }
+  const targets = fired.filter((x) => !AUTO_PROFILE.test(hostOf(x.url)));
+  if (!targets.length) return;
+  const items = targets.map((h) => ({ h, ...evidenceContext(h, pages) }));
+  const key = cacheKey({ c: c.id, owner: c.ownerName, city: c.city, website, items: items.map((x) => [x.h.id, x.h.url, x.h.snippet]), model: process.env.MISTRAL_MODEL });
+  let checks = readCache<ReturnType<typeof validateChecks>>("entity", key);
+  if (!checks && hasMistral()) {
+    const listing = items.map((x, i) => `[${i}] claim: ${x.h.label}\\nURL: ${x.h.url}\\nquote: "${x.quote}"\\ncontext: …${x.context}…`).join("\\n\\n");
+    checks = await chatJSON([{ role: "system", content: ENTITY_PROMPT(c, website) }, { role: "user", content: listing }], validateChecks).catch((err) => {
+      console.error(`[entity] Mistral failed for ${c.name}:`, err);
+      return null;
+    });
+    if (checks) writeCache("entity", key, checks);
+  }
+  items.forEach((x, i) => {
+    const ch = checks?.find((k) => k.i === i);
+    const verdict: EntityVerdict = ch?.verdict ?? "unclear";
+    const reason = ch?.reason || (checks ? "no answer for this item" : "entity check unavailable");
+    entityLog.push({ lead: c.name, signal: x.h.id, verdict, reason, url: x.h.url });
+    if (verdict === "same_company") return;
+    x.h.points = 0;
+    x.h.status = "unknown";
+    x.h.snippet = `Entity check: ${verdict} — ${reason}. Evidence: ${x.h.snippet}`;
+  });
+}
+
+/** The TTB permit must match the lead's own website: its city (address) or the permit's legal name must appear there. */
+function permitMatch(c: Candidate, pages: WebPage[], website?: string): { verified: boolean; detail: string; url: string } {
+  const own = pages.filter((p) => p.ownSite);
+  const permitName = `"${c.ownerName}" (${c.permits.map((p) => p.number).join(", ")}, ${c.city})`;
+  if (!own.length || !website) return { verified: false, detail: `No own website found: TTB permit ${permitName} is not tied to a website`, url: "" };
+  const cityPage = own.find((p) => new RegExp(`\\b${c.city.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(p.text));
+  if (cityPage) return { verified: true, detail: `${website} shows the TTB permit city (${c.city}) — permit ${permitName}`, url: cityPage.url };
+  const owner = normName(c.ownerName);
+  const ownerPage = owner.length >= 6 ? own.find((p) => normName(p.text).includes(owner)) : undefined;
+  if (ownerPage) return { verified: true, detail: `${website} shows the TTB permit holder name — permit ${permitName}`, url: ownerPage.url };
+  return { verified: false, detail: `${website} shows neither the TTB permit city (${c.city}) nor the holder name "${c.ownerName}" on the ${own.length} own-site page(s) read`, url: website };
+}
+
+// ---- Hiring evidence: dated (last 12 months) + named role; LinkedIn activity never counts ----
+
+const ROLE = /\b(sales (rep(resentative)?|manager|director|associate|consultant|executive)|account (manager|executive|representative)|brand (manager|ambassador)|territory manager|regional (sales )?manager|portfolio manager|wine buyer|buyer|sommelier|wine director|marketing (manager|coordinator|director)|operations (manager|coordinator)|office manager|warehouse (associate|manager)|delivery driver|logistics (manager|coordinator))\b/i;
+const MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+function datesIn(text: string): Date[] {
+  const out: Date[] = [];
+  for (const m of text.matchAll(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(?:(\d{1,2}),?\s+)?(20\d{2})\b/gi)) out.push(new Date(Number(m[3]), MONTHS.indexOf(m[1].slice(0, 3).toLowerCase()), Number(m[2] ?? 1)));
+  for (const m of text.matchAll(/\b(20\d{2})-(\d{2})-(\d{2})\b/g)) out.push(new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  for (const m of text.matchAll(/\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/g)) out.push(new Date(Number(m[3]), Number(m[1]) - 1, Number(m[2])));
+  return out.filter((d) => !Number.isNaN(d.getTime()));
+}
+
+/** Why a hiring/expansion quote does not count (null = it counts). */
+function hiringProblem(quote: string, s: Snippet): string | null {
+  let host = "";
+  try {
+    host = new URL(s.url).hostname;
+  } catch {
+    /* keep empty */
+  }
+  if (host.endsWith("linkedin.com")) return "LinkedIn profile activity is undated (never counts)";
+  const expansion = /expan(d|ds|ding|sion) (in)?to/i.test(quote);
+  if (!expansion && !ROLE.test(s.text)) return "no named role";
+  const cutoff = Date.now() - SUBSCORE_WEIGHTS.hiringMaxAgeDays * 86400000;
+  if (!datesIn(s.text).some((d) => d.getTime() >= cutoff && d.getTime() <= Date.now() + 86400000)) return "no date in the last 12 months";
+  return null;
+}
+
+// ---- Fit / Opening sub-scores (weights in signals.ts) ------------------------------
+
+const OUR_APPELLATION = /\b(vouvray|touraine)\b/i; // team rule: "same appellation" = Vouvray or Touraine
+const STYLE_RE: Record<"dry" | "sweet" | "sparkling", RegExp> = {
+  sparkling: /\b(p[ée]tillant|mousseux|sparkling|brut|cr[ée]mant|m[ée]thode (?:traditionnelle|ancestrale)|p[ée]t[- ]?nat|fines bulles)\b/i,
+  sweet: /\b(moelleux|liquoreux|demi[- ]sec|sweet|doux|off[- ]dry)\b/i,
+  dry: /(?<!demi[- ])\b(sec|dry)\b/i,
+};
+const OUR_STYLES = (Object.keys(STYLE_RE) as (keyof typeof STYLE_RE)[]).filter((k) => STYLE_RE[k].test(DEMO_DOMAINE.description)); // dry + sparkling
+const ORGANIC_RE = /\b(organic|natural|biodynamic|low[- ]intervention|minimal intervention|sustainab\w*|additives?|zero intervention)\b/i;
+const SMALL_RE = /\b(small|micro|family|growers?|artisan\w*|vignerons?)\b/i;
+
+interface Competitor {
+  producer: string;
+  appellation: string;
+  styles: string[];
+  prices: number[];
+  url: string;
+  text: string;
+}
+
+/** Style + price of a same-appellation producer, read on its page (whole page if dedicated, else around the name). */
+function competitorOf(p: { producer: string; appellation: string; url: string; quote: string }, pages: WebPage[]): Competitor {
+  const page = pages.find((x) => x.url === p.url);
+  let pathName = "";
+  try {
+    pathName = ascii(new URL(p.url).pathname);
+  } catch {
+    /* keep empty */
+  }
+  const toks = estateTokens(p.producer);
+  const flat = (page?.text ?? p.quote).replace(/\s+/g, " ");
+  let text = p.quote;
+  if (toks.length && toks.some((t) => pathName.includes(t))) text = flat.slice(0, 5000);
+  else {
+    const i = flat.toLowerCase().indexOf(p.producer.toLowerCase());
+    if (i >= 0) text = flat.slice(Math.max(0, i - 40), i + p.producer.length + 220);
+  }
+  const styles = (Object.keys(STYLE_RE) as (keyof typeof STYLE_RE)[]).filter((k) => STYLE_RE[k].test(text));
+  const prices = [...text.matchAll(/\$\s?(\d{2,3}(?:\.\d{2})?)\b/g)].map((m) => Number(m[1]));
+  return { producer: p.producer, appellation: p.appellation, styles, prices, url: p.url, text };
+}
+
+// Own-site sentences preferred over third-party evidence (team rule: prefer the importer's own site).
+const OWN_ORGANIC = /\b(organic(ally)?|biodynamic(ally)?|natural wines?|low[- ]intervention|sustainabl[ey]|no additives|native yeasts?)\b/i;
+const OWN_SMALL = /\b(small (family|producers?|growers?|domaines?|estates?|wineries)|family[- ](owned|run|estates?|domaines?)|independent (growers?|producers?)|grower[- ]producers?|artisanal)\b/i;
+const OWN_TASTING = /\b(portfolio tasting|trade tasting|grand tasting|tasting (event|series|tour)|wine fair)\b/i;
+
+function ownSentence(pages: WebPage[], re: RegExp): { snippet: string; url: string; title?: string } | null {
+  for (const p of pages.filter((x) => x.ownSite)) {
+    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x));
+    if (sentence) return { snippet: sentence.trim(), url: p.url, title: p.title || undefined };
+  }
+  return null;
+}
+
+/** "About / our company" pages listed in the cached map of the importer's site, extracted once (1 credit, cached). */
+async function ownSiteAboutPages(c: Candidate, website: string, u: Usage): Promise<WebPage[]> {
+  const mapFile = cacheFile(`map:${website}`);
+  if (!fs.existsSync(mapFile)) return []; // never pay for a new map here
+  const urls = (JSON.parse(fs.readFileSync(mapFile, "utf8")).results as string[]).filter((x) => /\/(about|our-company|our-story|story|history|philosophy|who-we-are)[^/]*$/i.test(new URL(x).pathname)).slice(0, 3);
+  if (!urls.length) return [];
+  const res = await cachedTavily<RawResult[]>(`extract-about:${urls.join(",")}`, u, async () => {
+    const r = await tavilyClient().extract(urls, { extractDepth: "basic", format: "text", includeUsage: true });
+    return { results: r.results.map((x) => ({ url: x.url, title: x.title ?? "", content: "", rawContent: x.rawContent.slice(0, MAX_PAGE_CHARS) })), credits: r.usage?.credits ?? 1 };
+  }, { candidate: c.name });
+  return relevantPages(c, res ?? [], true);
+}
+
+/** One include_domains search on the importer's own site for its philosophy (1 credit, cached). */
+async function ownSitePhilosophyPages(c: Candidate, website: string, u: Usage): Promise<WebPage[]> {
+  const domain = new URL(website).hostname.replace(/^www\./, "");
+  const res = (await search("small family growers organic farming our producers philosophy", u, { maxResults: 5, includeDomains: [domain] }, { candidate: c.name, ownSitePhilosophy: true })) ?? [];
+  return relevantPages(c, res.filter((r) => baseDomain(new URL(r.url).hostname) === baseDomain(domain)), true);
+}
+
+async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, cov: Coverage | null, links: Link[], pages: WebPage[], shelf: ReturnType<typeof shelfRange>, website?: string, permit?: { verified: boolean; detail: string; url: string }, u?: Usage) {
+  const W = SUBSCORE_WEIGHTS;
+  const replaced = new Set(["portfolio_hole", "loire_saturated", "similar_chenin", "peer_touraine", "peer_neighbors", "grower_philosophy"]);
+  const keep = hits.filter((h) => !replaced.has(h.id));
+  const got = (id: string) => hits.find((h) => h.id === id && h.status === "fired");
+  const items: SignalHit[] = [];
+  const add = (side: "Fit" | "Opening", id: string, label: string, points: number, status: "fired" | "unknown", snippet: string, url: string, title?: string) => {
+    items.push({ id, label: `${side} · ${label}`, points: status === "fired" ? points : 0, status, snippet, url, title });
+  };
+
+  // Evidence sets from the structured portfolio + peer / estate / shop links (distinct producers).
+  const entries = [
+    ...(pf?.producers ?? []).map((p) => ({ producer: p.producer, appellation: p.appellation || p.region, region: `${p.region} ${p.appellation}`, url: p.url, quote: p.quote, own: true })),
+    ...links.map((l) => ({ producer: l.producer, appellation: l.appellation, region: l.appellation, url: l.url, quote: l.quote, own: false })),
+  ];
+  const distinct = <T extends { producer: string }>(xs: T[]) => xs.filter((x, i) => xs.findIndex((y) => squash(y.producer) === squash(x.producer)) === i);
+  const loire = distinct(entries.filter((x) => LOIRE.test(x.region)));
+  const ours = distinct(loire.filter((x) => OUR_APPELLATION.test(x.appellation)));
+  const vouvray = ours.filter((x) => /vouvray/i.test(x.appellation));
+  const touraine = ours.filter((x) => /touraine/i.test(x.appellation));
+  const absenceOk = Boolean(pf && cov && (!cov.low || cov.loireFull) && pf.producers.length >= 10);
+  const confirmLink = links.find((l) => LOIRE.test(l.appellation) && !OUR_APPELLATION.test(l.appellation));
+  const names = (xs: { producer: string; appellation: string }[], n = 4) => xs.slice(0, n).map((x) => `${x.producer} (${x.appellation})`).join("; ");
+
+  // ---- Fit
+  const gp = got("grower_philosophy");
+  if (gp && ORGANIC_RE.test(gp.snippet)) add("Fit", "organic_natural", "organic / natural", W.fit.organicNatural, "fired", gp.snippet, gp.url, gp.title);
+  if (gp && (SMALL_RE.test(gp.snippet) || !ORGANIC_RE.test(gp.snippet))) add("Fit", "small_growers", "small growers", W.fit.smallGrowers, "fired", gp.snippet, gp.url, gp.title);
+  if (loire.length) add("Fit", "loire_presence", "Loire presence", W.fit.loirePresence, "fired", `${loire.length} Loire producer(s): ${names(loire)}. Evidence: "${loire[0].quote}"`, loire[0].url);
+  if (loire.length >= W.loireSpecialistMin && !ours.length)
+    add("Fit", "loire_specialist", "Loire specialist (no Vouvray/Touraine)", W.fit.loireSpecialist, absenceOk ? "fired" : "unknown", `${loire.length} Loire producers, none from Vouvray/Touraine${absenceOk ? "" : ` — ${cov?.label ?? "catalogue not read"}: too little read to claim the absence`}`, loire[0].url);
+  const price = hits.find((h) => h.id === "price_match");
+  if (price) add("Fit", "price_match", "price range overlap", W.fit.priceOverlap, price.status === "fired" ? "fired" : "unknown", price.snippet, price.url, price.title);
+  const nb = got("neighbor_regions");
+  if (nb) add("Fit", "neighbor_regions", "neighbor French regions", W.fit.neighborRegions, "fired", nb.snippet, nb.url, nb.title);
+  const bh = got("big_houses");
+  if (bh) add("Fit", "big_houses", "big houses / grand cru focus", W.fit.bigHouses, "fired", bh.snippet, bh.url, bh.title);
+  const sp = got("spirits_beer_only");
+  if (sp) add("Fit", "spirits_beer_only", "spirits / beer only", W.fit.spiritsOnly, "fired", sp.snippet, sp.url, sp.title);
+
+  // ---- Opening
+  if (loire.length && !ours.length) {
+    const status = absenceOk || confirmLink ? "fired" : "unknown";
+    add("Opening", "portfolio_hole", "room: Loire book without Vouvray/Touraine", W.opening.room, status, `Loire: ${names(loire, 3)}; no Vouvray/Touraine${status === "fired" ? (absenceOk ? ` (${cov?.label})` : ` — confirmed by ${whereOf(confirmLink!)}`) : ` — ${cov?.label ?? "catalogue not read"}: absence not provable`}`, loire[0].url);
+  }
+  const bq = got("boutique_size");
+  if (bq) add("Opening", "boutique_size", "boutique size", W.opening.boutique, "fired", bq.snippet, bq.url, bq.title);
+  const rh = hits.find((h) => h.id === "recent_or_hiring");
+  if (rh) add("Opening", "recent_or_hiring", "hiring / new permit", W.opening.hiringOrNewPermit, rh.status === "fired" ? "fired" : "unknown", rh.snippet, rh.url, rh.title);
+  const tf = got("tastings_fairs");
+  if (tf) add("Opening", "tastings_fairs", "portfolio tastings / fairs", W.opening.tastings, "fired", tf.snippet, tf.url, tf.title);
+  const sat = vouvray.length >= touraine.length ? { app: "Vouvray", xs: vouvray } : { app: "Touraine", xs: touraine };
+  if (sat.xs.length >= W.saturatedMin) add("Opening", "loire_saturated", `saturated: ${sat.xs.length} ${sat.app} estates`, W.opening.saturated, "fired", `Already carries ${sat.xs.length} ${sat.app} estates: ${names(sat.xs)}. Evidence: "${sat.xs[0].quote}"`, sat.xs[0].url);
+  const comps = ours.map((x) => competitorOf(x, pages));
+  if (comps.length) {
+    const lo = shelf.min * (1 - W.priceTolerance), hi = shelf.max * (1 + W.priceTolerance);
+    const judge = (k: Competitor) => {
+      if (!k.styles.length) return { pts: 0, why: "style not found" };
+      const same = k.styles.some((st) => (OUR_STYLES as string[]).includes(st));
+      if (!same) return { pts: W.opening.sameAppellationOtherStyle, why: `different style (${k.styles.join("/")})` };
+      if (!k.prices.length) return { pts: 0, why: `same style (${k.styles.join("/")}), price not found` };
+      return k.prices.some((pr) => pr >= lo && pr <= hi) ? { pts: W.opening.directCompetitor, why: `same style (${k.styles.join("/")}) and similar price ($${k.prices.join(", $")})` } : { pts: W.opening.sameAppellationOtherStyle, why: `same style, different price ($${k.prices.join(", $")})` };
+    };
+    const rated = comps.map((k) => ({ k, ...judge(k) }));
+    const worst = rated.find((r) => r.pts === W.opening.directCompetitor) ?? rated.find((r) => r.pts === W.opening.sameAppellationOtherStyle);
+    const detail = rated.map((r) => `${r.k.producer} (${r.k.appellation}): ${r.why}`).join("; ");
+    if (worst) add("Opening", "similar_chenin", worst.pts === W.opening.directCompetitor ? "direct competitor" : "same appellation, other style", worst.pts, "fired", detail, worst.k.url);
+    else add("Opening", "similar_chenin", "direct competitor?", W.opening.directCompetitor, "unknown", detail, rated[0].k.url);
+  }
+  const mg = got("mega_distributor");
+  if (mg) add("Opening", "mega_distributor", "mega-distributor / high minimums", W.opening.megaDistributor, "fired", mg.snippet, mg.url, mg.title);
+
+  // Entity check on every fired item (only same_company counts).
+  await verifyEntities(c, items, pages, website);
+  // Prefer the importer's own site: a claim whose evidence was rejected (source rule / entity check)
+  // may be proven by a sentence on its own website (cached pages, then its about pages, then one search).
+  const FALLBACK: [string, RegExp, number][] = [
+    ["organic_natural", OWN_ORGANIC, W.fit.organicNatural],
+    ["small_growers", OWN_SMALL, W.fit.smallGrowers],
+    ["tastings_fairs", OWN_TASTING, W.opening.tastings],
+  ];
+  const replacements: SignalHit[] = [];
+  let looked = false;
+  for (const [id, re, pts] of FALLBACK) {
+    const rejected = items.find((h) => h.id === id && h.status === "unknown" && /^(Entity check|Source rule):/.test(h.snippet));
+    if (!rejected) continue;
+    let ev = ownSentence(pages, re);
+    if (!ev && website && u && !looked) {
+      looked = true;
+      pages = [...pages, ...(await ownSiteAboutPages(c, website, u))];
+      ev = ownSentence(pages, re);
+      if (!ev) {
+        pages = [...pages, ...(await ownSitePhilosophyPages(c, website, u))];
+        ev = ownSentence(pages, re);
+      }
+    }
+    if (!ev) continue;
+    replacements.push({ id, label: `${rejected.label} (own website)`, points: pts, status: "fired", snippet: ev.snippet, url: ev.url, title: ev.title });
+  }
+  if (replacements.length) {
+    await verifyEntities(c, replacements, pages, website);
+    items.push(...replacements);
+  }
+  const parts = { Fit: [] as string[], Opening: [] as string[] };
+  let fit = 0, opening = 0;
+  for (const it of items) {
+    if (it.status !== "fired") continue;
+    const side = it.label.startsWith("Fit") ? "Fit" : "Opening";
+    if (side === "Fit") fit += it.points;
+    else opening += it.points;
+    parts[side].push(`${it.label.replace(/^(Fit|Opening) · /, "")} ${it.points > 0 ? "+" : ""}${it.points}`);
+  }
+  const has = (id: string) => items.some((h) => h.id === id && h.status === "fired");
+  const b = blendScores(fit, opening);
+  const tier = permit && !permit.verified ? "C" : b.tier;
+  const angle = angleFor({ ours, rated: comps.map((k) => k), loire: has("loire_presence") ? loire : [], sat, hiring: has("recent_or_hiring"), tastings: has("tastings_fairs"), organic: has("organic_natural"), mega: has("mega_distributor") ? mg : undefined, bigHouses: has("big_houses") ? bh : undefined, absenceOk });
+  items.push(
+    { id: "fit_score", label: `Fit ${b.fit}/100`, points: 0, status: "info", snippet: parts.Fit.join(", ") || "no fit signal proven", url: "" },
+    { id: "opening_score", label: `Opening ${b.opening}/100`, points: 0, status: "info", snippet: parts.Opening.join(", ") || "no opening signal proven", url: "" },
+    { id: "final_score", label: `fitScore ${b.fitScore} → ${tier}`, points: 0, status: "info", snippet: `0.6 × Fit ${b.fit} + 0.4 × Opening ${b.opening} = ${b.fitScore} (A ≥ 60, B ≥ 40)${tier !== b.tier ? ` — capped at C: permit match unverified` : ""}`, url: "" },
+    { id: "angle", label: "Angle", points: 0, status: "info", snippet: angle, url: "" },
+    ...(permit ? [{ id: "permit_match", label: permit.verified ? "Permit match verified" : "Permit match unverified — capped at tier C", points: 0, status: "info" as const, snippet: permit.detail, url: permit.url }] : []),
+    ...keep.filter((h) => h.status === "info"),
+  );
+  return { ...b, tier, items };
+}
+
+/** One line on how to approach the importer, built only from the evidence above. */
+function angleFor(x: { ours: { producer: string; appellation: string }[]; rated: Competitor[]; loire: { producer: string; appellation: string }[]; sat: { app: string; xs: unknown[] }; hiring: boolean; tastings: boolean; organic: boolean; mega?: SignalHit; bigHouses?: SignalHit; absenceOk: boolean }): string {
+  const tail = `${x.tastings ? " Ask for a slot at their portfolio tasting." : ""}${x.hiring ? " They are hiring: time the outreach now." : ""}`;
+  if (x.mega) return `Large distributor ("${x.mega.snippet.slice(0, 80)}"): low priority, volumes too high for a ${DEMO_DOMAINE.exportBottles.toLocaleString("en-US")}-bottle export allocation.`;
+  const sweet = x.rated.find((k) => k.styles.includes("sweet") && !k.styles.some((st) => (OUR_STYLES as string[]).includes(st)));
+  if (sweet) return `Has a sweet ${sweet.appellation} (${sweet.producer}): pitch our dry and sparkling Chenin as the missing styles.${tail}`;
+  if (x.sat.xs.length >= SUBSCORE_WEIGHTS.saturatedMin) return `Already ${x.sat.xs.length} ${x.sat.app} estates (${x.ours.slice(0, 3).map((o) => o.producer).join(", ")}): no room for another Chenin; at most pitch our chilled Cabernet Franc.${tail}`;
+  if (x.ours.length) return `Already carries ${x.ours[0].producer} (${x.ours[0].appellation}); style/price unknown: check their bottling before pitching, lead with our sparkling Chenin.${tail}`;
+  if (x.loire.length && x.absenceOk) return `Loire book without Vouvray/Touraine (${x.loire.slice(0, 3).map((o) => o.producer).join(", ")}): pitch our organic Vouvray as the missing appellation.${tail}`;
+  if (x.loire.length) return `Carries Loire (${x.loire.slice(0, 2).map((o) => o.producer).join(", ")}) but the catalogue was not fully read: check for a Vouvray first, then pitch our organic Chenin.${tail}`;
+  if (x.bigHouses) return `Focus on big houses / grand crus: weak fit for a small organic estate.${tail}`;
+  if (x.organic) return `Natural/organic importer with no Loire proven: lead with organic farming and low intervention, send the dry Chenin and the chilled Cabernet Franc.${tail}`;
+  return `No Loire or style evidence yet: qualify with a short intro email before sending samples.${tail}`;
 }
 
 async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, extra: ExtraEvidence): Promise<ScoredLead | null> {
@@ -1095,7 +1469,14 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
         continue; // scored below against the shelf estimate
       }
       if (def.id === "boutique_size" && pf && pf.producers.length > 150) continue; // the structured portfolio says otherwise
-      if (def.id === "recent_or_hiring" && !/(hiring|(is|are) looking for|open (position|role)|job (opening|posting)|join (our|the) team|expan(d|ds|ding|sion) (in)?to)/i.test(v.quote)) continue;
+      if (def.id === "recent_or_hiring") {
+        if (!/(hiring|(is|are) looking for|open (position|role)|job (opening|posting)|join (our|the) team|expan(d|ds|ding|sion) (in)?to)/i.test(v.quote)) continue;
+        const why = hiringProblem(v.quote, s);
+        if (why) {
+          hits.push({ id: def.id, label: def.label, points: 0, status: "unknown", snippet: `"${v.quote.trim()}" — not counted: ${why}`, url: s.url, title: s.title || undefined });
+          continue;
+        }
+      }
       // Mega-distributor needs hard evidence: a count >= 500 (SKUs/products/brands) or "largest" / "national brands".
       if (def.id === "mega_distributor" && !(/\b(largest|national brands)\b/i.test(v.quote) || (v.quote.match(/\d[\d,]{2,}/g) ?? []).some((n) => Number(n.replace(/,/g, "")) >= 500))) continue;
       hits.push({ id: def.id, label: def.label, points: signalPoints(def), status: "fired", snippet: v.quote.trim(), url: s.url, title: s.title || undefined });
@@ -1119,6 +1500,13 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     hits.push({ id: def.id, label: def.label, points: signalPoints(def), status: "fired", snippet: `TTB permit ${c.permits[0].number} flagged as newly issued`, url: TTB_LIST_URL, title: "TTB List of Permittees" });
   }
 
+  // Correctness first: every fired Fit/Opening item must be about THIS company, and the permit must match its website.
+  const own = e.pages.find((p) => p.ownSite);
+  const website = own ? new URL(own.url).origin : undefined;
+  const permit = permitMatch(c, e.pages, website);
+  const sub = await subScores(c, hits, pf, cov, links, e.pages, extra.shelf, website, permit, extra.u);
+  hits.splice(0, hits.length, ...sub.items);
+
   const sources: Source[] = [];
   const addSource = (url: string, title: string | undefined, snippet: string) => {
     if (url && !sources.some((x) => x.url === url && x.snippet === snippet)) sources.push({ url, title, snippet });
@@ -1132,8 +1520,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   }
   if (!sources.length) return null; // no evidence, no lead
 
-  const { fitScore, tier } = scoreHits(hits);
-  const own = e.pages.find((p) => p.ownSite);
+  const { fitScore, tier } = sub;
   return {
     portfolioDetail: pf?.producers ?? [],
     id: c.id,
@@ -1142,7 +1529,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     state: REGION.code,
     city: c.city,
     address: c.address,
-    website: own ? new URL(own.url).origin : undefined,
+    website,
     permits: c.permits,
     portfolio: (pf?.producers ?? []).map((p) => `${fmt(p)}${p.country ? `, ${p.country}` : ""}`),
     fitScore,
@@ -1153,6 +1540,194 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     enriched: false,
     scoreBreakdown: hits.sort((a, b) => (a.status === "info" ? 1 : 0) - (b.status === "info" ? 1 : 0) || b.points - a.points),
   };
+}
+
+// ---- Competitor estates' own websites -> their US importer ----------------------
+
+export interface EstateRow {
+  estate: string;
+  appellation: string;
+  touraine: boolean;
+  importer: string;
+  where: string; // city/state as written on the estate page
+  url: string;
+  match?: string; // TTB CA company it matched, if any
+}
+
+/** Estate -> US importer rows found on estates' own sites (CA-matched and out-of-state "expansion"). */
+export const estateRows: EstateRow[] = [];
+
+const ESTATE_LIMIT = 6;
+const ESTATE_RESERVE = 2; // credits kept for enriching the importers found
+const STOP_WORDS = new Set(["domaine", "chateau", "clos", "les", "des", "de", "du", "la", "le", "et", "and", "vignobles", "famille", "maison", "vins", "wines", "ferme"]);
+const ascii = (x: string) => x.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const estateTokens = (estate: string) => ascii(estate).split(/[^a-z0-9]+/).filter((w) => w.length >= 4 && !STOP_WORDS.has(w));
+
+/** True if `url` is the estate's own site: its host contains every distinctive word of the estate name. */
+function estateSite(url: string, estate: string): boolean {
+  const toks = estateTokens(estate);
+  try {
+    const host = ascii(new URL(url).hostname.replace(/^www\./, "")).replace(/-/g, "");
+    return toks.length > 0 && toks.every((t) => host.includes(t));
+  } catch {
+    return false;
+  }
+}
+
+function validateEstateImporters(raw: unknown) {
+  const list = asObject(raw, "root").importers;
+  if (!Array.isArray(list)) throw new Error("importers must be an array");
+  return list.map((x, i) => {
+    const o = asObject(x, `importers[${i}]`);
+    const str = (v: unknown) => (typeof v === "string" ? v : "");
+    return { name: asString(o.name, "name"), city: str(o.city), state: str(o.state), country: str(o.country), page: o.page == null ? -1 : asNumber(o.page, "page", -1, 99) };
+  });
+}
+
+const ESTATE_PROMPT = (estate: string) => `These pages come from the website of the French wine estate "${estate}".
+List the importers / distributors it names for the UNITED STATES (USA, États-Unis) only. Copy each company name exactly as written,
+with its US city and state if the page gives them. Ignore other countries. Do not guess.
+Return JSON: {"importers":[{"name","city","state","country","page"}]}`;
+
+// The state of the region being searched ("CA", "California", "Calif." / "NY", "New York"...).
+const inRegionState = (st: string) => new RegExp(`^(${REGION.code}|${REGION.name}${REGION.code === "CA" ? "|calif\\.?" : ""})$`, "i").test(st);
+
+/**
+ * Competitor estates (peers) -> their own website (search) -> importer pages (map, then one batched
+ * extract) -> US importers named there. CA TTB matches become candidates + "estate" links; others are
+ * listed as expansion (not scored).
+ */
+export async function competitorEstates(peers: Peer[], pool: Candidate[], u: Usage): Promise<{ links: Link[]; found: CandidateEvidence[] }> {
+  estateRows.length = 0;
+  // Estates (Domaine/Château/Clos) first, alternating Touraine / neighbor estates; person names last.
+  const rank = (p: Peer) => (/^(domaine|ch[aâ]teau|clos)\b/i.test(p.producer) ? 1 : 0);
+  const byRank = [...peers].sort((a, b) => rank(b) - rank(a));
+  const t = byRank.filter((p) => p.touraine), n = byRank.filter((p) => !p.touraine);
+  const order: Peer[] = [];
+  for (let i = 0; order.length < ESTATE_LIMIT && (i < t.length || i < n.length); i++) {
+    if (n[i]) order.push(n[i]);
+    if (t[i] && order.length < ESTATE_LIMIT) order.push(t[i]);
+  }
+  // Budget 0 = cache-only run: process everything cached (cachedTavily refuses paid calls).
+  const stopAt = u.budget === 0 ? Infinity : (u.budget ?? Infinity) - ESTATE_RESERVE;
+
+  // 1) own site: cached URLs first (free), else a search on the exact estate name
+  const cachedUrls: string[] = [];
+  try {
+    for (const f of fs.readdirSync(path.join(CACHE_DIR, "tavily"))) {
+      const d = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "tavily", f), "utf8"));
+      for (const r of Array.isArray(d.results) ? d.results : []) cachedUrls.push(typeof r === "string" ? r : r?.url ?? "");
+    }
+  } catch {
+    /* no cache yet */
+  }
+  const plan: { peer: Peer; origin: string; pages: RawResult[] }[] = [];
+  for (const peer of order) {
+    if ((u.credits ?? 0) >= stopAt) break;
+    let origin = cachedUrls.find((x) => estateSite(x, peer.producer));
+    if (!origin) {
+      const res = (await search(`"${peer.producer}"`, u, { maxResults: 5 }, { estate: peer.producer })) ?? [];
+      origin = res.find((r) => estateSite(r.url, peer.producer))?.url;
+    }
+    if (!origin) {
+      estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(own website not found)", where: "", url: "" });
+      continue;
+    }
+    origin = new URL(origin).origin;
+    if ((u.credits ?? 0) >= stopAt) break;
+    // 2) importer pages on the estate's own domain (include_domains search: 1 credit, replaces map + extract)
+    const domain = new URL(origin).hostname.replace(/^www\./, "");
+    const res = (await search("importers USA importateurs export distributeurs", u, { maxResults: 5, includeDomains: [domain] }, { estate: peer.producer })) ?? [];
+    plan.push({ peer, origin, pages: res.filter((r) => estateSite(r.url, peer.producer)) });
+  }
+
+  // 3) Mistral lists the US importers named; name must be on the page
+  const links: Link[] = [];
+  const found = new Map<string, CandidateEvidence>();
+  const caCompanies = allCompanies();
+  await Promise.all(
+    plan.map(async ({ peer, origin, pages }) => {
+      if (!pages.length) {
+        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(no importer page found)", where: "", url: origin });
+        return;
+      }
+      if (!hasMistral()) return;
+      const key = cacheKey({ estate: peer.producer, urls: pages.map((p) => [p.url, (p.rawContent || p.content).length]) });
+      let list = readCache<ReturnType<typeof validateEstateImporters>>("estate-importers", key);
+      if (!list) {
+        const listing = pages.map((p, i) => `[${i}] ${p.url}\n${(p.rawContent || p.content).slice(0, 8000)}`).join("\n\n");
+        list = await chatJSON([{ role: "system", content: ESTATE_PROMPT(peer.producer) }, { role: "user", content: listing }], validateEstateImporters).catch(() => null);
+        if (!list) return;
+        writeCache("estate-importers", key, list);
+      }
+      const usable = list.filter((m) => !m.country || /us|united states|usa|[ée]tats/i.test(m.country));
+      if (!usable.length) estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(no US importer named)", where: "", url: pages[0].url });
+      for (const m of usable) {
+        const page = pages.find((p) => squash(`${p.title} ${p.rawContent || p.content}`).includes(squash(m.name)));
+        if (!page) continue; // name must really be on the estate's page
+        const text = `${page.title} ${page.rawContent || page.content}`;
+        const where = [m.city, m.state].filter(Boolean).join(", ");
+        const inCa = inRegionState(m.state.trim()) || (m.city ? cityCounty.has(normName(m.city.replace(/,.*$/, ""))) : false);
+        const outOfState = Boolean(m.state) && !inRegionState(m.state.trim());
+        // CA match: pool candidate by name, else TTB (name + city, or exact trade name when the page gives no city).
+        let company: Candidate | undefined = outOfState ? undefined : findInPool([...pool, ...[...found.values()].map((f) => f.candidate)], text, m.name);
+        if (!company && !outOfState) {
+          const co = m.city ? matchCompany(m.name, m.city, text) : caCompanies.filter((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))).length === 1 ? caCompanies.find((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))) : undefined;
+          if (co) company = strip(co);
+        }
+        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: m.name, where: where || (inCa ? REGION.code : ""), url: page.url, match: company ? `${company.name} (${company.permits[0]?.number}, ${company.city})` : undefined });
+        if (!company) continue;
+        links.push({ candidateId: company.id, kind: "estate", producer: peer.producer, appellation: peer.appellation, touraine: peer.touraine, url: page.url, quote: window(text, m.name) });
+        if (!pool.some((c) => c.id === company!.id) && !found.has(company.id)) {
+          found.set(company.id, { candidate: { ...company, reasons: [...company.reasons, `Named as US importer on ${peer.producer}'s website (${page.url})`] }, pages: [{ candidateId: company.id, url: page.url, title: page.title, text, ownSite: false }] });
+        }
+      }
+    }),
+  );
+  writeCache("estates", "summary", { createdAt: new Date().toISOString(), rows: estateRows });
+  return { links, found: [...found.values()] };
+}
+
+// ---- Manual candidates (named by the team), verified against the TTB file -----
+
+export interface ManualCandidate {
+  name: string;
+  permit?: string; // TTB permit number if known
+  note: string; // why it was added (not used as evidence)
+}
+
+export const MANUAL_CANDIDATES: ManualCandidate[] = [
+  { name: "Beaune Imports", permit: "CA-I-15182", note: "Added by the team (customs records mention Domaine Sylvain Bailly, Sancerre; no public URL, not used as evidence)" },
+  { name: "North Berkeley Imports", note: "Added by the team (Berkeley, France/Italy, Loire section)" },
+  { name: "The Source Imports", note: "Added by the team (Loire growers incl. Patrick Baudouin, Romain Guiberteau, Château de la Morandière)" },
+];
+
+/** Why the automatic search missed each manual candidate (computed from the same rules). */
+export const manualLog: string[] = [];
+
+/** Trade/owner name without "THE", legal suffixes and "IMPORTS"/"SELECTIONS" filler, for exact name lookups. */
+const coreName = (s: string) => normName(s).replace(/^THE /, "").replace(/\b(IMPORTS?|IMPORTERS|SELECTIONS?)\b/g, "").replace(/\s+/g, " ").trim();
+
+/** Looks up manual candidates in the CA TTB lists: by permit number, else by exact trade/owner name (never by guess). */
+export function manualCandidates(): { candidate: Candidate; byName: boolean; note: string }[] {
+  manualLog.length = 0;
+  const out: { candidate: Candidate; byName: boolean; note: string }[] = [];
+  const top = new Set(loadCandidates(25).map((c) => c.id));
+  for (const m of MANUAL_CANDIDATES) {
+    const byPermit = m.permit ? allCompanies().find((c) => c.permits.some((p) => p.number === m.permit)) : undefined;
+    const byName = byPermit ? [] : allCompanies().filter((c) => [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const co = byPermit ?? (byName.length === 1 ? byName[0] : undefined);
+    if (!co) {
+      manualLog.push(`${m.name}: ${byName.length > 1 ? `ambiguous TTB name (${byName.map((c) => c.name).join(", ")}), not added` : "no California TTB importer permit under this name (it may hold one under another legal name; not guessed), not added"}.`);
+      continue;
+    }
+    const why: string[] = [];
+    if (!top.has(co.id)) why.push(`TTB-first ranking: name score ${co.nameScore}${co.hasWholesaler ? "" : ", importer permit only (no wholesaler)"} is below the top-25 cut`);
+    if (coreName(co.name) !== coreName(m.name)) why.push(`its TTB trade name is "${co.name}" (owner "${co.ownerName}", ${co.city}), not "${m.name}"`);
+    manualLog.push(`${m.name} → ${co.name} (${co.permits.map((p) => p.number).join(", ")}, ${co.city}). Missed because: ${why.join("; ") || "-"}.`);
+    out.push({ candidate: { ...strip(co), reasons: [...co.reasons, m.note] }, byName: !byPermit, note: m.note });
+  }
+  return out;
 }
 
 /**
@@ -1170,16 +1745,51 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   const look = await lookalikeImporters(peers, pool.map((e) => e.candidate), u);
   for (const f of look.found) f.pages = await fullLoirePages(f.candidate, await enrichPages(f.candidate, u, f.pages, { light: true }), u);
   const all = [...pool, ...look.found.filter((f) => f.pages.length)];
+  for (const m of manualCandidates()) {
+    if (all.some((e) => e.candidate.id === m.candidate.id)) continue;
+    const pages = await fullLoirePages(m.candidate, await enrichPages(m.candidate, u, []), u);
+    // A name-only TTB match must be tied to the permit holder by a page (its city or owner name), else it is a homonym.
+    const owner = normName(m.candidate.ownerName);
+    if (m.byName && !pages.some((p) => new RegExp(`\\b${m.candidate.city}\\b`, "i").test(p.text) || normName(p.text).includes(owner))) {
+      manualLog.push(`${m.candidate.name}: no page ties the website to the TTB holder (${m.candidate.ownerName}, ${m.candidate.city}); dropped as a possible homonym.`);
+      continue;
+    }
+    if (pages.length) all.push({ candidate: m.candidate, pages });
+    else manualLog.push(`${m.candidate.name}: no page about this company found; dropped.`);
+  }
+  // Competitor estates' own websites -> their US importers (CA ones join the pool, light enrichment).
+  const est = await competitorEstates(peers, all.map((e) => e.candidate), u);
+  for (const f of est.found) {
+    if (all.some((e) => e.candidate.id === f.candidate.id)) continue;
+    const pages = await fullLoirePages(f.candidate, await enrichPages(f.candidate, u, f.pages, { light: true }), u);
+    if (pages.length) all.push({ candidate: f.candidate, pages });
+  }
+  look.links.push(...est.links);
+  console.log(`[discover] estates: ${estateRows.length} rows, ${est.found.length} new CA importers, credits=${u.credits ?? 0}`);
+
+  // Why the automatic search missed them: reverse-search / peer-search mentions that were not matched.
+  for (const m of MANUAL_CANDIDATES) {
+    const seen = [...listCache("mentions"), ...listCache("peer-mentions")].filter((x) => coreName(x.name) === coreName(m.name));
+    const inTtb = allCompanies().some((c) => (m.permit && c.permits.some((p) => p.number === m.permit)) || [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const auto = look.found.find((f) => [f.candidate.name, f.candidate.ownerName].some((n) => coreName(n) === coreName(m.name)) || (m.permit && f.candidate.permits.some((p) => p.number === m.permit)));
+    if (auto) manualLog.push(`${m.name}: now found automatically by the lookalike search (${auto.candidate.reasons.at(-1)}); before the "Emeryville, CA" city-suffix fix it was rejected by the name + city rule.`);
+    else if (seen.length) manualLog.push(`${m.name}: named ${seen.length}× by topic/peer searches (city given: ${[...new Set(seen.map((x) => x.city || "none"))].join(", ")}) but ${inTtb ? "rejected by the name + city rule (different city/metro or no city on the page)" : "there is no TTB permit to match it to"}.`);
+    else manualLog.push(`${m.name}: never named in topic/peer search results.`);
+  }
+  console.log(`[discover] manual: ${manualLog.join(" | ")}`);
   const links = [...look.links, ...(await retailerEvidence(all.map((e) => e.candidate), u))];
   const shelf = shelfRange(DEMO_DOMAINE.priceRangeEur);
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);
 
   const index = await buildIndex(all.flatMap((e) => e.pages));
+  entityLog.length = 0;
   const leads: ScoredLead[] = [];
   for (let i = 0; i < all.length; i += 4) {
-    const batch = await Promise.all(all.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp, { links, shelf })));
+    const batch = await Promise.all(all.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp, { links, shelf, u })));
     leads.push(...batch.filter((l): l is ScoredLead => l !== null));
   }
+  // Audit trail of every entity verdict (incl. leads dropped because no verified source was left).
+  writeCache("entity", `run-${cacheKey(icp)}`, { createdAt: new Date().toISOString(), log: entityLog });
   return { leads: leads.sort((a, b) => b.fitScore - a.fitScore), backend: index.backend };
 }
 

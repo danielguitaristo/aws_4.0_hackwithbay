@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The interview explicitly names 'Amy Atwood Selections' as the company and discusses its philosophy."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The article explicitly refers to 'Amy Atwood Selections' as the pioneering small-batch organic wine importer."
+ }
+]

@@ -8,6 +8,8 @@ import type { ICP } from "@/lib/types";
 import { discoverLeads, permitLeads, REGIONS, type ScoredLead, type Usage } from "@/lib/discovery";
 import { cacheKey, liveGate, readCache, writeCache } from "@/lib/llm";
 import { trackUsage } from "@/lib/billing";
+import { getDomaine, listLeads, listMessages, upsertLeads } from "@/lib/store";
+import { syncStateToNeo4j } from "@/lib/graph";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -17,7 +19,18 @@ interface CachedRun {
   leads: ScoredLead[];
 }
 
-function reply(leads: ScoredLead[], mode: "live" | "cache" | "cache-latest" | "permits" | "empty", reason = "", status = 200) {
+function persistAndReply(
+  leads: ScoredLead[],
+  mode: "live" | "cache" | "cache-latest" | "permits" | "empty",
+  reason = "",
+  status = 200,
+) {
+  if (leads.length > 0) {
+    upsertLeads(leads);
+    void syncStateToNeo4j(getDomaine(), listLeads(), listMessages()).catch((err) => {
+      console.warn("[api/discover] background Neo4j sync failed:", err);
+    });
+  }
   return NextResponse.json(leads, { status, headers: { "x-mode": mode, "x-reason": reason } });
 }
 
@@ -44,28 +57,30 @@ export async function POST(req: Request) {
 
   const key = cacheKey(icp);
   const cached = readCache<CachedRun>("discover", key);
-  if (cached) return reply(cached.leads, "cache");
+  if (cached) return persistAndReply(cached.leads, "cache");
 
   const state = (icp.states?.[0] ?? "CA").toUpperCase();
   if (!REGIONS[state]) return NextResponse.json({ error: `State ${state} is not supported yet` }, { status: 400 });
   // No live run possible -> this state's latest cached run, else a first pass from public TTB permits.
   const fallback = (reason: string) => {
     const latest = latestRun(state);
-    return latest ? reply(latest.leads, "cache-latest", reason) : reply(permitLeads(state), "permits", reason);
+    return latest ? persistAndReply(latest.leads, "cache-latest", reason) : persistAndReply(permitLeads(state), "permits", reason);
   };
-  if (!process.env.TAVILY_API_KEY || !process.env.MISTRAL_API_KEY) return fallback("TAVILY_API_KEY / MISTRAL_API_KEY not set");
+  const cacheOnly = process.env.TAVILY_RUN_BUDGET === "0"; // A's cache-only mode needs no keys
+  if (!cacheOnly && (!process.env.TAVILY_API_KEY || !process.env.MISTRAL_API_KEY)) return fallback("TAVILY_API_KEY / MISTRAL_API_KEY not set");
 
   const gate = liveGate(req);
   if (!gate.live) return fallback(gate.reason ?? "rate limited");
 
   try {
-    const u: Usage = { searches: 0, credits: 0, budget: Number(process.env.TAVILY_RUN_BUDGET) || 60 };
+    const budgetEnv = Number(process.env.TAVILY_RUN_BUDGET);
+    const u: Usage = { searches: 0, credits: 0, budget: process.env.TAVILY_RUN_BUDGET && Number.isFinite(budgetEnv) ? budgetEnv : 60 }; // 0 = cache only
     const { leads, backend } = await discoverLeads(icp, u);
     await trackUsage("searches_run", u.searches);
     await trackUsage("leads_discovered", leads.length);
     writeCache("discover", key, { createdAt: new Date().toISOString(), leads } satisfies CachedRun);
     console.log(`[api/discover] ${leads.length} leads, ${u.searches} paid Tavily calls (${u.credits} credits), retrieval=${backend}`);
-    return reply(leads, "live", `retrieval=${backend}; tavily_calls=${u.searches}; tavily_credits=${u.credits}`);
+    return persistAndReply(leads, "live", `retrieval=${backend}; tavily_calls=${u.searches}; tavily_credits=${u.credits}`);
   } catch (err) {
     console.error("[api/discover] live run failed:", err);
     return fallback("live run failed, see server log");

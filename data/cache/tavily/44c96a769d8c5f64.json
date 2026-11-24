@@ -1,0 +1,6 @@
+{
+ "query": "search:importers USA importateurs export distributeurs:{\"maxResults\":5,\"includeDomains\":[\"labonneliere.com\"]}",
+ "estate": "Domaine la Bonnelière",
+ "fetchedAt": "2026-11-24T21:20:08.631Z",
+ "results": []
+}

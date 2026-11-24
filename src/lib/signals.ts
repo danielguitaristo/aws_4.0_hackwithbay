@@ -186,13 +186,39 @@ export function signalQueries(name: string): string[] {
   return [...new Set(ACTIVE_SIGNALS.flatMap((s) => (s.query ? [s.query.replaceAll("{name}", clean)] : [])))];
 }
 
-export const TIER_A = 60;
-export const TIER_B = 35;
+/*
+ * Two sub-scores (team decision 2026-11-24), each 0-100, shown as "info" items in scoreBreakdown:
+ *   Fit     = does their book look like our wine (organic/natural, small growers, Loire, price, neighbors)
+ *   Opening = is there room for our wine (no Vouvray/Touraine yet, small enough, hiring, tastings)
+ *   fitScore = 0.6 x Fit + 0.4 x Opening;  A >= 60, B >= 40, C below.
+ * Rules:
+ *   - Strong Loire presence (>= 5 Loire producers) WITHOUT our appellation = "Loire specialist", +15 Fit.
+ *   - "Loire saturated" (-30 Opening) only with 2+ estates from the SAME appellation (Vouvray or Touraine).
+ *   - Direct competitor (same appellation): -20 Opening if same style (dry/sweet/sparkling) AND similar price
+ *     (within our estimated shelf range +/-20%), -5 if different style (or same style, different price),
+ *     "unknown" if style or price is not found on the page.
+ *   - Absence claims (no Vouvray/Touraine) need coverage OK or a full Loire page, else "unknown".
+ *   - recent_or_hiring: a hiring post needs a date in the last 12 months AND a named role; LinkedIn profile
+ *     activity (undated) never counts. A TTB "new permit" flag counts (dated by the weekly TTB list).
+ */
+export const SUBSCORE_WEIGHTS = {
+  fit: { organicNatural: 25, smallGrowers: 20, loirePresence: 20, loireSpecialist: 15, priceOverlap: 10, neighborRegions: 10, bigHouses: -15, spiritsOnly: -30 },
+  opening: { room: 35, boutique: 25, hiringOrNewPermit: 20, tastings: 20, saturated: -30, directCompetitor: -20, sameAppellationOtherStyle: -5, megaDistributor: -30 },
+  blend: { fit: 0.6, opening: 0.4 },
+  loireSpecialistMin: 5, // Loire producers needed to call an importer a Loire specialist
+  saturatedMin: 2, // estates from the same appellation (Vouvray or Touraine)
+  priceTolerance: 0.2, // "similar price" = within the estimated shelf range +/- 20%
+  hiringMaxAgeDays: 365,
+} as const;
 
-/** fitScore = sum of fired signal points, clamped to 0..100. */
-export function scoreHits(hits: SignalHit[]): { fitScore: number; tier: "A" | "B" | "C" } {
-  const fitScore = Math.max(0, Math.min(100, hits.reduce((sum, h) => sum + h.points, 0)));
-  return { fitScore, tier: fitScore >= TIER_A ? "A" : fitScore >= TIER_B ? "B" : "C" };
+export const TIERS = { A: 60, B: 40 } as const;
+
+/** fitScore = 0.6 x Fit + 0.4 x Opening (both clamped 0-100); A >= 60, B >= 40, C below. */
+export function blendScores(fit: number, opening: number): { fit: number; opening: number; fitScore: number; tier: "A" | "B" | "C" } {
+  const f = Math.max(0, Math.min(100, fit));
+  const o = Math.max(0, Math.min(100, opening));
+  const fitScore = Math.round(SUBSCORE_WEIGHTS.blend.fit * f + SUBSCORE_WEIGHTS.blend.opening * o);
+  return { fit: f, opening: o, fitScore, tier: fitScore >= TIERS.A ? "A" : fitScore >= TIERS.B ? "B" : "C" };
 }
 
 // ---- US shelf price estimate --------------------------------------------------

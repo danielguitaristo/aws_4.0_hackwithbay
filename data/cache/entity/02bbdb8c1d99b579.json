@@ -1,0 +1,27 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website (cruwines.net)."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website and the quote explicitly names 'CRU WINES, LLC'."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own portfolio page (cruwines.net/portfolio)."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own portfolio page (cruwines.net/portfolio)."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is a subpage of the company's own website (cruwines.net/chateau-des-graviers)."
+ }
+]
