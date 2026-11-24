@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:11:03.423Z",
+ "createdAt": "2026-11-24T22:18:59.034Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -61,22 +61,15 @@
    "lead": "Cru Wines",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The URL is Cru Wines' own portfolio page, explicitly listing their offerings.",
+   "reason": "The URL is the official website of Cru Wines, LLC, and the quote is from their portfolio page.",
    "url": "https://cruwines.net/portfolio"
   },
   {
    "lead": "Cru Wines",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The URL is Cru Wines' own portfolio page, explicitly listing their offerings.",
+   "reason": "The URL is the official website of Cru Wines, LLC, and the quote is from their portfolio page.",
    "url": "https://cruwines.net/portfolio"
-  },
-  {
-   "lead": "Cru Wines",
-   "signal": "big_houses",
-   "verdict": "same_company",
-   "reason": "The URL is a subpage of Cru Wines' website, detailing a specific wine they import.",
-   "url": "https://cruwines.net/chateau-des-graviers"
   },
   {
    "lead": "Farm Wine Imports",
@@ -203,13 +196,6 @@
    "verdict": "same_company",
    "reason": "The quote explicitly names Kermit Lynch as the importer hosting the portfolio tasting.",
    "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
-  },
-  {
-   "lead": "Kermit Lynch, Wine Merchant",
-   "signal": "small_growers",
-   "verdict": "same_company",
-   "reason": "URL is from the official website of Kermit Lynch, Wine Merchant",
-   "url": "https://kermitlynch.com/files/podere-campriano.pdf"
   },
   {
    "lead": "The Wine Source Co.",

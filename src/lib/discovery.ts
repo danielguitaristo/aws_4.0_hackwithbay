@@ -1229,9 +1229,31 @@ const OWN_ORGANIC = /\b(organic(ally)?|biodynamic(ally)?|natural wines?|low[- ]i
 const OWN_SMALL = /\b(small (family|producers?|growers?|domaines?|estates?|wineries)|family[- ](owned|run|estates?|domaines?)|independent (growers?|producers?)|grower[- ]producers?|artisanal)\b/i;
 const OWN_TASTING = /\b(portfolio tasting|trade tasting|grand tasting|tasting (event|series|tour)|wine fair)\b/i;
 
-function ownSentence(pages: WebPage[], re: RegExp): { snippet: string; url: string; title?: string } | null {
-  for (const p of pages.filter((x) => x.ownSite)) {
-    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x));
+// Producer sheets (a producer's own page or PDF on the importer's site) describe the producer, never the
+// importer's focus (team rule): /grower/x, /producers/x, /winery/x, /product/x, /files/x.pdf, or a page
+// whose path names a producer of the structured portfolio.
+const PRODUCER_PATH = /\/(growers?|producers?|winer(y|ies)|domaines?|estates?|winemakers?|vignerons?|products?|wines?|brands?)\/[^/]+|\.pdf$/i;
+const FOCUS_IDS = new Set(["organic_natural", "small_growers", "boutique_size", "big_houses"]);
+
+function isProducerSheet(url: string, pf: Portfolio | null): boolean {
+  let pathName = "";
+  try {
+    pathName = new URL(url).pathname;
+  } catch {
+    return false;
+  }
+  if (PRODUCER_PATH.test(pathName)) return true;
+  const flat = ascii(pathName).replace(/[^a-z0-9]+/g, " ");
+  return (pf?.producers ?? []).some((p) => {
+    const toks = estateTokens(p.producer);
+    return toks.length > 0 && toks.every((t) => flat.includes(t));
+  });
+}
+
+function ownSentence(pages: WebPage[], re: RegExp, pf: Portfolio | null = null): { snippet: string; url: string; title?: string } | null {
+  for (const p of pages.filter((x) => x.ownSite && !isProducerSheet(x.url, pf))) {
+    // Importer's own voice ("we / our / us"): a sentence describing a producer is not the importer's focus.
+    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x) && /\b(we|we're|our|us)\b/i.test(x));
     if (sentence) return { snippet: sentence.trim(), url: p.url, title: p.title || undefined };
   }
   return null;
@@ -1329,6 +1351,13 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   const mg = got("mega_distributor");
   if (mg) add("Opening", "mega_distributor", "mega-distributor / high minimums", W.opening.megaDistributor, "fired", mg.snippet, mg.url, mg.title);
 
+  // Source rule: a producer sheet is never evidence of the importer's own focus.
+  for (const it of items) {
+    if (!FOCUS_IDS.has(it.id) || it.status !== "fired" || !isProducerSheet(it.url, pf)) continue;
+    it.points = 0;
+    it.status = "unknown";
+    it.snippet = `Source rule: producer sheet (${new URL(it.url).pathname}) is not evidence of the importer's focus. Evidence: ${it.snippet}`;
+  }
   // Entity check on every fired item (only same_company counts).
   await verifyEntities(c, items, pages, website);
   // Prefer the importer's own site: a claim whose evidence was rejected (source rule / entity check)
@@ -1343,14 +1372,14 @@ async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, 
   for (const [id, re, pts] of FALLBACK) {
     const rejected = items.find((h) => h.id === id && h.status === "unknown" && /^(Entity check|Source rule):/.test(h.snippet));
     if (!rejected) continue;
-    let ev = ownSentence(pages, re);
+    let ev = ownSentence(pages, re, pf);
     if (!ev && website && u && !looked) {
       looked = true;
       pages = [...pages, ...(await ownSiteAboutPages(c, website, u))];
-      ev = ownSentence(pages, re);
+      ev = ownSentence(pages, re, pf);
       if (!ev) {
         pages = [...pages, ...(await ownSitePhilosophyPages(c, website, u))];
-        ev = ownSentence(pages, re);
+        ev = ownSentence(pages, re, pf);
       }
     }
     if (!ev) continue;

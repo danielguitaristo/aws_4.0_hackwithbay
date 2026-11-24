@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:12:00.598Z",
+ "createdAt": "2026-11-24T22:19:57.427Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -73,30 +73,23 @@
   },
   {
    "lead": "Cru Wines",
-   "signal": "organic_natural",
-   "verdict": "same_company",
-   "reason": "The URL and footer explicitly state 'Cru Wines, LLC'.",
-   "url": "https://cruwines.net/chateau-des-graviers"
-  },
-  {
-   "lead": "Cru Wines",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The URL is from cruwines.net, the company's official website.",
+   "reason": "The URL is Cru Wines' own portfolio page, listing wines they import.",
    "url": "https://cruwines.net/portfolio"
   },
   {
    "lead": "Cru Wines",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The URL is from cruwines.net, the company's official website.",
+   "reason": "The URL is Cru Wines' own portfolio page, listing French regions they cover.",
    "url": "https://cruwines.net/portfolio"
   },
   {
    "lead": "Cru Wines",
    "signal": "big_houses",
    "verdict": "same_company",
-   "reason": "The URL is from cruwines.net, the company's official website.",
+   "reason": "The URL is Cru Wines' own portfolio page, listing Bordeaux châteaux they import.",
    "url": "https://cruwines.net/portfolio"
   },
   {
@@ -268,13 +261,6 @@
    "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current"
   },
   {
-   "lead": "Kermit Lynch, Wine Merchant",
-   "signal": "small_growers",
-   "verdict": "same_company",
-   "reason": "URL is from the official website of Kermit Lynch, Wine Merchant",
-   "url": "https://kermitlynch.com/files/podere-campriano.pdf"
-  },
-  {
    "lead": "The Wine Source Co.",
    "signal": "loire_presence",
    "verdict": "same_company",
@@ -299,14 +285,14 @@
    "lead": "Beaune Imports",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing producers they import.",
-   "url": "https://www.beauneimports.com/producers"
+   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
+   "url": "https://www.beauneimports.com/producer/francois-chidaine"
   },
   {
    "lead": "Beaune Imports",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing regions and producers they import.",
+   "reason": "The URL and context are from Beaune Imports' website, listing their producers by region.",
    "url": "https://www.beauneimports.com/producers"
   },
   {
@@ -320,8 +306,8 @@
    "lead": "Beaune Imports",
    "signal": "loire_saturated",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing Touraine producers they import.",
-   "url": "https://www.beauneimports.com/producers"
+   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
+   "url": "https://www.beauneimports.com/producer/francois-chidaine"
   }
  ]
 }
