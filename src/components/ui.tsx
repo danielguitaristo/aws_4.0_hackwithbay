@@ -170,13 +170,13 @@ export function TopUpDialog({ need, action, onDone, onClose }: { need: number; a
 }
 
 /** Asked at the first send, not at sign-in: permission comes after Claire has seen the value. */
-export function GmailDialog({ onDone, onClose }: { onDone: () => void; onClose: () => void }) {
-  const { connectGmail } = useApp();
+export function GmailDialog({ onDone, onClose, beforeRedirect }: { onDone: () => void; onClose: () => void; beforeRedirect?: () => void }) {
+  const { connectGmail, gmailReal } = useApp();
   const [busy, setBusy] = useState(false);
   const go = async () => {
     setBusy(true);
-    await connectGmail();
-    onDone();
+    if (gmailReal) beforeRedirect?.(); // the page is about to leave for Google's consent screen
+    if (await connectGmail()) onDone();
   };
   return (
     <Dialog onClose={onClose}>

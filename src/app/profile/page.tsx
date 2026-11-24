@@ -1,11 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GmailDialog, Headline, Page, Row } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
 
 export default function Profile() {
-  const { gmail, disconnectGmail } = useApp();
+  const { gmail, gmailEmail, disconnectGmail } = useApp();
   const [ask, setAsk] = useState(false);
+  const [back, setBack] = useState<string | null>(null);
+  // Result of Google's consent screen (?gmail=connected | denied | error)
+  useEffect(() => setBack(new URLSearchParams(window.location.search).get("gmail")), []);
   const [lang, setLang] = useState<"English" | "Français">("English");
   const [notify, setNotify] = useState({ results: true, replies: true });
   const toggle = (k: keyof typeof notify) => setNotify({ ...notify, [k]: !notify[k] });
@@ -25,7 +28,7 @@ export default function Profile() {
             )
           }
         >
-          {gmail ? "claire@petitespierres.fr · Gmail ✓" : <em className="text-taupe">Gmail not connected yet</em>}
+          {gmail ? `${gmailEmail ?? "Your Gmail"} · Gmail ✓` : <em className="text-taupe">Gmail not connected yet</em>}
         </Row>
         <Row label="Signature">Claire Martin · Domaine des Petites Pierres</Row>
         <Row label="Language">
@@ -40,7 +43,9 @@ export default function Profile() {
           ))}
         </Row>
       </div>
-      <p className="note mt-4">Changes save on their own.</p>
+      <p className="note mt-4">
+        {back === "denied" ? "Gmail wasn't connected: you declined on Google's page." : back === "error" ? "Google didn't confirm the connection. Try again." : "Changes save on their own."}
+      </p>
       {ask && <GmailDialog onClose={() => setAsk(false)} onDone={() => setAsk(false)} />}
     </Page>
   );

@@ -7,7 +7,15 @@ import { lastTouch, useApp } from "@/lib/app-state";
 
 export default function Home() {
   const router = useRouter();
-  const { leads, letters, events, replies, icp, draft, weekLater, ready, lastSearch } = useApp();
+  const { leads, letters, events, replies, icp, draft, weekLater, ready, lastSearch, checkReplies } = useApp();
+
+  // Real Gmail: look for replies when Home opens, then every 30 seconds while it stays open.
+  useEffect(() => {
+    if (!ready) return;
+    checkReplies();
+    const t = setInterval(checkReplies, 30000);
+    return () => clearInterval(t);
+  }, [ready, checkReplies]);
 
   // Demo helper: /home?demo=later jumps a week ahead (a reply + a follow-up to write).
   useEffect(() => {

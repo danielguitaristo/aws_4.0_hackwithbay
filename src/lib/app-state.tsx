@@ -6,7 +6,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 import { DEMO_DOMAINE, FALLBACK_ICP, MOCK_LEADS } from "./demo";
 import type { Actor, Domaine, ICP, Lead, LeadEvent, Message, Stage } from "./types";
 
-export type Letter = Message & { bodyFr?: string; kind?: "intro" | "follow_up" | "reply" };
+export type Letter = Message & { bodyFr?: string; kind?: "intro" | "follow_up" | "reply"; to?: string; threadId?: string };
 
 export const COST = { contact: 5, send: 2 } as const;
 
@@ -21,6 +21,7 @@ interface State {
   replies: Record<string, string>; // leadId -> reply excerpt
   lastSearch: string; // last search step Claire was on, for "Resume"
   gmail: boolean; // Gmail connected for sending (asked at first send, not at sign-in)
+  gmailEmail?: string;
 }
 
 const initial: State = {
@@ -79,6 +80,8 @@ function useAppState() {
   const [s, setS] = useState<State>(initial);
   const [ready, setReady] = useState(false);
   const [searching, setSearching] = useState(false);
+  // true when the server has Google OAuth keys: Gmail is real; otherwise it is simulated
+  const [gmailReal, setGmailReal] = useState(false);
 
   useEffect(() => {
     try {
@@ -86,6 +89,14 @@ function useAppState() {
       if (raw) setS({ ...initial, ...JSON.parse(raw) });
     } catch {}
     setReady(true);
+    fetch("/api/gmail/status")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((st: { configured: boolean; connected: boolean; email?: string } | null) => {
+        if (!st?.configured) return;
+        setGmailReal(true);
+        setS((x) => ({ ...x, gmail: st.connected, gmailEmail: st.email }));
+      })
+      .catch(() => {});
   }, []);
   useEffect(() => {
     if (!ready) return;
@@ -154,16 +165,64 @@ function useAppState() {
     setS((st) => ({ ...st, letters: st.letters.map((l) => (l.id === id ? { ...l, ...patch, bodyFr: patch.body ? undefined : l.bodyFr } : l)), events: log(st, st.letters.find((l) => l.id === id)!.leadId, "edited", "rep") }));
   }, []);
 
-  const approve = useCallback((id: string) => {
+  const approve = useCallback((id: string, sent?: { threadId: string; to: string }) => {
     setS((st) => {
       const letter = st.letters.find((l) => l.id === id);
       if (!letter || st.credits < COST.send) return st;
       let events = log(st, letter.leadId, "approved", "rep");
-      events = [...events, { id: uid(), leadId: letter.leadId, type: "sent", actor: "agent", at: now() }];
+      events = [...events, { id: uid(), leadId: letter.leadId, type: "sent", actor: "agent", at: now(), note: sent ? `Sent from Gmail to ${sent.to}` : undefined }];
       const leads = st.leads.map((l) => (l.id === letter.leadId && l.stage === "matched" ? { ...l, stage: "contacted" as Stage } : l));
-      return { ...st, leads, credits: st.credits - COST.send, events, letters: st.letters.map((l) => (l.id === id ? { ...l, status: "sent" } : l)) };
+      return { ...st, leads, credits: st.credits - COST.send, events, letters: st.letters.map((l) => (l.id === id ? { ...l, status: "sent", ...sent } : l)) };
     });
   }, []);
+
+  /** Sends through Gmail when it is really connected, then marks the letter sent. Returns an error message or null. */
+  const sendLetter = useCallback(
+    async (id: string): Promise<string | null> => {
+      const letter = s.letters.find((l) => l.id === id);
+      const lead = letter && s.leads.find((l) => l.id === letter.leadId);
+      if (!letter || !lead) return "Letter not found";
+      if (!gmailReal) {
+        approve(id);
+        return null;
+      }
+      const to = letter.to ?? lead.contact?.email;
+      if (!to) return "Add the importer's email first (Edit).";
+      // follow-ups and replies stay in the same Gmail thread as the first letter
+      const threadId = s.letters.find((l) => l.leadId === lead.id && l.threadId)?.threadId;
+      try {
+        const res = await fetch("/api/gmail/send", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ to, subject: letter.subject, body: letter.body, threadId }) });
+        const data = await res.json();
+        if (!res.ok) return data.error ?? "Gmail refused the letter.";
+        approve(id, { threadId: data.threadId, to: data.to });
+        return null;
+      } catch {
+        return "Couldn't reach Gmail. Try again.";
+      }
+    },
+    [s.letters, s.leads, gmailReal, approve],
+  );
+
+  /** Looks for replies in the Gmail threads of sent letters and moves those leads to "replied". */
+  const checkReplies = useCallback(async () => {
+    const threads = s.letters.filter((l) => l.status === "sent" && l.threadId).map((l) => ({ leadId: l.leadId, threadId: l.threadId! }));
+    if (!gmailReal || !s.gmail || !threads.length) return;
+    try {
+      const res = await fetch("/api/gmail/replies", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ threads }) });
+      if (!res.ok) return;
+      const found = (await res.json()) as { leadId: string; snippet: string }[];
+      setS((st) => {
+        const fresh = found.filter((f) => st.leads.find((l) => l.id === f.leadId)?.stage === "contacted");
+        if (!fresh.length) return st;
+        return {
+          ...st,
+          leads: st.leads.map((l) => (fresh.some((f) => f.leadId === l.id) ? { ...l, stage: "replied" as Stage } : l)),
+          replies: { ...st.replies, ...Object.fromEntries(fresh.map((f) => [f.leadId, f.snippet])) },
+          events: [...st.events, ...fresh.map((f) => ({ id: uid(), leadId: f.leadId, type: "stage" as const, stage: "replied" as Stage, actor: "agent" as Actor, at: now(), note: "Reply detected in Gmail" }))],
+        };
+      });
+    } catch {}
+  }, [s.letters, s.gmail, gmailReal]);
 
   const skip = useCallback((id: string) => {
     setS((st) => ({ ...st, letters: st.letters.map((l) => (l.id === id ? { ...l, status: "rejected" } : l)), events: log(st, st.letters.find((l) => l.id === id)!.leadId, "rejected", "rep") }));
@@ -185,12 +244,21 @@ function useAppState() {
   const finishOnboarding = useCallback(() => setS((st) => ({ ...st, onboarded: true })), []);
   const rememberSearch = useCallback((path: string) => setS((st) => (st.lastSearch === path ? st : { ...st, lastSearch: path })), []);
   const topUp = useCallback((n: number) => setS((st) => ({ ...st, credits: st.credits + n })), []);
-  /** TODO(B): replace the simulated consent with the real Google OAuth route when it exists. */
+  /** Real Google consent when keys are set (the page leaves, returns with ?gmail=connected), simulated otherwise.
+   *  Resolves true when connected right away, false when redirecting to Google. */
   const connectGmail = useCallback(async () => {
+    if (gmailReal) {
+      window.location.href = `/api/gmail/auth?returnTo=${encodeURIComponent(window.location.pathname)}`;
+      return false;
+    }
     await new Promise((r) => setTimeout(r, 900));
-    setS((st) => ({ ...st, gmail: true }));
-  }, []);
-  const disconnectGmail = useCallback(() => setS((st) => ({ ...st, gmail: false })), []);
+    setS((st) => ({ ...st, gmail: true, gmailEmail: "claire@petitespierres.fr" }));
+    return true;
+  }, [gmailReal]);
+  const disconnectGmail = useCallback(() => {
+    if (gmailReal) fetch("/api/gmail/disconnect", { method: "POST" }).catch(() => {});
+    setS((st) => ({ ...st, gmail: false, gmailEmail: undefined }));
+  }, [gmailReal]);
   const reset = useCallback(() => setS(initial), []);
 
   /** Demo helper: jump "a week later" — first contacted lead replies, another needs a follow-up. */
@@ -210,7 +278,7 @@ function useAppState() {
     });
   }, []);
 
-  return { ...s, ready, searching, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, skip, moveStage, addLead, finishOnboarding, rememberSearch, topUp, connectGmail, disconnectGmail, reset, weekLater };
+  return { ...s, ready, searching, gmailReal, saveDomaine, buildIcp, updateIcp, discover, findContact, draft, editLetter, approve, sendLetter, checkReplies, skip, moveStage, addLead, finishOnboarding, rememberSearch, topUp, connectGmail, disconnectGmail, reset, weekLater };
 }
 
 type App = ReturnType<typeof useAppState>;
