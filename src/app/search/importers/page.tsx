@@ -68,7 +68,11 @@ export default function Importers() {
   const allRanked = useMemo(() => leads.filter((l) => l.stage !== "lost").sort((a, b) => b.fitScore - a.fitScore), [leads]);
   // Only the zones Claire picked on the Target step (California first).
   const zones = useMemo(() => new Set((icp ?? FALLBACK_ICP).metros.map(normalizeMetro).filter(Boolean)), [icp]);
-  const ranked = useMemo(() => (everywhere || !zones.size ? allRanked : allRanked.filter((l) => zones.has(metroOf(l.city)))), [allRanked, zones, everywhere]);
+  // Keep importers we can't place (unknown city) rather than hide them.
+  const inZones = useMemo(() => allRanked.filter((l) => { const m = metroOf(l.city); return !m || zones.has(m); }), [allRanked, zones]);
+  // No dead end: if the chosen zones are empty, show the rest of California and say so.
+  const emptyZones = zones.size > 0 && inZones.length === 0;
+  const ranked = everywhere || !zones.size || emptyZones ? allRanked : inZones;
   const elsewhere = allRanked.length - ranked.length;
   const sel = ranked.find((l) => l.id === selected) ?? ranked[0];
   const pending = letters.filter((l) => l.status === "pending").length;
@@ -78,17 +82,6 @@ export default function Importers() {
 
   if (!ready) return null;
   if (searching || !allRanked.length) return <Page step={2}><Searching /></Page>;
-  if (!ranked.length)
-    return (
-      <Page step={2}>
-        <Headline lead="No importers in these zones" tail="yet." />
-        <p className="note mt-3 text-lg">{elsewhere} fit your estate elsewhere in California.</p>
-        <div className="mt-8 flex flex-wrap items-center gap-6">
-          <button className="btn" onClick={() => setEverywhere(true)}>Show them</button>
-          <Back href="/search/target" label="Change zones" />
-        </div>
-      </Page>
-    );
 
   const good = ranked.filter((l) => l.tier !== "C").length;
   const first = firstNameOf(sel); // undefined when the contact is a role, not a person
@@ -97,6 +90,7 @@ export default function Importers() {
   return (
     <Page step={2}>
       <Headline lead={`${ranked.length} importers,`} tail={good === 0 ? "none an obvious fit yet." : `${good === 1 ? "one" : good} worth a letter.`} />
+      {emptyZones && <p className="note mt-3 text-lg">None in your zones yet, so here is the rest of California. <Link href="/search/target" className="caps not-italic underline">Change zones</Link></p>}
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
         <div className="max-w-48 md:max-w-none">
           <CaliforniaMap leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />

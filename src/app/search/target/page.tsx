@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { METROS, normalizeMetro, type Metro } from "@/components/CaliforniaMap";
+import { METROS, metroOf, normalizeMetro, type Metro } from "@/components/CaliforniaMap";
 import { Back, Headline, Page, Row } from "@/components/ui";
 import { OTHER_STATE, useApp } from "@/lib/app-state";
 import { FALLBACK_ICP } from "@/lib/demo";
@@ -21,7 +21,7 @@ const FIELDS: Field[] = [
 
 export default function Target() {
   const router = useRouter();
-  const { icp: stored, updateIcp, onboarded } = useApp();
+  const { icp: stored, updateIcp, onboarded, leads } = useApp();
   const icp = stored ?? FALLBACK_ICP;
   const [editing, setEditing] = useState<keyof ICP | null>(null);
   const [draft, setDraft] = useState("");
@@ -54,6 +54,7 @@ export default function Target() {
                     <button key={m} aria-pressed={zones.has(m)} onClick={() => toggleZone(m)} className={zones.has(m) ? "text-wine" : "text-taupe hover:text-ink"}>
                       {zones.has(m) ? "✓ " : ""}
                       {m}
+                      {leads.length > 0 && <span className="font-sans text-xs text-taupe"> · {leads.filter((l) => metroOf(l.city) === m).length}</span>}
                     </button>
                   ))}
                 </div>
