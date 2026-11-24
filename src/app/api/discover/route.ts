@@ -8,6 +8,8 @@ import type { ICP } from "@/lib/types";
 import { discoverLeads, type ScoredLead, type Usage } from "@/lib/discovery";
 import { cacheKey, liveGate, readCache, writeCache } from "@/lib/llm";
 import { trackUsage } from "@/lib/billing";
+import { getDomaine, listLeads, listMessages, upsertLeads } from "@/lib/store";
+import { syncStateToNeo4j } from "@/lib/graph";
 
 export const runtime = "nodejs";
 export const maxDuration = 300;
@@ -17,7 +19,16 @@ interface CachedRun {
   leads: ScoredLead[];
 }
 
-function reply(leads: ScoredLead[], mode: "live" | "cache" | "cache-latest" | "empty", reason = "", status = 200) {
+async function persistAndReply(
+  leads: ScoredLead[],
+  mode: "live" | "cache" | "cache-latest" | "empty",
+  reason = "",
+  status = 200,
+) {
+  if (leads.length > 0) {
+    upsertLeads(leads);
+    await syncStateToNeo4j(getDomaine(), listLeads(), listMessages());
+  }
   return NextResponse.json(leads, { status, headers: { "x-mode": mode, "x-reason": reason } });
 }
 
@@ -44,12 +55,14 @@ export async function POST(req: Request) {
 
   const key = cacheKey(icp);
   const cached = readCache<CachedRun>("discover", key);
-  if (cached) return reply(cached.leads, "cache");
+  if (cached) return persistAndReply(cached.leads, "cache");
 
   const gate = liveGate(req);
   if (!gate.live) {
     const latest = latestRun();
-    return latest ? reply(latest.leads, "cache-latest", gate.reason) : reply([], "empty", gate.reason, gate.status);
+    return latest
+      ? persistAndReply(latest.leads, "cache-latest", gate.reason)
+      : persistAndReply([], "empty", gate.reason, gate.status);
   }
 
   try {
@@ -60,10 +73,12 @@ export async function POST(req: Request) {
     await trackUsage("leads_discovered", leads.length);
     writeCache("discover", key, { createdAt: new Date().toISOString(), leads } satisfies CachedRun);
     console.log(`[api/discover] ${leads.length} leads, ${u.searches} paid Tavily calls (${u.credits} credits), retrieval=${backend}`);
-    return reply(leads, "live", `retrieval=${backend}; tavily_calls=${u.searches}; tavily_credits=${u.credits}`);
+    return persistAndReply(leads, "live", `retrieval=${backend}; tavily_calls=${u.searches}; tavily_credits=${u.credits}`);
   } catch (err) {
     console.error("[api/discover] live run failed:", err);
     const latest = latestRun();
-    return latest ? reply(latest.leads, "cache-latest", "live run failed, see server log") : reply([], "empty", "live run failed, see server log", 500);
+    return latest
+      ? persistAndReply(latest.leads, "cache-latest", "live run failed, see server log")
+      : persistAndReply([], "empty", "live run failed, see server log", 500);
   }
 }
