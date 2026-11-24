@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T21:22:56.427Z",
+ "createdAt": "2026-11-24T21:32:29.918Z",
  "leads": [
   {
    "portfolioDetail": [],
@@ -539,7 +539,7 @@
     "Domaine Ostertag (Alsace), France"
    ],
    "fitScore": 35,
-   "tier": "B",
+   "tier": "C",
    "signals": [
     "-30 Loire saturated (10+ Loire producers already)",
     "+10 Already imports from neighboring French regions",
@@ -782,7 +782,7 @@
     "Domaine Loubejac (Oregon), USA"
    ],
    "fitScore": 30,
-   "tier": "C",
+   "tier": "B",
    "signals": [
     "+10 Already imports from neighboring French regions",
     "+20 Small family / grower / low-intervention philosophy"
@@ -5032,19 +5032,6 @@
   {
    "portfolioDetail": [
     {
-     "producer": "François Chidaine",
-     "country": "France",
-     "region": "Loire Valley",
-     "appellation": "Montlouis, Vouvray, Touraine",
-     "grapes": [
-      "Chenin Blanc",
-      "Sauvignon Blanc",
-      "Gamay"
-     ],
-     "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain"
-    },
-    {
      "producer": "Weinkultur Preiss",
      "country": "Austria",
      "region": "Traisental",
@@ -5192,7 +5179,7 @@
      "producer": "Michel Laroche et Ses Enfants",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Chablis",
+     "appellation": "Chablis/Auxerre",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "é Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus"
@@ -5382,8 +5369,8 @@
       "Meunier",
       "Pinot Gris"
      ],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + Champagne Clandestin + De Marne/Val Frison +"
+     "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
+     "quote": "Champagne Mouzon-Leroux Region Farming In 2008, Sébastien Mouzon became the 9th generation to take over his family estate l"
     },
     {
      "producer": "R. H. Coutier",
@@ -5513,8 +5500,8 @@
       "Merlot",
       "Cabernet Sauvignon"
      ],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "+ Clos Marie + Domaine de l'Hortus + Mas de Daumas Gassac + Mas des Brousses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine de"
+     "url": "https://www.beauneimports.com/producer/mas-des-brousses",
+     "quote": "Mas des Brousses Region Farming Outside the charming medieval village of Puéchabon, the vineyards of Mas des Brousse"
     },
     {
      "producer": "Moulin de Gassac",
@@ -5569,8 +5556,8 @@
      "grapes": [
       "Melon de Bourgogne"
      ],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des"
+     "url": "https://www.beauneimports.com/producer/domaine-du-haut-bourg",
+     "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 Domaine du Haut Bourg Region FranceLoire ValleyAnjou/Nantais/Saumur Farming Natural farming In the Nantais, where the mou"
     },
     {
      "producer": "Jo Landron-Domaine de la Louvetrie",
@@ -5645,6 +5632,19 @@
      "quote": "ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea"
     },
     {
+     "producer": "François Chidaine",
+     "country": "France",
+     "region": "Loire Valley",
+     "appellation": "Montlouis, Vouvray, Touraine",
+     "grapes": [
+      "Chenin Blanc",
+      "Sauvignon Blanc",
+      "Gamay"
+     ],
+     "url": "https://www.beauneimports.com/producer/francois-chidaine",
+     "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain"
+    },
+    {
      "producer": "Philippe Alliet",
      "country": "France",
      "region": "Loire Valley",
@@ -5653,8 +5653,8 @@
       "Cabernet Franc",
       "Chenin Blanc"
      ],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue +"
+     "url": "https://www.beauneimports.com/producer/philippe-alliet",
+     "quote": "Philippe Alliet and his wife, Claude, have farmed in Cravant-les-Coteaux, in the heart of the Chinon AOC since 1985"
     },
     {
      "producer": "Pierre Gauthier/Domaine du Bel Air",
@@ -6021,8 +6021,8 @@
       "Malvasia",
       "Barcelo"
      ],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "cio + Tamellini ## Portugal Alentejo + Cortes de Cima Dão + Freire Lobo ## Spain Andalucia + Delgado Zuleta + Flequi Berruti Castilla y Leon + Bodega Javier Sanz + Bodegas"
+     "url": "https://www.beauneimports.com/producer/freire-lobo",
+     "quote": "Freire Lobo Region Farming Elisa Freire Lobo began her winemaking career in 1996, working and studying in the B"
     },
     {
      "producer": "Delgado Zuleta",
@@ -6310,7 +6310,6 @@
     }
    ],
    "portfolio": [
-    "François Chidaine (Montlouis, Vouvray, Touraine), France",
     "Weinkultur Preiss (Traisental), Austria",
     "Weingut Donabaum (Wachau), Austria",
     "Eye Cyder (California), United States",
@@ -6327,7 +6326,7 @@
     "Domaine Hervé Azo (Chablis/Auxerre), France",
     "Guilhem & Jean-Hugues Goisot (Chablis/Auxerre), France",
     "Le Domaine d’Henri (Chablis/Auxerre), France",
-    "Michel Laroche et Ses Enfants (Chablis), France",
+    "Michel Laroche et Ses Enfants (Chablis/Auxerre), France",
     "Domaine MIA (Côte Chalonnaise), France",
     "Chapelle et Fils (Côte de Beaune), France",
     "David Trousselle (Côte de Beaune), France",
@@ -6376,6 +6375,7 @@
     "Domaine Sylvain Bailly (Sancerre/Pouilly/Menetou-Salon), France",
     "Firmin Dezat (Sancerre/Pouilly/Menetou-Salon), France",
     "Domaine de la Fontainerie (Touraine), France",
+    "François Chidaine (Montlouis, Vouvray, Touraine), France",
     "Philippe Alliet (Chinon), France",
     "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
     "Domaine de Trévallon (Rhône & Provence), France",
@@ -6458,20 +6458,20 @@
    ],
    "sources": [
     {
-     "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "snippet": "Already carries Touraine/Vouvray: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\""
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "Already carries Touraine/Vouvray: Domaine de la Fontainerie (Touraine); François Chidaine (Montlouis, Vouvray, Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea\""
     },
     {
-     "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "snippet": "16 Loire producers listed on beauneimports.com. Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\""
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "16 Loire producers listed on beauneimports.com. Evidence: \"sses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Dom\""
     },
     {
      "url": "https://www.beauneimports.com/producers",
      "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
     },
     {
-     "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "snippet": "Direct peer François Chidaine (beauneimports.com): \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\""
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "Direct peer Domaine de la Fontainerie (beauneimports.com): \"ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea\""
     },
     {
      "url": "https://www.beauneimports.com/about",
@@ -6496,12 +6496,24 @@
      "snippet": "Gauthier/Domaine du Bel Air, 2024 Bourgueil, Jour de Soif. Producer ... This is great quaffing wine. Print. View Image. BEAUNE IMPORTS. 1490 66th Street."
     },
     {
-     "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "snippet": "Producers listed: François Chidaine (Montlouis, Vouvray, Touraine)"
+     "url": "https://www.beauneimports.com/producers",
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+118 more)"
     },
     {
-     "url": "https://www.beauneimports.com/producers",
-     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+123 more)"
+     "url": "https://www.beauneimports.com/producer/champagne-mouzon-leroux",
+     "snippet": "Producers listed: Champagne Mouzon-Leroux (Montagne de Reims)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/mas-des-brousses",
+     "snippet": "Producers listed: Mas des Brousses (Terrasses du Larzac)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/domaine-du-haut-bourg",
+     "snippet": "Producers listed: Domaine du Haut Bourg (Muscadet Côtes de Grandlieu)"
+    },
+    {
+     "url": "https://www.beauneimports.com/producer/francois-chidaine",
+     "snippet": "Producers listed: François Chidaine (Montlouis, Vouvray, Touraine)"
     }
    ],
    "stage": "matched",
@@ -6546,24 +6558,24 @@
      "label": "Already carries a similar organic Chenin from Touraine/Vouvray",
      "points": -20,
      "status": "fired",
-     "snippet": "Already carries Touraine/Vouvray: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\"",
-     "url": "https://www.beauneimports.com/producer/francois-chidaine"
+     "snippet": "Already carries Touraine/Vouvray: Domaine de la Fontainerie (Touraine); François Chidaine (Montlouis, Vouvray, Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea\"",
+     "url": "https://www.beauneimports.com/producers"
     },
     {
      "id": "loire_saturated",
      "label": "Loire saturated (10+ Loire producers already)",
      "points": -30,
      "status": "fired",
-     "snippet": "16 Loire producers listed on beauneimports.com. Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\"",
-     "url": "https://www.beauneimports.com/producer/francois-chidaine"
+     "snippet": "16 Loire producers listed on beauneimports.com. Evidence: \"sses + Moulin de Gassac Loire Valley Anjou/Nantais/Saumur + Clos Rougeard + Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Dom\"",
+     "url": "https://www.beauneimports.com/producers"
     },
     {
      "id": "peer_touraine",
      "label": "Already imports a direct peer from Touraine/Vouvray (merged into similar_chenin)",
      "points": 0,
      "status": "info",
-     "snippet": "Direct peer François Chidaine (beauneimports.com): \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\"",
-     "url": "https://www.beauneimports.com/producer/francois-chidaine"
+     "snippet": "Direct peer Domaine de la Fontainerie (beauneimports.com): \"ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea\"",
+     "url": "https://www.beauneimports.com/producers"
     },
     {
      "id": "price_estimate",

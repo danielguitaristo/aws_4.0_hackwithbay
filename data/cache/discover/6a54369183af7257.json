@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T21:21:18.806Z",
+ "createdAt": "2026-11-24T21:31:33.420Z",
  "leads": [
   {
    "portfolioDetail": [
@@ -5558,6 +5558,24 @@
      "quote": "e de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des E"
     },
     {
+     "producer": "Chteau de Montmirail",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "iet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domain"
+    },
+    {
+     "producer": "Chteau la Canorgue",
+     "country": "France",
+     "region": "Rhône & Provence",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.beauneimports.com/producers",
+     "quote": "omaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabott"
+    },
+    {
      "producer": "Domaine de Trévallon",
      "country": "France",
      "region": "Rhône & Provence",
@@ -6275,6 +6293,8 @@
     "François Chidaine (Touraine), France",
     "Philippe Alliet (Chinon), France",
     "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
+    "Chteau de Montmirail (Rhône & Provence), France",
+    "Chteau la Canorgue (Rhône & Provence), France",
     "Domaine de Trévallon (Rhône & Provence), France",
     "Domaine des Entrefaux (Rhône & Provence), France",
     "Domaine Verset A & E (Rhône & Provence), France",
@@ -6390,7 +6410,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+120 more)"
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+122 more)"
     },
     {
      "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
@@ -6480,10 +6500,10 @@
     },
     {
      "id": "coverage",
-     "label": "catalogue lu : 141 producteurs, 12 pages (total non indiqué)",
+     "label": "catalogue lu : 143 producteurs, 12 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "141 producers read on 12 own-site pages. Coverage OK.",
+     "snippet": "143 producers read on 12 own-site pages. Coverage OK.",
      "url": "https://www.beauneimports.com"
     }
    ]

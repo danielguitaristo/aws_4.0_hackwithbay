@@ -1216,7 +1216,8 @@ export async function competitorEstates(peers: Peer[], pool: Candidate[], u: Usa
     if (n[i]) order.push(n[i]);
     if (t[i] && order.length < ESTATE_LIMIT) order.push(t[i]);
   }
-  const stopAt = (u.budget ?? Infinity) - ESTATE_RESERVE;
+  // Budget 0 = cache-only run: process everything cached (cachedTavily refuses paid calls).
+  const stopAt = u.budget === 0 ? Infinity : (u.budget ?? Infinity) - ESTATE_RESERVE;
 
   // 1) own site: cached URLs first (free), else a search on the exact estate name
   const cachedUrls: string[] = [];
