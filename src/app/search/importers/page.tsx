@@ -107,7 +107,7 @@ export default function Importers() {
         <Headline lead={`${ranked.length} importers,`} tail={good === 0 ? "none an obvious fit yet." : `${good === 1 ? "one" : good} worth a letter.`} />
       )}
       {permitsOnly && <p className="note mt-3 text-lg">Licensed importers from the federal registry. Their catalogs haven&apos;t been read yet, so the fit is a first estimate.</p>}
-      {emptyZones && <p className="note mt-3 text-lg">None in your zones yet, so here is the rest of California. <Link href="/search/target" className="caps not-italic underline">Change zones</Link></p>}
+      {emptyZones && <p className="note mt-3 text-lg">None in your zones yet, so here is the rest of California. <Link href="/search/target" className="link not-italic">Change zones</Link></p>}
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
         <div className="max-w-48 md:max-w-none">
           <StateMap state={state} leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
@@ -122,7 +122,7 @@ export default function Importers() {
                 </div>
                 {reasonOf(l) && <p className="mt-2 font-serif text-lg italic">{reasonOf(l)}</p>}
                 <p className="mt-2 text-xs text-taupe">
-                  {l.city} · <button className="underline hover:text-ink" onClick={() => setWhy(!why)}>{why ? "hide details" : "why this match"}</button>
+                  {l.city} · <button className="link" onClick={() => setWhy(!why)}>{why ? "hide details" : "why this match"}</button>
                 </p>
                 {why && (
                   <div className="mt-3 space-y-3 border-l border-rule pl-4 text-sm text-taupe">
@@ -151,7 +151,7 @@ export default function Importers() {
                   {sentTo(l.id) ? (
                     <span className="caps">Letter sent ✓</span>
                   ) : drafted(l.id) ? (
-                    <Link href="/search/letters" className="caps text-wine underline">Letter ready · review</Link>
+                    <Link href="/search/letters" className="btn-line">Letter ready · review ›</Link>
                   ) : hasEmail ? (
                     <button className="btn" onClick={() => draft(l.id)}>{first ? `Write to ${first}` : "Write a letter"}</button>
                   ) : (
@@ -159,7 +159,7 @@ export default function Importers() {
                       {finding ? "Finding the right person…" : `Find contact · ${COST.contact} credits`}
                     </button>
                   )}
-                  <button className="text-xs text-taupe hover:text-ink" onClick={() => moveStage(l.id, "lost")}>Not for me</button>
+                  <button className="link text-taupe" onClick={() => moveStage(l.id, "lost")}>Not for me</button>
                 </div>
               </div>
             ) : (
@@ -175,9 +175,9 @@ export default function Importers() {
             ),
           )}
           <div className="flex justify-between border-t border-rule pt-3">
-            {ranked.length > 4 && <button className="caps hover:text-ink" onClick={() => setAll(!all)}>{all ? "Show fewer" : `See all ${ranked.length}`}</button>}
+            {ranked.length > 4 && <button className="link" onClick={() => setAll(!all)}>{all ? "Show fewer" : `See all ${ranked.length}`}</button>}
             {(elsewhere > 0 || everywhere) && (
-              <button className="caps ml-auto underline hover:text-ink" onClick={() => setEverywhere(!everywhere)}>
+              <button className="link ml-auto" onClick={() => setEverywhere(!everywhere)}>
                 {everywhere ? "Only my zones" : `${elsewhere} more elsewhere in ${STATE_NAMES[state]}`}
               </button>
             )}
@@ -186,7 +186,7 @@ export default function Importers() {
       </div>
       <div className="mt-10 flex items-center justify-between gap-4">
         <Back href="/search/target" label="Target" />
-        {pending > 0 && <Link href="/search/letters" className="caps text-wine underline">Review {pending} letter{pending > 1 ? "s" : ""} ›</Link>}
+        {pending > 0 && <Link href="/search/letters" className="btn-line">Review {pending} letter{pending > 1 ? "s" : ""} ›</Link>}
       </div>
       {topUp && (
         <TopUpDialog need={COST.contact} action="Finding a contact" onClose={() => setTopUp(false)} onDone={() => { setTopUp(false); find(sel.id); }} />

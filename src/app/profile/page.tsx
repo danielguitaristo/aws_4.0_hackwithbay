@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { GmailDialog, Headline, Page, Row } from "@/components/ui";
+import { Chips, GmailDialog, Headline, Page, Row } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
 
 export default function Profile() {
@@ -22,9 +22,9 @@ export default function Profile() {
           label="Letters sent from"
           aside={
             gmail ? (
-              <button className="caps underline hover:text-ink" onClick={disconnectGmail}>Disconnect</button>
+              <button className="link" onClick={disconnectGmail}>Disconnect</button>
             ) : (
-              <button className="caps underline hover:text-ink" onClick={() => setAsk(true)}>Connect</button>
+              <button className="btn-line" onClick={() => setAsk(true)}>Connect Gmail</button>
             )
           }
         >
@@ -32,7 +32,7 @@ export default function Profile() {
         </Row>
         <Row label="Signature">Claire Martin · Domaine des Petites Pierres</Row>
         <Row label="Language">
-          <button className="hover:text-wine" onClick={() => setLang(lang === "English" ? "Français" : "English")}>{lang}</button>
+          <Chips multi={false} options={["English", "Français"]} value={[lang]} onChange={([v]) => setLang(v as "English" | "Français")} />
         </Row>
         <Row label="Emails to you">
           {(["results", "replies"] as const).map((k) => (

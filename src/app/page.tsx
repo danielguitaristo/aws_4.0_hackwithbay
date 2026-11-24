@@ -57,7 +57,7 @@ export default function SignIn() {
               <button className="btn mt-6 w-full" onClick={send} disabled={!valid}>
                 Email me a sign-in link
               </button>
-              <button className="caps mt-4 block w-full text-center underline hover:text-ink" onClick={send}>
+              <button className="link mt-5 block w-full text-center" onClick={send}>
                 Continue with Google
               </button>
               <p className="note mt-8">No password. New here? The same link creates your account.</p>
