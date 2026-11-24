@@ -28,7 +28,7 @@ export default function Estate() {
   return (
     <Page step={onboarded ? undefined : 0}>
       <Headline lead="Your estate," tail="as we read it." />
-      <p className="note mt-3 text-lg">We filled this in from petitespierres.fr. Tap to adjust.</p>
+      <p className="note mt-3 text-lg">{d.website?.trim() ? `We filled this in from ${d.website.trim()}. Tap to adjust.` : "Tell us about your estate. Tap to adjust."}</p>
       <div className="mt-8 border-b border-rule">
         <Row label="Name" first>
           <input value={d.name} onChange={(e) => saveDomaine({ name: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
@@ -37,7 +37,7 @@ export default function Estate() {
           <input value={d.region} onChange={(e) => saveDomaine({ region: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
         </Row>
         <Row label="Website">
-          <input value={d.website ?? "petitespierres.fr"} onChange={(e) => saveDomaine({ website: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
+          <input value={d.website ?? ""} placeholder="your-estate.fr" onChange={(e) => saveDomaine({ website: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
         </Row>
         <Row label="Appellations">
           <Chips options={APPELLATIONS} value={d.appellations} onChange={(v) => saveDomaine({ appellations: v })} other="Another appellation" />
