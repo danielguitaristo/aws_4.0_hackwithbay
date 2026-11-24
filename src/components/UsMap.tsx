@@ -29,7 +29,8 @@ const H = 600;
 const usPath = geoPath(geoAlbersUsa().scale(1280).translate([W / 2, H / 2]));
 
 /** National map: states shaded by licensed importers; supported states are clickable, the selected one is burgundy. */
-export function UsMap({ counts, supported, selected, onSelect }: { counts: Record<string, number>; supported: string[]; selected: string; onSelect: (code: string) => void }) {
+/** Without onSelect the map is decorative (sign-in page). */
+export function UsMap({ counts, supported, selected, onSelect, base = "var(--color-sand)", edge = "var(--color-cream)" }: { counts: Record<string, number>; supported: string[]; selected?: string; onSelect?: (code: string) => void; base?: string; edge?: string }) {
   const max = Math.max(1, ...supported.map((c) => counts[c] ?? 0));
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Map of the United States by number of licensed wine importers">
@@ -38,17 +39,18 @@ export function UsMap({ counts, supported, selected, onSelect }: { counts: Recor
         const d = usPath(f) ?? undefined;
         if (!d || !code) return null;
         const on = supported.includes(code);
+        const clickable = on && !!onSelect;
         const share = (counts[code] ?? 0) / max;
-        const fill = code === selected ? "var(--color-wine)" : on ? `color-mix(in srgb, var(--color-taupe) ${Math.round(25 + share * 55)}%, var(--color-cream))` : "var(--color-sand)";
+        const fill = code === selected ? "var(--color-wine)" : on ? `color-mix(in srgb, var(--color-taupe) ${Math.round(25 + share * 55)}%, var(--color-cream))` : base;
         return (
           <path
             key={f.id ?? code}
             d={d}
             fill={fill}
-            stroke="var(--color-cream)"
+            stroke={edge}
             strokeWidth={1}
-            className={on ? "cursor-pointer transition-opacity hover:opacity-80" : ""}
-            onClick={on ? () => onSelect(code) : undefined}
+            className={clickable ? "cursor-pointer transition-opacity hover:opacity-80" : ""}
+            onClick={clickable ? () => onSelect(code) : undefined}
           >
             <title>{`${STATE_NAMES[code]} · ${(counts[code] ?? 0).toLocaleString("en-US")} licensed importers${on ? "" : " · coming next"}`}</title>
           </path>
