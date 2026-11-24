@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The website and quote explicitly name 'Amy Atwood Selections (Cleanskins Wine LLC)' as the company."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The article explicitly refers to 'Amy Atwood Selections' and describes it as the company."
+ }
+]

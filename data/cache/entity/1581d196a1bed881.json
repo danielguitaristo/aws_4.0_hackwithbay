@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the context explicitly mentions 'Kermit’s first imports'."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the quote is from their Loire region page."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own shop website, and the context lists wines from their portfolio."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own website, and the quote references their Loire producers."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL is the company's own shop website, and the context describes their French portfolio."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names 'Kermit Lynch' as the importer hosting the portfolio tasting."
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is from Authentic Wine Selections' own website."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is from Authentic Wine Selections' own website."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The text explicitly mentions 'AuthenticWS.com' and 'AWS Direct Import', referring to Authentic Wine Selections."
+ }
+]

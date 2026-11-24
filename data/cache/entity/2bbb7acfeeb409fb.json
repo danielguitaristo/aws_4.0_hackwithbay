@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The context explicitly names 'Authentic Wine Selections' as the importer."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The quote includes the company's website (AuthenticWS.com) and address, confirming it is about Authentic Wine Selections."
+ }
+]

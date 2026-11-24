@@ -1,0 +1,27 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is Floraison Selections' own website, and the context is about their portfolio."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is Floraison Selections' own website, and the context is about their portfolio."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL is Floraison Selections' own website, and the quote explicitly names the company."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is Floraison Selections' own website, and the context is about their growers."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names Floraison Selections as the importer of Domaine de Sérol."
+ }
+]
