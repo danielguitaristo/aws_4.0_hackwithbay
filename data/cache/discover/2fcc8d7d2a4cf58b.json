@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:19:57.630Z",
+ "createdAt": "2026-11-24T22:34:54.868Z",
  "leads": [
   {
    "portfolioDetail": [
@@ -1639,7 +1639,7 @@
      "label": "Fit · small growers",
      "points": 0,
      "status": "unknown",
-     "snippet": "Source rule: auto-generated profile page (tavily.com) never counts as evidence. Evidence: purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style",
+     "snippet": "Source rule: auto-generated profile page (tavily.com) never counts as evidence. Evidence: purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region",
      "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
      "title": "Kermit Lynch Wine Merchant"
     },
@@ -4312,7 +4312,7 @@
      "producer": "Michel Laroche et Ses Enfants",
      "country": "France",
      "region": "Burgundy",
-     "appellation": "Chablis/Auxerre",
+     "appellation": "Chablis",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "é Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus"
@@ -4480,13 +4480,13 @@
      "quote": "illet Champagne Coteaux Sud d'Épernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Lerou"
     },
     {
-     "producer": "Pascal Agrapart, Agrapart & Fils",
+     "producer": "Pascal Agrapart, Agrapart & Fils, Avize",
      "country": "France",
      "region": "Champagne",
      "appellation": "Côte de Blancs",
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
-     "quote": "ernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'A"
+     "quote": "ernay + Champagne Tellier + Laherte Frères Côte de Blancs + Pascal Agrapart, Agrapart & Fils, Avize Montagne de Reims + Champagne Mouzon-Leroux + R. H. Coutier + Vincent Cuillier Vallée de l'Aube + C"
     },
     {
      "producer": "Champagne Mouzon-Leroux",
@@ -4760,7 +4760,7 @@
      "producer": "Philippe Alliet",
      "country": "France",
      "region": "Loire Valley",
-     "appellation": "Touraine",
+     "appellation": "Chinon",
      "grapes": [
       "Cabernet Franc",
       "Chenin Blanc"
@@ -5439,7 +5439,7 @@
     "Domaine Hervé Azo (Chablis/Auxerre), France",
     "Guilhem & Jean-Hugues Goisot (Chablis/Auxerre), France",
     "Le Domaine d’Henri (Chablis/Auxerre), France",
-    "Michel Laroche et Ses Enfants (Chablis/Auxerre), France",
+    "Michel Laroche et Ses Enfants (Chablis), France",
     "Domaine MIA (Côte Chalonnaise), France",
     "Chapelle et Fils (Côte de Beaune), France",
     "David Trousselle (Côte de Beaune), France",
@@ -5458,7 +5458,7 @@
     "Nicolas Maillet (Mâconnais), France",
     "Champagne Tellier (Coteaux Sud d'Épernay), France",
     "Laherte Frères (Coteaux Sud d'Épernay), France",
-    "Pascal Agrapart, Agrapart & Fils (Côte de Blancs), France",
+    "Pascal Agrapart, Agrapart & Fils, Avize (Côte de Blancs), France",
     "Champagne Mouzon-Leroux (Montagne de Reims), France",
     "R. H. Coutier (Montagne de Reims), France",
     "Vincent Cuillier (Montagne de Reims), France",
@@ -5488,7 +5488,7 @@
     "Domaine Sylvain Bailly (Sancerre/Pouilly/Menetou-Salon), France",
     "Firmin Dezat (Sancerre/Pouilly/Menetou-Salon), France",
     "Domaine de la Fontainerie (Touraine), France",
-    "Philippe Alliet (Touraine), France",
+    "Philippe Alliet (Chinon), France",
     "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
     "Domaine de Trévallon (Rhône & Provence), France",
     "Domaine des Entrefaux (Rhône & Provence), France",
@@ -5566,7 +5566,7 @@
     "+20 Fit · Loire presence",
     "+10 Fit · neighbor French regions",
     "+25 Opening · boutique size",
-    "-30 Opening · saturated: 4 Touraine estates"
+    "-30 Opening · saturated: 3 Touraine estates"
    ],
    "sources": [
     {
@@ -5589,7 +5589,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producer/francois-chidaine",
-     "snippet": "Already carries 4 Touraine estates: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Philippe Alliet (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\""
+     "snippet": "Already carries 3 Touraine estates: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\""
     },
     {
      "url": "https://www.beauneimports.com/producer/francois-chidaine",
@@ -5662,15 +5662,15 @@
      "label": "Opening · direct competitor?",
      "points": 0,
      "status": "unknown",
-     "snippet": "François Chidaine (Montlouis, Vouvray, Touraine): same style (sparkling/sweet/dry), price not found; Domaine de la Fontainerie (Touraine): style not found; Philippe Alliet (Touraine): style not found; Pierre Gauthier/Domaine du Bel Air (Touraine): style not found",
+     "snippet": "François Chidaine (Montlouis, Vouvray, Touraine): same style (sparkling/sweet/dry), price not found; Domaine de la Fontainerie (Touraine): style not found; Pierre Gauthier/Domaine du Bel Air (Touraine): style not found",
      "url": "https://www.beauneimports.com/producer/francois-chidaine"
     },
     {
      "id": "loire_saturated",
-     "label": "Opening · saturated: 4 Touraine estates",
+     "label": "Opening · saturated: 3 Touraine estates",
      "points": -30,
      "status": "fired",
-     "snippet": "Already carries 4 Touraine estates: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Philippe Alliet (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\"",
+     "snippet": "Already carries 3 Touraine estates: François Chidaine (Montlouis, Vouvray, Touraine); Domaine de la Fontainerie (Touraine); Pierre Gauthier/Domaine du Bel Air (Touraine). Evidence: \"et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain\"",
      "url": "https://www.beauneimports.com/producer/francois-chidaine"
     },
     {
@@ -5686,7 +5686,7 @@
      "label": "Opening 0/100",
      "points": 0,
      "status": "info",
-     "snippet": "boutique size +25, saturated: 4 Touraine estates -30",
+     "snippet": "boutique size +25, saturated: 3 Touraine estates -30",
      "url": ""
     },
     {
@@ -5702,7 +5702,7 @@
      "label": "Angle",
      "points": 0,
      "status": "info",
-     "snippet": "Already 4 Touraine estates (François Chidaine, Domaine de la Fontainerie, Philippe Alliet): no room for another Chenin; at most pitch our chilled Cabernet Franc.",
+     "snippet": "Already 3 Touraine estates (François Chidaine, Domaine de la Fontainerie, Pierre Gauthier/Domaine du Bel Air): no room for another Chenin; at most pitch our chilled Cabernet Franc.",
      "url": ""
     },
     {
@@ -5728,6 +5728,689 @@
      "status": "info",
      "snippet": "136 producers read on 12 own-site pages. Coverage OK.",
      "url": "https://www.beauneimports.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Chateau de Briat",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Armagnac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "ntact French Wines Spirits / Vins de Liqueur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Rav"
+    },
+    {
+     "producer": "Domaine de Baraillon",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Bas-Armagnac",
+     "grapes": [
+      "Baco",
+      "Colombard",
+      "Ugni Blanc"
+     ],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "Spirits / Vins de Liqueur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pelle"
+    },
+    {
+     "producer": "Domaine Boingnères",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Armagnac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "ur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Gib"
+    },
+    {
+     "producer": "Domaine Chiroulet",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Armagnac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "teau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve"
+    },
+    {
+     "producer": "Domaine d'Ognoas",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Bas-Armagnac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "ine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierr"
+    },
+    {
+     "producer": "Chateau de Ravignan",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Bas-Armagnac",
+     "grapes": [
+      "Ugni Blanc",
+      "Baco",
+      "Colombard",
+      "Folle Blanche"
+     ],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados >"
+    },
+    {
+     "producer": "Chteau de Pellehaut",
+     "country": "France",
+     "region": "Gascony",
+     "appellation": "Armagnac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "omaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camu"
+    },
+    {
+     "producer": "Giboin",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Cognac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "as - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel"
+    },
+    {
+     "producer": "Jacques Esteve",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Cognac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "eau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados"
+    },
+    {
+     "producer": "Dudognon",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Cognac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Hua"
+    },
+    {
+     "producer": "Pierre Vaudon",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Cognac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Le"
+    },
+    {
+     "producer": "Calvados Adrien Camut",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Calvados",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "- Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreu"
+    },
+    {
+     "producer": "Calvados Michel Breton",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Calvados",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "gnon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet"
+    },
+    {
+     "producer": "Calvados Michel Huard",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Calvados",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "lvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + F"
+    },
+    {
+     "producer": "Calvados Lemorton",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Calvados",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "en Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de"
+    },
+    {
+     "producer": "Domaine du Manoir de Montreuil",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Pays d’Auge",
+     "grapes": [
+      "Domaine",
+      "Bedan",
+      "Fagotier",
+      "St. Philbert",
+      "Frequin Rouge",
+      "Rimbault",
+      "Petit Jaune",
+      "Blanc Sur"
+     ],
+     "url": "https://www.charlesnealselections.com/domaine-du-manoir-de-montreuil.html",
+     "quote": "Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Dist"
+    },
+    {
+     "producer": "Manoir de Grandouet",
+     "country": "France",
+     "region": "Normandy",
+     "appellation": "Calvados",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "uard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque +"
+    },
+    {
+     "producer": "Distillerie Metté",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "ndouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de"
+    },
+    {
+     "producer": "Distillerie Louis Roque",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "cktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravig"
+    },
+    {
+     "producer": "EC Distillery",
+     "country": "France",
+     "region": "",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "lerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravignan Domaine Chiroulet Our Producers"
+    },
+    {
+     "producer": "Maison Dudognon",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Pineau",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravignan Domaine Chiroulet Our Producers Buy Books + Cognac Book + C"
+    },
+    {
+     "producer": "Ragnaud Sabourin",
+     "country": "France",
+     "region": "Charente",
+     "appellation": "Cognac",
+     "grapes": [],
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "quote": "art 3 - More Armagnac Producers + Part 4 - Calvados Product Ragnaud Sabourin | | | | | --- | | Charles Neal Selections | FRENCH Wines | Please note that as of February 2024, wi"
+    }
+   ],
+   "id": "09524821f2",
+   "name": "Charles Neal Selections",
+   "type": "importer",
+   "state": "CA",
+   "city": "Richmond",
+   "address": "1091 ESSEX AVE, RICHMOND, CA 94801",
+   "website": "http://www.charlesnealselections.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-5403",
+     "kind": "importer"
+    }
+   ],
+   "portfolio": [
+    "Chateau de Briat (Armagnac), France",
+    "Domaine de Baraillon (Bas-Armagnac), France",
+    "Domaine Boingnères (Armagnac), France",
+    "Domaine Chiroulet (Armagnac), France",
+    "Domaine d'Ognoas (Bas-Armagnac), France",
+    "Chateau de Ravignan (Bas-Armagnac), France",
+    "Chteau de Pellehaut (Armagnac), France",
+    "Giboin (Cognac), France",
+    "Jacques Esteve (Cognac), France",
+    "Dudognon (Cognac), France",
+    "Pierre Vaudon (Cognac), France",
+    "Calvados Adrien Camut (Calvados), France",
+    "Calvados Michel Breton (Calvados), France",
+    "Calvados Michel Huard (Calvados), France",
+    "Calvados Lemorton (Calvados), France",
+    "Domaine du Manoir de Montreuil (Pays d’Auge), France",
+    "Manoir de Grandouet (Calvados), France",
+    "Distillerie Metté (Alsace), France",
+    "Distillerie Louis Roque (Alsace), France",
+    "EC Distillery, France",
+    "Maison Dudognon (Pineau), France",
+    "Ragnaud Sabourin (Cognac), France"
+   ],
+   "fitScore": 28,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · small growers",
+    "+10 Fit · neighbor French regions",
+    "+25 Opening · boutique size"
+   ],
+   "sources": [
+    {
+     "url": "http://www.charlesnealselections.com/about-charles-neal.html",
+     "title": "About Charles Neal Selections",
+     "snippet": "find high quality wines from small growers that display the grape variety from which they come"
+    },
+    {
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "snippet": "2 producer(s) from neighboring regions — Distillerie Metté (Alsace); Distillerie Louis Roque (Alsace). Evidence: \"ndouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de\""
+    },
+    {
+     "url": "http://www.charlesnealselections.com/about-charles-neal.html",
+     "title": "About Charles Neal Selections",
+     "snippet": "The producers imported by Charles Neal Selections average 6,000 cases"
+    },
+    {
+     "url": "https://www.charlesnealselections.com/french-wines.html",
+     "snippet": "Producers listed: Chateau de Briat (Armagnac); Domaine de Baraillon (Bas-Armagnac); Domaine Boingnères (Armagnac); Domaine Chiroulet (Armagnac); Domaine d'Ognoas (Bas-Armagnac); Chateau de Ravignan (Bas-Armagnac); Chteau de Pellehaut (Armagnac); Giboin (Cognac); Jacques Esteve (Cognac); Dudognon (Cognac); Pierre Vaudon (Cognac); Calvados Adrien Camut (Calvados) (+9 more)"
+    },
+    {
+     "url": "https://www.charlesnealselections.com/domaine-du-manoir-de-montreuil.html",
+     "snippet": "Producers listed: Domaine du Manoir de Montreuil (Pays d’Auge)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "boutique_size",
+     "label": "Opening · boutique size",
+     "points": 25,
+     "status": "fired",
+     "snippet": "The producers imported by Charles Neal Selections average 6,000 cases",
+     "url": "http://www.charlesnealselections.com/about-charles-neal.html",
+     "title": "About Charles Neal Selections"
+    },
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "find high quality wines from small growers that display the grape variety from which they come",
+     "url": "http://www.charlesnealselections.com/about-charles-neal.html",
+     "title": "About Charles Neal Selections"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "2 producer(s) from neighboring regions — Distillerie Metté (Alsace); Distillerie Louis Roque (Alsace). Evidence: \"ndouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de\"",
+     "url": "https://www.charlesnealselections.com/french-wines.html"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 30/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 25/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "boutique size +25",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 28 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 30 + 0.4 × Opening 25 = 28 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "http://www.charlesnealselections.com shows the TTB permit holder name — permit \"CHARLES NEAL SELECTIONS, INC.\" (CA-I-5403, Richmond)",
+     "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 22/200",
+     "points": 0,
+     "status": "info",
+     "snippet": "22 producers read on 9 own-site pages; the site states 200. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "url": "https://www.charlesnealselections.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "ALBERT JOLY",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Puligny-Montrachet",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com/producer-list",
+     "quote": "Skip to Content 0 0 Pay An Invoice 0 0 Pay An Invoice ALBERT JOLY The Joly estate totals just 11 acres, all of which is in Puligny. Nearly half of their holdings are"
+    },
+    {
+     "producer": "CAMILLA SCAVINO",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barolo",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "y, France ALBERT JOLY, Puligny-Montrachet, Burgundy, France CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CORNAREA, Canale, R"
+    },
+    {
+     "producer": "CORNAREA",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Roero",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "rolo, Italy CAMILLA SCAVINO, Grinzane Cavour, Barolo, Italy CORNAREA, Canale, Roero, Italy CORNAREA, Canale, Roero, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy"
+    },
+    {
+     "producer": "CRISSANTE ALESSANDRIA",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barolo",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "RNAREA, Canale, Roero, Italy CORNAREA, Canale, Roero, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy DIEGO MORRA, Verduno, Barol"
+    },
+    {
+     "producer": "DIEGO MORRA",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barolo",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "arolo, Italy CRISSANTE ALESSANDRIA, La Morra, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy FOLLY OF MAN, Willamette Valley, Oregon"
+    },
+    {
+     "producer": "FOLLY OF MAN",
+     "country": "USA",
+     "region": "Oregon",
+     "appellation": "Willamette Valley",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "Verduno, Barolo, Italy DIEGO MORRA, Verduno, Barolo, Italy FOLLY OF MAN, Willamette Valley, Oregon FOLLY OF MAN, Willamette Valley, Oregon HUBER-VERDEREAU, Volnay, Burgund"
+    },
+    {
+     "producer": "HUBER-VERDEREAU",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Volnay",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "ette Valley, Oregon FOLLY OF MAN, Willamette Valley, Oregon HUBER-VERDEREAU, Volnay, Burgundy, France HUBER-VERDEREAU, Volnay, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pomm"
+    },
+    {
+     "producer": "JOANNÈS VIOLOT-GUILLEMARD",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Pommard",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "Burgundy, France HUBER-VERDEREAU, Volnay, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France MANUEL MARINACCI, S"
+    },
+    {
+     "producer": "MANUEL MARINACCI",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barbaresco",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "France JOANNÈS VIOLOT-GUILLEMARD, Pommard, Burgundy, France MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, Italy MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, It"
+    },
+    {
+     "producer": "MASSIMO MARTINELLI",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barolo",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "MANUEL MARINACCI, San Rocco Seno d'Elvio, Barbaresco, Italy MASSIMO MARTINELLI, Barolo, Italy MASSIMO MARTINELLI, Barolo, Italy PATRICE RION, Nuits-Saint-Georges, Burgundy, Franc"
+    },
+    {
+     "producer": "PATRICE RION",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Nuits-Saint-Georges",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "MARTINELLI, Barolo, Italy MASSIMO MARTINELLI, Barolo, Italy PATRICE RION, Nuits-Saint-Georges, Burgundy, France PATRICE RION, Nuits-Saint-Georges, Burgundy, France PILCROW,"
+    },
+    {
+     "producer": "PILCROW",
+     "country": "USA",
+     "region": "California",
+     "appellation": "Napa Valley",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "France PATRICE RION, Nuits-Saint-Georges, Burgundy, France PILCROW, Napa Valley, California PILCROW, Napa Valley, California RUNCHÉT, Treiso, Barbaresco, Italy RUNCHÉ"
+    },
+    {
+     "producer": "RUNCHÉT",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barbaresco",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "W, Napa Valley, California PILCROW, Napa Valley, California RUNCHÉT, Treiso, Barbaresco, Italy RUNCHÉT, Treiso, Barbaresco, Italy SPOTTSWOODE, Napa Valley, California"
+    },
+    {
+     "producer": "SPOTTSWOODE",
+     "country": "USA",
+     "region": "California",
+     "appellation": "Napa Valley",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "reiso, Barbaresco, Italy RUNCHÉT, Treiso, Barbaresco, Italy SPOTTSWOODE, Napa Valley, California SPOTTSWOODE, Napa Valley, California TIZIANO GRASSO LA BRICCOLINA, Serralu"
+    },
+    {
+     "producer": "TIZIANO GRASSO LA BRICCOLINA",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Barolo",
+     "grapes": [],
+     "url": "https://www.truenorthwines.com",
+     "quote": "apa Valley, California SPOTTSWOODE, Napa Valley, California TIZIANO GRASSO LA BRICCOLINA, Serralunga d'Alba, Barolo, Italy TIZIANO GRASSO LA BRICCOLINA, Serralunga d'Alba, Barolo, Italy"
+    }
+   ],
+   "id": "5aec0fbec4",
+   "name": "True North Wine Merchants",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Napa",
+   "address": "95 WINEDALE LN, NAPA, CA 94558",
+   "website": "https://www.truenorthwines.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-21797",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-23139",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "ALBERT JOLY (Puligny-Montrachet), France",
+    "CAMILLA SCAVINO (Barolo), Italy",
+    "CORNAREA (Roero), Italy",
+    "CRISSANTE ALESSANDRIA (Barolo), Italy",
+    "DIEGO MORRA (Barolo), Italy",
+    "FOLLY OF MAN (Willamette Valley), USA",
+    "HUBER-VERDEREAU (Volnay), France",
+    "JOANNÈS VIOLOT-GUILLEMARD (Pommard), France",
+    "MANUEL MARINACCI (Barbaresco), Italy",
+    "MASSIMO MARTINELLI (Barolo), Italy",
+    "PATRICE RION (Nuits-Saint-Georges), France",
+    "PILCROW (Napa Valley), USA",
+    "RUNCHÉT (Barbaresco), Italy",
+    "SPOTTSWOODE (Napa Valley), USA",
+    "TIZIANO GRASSO LA BRICCOLINA (Barolo), Italy"
+   ],
+   "fitScore": 28,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · small growers",
+    "+10 Fit · neighbor French regions",
+    "+25 Opening · boutique size"
+   ],
+   "sources": [
+    {
+     "url": "https://www.linkedin.com/company/truenorthwinemerchants",
+     "title": "True North Wine Merchants | LinkedIn",
+     "snippet": "champion wineries with a clear point of view, sincerity in their story"
+    },
+    {
+     "url": "https://www.truenorthwines.com/producer-list",
+     "snippet": "4 producer(s) from neighboring regions — ALBERT JOLY (Puligny-Montrachet); HUBER-VERDEREAU (Volnay); JOANNÈS VIOLOT-GUILLEMARD (Pommard); PATRICE RION (Nuits-Saint-Georges). Evidence: \"Skip to Content 0 0 Pay An Invoice 0 0 Pay An Invoice ALBERT JOLY The Joly estate totals just 11 acres, all of which is in Puligny. Nearly half of their holdings are\""
+    },
+    {
+     "url": "https://www.linkedin.com/company/truenorthwinemerchants",
+     "title": "True North Wine Merchants | LinkedIn",
+     "snippet": "boutique import and distribution company"
+    },
+    {
+     "url": "https://www.truenorthwines.com/producer-list",
+     "snippet": "Producers listed: ALBERT JOLY (Puligny-Montrachet)"
+    },
+    {
+     "url": "https://www.truenorthwines.com",
+     "snippet": "Producers listed: CAMILLA SCAVINO (Barolo); CORNAREA (Roero); CRISSANTE ALESSANDRIA (Barolo); DIEGO MORRA (Barolo); FOLLY OF MAN (Willamette Valley); HUBER-VERDEREAU (Volnay); JOANNÈS VIOLOT-GUILLEMARD (Pommard); MANUEL MARINACCI (Barbaresco); MASSIMO MARTINELLI (Barolo); PATRICE RION (Nuits-Saint-Georges); PILCROW (Napa Valley); RUNCHÉT (Barbaresco) (+2 more)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "boutique_size",
+     "label": "Opening · boutique size",
+     "points": 25,
+     "status": "fired",
+     "snippet": "boutique import and distribution company",
+     "url": "https://www.linkedin.com/company/truenorthwinemerchants",
+     "title": "True North Wine Merchants | LinkedIn"
+    },
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "champion wineries with a clear point of view, sincerity in their story",
+     "url": "https://www.linkedin.com/company/truenorthwinemerchants",
+     "title": "True North Wine Merchants | LinkedIn"
+    },
+    {
+     "id": "neighbor_regions",
+     "label": "Fit · neighbor French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "4 producer(s) from neighboring regions — ALBERT JOLY (Puligny-Montrachet); HUBER-VERDEREAU (Volnay); JOANNÈS VIOLOT-GUILLEMARD (Pommard); PATRICE RION (Nuits-Saint-Georges). Evidence: \"Skip to Content 0 0 Pay An Invoice 0 0 Pay An Invoice ALBERT JOLY The Joly estate totals just 11 acres, all of which is in Puligny. Nearly half of their holdings are\"",
+     "url": "https://www.truenorthwines.com/producer-list"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 30/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20, neighbor French regions +10",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 25/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "boutique size +25",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 28 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 30 + 0.4 × Opening 25 = 28 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.truenorthwines.com shows the TTB permit city (Napa) — permit \"TRUE NORTH WINE MERCHANTS, LLC\" (CA-I-21797, CA-P-23139, Napa)",
+     "url": "https://www.truenorthwines.com"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 15 producteurs, 2 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "15 producers read on 2 own-site pages. Coverage OK.",
+     "url": "https://www.truenorthwines.com"
     }
    ]
   },
@@ -6133,6 +6816,384 @@
      "status": "info",
      "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.authenticws.com"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [],
+   "id": "7ddeba2b74",
+   "name": "7th Floor Selections",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Napa",
+   "address": "1300 MAIN ST STE 300, NAPA, CA 94559",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-21545",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-22487",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [],
+   "fitScore": 15,
+   "tier": "C",
+   "signals": [
+    "+25 Fit · organic / natural",
+    "-30 Opening · mega-distributor / high minimums"
+   ],
+   "sources": [
+    {
+     "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava",
+     "title": "Sonoma’s Russian River Valley AVA Gets Its First Regenerative Organic Vineyard: Moon Dust (Part of Harper’s Rest)",
+     "snippet": "represents a number of my favorite organic and biodynamic wineries"
+    },
+    {
+     "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava",
+     "title": "Sonoma’s Russian River Valley AVA Gets Its First Regenerative Organic Vineyard: Moon Dust (Part of Harper’s Rest)",
+     "snippet": "produced its own 55,000 case brand Routestock"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "organic_natural",
+     "label": "Fit · organic / natural",
+     "points": 25,
+     "status": "fired",
+     "snippet": "represents a number of my favorite organic and biodynamic wineries",
+     "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava",
+     "title": "Sonoma’s Russian River Valley AVA Gets Its First Regenerative Organic Vineyard: Moon Dust (Part of Harper’s Rest)"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "mega_distributor",
+     "label": "Opening · mega-distributor / high minimums",
+     "points": -30,
+     "status": "fired",
+     "snippet": "produced its own 55,000 case brand Routestock",
+     "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava",
+     "title": "Sonoma’s Russian River Valley AVA Gets Its First Regenerative Organic Vineyard: Moon Dust (Part of Harper’s Rest)"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 25/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "organic / natural +25",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "mega-distributor / high minimums -30",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 15 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 25 + 0.4 × Opening 0 = 15 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "Large distributor (\"produced its own 55,000 case brand Routestock\"): low priority, volumes too high for a 6,000-bottle export allocation.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
+     "points": 0,
+     "status": "info",
+     "snippet": "No own website found: TTB permit \"WILSON DANIELS LLC\" (CA-I-21545, CA-P-22487, Napa) is not tied to a website",
+     "url": ""
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Vulpes Wines",
+     "country": "South Africa",
+     "region": "Swartland",
+     "appellation": "",
+     "grapes": [
+      "Chenin Blanc",
+      "Cabernet Sauvignon"
+     ],
+     "url": "https://culturewineco.com/winery/vulpes-wines",
+     "quote": "ntent $20 FLAT RATE SHIPPING ON ORDERS OF 6 BOTTLES OR MORE Vulpes Wines Driven By Site and Passion #### About #### Featured Wines #### Winery Details #### About Vulpes Win"
+    },
+    {
+     "producer": "Luddite Wines",
+     "country": "South Africa",
+     "region": "",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com/alice-verburg-luddite-wines",
+     "quote": "ssic Shop Meet Alice Verburg: The Fearless Winemaker Behind Luddite Wines Meet Alice Verburg: The Fearless Winemaker Behind Luddite Wines June 16, 2025 Alice Verburg 30 Unde"
+    },
+    {
+     "producer": "Brookdale Estate",
+     "country": "South Africa",
+     "region": "Paarl",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com/winery/brookdale-estate",
+     "quote": "ERS OF 6 BOTTLES OR MORE Culture Wine Co Avada Classic Shop Brookdale Estate Brookdale Estate: South Africa’s Rising Star About Featured Wines Winery Details About Chapter One"
+    },
+    {
+     "producer": "Rall Wines",
+     "country": "South Africa",
+     "region": "",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com",
+     "quote": "INES MEET NUSCHKA DE VOS Explore Vulpes Wines # INTRODUCING RALL WINES 2025 WINEMAKER OF THE YEAR Explore Rall Wines # Shop South African Wine Shop # NEWTON JOHNSON FAMIL"
+    },
+    {
+     "producer": "Newton Johnson Family Vineyards",
+     "country": "South Africa",
+     "region": "",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com",
+     "quote": "HE YEAR Explore Rall Wines # Shop South African Wine Shop # NEWTON JOHNSON FAMILY VINEYARDS NEW TO CULTURE WINE CO. LEARN MORE # Scions of Sinai Single Vineyard Wines Explore the Future of Re"
+    },
+    {
+     "producer": "Scions of Sinai",
+     "country": "South Africa",
+     "region": "Klein Karoo",
+     "appellation": "",
+     "grapes": [
+      "Grenache Blanc"
+     ],
+     "url": "https://culturewineco.com/regions/klein-karoo",
+     "quote": "ed by thicker skins than usual. For instance, our producer, Scions of Sinai makes a Grenache Blanc from Klein Karoo that is extremely textured and fleshy because of these soil"
+    },
+    {
+     "producer": "Van Hunks",
+     "country": "South Africa",
+     "region": "",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com",
+     "quote": "25:47+00:00 # NEW NON ALCOHOLIC WINES EXPLORE BUBBLIES FROM VAN HUNKS Van Hunks Bubbly Selection Learn More # INTRODUCING VULPES WINES MEET NUSCHKA DE VOS Explore Vulpes"
+    },
+    {
+     "producer": "Donkiesbaai",
+     "country": "South Africa",
+     "region": "Olifants River",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com/regions/olifants-river",
+     "quote": ", crafting premium wines that captivate discerning palates. Donkiesbaai, Alheit, and The Sadie Family Wines are making the best wines from this area. While the northern pa"
+    },
+    {
+     "producer": "Alheit",
+     "country": "South Africa",
+     "region": "Olifants River",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com/regions/olifants-river",
+     "quote": "emium wines that captivate discerning palates. Donkiesbaai, Alheit, and The Sadie Family Wines are making the best wines from this area. While the northern part of th"
+    },
+    {
+     "producer": "The Sadie Family Wines",
+     "country": "South Africa",
+     "region": "Swartland",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://culturewineco.com/regions/olifants-river",
+     "quote": "that captivate discerning palates. Donkiesbaai, Alheit, and The Sadie Family Wines are making the best wines from this area. While the northern part of the region features relatively"
+    },
+    {
+     "producer": "Reyneke Wines",
+     "country": "South Africa",
+     "region": "Stellenbosch",
+     "appellation": "Polkadraai Hills",
+     "grapes": [
+      "Cabernet Sauvignon"
+     ],
+     "url": "https://culturewineco.com/winery/vulpes-wines",
+     "quote": "at Rupert & Rothschild in 2012 and 2013. In 2015 she joined Reyneke Wines, where she spent six years making wine with a philosophy rooted in biodynamics, regenerative farmin"
+    }
+   ],
+   "id": "a3c6cfb5bb",
+   "name": "Culture Wine Co",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Benicia",
+   "address": "4325 INDUSTRIAL WAY, BENICIA, CA 94510",
+   "website": "https://culturewineco.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-23609",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-26400",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "Vulpes Wines (Swartland), South Africa",
+    "Luddite Wines, South Africa",
+    "Brookdale Estate (Paarl), South Africa",
+    "Rall Wines, South Africa",
+    "Newton Johnson Family Vineyards, South Africa",
+    "Scions of Sinai (Klein Karoo), South Africa",
+    "Van Hunks, South Africa",
+    "Donkiesbaai (Olifants River), South Africa",
+    "Alheit (Olifants River), South Africa",
+    "The Sadie Family Wines (Swartland), South Africa",
+    "Reyneke Wines (Polkadraai Hills), South Africa"
+   ],
+   "fitScore": 12,
+   "tier": "C",
+   "signals": [
+    "+20 Fit · small growers"
+   ],
+   "sources": [
+    {
+     "url": "https://culturewineco.com",
+     "title": "Culture Wine Co. | Best South African Wine & Culture Wines",
+     "snippet": "organically grown, minimal-intervention wines"
+    },
+    {
+     "url": "https://culturewineco.com/winery/vulpes-wines",
+     "snippet": "Producers listed: Vulpes Wines (Swartland); Reyneke Wines (Polkadraai Hills)"
+    },
+    {
+     "url": "https://culturewineco.com/alice-verburg-luddite-wines",
+     "snippet": "Producers listed: Luddite Wines"
+    },
+    {
+     "url": "https://culturewineco.com/winery/brookdale-estate",
+     "snippet": "Producers listed: Brookdale Estate (Paarl)"
+    },
+    {
+     "url": "https://culturewineco.com",
+     "snippet": "Producers listed: Rall Wines; Newton Johnson Family Vineyards; Van Hunks"
+    },
+    {
+     "url": "https://culturewineco.com/regions/klein-karoo",
+     "snippet": "Producers listed: Scions of Sinai (Klein Karoo)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "small_growers",
+     "label": "Fit · small growers",
+     "points": 20,
+     "status": "fired",
+     "snippet": "organically grown, minimal-intervention wines",
+     "url": "https://culturewineco.com",
+     "title": "Culture Wine Co. | Best South African Wine & Culture Wines"
+    },
+    {
+     "id": "price_match",
+     "label": "Fit · price range overlap",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "No bottle price found on the site or in CA shops",
+     "url": ""
+    },
+    {
+     "id": "tastings_fairs",
+     "label": "Opening · portfolio tastings / fairs",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Entity check: unclear — The context does not mention 'Culture Wine Co' or any specific importer.. Evidence: Hella Chenin Wine Fest",
+     "url": "https://caparoso.substack.com/p/hello-california-south-africa-and",
+     "title": "Hello, California, South Africa, and Hella Chenin!"
+    },
+    {
+     "id": "fit_score",
+     "label": "Fit 20/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "small growers +20",
+     "url": ""
+    },
+    {
+     "id": "opening_score",
+     "label": "Opening 0/100",
+     "points": 0,
+     "status": "info",
+     "snippet": "no opening signal proven",
+     "url": ""
+    },
+    {
+     "id": "final_score",
+     "label": "fitScore 12 → C",
+     "points": 0,
+     "status": "info",
+     "snippet": "0.6 × Fit 20 + 0.4 × Opening 0 = 12 (A ≥ 60, B ≥ 40)",
+     "url": ""
+    },
+    {
+     "id": "angle",
+     "label": "Angle",
+     "points": 0,
+     "status": "info",
+     "snippet": "No Loire or style evidence yet: qualify with a short intro email before sending samples.",
+     "url": ""
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://culturewineco.com shows the TTB permit city (Benicia) — permit \"CULTURE WINE LLC\" (CA-I-23609, CA-P-26400, Benicia)",
+     "url": "https://culturewineco.com/trade-resources"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 11 producteurs, 13 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "11 producers read on 13 own-site pages. Coverage OK.",
+     "url": "https://culturewineco.com"
     }
    ]
   },

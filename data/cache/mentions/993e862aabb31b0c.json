@@ -1,0 +1,22 @@
+[
+ {
+  "name": "La Grenouille Wine Imports",
+  "city": "South Pasadena",
+  "result": 2
+ },
+ {
+  "name": "Super Glou",
+  "city": "",
+  "result": 3
+ },
+ {
+  "name": "Transparent",
+  "city": "",
+  "result": 5
+ },
+ {
+  "name": "Selection Massale",
+  "city": "San Francisco",
+  "result": 9
+ }
+]

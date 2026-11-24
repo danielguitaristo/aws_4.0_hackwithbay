@@ -1,0 +1,22 @@
+[
+ {
+  "name": "True North Wine Merchants",
+  "city": "",
+  "result": 0
+ },
+ {
+  "name": "Quintessential",
+  "city": "Napa",
+  "result": 2
+ },
+ {
+  "name": "Kermit Lynch Wine Merchant",
+  "city": "Berkeley",
+  "result": 2
+ },
+ {
+  "name": "La Grenouille Wine Imports",
+  "city": "",
+  "result": 6
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and context are from the official website of Charles Neal Selections, and the quote describes the company's philosophy."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is from the official website of Charles Neal Selections, and the context lists producers and products associated with the company."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL and context are from the official website of Charles Neal Selections, and the quote explicitly names the company."
+ }
+]

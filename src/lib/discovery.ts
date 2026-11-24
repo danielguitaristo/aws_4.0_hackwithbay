@@ -513,6 +513,20 @@ export const TOPIC_QUERIES = () =>
         `${REGION.name} wine importer distributor Muscadet Saumur Anjou producers`,
       ];
 
+// Wider search (step 3, California only): more CA geographies and our styles. Companies found ONLY by
+// these queries get the light enrichment (base search + own site) to stay within the Tavily budget.
+const CA_WIDE_TOPIC_QUERIES = [
+  "Los Angeles wine importer French small producers portfolio",
+  "San Francisco Bay Area wine importer distributor France family domaines",
+  "Sonoma wine importer French natural wine portfolio",
+  "Santa Barbara Central Coast wine importer European small producers",
+  "Sacramento wine importer distributor French wines portfolio",
+  "San Diego wine importer distributor France portfolio",
+  "California wine importer Loire Chenin Blanc Cabernet Franc producers",
+  "California natural wine distributor importer France growers portfolio",
+];
+export const WIDE_TOPIC_QUERIES = () => (REGION.code === "CA" ? CA_WIDE_TOPIC_QUERIES : []);
+
 interface Mention {
   name: string;
   city: string;
@@ -567,10 +581,11 @@ function matchCompany(name: string, city: string, pageText: string): Company | n
 }
 
 /** Topic searches -> Mistral lists the importers named -> keep only those holding a CA TTB importer permit. */
-export async function reverseSearch(u: Usage): Promise<{ candidate: Candidate; pages: WebPage[] }[]> {
-  const found = new Map<string, { candidate: Candidate; pages: WebPage[] }>();
+export async function reverseSearch(u: Usage): Promise<{ candidate: Candidate; pages: WebPage[]; wideOnly?: boolean }[]> {
+  const found = new Map<string, { candidate: Candidate; pages: WebPage[]; wideOnly?: boolean }>();
   await Promise.all(
-    TOPIC_QUERIES().map(async (q) => {
+    [...TOPIC_QUERIES(), ...WIDE_TOPIC_QUERIES()].map(async (q) => {
+      const wide = WIDE_TOPIC_QUERIES().includes(q);
       const results = (await search(q, u, { maxResults: 10 }, { topic: true })) ?? [];
       if (!results.length || !hasMistral()) return;
       const key = cacheKey({ q, urls: results.map((r) => r.url) });
@@ -594,7 +609,8 @@ export async function reverseSearch(u: Usage): Promise<{ candidate: Candidate; p
         const company = matchCompany(m.name, m.city, text);
         if (!company) continue;
         const candidate = { ...strip(company), reasons: [...company.reasons, `Found by web search "${q}" (${r.url})`] };
-        const entry = found.get(candidate.id) ?? { candidate, pages: [] };
+        const entry = found.get(candidate.id) ?? { candidate, pages: [], wideOnly: true };
+        if (!wide) entry.wideOnly = false;
         entry.pages.push(...relevantPages(candidate, [r]));
         found.set(candidate.id, entry);
       }
@@ -620,12 +636,16 @@ export async function discoverCandidates(u: Usage, opts: { ttbLimit?: number; co
     const base = relevantPages(c, (await search(searchQuery(c), u, {}, { candidate: c.name })) ?? []);
     if (base.length) pool.set(c.id, { candidate: c, pages: base });
   }
+  const light = new Set<string>();
   for (const f of await reverseSearch(u)) {
     const prev = pool.get(f.candidate.id);
     if (prev) {
       prev.candidate.reasons.push(...f.candidate.reasons.filter((r) => !prev.candidate.reasons.includes(r)));
       prev.pages.push(...f.pages);
-    } else pool.set(f.candidate.id, f);
+    } else {
+      pool.set(f.candidate.id, { candidate: f.candidate, pages: f.pages });
+      if (f.wideOnly) light.add(f.candidate.id);
+    }
   }
 
   const entries = [...pool.values()];
@@ -633,7 +653,7 @@ export async function discoverCandidates(u: Usage, opts: { ttbLimit?: number; co
   const limit = opts.concurrency ?? 4;
   for (let i = 0; i < entries.length; i += limit) {
     const batch = entries.slice(i, i + limit);
-    out.push(...(await Promise.all(batch.map(async (e) => ({ candidate: e.candidate, pages: await enrichPages(e.candidate, u, e.pages) })))));
+    out.push(...(await Promise.all(batch.map(async (e) => ({ candidate: e.candidate, pages: await enrichPages(e.candidate, u, e.pages, { light: light.has(e.candidate.id) }) })))));
   }
   return out.filter((e) => e.pages.length > 0);
 }

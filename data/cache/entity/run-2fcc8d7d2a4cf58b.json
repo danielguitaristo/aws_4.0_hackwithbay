@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:19:57.427Z",
+ "createdAt": "2026-11-24T22:34:54.443Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -273,6 +273,76 @@
    "verdict": "same_company",
    "reason": "The URL is the official website of The Wine Source Inc., and the text explicitly names the company.",
    "url": "https://www.thewinesourceinc.com"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and context are from the official website of Charles Neal Selections, and the quote describes the company's philosophy.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is from the official website of Charles Neal Selections, and the context lists producers and products associated with the company.",
+   "url": "https://www.charlesnealselections.com/french-wines.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL and context are from the official website of Charles Neal Selections, and the quote explicitly names the company.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the importer representing organic and biodynamic wineries.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "The text explicitly names 'Wilson Daniels' as the company producing the Routestock brand.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "Website URL and content are from True North Wine Merchants' own domain",
+   "url": "https://www.truenorthwines.com/producer-list"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly mention 'Culture Wine Co' and its activities as a U.S. importer.",
+   "url": "https://culturewineco.com"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "tastings_fairs",
+   "verdict": "unclear",
+   "reason": "The context does not mention 'Culture Wine Co' or any specific importer.",
+   "url": "https://caparoso.substack.com/p/hello-california-south-africa-and"
   },
   {
    "lead": "Beaune Imports",

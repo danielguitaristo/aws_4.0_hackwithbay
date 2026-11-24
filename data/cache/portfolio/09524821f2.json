@@ -1,0 +1,236 @@
+{
+ "key": "1754ce0af19fa668",
+ "portfolio": {
+  "candidateId": "09524821f2",
+  "website": "https://www.charlesnealselections.com",
+  "pagesRead": [
+   "https://www.charlesnealselections.com/french-wines.html",
+   "https://www.charlesnealselections.com/other-books.html",
+   "https://www.charlesnealselections.com/cognac-book.html",
+   "https://www.charlesnealselections.com/domaine-du-manoir-de-montreuil.html",
+   "https://www.charlesnealselections.com/buy-books.html",
+   "https://www.charlesnealselections.com/domaine-dognoas.html",
+   "https://www.charlesnealselections.com/chateau-de-ravignan.html",
+   "https://www.charlesnealselections.com/domaine-de-baraillon.html",
+   "http://www.charlesnealselections.com/about-charles-neal.html"
+  ],
+  "producers": [
+   {
+    "producer": "Chateau de Briat",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Armagnac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "ntact French Wines Spirits / Vins de Liqueur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Rav"
+   },
+   {
+    "producer": "Domaine de Baraillon",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Bas-Armagnac",
+    "grapes": [
+     "Baco",
+     "Colombard",
+     "Ugni Blanc"
+    ],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "Spirits / Vins de Liqueur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pelle"
+   },
+   {
+    "producer": "Domaine Boingnères",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Armagnac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "ur + Armagnac > - Chateau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Gib"
+   },
+   {
+    "producer": "Domaine Chiroulet",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Armagnac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "teau de Briat - Domaine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve"
+   },
+   {
+    "producer": "Domaine d'Ognoas",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Bas-Armagnac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "ine de Baraillon - Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierr"
+   },
+   {
+    "producer": "Chateau de Ravignan",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Bas-Armagnac",
+    "grapes": [
+     "Ugni Blanc",
+     "Baco",
+     "Colombard",
+     "Folle Blanche"
+    ],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "Domaine Boingnères - Domaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados >"
+   },
+   {
+    "producer": "Chteau de Pellehaut",
+    "country": "France",
+    "region": "Gascony",
+    "appellation": "Armagnac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "omaine Chiroulet - Domaine d'Ognoas - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camu"
+   },
+   {
+    "producer": "Giboin",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Cognac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "as - Chateau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel"
+   },
+   {
+    "producer": "Jacques Esteve",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Cognac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "eau de Ravignan - Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados"
+   },
+   {
+    "producer": "Dudognon",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Cognac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "Chteau de Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Hua"
+   },
+   {
+    "producer": "Pierre Vaudon",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Cognac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "Pellehaut + Cognac > - Giboin - Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Le"
+   },
+   {
+    "producer": "Calvados Adrien Camut",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Calvados",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "- Jacques Esteve - Dudognon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreu"
+   },
+   {
+    "producer": "Calvados Michel Breton",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Calvados",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "gnon - Pierre Vaudon + Calvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet"
+   },
+   {
+    "producer": "Calvados Michel Huard",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Calvados",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "lvados > - Calvados Adrien Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + F"
+   },
+   {
+    "producer": "Calvados Lemorton",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Calvados",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "en Camut - Calvados Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de"
+   },
+   {
+    "producer": "Domaine du Manoir de Montreuil",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Pays d’Auge",
+    "grapes": [
+     "Domaine",
+     "Bedan",
+     "Fagotier",
+     "St. Philbert",
+     "Frequin Rouge",
+     "Rimbault",
+     "Petit Jaune",
+     "Blanc Sur"
+    ],
+    "url": "https://www.charlesnealselections.com/domaine-du-manoir-de-montreuil.html",
+    "quote": "Michel Breton - Calvados Michel Huard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Dist"
+   },
+   {
+    "producer": "Manoir de Grandouet",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "Calvados",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "uard - Calvados Lemorton - Domaine du Manoir de Montreuil - Manoir de Grandouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque +"
+   },
+   {
+    "producer": "Distillerie Metté",
+    "country": "France",
+    "region": "Alsace",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "ndouet - Calvados Cocktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de"
+   },
+   {
+    "producer": "Distillerie Louis Roque",
+    "country": "France",
+    "region": "Alsace",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "cktails + Fruit Brandy / Eau de Vie > - Distillerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravig"
+   },
+   {
+    "producer": "EC Distillery",
+    "country": "France",
+    "region": "",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "lerie Metté - Distillerie Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravignan Domaine Chiroulet Our Producers"
+   },
+   {
+    "producer": "Maison Dudognon",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Pineau",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "Louis Roque + Vins de Liqueur > - EC Distillery - Pineau > Maison Dudognon - Floc de Gascogne > Chteau de Ravignan Domaine Chiroulet Our Producers Buy Books + Cognac Book + C"
+   },
+   {
+    "producer": "Ragnaud Sabourin",
+    "country": "France",
+    "region": "Charente",
+    "appellation": "Cognac",
+    "grapes": [],
+    "url": "https://www.charlesnealselections.com/french-wines.html",
+    "quote": "art 3 - More Armagnac Producers + Part 4 - Calvados Product Ragnaud Sabourin | | | | | --- | | Charles Neal Selections | FRENCH Wines | Please note that as of February 2024, wi"
+   }
+  ]
+ }
+}

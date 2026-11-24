@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:18:59.034Z",
+ "createdAt": "2026-11-24T22:33:50.922Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -173,14 +173,14 @@
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "loire_specialist",
    "verdict": "same_company",
-   "reason": "The URL and quote are from Kermit Lynch's official website, discussing its Loire portfolio.",
+   "reason": "The URL and context are from Kermit Lynch's official website, discussing its Loire portfolio.",
    "url": "https://kermitlynch.com/region/loire"
   },
   {
    "lead": "Kermit Lynch, Wine Merchant",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The URL is Kermit Lynch's official shop, listing wines from various French regions.",
+   "reason": "The URL is Kermit Lynch's official shop, listing wines from its portfolio.",
    "url": "https://shop.kermitlynch.com"
   },
   {
@@ -189,6 +189,13 @@
    "verdict": "same_company",
    "reason": "The URL and context are from Kermit Lynch's official website, detailing its Loire producers.",
    "url": "https://kermitlynch.com/region/loire"
+  },
+  {
+   "lead": "Kermit Lynch, Wine Merchant",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL is Kermit Lynch's official shop, describing its French portfolio.",
+   "url": "https://shop.kermitlynch.com/france"
   },
   {
    "lead": "Kermit Lynch, Wine Merchant",
@@ -205,6 +212,90 @@
    "url": "https://www.thewinesourceinc.com/domaine-de-lermitage"
   },
   {
+   "lead": "Charles Neal Selections",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the context explicitly refers to Charles Neal Selections.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the page lists producers imported by Charles Neal Selections.",
+   "url": "https://www.charlesnealselections.com/french-wines.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the quote explicitly names Charles Neal Selections.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "Charles Neal Selections",
+   "signal": "tastings_fairs",
+   "verdict": "same_company",
+   "reason": "The URL is the company's own website, and the context refers to the company's practices and preferences.",
+   "url": "http://www.charlesnealselections.com/about-charles-neal.html"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "organic_natural",
+   "verdict": "same_company",
+   "reason": "Text explicitly names 'Wilson Daniels' as the importer.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "7th Floor Selections",
+   "signal": "mega_distributor",
+   "verdict": "same_company",
+   "reason": "Text explicitly names 'Wilson Daniels' as the company producing the brand.",
+   "url": "https://organicwineuncorked.substack.com/p/sonomas-russian-river-valley-ava"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "neighbor_regions",
+   "verdict": "same_company",
+   "reason": "Website URL and content are from True North Wine Merchants' own domain",
+   "url": "https://www.truenorthwines.com/producer-list"
+  },
+  {
+   "lead": "True North Wine Merchants",
+   "signal": "boutique_size",
+   "verdict": "same_company",
+   "reason": "LinkedIn page explicitly names 'True North Wine Merchants' as the company",
+   "url": "https://www.linkedin.com/company/truenorthwinemerchants"
+  },
+  {
+   "lead": "Quintessential, LLC",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The article explicitly names 'Quintessential' and its owners, Steve Kreps, Sr. and Dennis Kreps, as the company in question.",
+   "url": "https://www.newswire.com/news/quintessential-named-wine-enthusiasts-importer-of-the-year-21254559"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "small_growers",
+   "verdict": "same_company",
+   "reason": "The URL and context explicitly reference Culture Wine Co. and its activities.",
+   "url": "https://culturewineco.com"
+  },
+  {
+   "lead": "Culture Wine Co",
+   "signal": "tastings_fairs",
+   "verdict": "unclear",
+   "reason": "The text does not mention Culture Wine Co. or any specific importer.",
+   "url": "https://caparoso.substack.com/p/hello-california-south-africa-and"
+  },
+  {
    "lead": "Beaune Imports",
    "signal": "small_growers",
    "verdict": "same_company",
@@ -215,28 +306,28 @@
    "lead": "Beaune Imports",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing producers they work with.",
+   "reason": "The quote is from Beaune Imports' own website, listing its producers.",
    "url": "https://www.beauneimports.com/producers"
   },
   {
    "lead": "Beaune Imports",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing regions and producers they represent.",
+   "reason": "The quote is from Beaune Imports' own website, listing its producers by region.",
    "url": "https://www.beauneimports.com/producers"
   },
   {
    "lead": "Beaune Imports",
    "signal": "boutique_size",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, describing the company.",
+   "reason": "The quote is from Beaune Imports' own website, explicitly naming the company.",
    "url": "https://www.beauneimports.com/about"
   },
   {
    "lead": "Beaune Imports",
    "signal": "loire_saturated",
    "verdict": "same_company",
-   "reason": "The quote is from Beaune Imports' own website, listing a product and producer they carry.",
+   "reason": "The quote is from Beaune Imports' own website, listing a product and its producer.",
    "url": "https://www.beauneimports.com/product/vouvray-sec"
   }
  ]

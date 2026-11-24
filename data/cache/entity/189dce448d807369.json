@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The text explicitly names 'Wilson Daniels' as the importer representing organic and biodynamic wineries."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The text explicitly names 'Wilson Daniels' as the company producing the Routestock brand."
+ }
+]
