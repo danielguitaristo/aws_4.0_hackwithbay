@@ -1,0 +1,6 @@
+{
+ "query": "search:\"Domaine Paul Buisse\" importer California:{\"exact\":true,\"maxResults\":5}",
+ "peer": "Domaine Paul Buisse",
+ "fetchedAt": "2026-11-24T21:00:51.224Z",
+ "results": []
+}

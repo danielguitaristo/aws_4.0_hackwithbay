@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 4,
+   "quote": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives."
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 2,
+   "quote": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 5,
+   "quote": "he now has a staff of nine, six of whom work in sales"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

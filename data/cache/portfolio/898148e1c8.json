@@ -1,0 +1,1500 @@
+{
+ "key": "148de7f7e2841856",
+ "portfolio": {
+  "candidateId": "898148e1c8",
+  "website": "https://www.farmwineimports.com",
+  "pagesRead": [
+   "https://www.farmwineimports.com/producers",
+   "https://www.farmwineimports.com",
+   "https://www.farmwineimports.com/wholesale/contact",
+   "https://www.farmwineimports.com/contact"
+  ],
+  "producers": [
+   {
+    "producer": "Andre Beaufort",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse"
+   },
+   {
+    "producer": "Benoît Marguet",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Clos"
+   },
+   {
+    "producer": "Olivier & Marie Horiot",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pa"
+   },
+   {
+    "producer": "Tarlant",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais"
+   },
+   {
+    "producer": "Delphine Boulard",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pé"
+   },
+   {
+    "producer": "Jacques Lassaigne",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "uet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pépière Touraine + Jul"
+   },
+   {
+    "producer": "Ulysse Collin",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "e Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noë"
+   },
+   {
+    "producer": "La Closerie",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "nt + Delphine Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin +"
+   },
+   {
+    "producer": "Cédric Bouchard",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Boulard + Jacques Lassaigne + Ulysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf"
+   },
+   {
+    "producer": "Domaine de la Pépière",
+    "country": "France",
+    "region": "Pays Nantais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "lysse Collin + La Closerie + Cédric Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin"
+   },
+   {
+    "producer": "Julien Pineau",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin"
+   },
+   {
+    "producer": "Noëlla Morantin",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tip"
+   },
+   {
+    "producer": "Clos du Tue-Boeuf",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puech"
+   },
+   {
+    "producer": "Pierrot Bonhomme",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre -"
+   },
+   {
+    "producer": "François Cazin",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre - Laurent and Barba"
+   },
+   {
+    "producer": "François and Julien Pinon",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "n + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre - Laurent and Barbara Lebled + Claire & Florent"
+   },
+   {
+    "producer": "La Grange Tiphaine",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "rot Bonhomme + François Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre - Laurent and Barbara Lebled + Claire & Florent Béjon + Olga Raffaul"
+   },
+   {
+    "producer": "Thomas Puechavy",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "is Cazin + François and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre - Laurent and Barbara Lebled + Claire & Florent Béjon + Olga Raffault + Ferme de la Sa"
+   },
+   {
+    "producer": "À La Vôtre - Laurent and Barbara Lebled",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "s and Julien Pinon + La Grange Tiphaine + Thomas Puechavy + À La Vôtre - Laurent and Barbara Lebled + Claire & Florent Béjon + Olga Raffault + Ferme de la Sansonnière - Mark Angeli + Valérie Forgues"
+   },
+   {
+    "producer": "Claire & Florent Béjon",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Thomas Puechavy + À La Vôtre - Laurent and Barbara Lebled + Claire & Florent Béjon + Olga Raffault + Ferme de la Sansonnière - Mark Angeli + Valérie Forgues Coteaux-du-Loir + Domaine"
+   },
+   {
+    "producer": "Olga Raffault",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "tre - Laurent and Barbara Lebled + Claire & Florent Béjon + Olga Raffault + Ferme de la Sansonnière - Mark Angeli + Valérie Forgues Coteaux-du-Loir + Domaine de Bellivière +"
+   },
+   {
+    "producer": "Ferme de la Sansonnière - Mark Angeli",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "d Barbara Lebled + Claire & Florent Béjon + Olga Raffault + Ferme de la Sansonnière - Mark Angeli + Valérie Forgues Coteaux-du-Loir + Domaine de Bellivière + Domaine le Briseau Anjou + Réné and Agn"
+   },
+   {
+    "producer": "Valérie Forgues",
+    "country": "France",
+    "region": "Touraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "n + Olga Raffault + Ferme de la Sansonnière - Mark Angeli + Valérie Forgues Coteaux-du-Loir + Domaine de Bellivière + Domaine le Briseau Anjou + Réné and Agnès Mosse + Jean-Ch"
+   },
+   {
+    "producer": "Domaine de Bellivière",
+    "country": "France",
+    "region": "Coteaux-du-Loir",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "nsonnière - Mark Angeli + Valérie Forgues Coteaux-du-Loir + Domaine de Bellivière + Domaine le Briseau Anjou + Réné and Agnès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre"
+   },
+   {
+    "producer": "Domaine le Briseau",
+    "country": "France",
+    "region": "Coteaux-du-Loir",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Valérie Forgues Coteaux-du-Loir + Domaine de Bellivière + Domaine le Briseau Anjou + Réné and Agnès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Tho"
+   },
+   {
+    "producer": "Réné and Agnès Mosse",
+    "country": "France",
+    "region": "Anjou",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "u-Loir + Domaine de Bellivière + Domaine le Briseau Anjou + Réné and Agnès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Thomas-Labaille Bugey + Renardat"
+   },
+   {
+    "producer": "Jean-Christophe Garnier",
+    "country": "France",
+    "region": "Anjou",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "livière + Domaine le Briseau Anjou + Réné and Agnès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Thomas-Labaille Bugey + Renardat-Fche + Franck Peillot Als"
+   },
+   {
+    "producer": "Filliatreau",
+    "country": "France",
+    "region": "Anjou",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "au Anjou + Réné and Agnès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Thomas-Labaille Bugey + Renardat-Fche + Franck Peillot Alsace + Laurent"
+   },
+   {
+    "producer": "Gérard Boulay",
+    "country": "France",
+    "region": "Sancerre",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ès Mosse + Jean-Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Thomas-Labaille Bugey + Renardat-Fche + Franck Peillot Alsace + Laurent Barth Mconnais + Jean Man"
+   },
+   {
+    "producer": "Thomas-Labaille",
+    "country": "France",
+    "region": "Sancerre",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Christophe Garnier + Filliatreau Sancerre + Gérard Boulay + Thomas-Labaille Bugey + Renardat-Fche + Franck Peillot Alsace + Laurent Barth Mconnais + Jean Manciat + Domaine de"
+   },
+   {
+    "producer": "Franck Peillot",
+    "country": "France",
+    "region": "Bugey",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "e + Gérard Boulay + Thomas-Labaille Bugey + Renardat-Fche + Franck Peillot Alsace + Laurent Barth Mconnais + Jean Manciat + Domaine de Roally Chablis + Alice et Olivier De Mo"
+   },
+   {
+    "producer": "Laurent Barth",
+    "country": "France",
+    "region": "Alsace",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "as-Labaille Bugey + Renardat-Fche + Franck Peillot Alsace + Laurent Barth Mconnais + Jean Manciat + Domaine de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres"
+   },
+   {
+    "producer": "Jean Manciat",
+    "country": "France",
+    "region": "Mâconnais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "dat-Fche + Franck Peillot Alsace + Laurent Barth Mconnais + Jean Manciat + Domaine de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun"
+   },
+   {
+    "producer": "Domaine de Roally",
+    "country": "France",
+    "region": "Mâconnais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ck Peillot Alsace + Laurent Barth Mconnais + Jean Manciat + Domaine de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun + Georges Descombes"
+   },
+   {
+    "producer": "Alice et Olivier De Moor",
+    "country": "France",
+    "region": "Chablis",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Barth Mconnais + Jean Manciat + Domaine de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun + Georges Descombes + Kewin Descombes + Domaine Louis-C"
+   },
+   {
+    "producer": "Terres Dorées - Jean-Paul Brun",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "e de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun + Georges Descombes + Kewin Descombes + Domaine Louis-Claude Desvignes + Clos de la Roilette Bordea"
+   },
+   {
+    "producer": "Georges Descombes",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun + Georges Descombes + Kewin Descombes + Domaine Louis-Claude Desvignes + Clos de la Roilette Bordeaux + Chteau Peybonho"
+   },
+   {
+    "producer": "Kewin Descombes",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "lais + Terres Dorées - Jean-Paul Brun + Georges Descombes + Kewin Descombes + Domaine Louis-Claude Desvignes + Clos de la Roilette Bordeaux + Chteau Peybonhomme Cahors + Combe"
+   },
+   {
+    "producer": "Domaine Louis-Claude Desvignes",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "es - Jean-Paul Brun + Georges Descombes + Kewin Descombes + Domaine Louis-Claude Desvignes + Clos de la Roilette Bordeaux + Chteau Peybonhomme Cahors + Combel la Serre Rhône + Marcel Richaud"
+   },
+   {
+    "producer": "Clos de la Roilette",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "combes + Kewin Descombes + Domaine Louis-Claude Desvignes + Clos de la Roilette Bordeaux + Chteau Peybonhomme Cahors + Combel la Serre Rhône + Marcel Richaud + Éric Texier + Dard"
+   },
+   {
+    "producer": "Combel la Serre",
+    "country": "France",
+    "region": "Cahors",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Clos de la Roilette Bordeaux + Chteau Peybonhomme Cahors + Combel la Serre Rhône + Marcel Richaud + Éric Texier + Dard et Ribo + Les Champs Libres Provence + Chteau de Roquef"
+   },
+   {
+    "producer": "Marcel Richaud",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "deaux + Chteau Peybonhomme Cahors + Combel la Serre Rhône + Marcel Richaud + Éric Texier + Dard et Ribo + Les Champs Libres Provence + Chteau de Roquefort + Domaine la Provid"
+   },
+   {
+    "producer": "Éric Texier",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ybonhomme Cahors + Combel la Serre Rhône + Marcel Richaud + Éric Texier + Dard et Ribo + Les Champs Libres Provence + Chteau de Roquefort + Domaine la Providence Auvergne"
+   },
+   {
+    "producer": "Dard et Ribo",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "rs + Combel la Serre Rhône + Marcel Richaud + Éric Texier + Dard et Ribo + Les Champs Libres Provence + Chteau de Roquefort + Domaine la Providence Auvergne + Jean Maupertu"
+   },
+   {
+    "producer": "Les Champs Libres",
+    "country": "France",
+    "region": "Rhône",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Serre Rhône + Marcel Richaud + Éric Texier + Dard et Ribo + Les Champs Libres Provence + Chteau de Roquefort + Domaine la Providence Auvergne + Jean Maupertuis Languedoc + Chtea"
+   },
+   {
+    "producer": "Domaine la Providence",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "t Ribo + Les Champs Libres Provence + Chteau de Roquefort + Domaine la Providence Auvergne + Jean Maupertuis Languedoc + Chteau d'Oupia + Yannick Pelletier + Mas de Chimères + Domai"
+   },
+   {
+    "producer": "Jean Maupertuis",
+    "country": "France",
+    "region": "Auvergne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ce + Chteau de Roquefort + Domaine la Providence Auvergne + Jean Maupertuis Languedoc + Chteau d'Oupia + Yannick Pelletier + Mas de Chimères + Domaine Puech Redon + Nana Vins"
+   },
+   {
+    "producer": "Yannick Pelletier",
+    "country": "France",
+    "region": "Languedoc",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "nce Auvergne + Jean Maupertuis Languedoc + Chteau d'Oupia + Yannick Pelletier + Mas de Chimères + Domaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine"
+   },
+   {
+    "producer": "Mas de Chimères",
+    "country": "France",
+    "region": "Languedoc",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Maupertuis Languedoc + Chteau d'Oupia + Yannick Pelletier + Mas de Chimères + Domaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Brun"
+   },
+   {
+    "producer": "Domaine Puech Redon",
+    "country": "France",
+    "region": "Languedoc",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "oc + Chteau d'Oupia + Yannick Pelletier + Mas de Chimères + Domaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frut"
+   },
+   {
+    "producer": "Nana Vins",
+    "country": "France",
+    "region": "Languedoc",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Yannick Pelletier + Mas de Chimères + Domaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas +"
+   },
+   {
+    "producer": "Domaine Majas",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "de Chimères + Domaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes"
+   },
+   {
+    "producer": "Matassa",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "omaine Puech Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes Ailés - F"
+   },
+   {
+    "producer": "Domaine du Possible",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ch Redon + Nana Vins Roussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes Ailés - Francesco Pesci + Germa"
+   },
+   {
+    "producer": "Bruno Duchêne",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "oussillon + Domaine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes Ailés - Francesco Pesci + Germany + Hofgut Falk"
+   },
+   {
+    "producer": "Tutti Frutti Ananas",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ine Majas + Matassa + Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes Ailés - Francesco Pesci + Germany + Hofgut Falkenstein + Italy Piemon"
+   },
+   {
+    "producer": "Vinyer de la Ruca",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Domaine du Possible + Bruno Duchêne + Tutti Frutti Ananas + Vinyer de la Ruca + Les nes Ailés - Francesco Pesci + Germany + Hofgut Falkenstein + Italy Piemonte + Cascina degli U"
+   },
+   {
+    "producer": "Hofgut Falkenstein",
+    "country": "Germany",
+    "region": "",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "er de la Ruca + Les nes Ailés - Francesco Pesci + Germany + Hofgut Falkenstein + Italy Piemonte + Cascina degli Ulivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabi"
+   },
+   {
+    "producer": "Cascina degli Ulivi",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "sco Pesci + Germany + Hofgut Falkenstein + Italy Piemonte + Cascina degli Ulivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto A"
+   },
+   {
+    "producer": "Chinati Vergano",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Hofgut Falkenstein + Italy Piemonte + Cascina degli Ulivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori +"
+   },
+   {
+    "producer": "Odilio Antoniotti",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Italy Piemonte + Cascina degli Ulivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Ve"
+   },
+   {
+    "producer": "Vittorio Bera",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Cascina degli Ulivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Cost"
+   },
+   {
+    "producer": "Fabio Gea",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ivi + Chinati Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Co"
+   },
+   {
+    "producer": "Cascina 'Tavijn",
+    "country": "Italy",
+    "region": "Piemonte",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "i Vergano + Odilio Antoniotti + Vittorio Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte da"
+   },
+   {
+    "producer": "Foradori",
+    "country": "Italy",
+    "region": "Trentino-Alto Adige",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "io Bera + Fabio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex de"
+   },
+   {
+    "producer": "Weingut Nusserhof",
+    "country": "Italy",
+    "region": "Trentino-Alto Adige",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "abio Gea + Cascina 'Tavijn Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Bia"
+   },
+   {
+    "producer": "Casa Coste Piane",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Trentino-Alto Adige + Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Lig"
+   },
+   {
+    "producer": "Costadilà",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Foradori + Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danil"
+   },
+   {
+    "producer": "Monte dall'Ora",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Weingut Nusserhof Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testal"
+   },
+   {
+    "producer": "Pedecastello - Alex della Vecchia",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "of Veneto + Casa Coste Piane + Costadilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vi"
+   },
+   {
+    "producer": "La Biancara",
+    "country": "Italy",
+    "region": "Veneto",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "dilà + Monte dall'Ora + Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vito - Federico"
+   },
+   {
+    "producer": "Radikon",
+    "country": "Italy",
+    "region": "Friuli",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Pedecastello - Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa"
+   },
+   {
+    "producer": "Danila Pisano",
+    "country": "Italy",
+    "region": "Liguria",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Alex della Vecchia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camil"
+   },
+   {
+    "producer": "Testalonga",
+    "country": "Italy",
+    "region": "Liguria",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ia + La Biancara Friuli + Radikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + V"
+   },
+   {
+    "producer": "Vigneto San Vito - Federico Orsi",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "dikon Liguria + Danila Pisano + Testalonga Emilia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bra"
+   },
+   {
+    "producer": "La Stoppa",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "talonga Emilia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Mar"
+   },
+   {
+    "producer": "Luciano Saetti",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ia-Romagna + Vigneto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa"
+   },
+   {
+    "producer": "Camillo Donati",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "eto San Vito - Federico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ern"
+   },
+   {
+    "producer": "Vittorio Graziano",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "derico Orsi + La Stoppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Vi"
+   },
+   {
+    "producer": "Massimiliano Croci",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ppa + Luciano Saetti + Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta +"
+   },
+   {
+    "producer": "Andrea Bragagni",
+    "country": "Italy",
+    "region": "Emilia-Romagna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Camillo Donati + Vittorio Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania +"
+   },
+   {
+    "producer": "La Distesa",
+    "country": "Italy",
+    "region": "Le Marche",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Graziano + Massimiliano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampe"
+   },
+   {
+    "producer": "Maria Ernesta Berucci",
+    "country": "Italy",
+    "region": "Lazio",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "iano Croci + Andrea Bragagni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi San"
+   },
+   {
+    "producer": "La Villana",
+    "country": "Italy",
+    "region": "Lazio",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "agni Le Marche + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fab"
+   },
+   {
+    "producer": "La Gazzetta",
+    "country": "Italy",
+    "region": "Lazio",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "e + La Distesa Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San M"
+   },
+   {
+    "producer": "Geremi",
+    "country": "Italy",
+    "region": "Lazio",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Lazio + Maria Ernesta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino +"
+   },
+   {
+    "producer": "Agnanum",
+    "country": "Italy",
+    "region": "Campania",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "esta Berucci + La Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fab"
+   },
+   {
+    "producer": "Ampeleia",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Villana + La Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fabbrizio Niccolaini +"
+   },
+   {
+    "producer": "Fonterenza",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "a Gazzetta + Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fabbrizio Niccolaini + Montesecondo"
+   },
+   {
+    "producer": "Poderi Sanguineto",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Geremi Campania + Agnanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fabbrizio Niccolaini + Montesecondo/Silvio Messana Umbr"
+   },
+   {
+    "producer": "Fabbrica di San Martino",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "nanum Toscana + Ampeleia + Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fabbrizio Niccolaini + Montesecondo/Silvio Messana Umbria + Fattoria Mani di Luna"
+   },
+   {
+    "producer": "Massa Vecchia - Fabbrizio Niccolaini",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Fonterenza + Poderi Sanguineto + Fabbrica di San Martino + Massa Vecchia - Fabbrizio Niccolaini + Montesecondo/Silvio Messana Umbria + Fattoria Mani di Luna + Fongoli Sardegna + Panevino Isola de"
+   },
+   {
+    "producer": "Montesecondo/Silvio Messana",
+    "country": "Italy",
+    "region": "Toscana",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ica di San Martino + Massa Vecchia - Fabbrizio Niccolaini + Montesecondo/Silvio Messana Umbria + Fattoria Mani di Luna + Fongoli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del"
+   },
+   {
+    "producer": "Fattoria Mani di Luna",
+    "country": "Italy",
+    "region": "Umbria",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Fabbrizio Niccolaini + Montesecondo/Silvio Messana Umbria + Fattoria Mani di Luna + Fongoli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicili"
+   },
+   {
+    "producer": "Fongoli",
+    "country": "Italy",
+    "region": "Umbria",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ontesecondo/Silvio Messana Umbria + Fattoria Mani di Luna + Fongoli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco"
+   },
+   {
+    "producer": "Panevino",
+    "country": "Italy",
+    "region": "Sardegna",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Messana Umbria + Fattoria Mani di Luna + Fongoli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo"
+   },
+   {
+    "producer": "Altura",
+    "country": "Italy",
+    "region": "Isola del Giglio",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ni di Luna + Fongoli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Fot"
+   },
+   {
+    "producer": "Del Prete",
+    "country": "Italy",
+    "region": "Puglia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "goli Sardegna + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipi"
+   },
+   {
+    "producer": "Perrini Organic",
+    "country": "Italy",
+    "region": "Puglia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "a + Panevino Isola del Giglio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cip"
+   },
+   {
+    "producer": "Marco de Bartoli",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "lio + Altura Puglia + Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvato"
+   },
+   {
+    "producer": "Eduardo Torres Acosta",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Del Prete + Perrini Organic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Dou"
+   },
+   {
+    "producer": "Salvo Foti",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "rganic Sicilia + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta d"
+   },
+   {
+    "producer": "Arianna Occhipinti",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "a + Marco de Bartoli + Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta do Infantado Vinho Ver"
+   },
+   {
+    "producer": "Giuseppe Cippola",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Eduardo Torres Acosta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta do Infantado Vinho Verde + Quinta do Ermí"
+   },
+   {
+    "producer": "Tanca Nica",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "osta + Salvo Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta do Infantado Vinho Verde + Quinta do Ermízio Lisbon +"
+   },
+   {
+    "producer": "Salvatore Marino",
+    "country": "Italy",
+    "region": "Sicilia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Foti + Arianna Occhipinti + Giuseppe Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta do Infantado Vinho Verde + Quinta do Ermízio Lisbon + Dominó - Vitor Clar"
+   },
+   {
+    "producer": "Quinta do Infantado",
+    "country": "Portugal",
+    "region": "Douro",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Cippola + Tanca Nica + Salvatore Marino + Portugal Douro + Quinta do Infantado Vinho Verde + Quinta do Ermízio Lisbon + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Gal"
+   },
+   {
+    "producer": "Quinta do Ermízio",
+    "country": "Portugal",
+    "region": "Vinho Verde",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Marino + Portugal Douro + Quinta do Infantado Vinho Verde + Quinta do Ermízio Lisbon + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Ro"
+   },
+   {
+    "producer": "Dominó - Vitor Claro",
+    "country": "Portugal",
+    "region": "Lisbon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "uinta do Infantado Vinho Verde + Quinta do Ermízio Lisbon + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate"
+   },
+   {
+    "producer": "Las Vedras",
+    "country": "Portugal",
+    "region": "Lisbon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "o Verde + Quinta do Ermízio Lisbon + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga"
+   },
+   {
+    "producer": "Serradinha",
+    "country": "Portugal",
+    "region": "Lisbon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "nta do Ermízio Lisbon + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixa"
+   },
+   {
+    "producer": "Galactic",
+    "country": "Portugal",
+    "region": "Minho",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "on + Dominó - Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y P"
+   },
+   {
+    "producer": "Paraiso Natural",
+    "country": "Portugal",
+    "region": "Minho",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "- Vitor Claro + Las Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y Prieto - Rías Baixa"
+   },
+   {
+    "producer": "Nua Roots",
+    "country": "Portugal",
+    "region": "Minho",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "as Vedras + Serradinha Minho + Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y Prieto - Rías Baixas + Adega do"
+   },
+   {
+    "producer": "Envínate",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Galactic + Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y Prieto - Rías Baixas + Adega do Vimbio - Rías Baixas + Lui"
+   },
+   {
+    "producer": "Pedralonga - Rías Baixas",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Paraiso Natural + Nua Roots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y Prieto - Rías Baixas + Adega do Vimbio - Rías Baixas + Luis Rodriguez - Ribeiro + Lau"
+   },
+   {
+    "producer": "Nanclares y Prieto - Rías Baixas",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ots + Spain Galicia + Envínate + Pedralonga - Rías Baixas + Nanclares y Prieto - Rías Baixas + Adega do Vimbio - Rías Baixas + Luis Rodriguez - Ribeiro + Laura Lorenzo - Ribeira Sacra + Guímar"
+   },
+   {
+    "producer": "Adega do Vimbio - Rías Baixas",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "dralonga - Rías Baixas + Nanclares y Prieto - Rías Baixas + Adega do Vimbio - Rías Baixas + Luis Rodriguez - Ribeiro + Laura Lorenzo - Ribeira Sacra + Guímaro - Ribeira Sacra + La Perdida P"
+   },
+   {
+    "producer": "Luis Rodriguez - Ribeiro",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "es y Prieto - Rías Baixas + Adega do Vimbio - Rías Baixas + Luis Rodriguez - Ribeiro + Laura Lorenzo - Ribeira Sacra + Guímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Ben"
+   },
+   {
+    "producer": "Laura Lorenzo - Ribeira Sacra",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Adega do Vimbio - Rías Baixas + Luis Rodriguez - Ribeiro + Laura Lorenzo - Ribeira Sacra + Guímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantala"
+   },
+   {
+    "producer": "Guímaro - Ribeira Sacra",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Luis Rodriguez - Ribeiro + Laura Lorenzo - Ribeira Sacra + Guímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Los"
+   },
+   {
+    "producer": "La Perdida",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Laura Lorenzo - Ribeira Sacra + Guímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo"
+   },
+   {
+    "producer": "Arratzain",
+    "country": "Spain",
+    "region": "País Vasco",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "a Sacra + Guímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo + Alfredo Maestro - Rib"
+   },
+   {
+    "producer": "Bengoetxe",
+    "country": "Spain",
+    "region": "País Vasco",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ímaro - Ribeira Sacra + La Perdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo + Alfredo Maestro - Ribera del Duer"
+   },
+   {
+    "producer": "Cantalapiedra - Rueda",
+    "country": "Spain",
+    "region": "Castilla y León",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "erdida País Vasco + Arratzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo + Alfredo Maestro - Ribera del Duero + Goyo García - Ribera del Duero Rioja"
+   },
+   {
+    "producer": "Diego Losada - Bierzo",
+    "country": "Spain",
+    "region": "Castilla y León",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "tzain + Bengoetxe Castilla y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo + Alfredo Maestro - Ribera del Duero + Goyo García - Ribera del Duero Rioja + Akutain - Rioja Alta"
+   },
+   {
+    "producer": "Alfredo Maestro - Ribera del Duero",
+    "country": "Spain",
+    "region": "Castilla y León",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "la y Léon + Cantalapiedra - Rueda + Diego Losada - Bierzo + Alfredo Maestro - Ribera del Duero + Goyo García - Ribera del Duero Rioja + Akutain - Rioja Alta Madrid + 4 Monos - Sierra de Gredos C"
+   },
+   {
+    "producer": "Goyo García - Ribera del Duero",
+    "country": "Spain",
+    "region": "Castilla y León",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "iego Losada - Bierzo + Alfredo Maestro - Ribera del Duero + Goyo García - Ribera del Duero Rioja + Akutain - Rioja Alta Madrid + 4 Monos - Sierra de Gredos Catalunya + Puny de Ángel (Luyt +"
+   },
+   {
+    "producer": "Akutain - Rioja Alta",
+    "country": "Spain",
+    "region": "Rioja",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "- Ribera del Duero + Goyo García - Ribera del Duero Rioja + Akutain - Rioja Alta Madrid + 4 Monos - Sierra de Gredos Catalunya + Puny de Ángel (Luyt + Frisach) + Júlia Bernet - Clà"
+   },
+   {
+    "producer": "4 Monos - Sierra de Gredos",
+    "country": "Spain",
+    "region": "Madrid",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ía - Ribera del Duero Rioja + Akutain - Rioja Alta Madrid + 4 Monos - Sierra de Gredos Catalunya + Puny de Ángel (Luyt + Frisach) + Júlia Bernet - Clàssic Penedés + AT Roca - Clàssic Pen"
+   },
+   {
+    "producer": "Puny de Ángel (Luyt + Frisach)",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Rioja Alta Madrid + 4 Monos - Sierra de Gredos Catalunya + Puny de Ángel (Luyt + Frisach) + Júlia Bernet - Clàssic Penedés + AT Roca - Clàssic Penedés + Partida Creus - Penedés + Ca N’Estru"
+   },
+   {
+    "producer": "Júlia Bernet - Clàssic Penedés",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "erra de Gredos Catalunya + Puny de Ángel (Luyt + Frisach) + Júlia Bernet - Clàssic Penedés + AT Roca - Clàssic Penedés + Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutom"
+   },
+   {
+    "producer": "AT Roca - Clàssic Penedés",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "e Ángel (Luyt + Frisach) + Júlia Bernet - Clàssic Penedés + AT Roca - Clàssic Penedés + Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Art"
+   },
+   {
+    "producer": "Partida Creus - Penedés",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "úlia Bernet - Clàssic Penedés + AT Roca - Clàssic Penedés + Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca +"
+   },
+   {
+    "producer": "Ca N’Estruc BI",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "dés + AT Roca - Clàssic Penedés + Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cat"
+   },
+   {
+    "producer": "Nuria Renom",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "làssic Penedés + Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levant"
+   },
+   {
+    "producer": "Emilie Mutombo",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Partida Creus - Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Esten"
+   },
+   {
+    "producer": "Anima Mundi",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "- Penedés + Ca N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía +"
+   },
+   {
+    "producer": "Oriol Artigas",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "N’Estruc BI + Nuria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía + Muchada-Léclapa"
+   },
+   {
+    "producer": "La Rural",
+    "country": "Spain",
+    "region": "Catalunya",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "uria Renom + Emilie Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía + Muchada-Léclapart + Cota 4"
+   },
+   {
+    "producer": "Ve d'Avior - Cati Ribot",
+    "country": "Spain",
+    "region": "Mallorca",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Mutombo + Anima Mundi + Oriol Artigas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez N"
+   },
+   {
+    "producer": "Vera de Estenas",
+    "country": "Spain",
+    "region": "Levante",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "gas + La Rural Mallorca + Ve d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de"
+   },
+   {
+    "producer": "Muchada-Léclapart",
+    "country": "Spain",
+    "region": "Andalucía",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "d'Avior - Cati Ribot Levante + Vera de Estenas Andalucía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + D"
+   },
+   {
+    "producer": "Cota 45",
+    "country": "Spain",
+    "region": "Andalucía",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "t Levante + Vera de Estenas Andalucía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + Dolores Cab"
+   },
+   {
+    "producer": "M. Antonio de la Riva",
+    "country": "Spain",
+    "region": "Andalucía",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Vera de Estenas Andalucía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + Dolores Cabrera + Juan Francisco Fa"
+   },
+   {
+    "producer": "Gomez Nevado",
+    "country": "Spain",
+    "region": "Andalucía",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "cía + Muchada-Léclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + Dolores Cabrera + Juan Francisco Fariña Pérez + Un"
+   },
+   {
+    "producer": "Buelan Compañía de Sacas",
+    "country": "Spain",
+    "region": "Andalucía",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "éclapart + Cota 45 + M. Antonio de la Riva + Gomez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + Dolores Cabrera + Juan Francisco Fariña Pérez + United States California + Le"
+   },
+   {
+    "producer": "Dolores Cabrera",
+    "country": "Spain",
+    "region": "Tenerife",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "mez Nevado + Buelan Compañía de Sacas Tenerife + Envínate + Dolores Cabrera + Juan Francisco Fariña Pérez + United States California + Les Lunes + Populis + Ghostwriter + Edmu"
+   },
+   {
+    "producer": "Juan Francisco Fariña Pérez",
+    "country": "Spain",
+    "region": "Tenerife",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "n Compañía de Sacas Tenerife + Envínate + Dolores Cabrera + Juan Francisco Fariña Pérez + United States California + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone"
+   },
+   {
+    "producer": "Les Lunes",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Juan Francisco Fariña Pérez + United States California + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Ettei"
+   },
+   {
+    "producer": "Populis",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "cisco Fariña Pérez + United States California + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Flor"
+   },
+   {
+    "producer": "Ghostwriter",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ña Pérez + United States California + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Ba"
+   },
+   {
+    "producer": "Edmunds St. John",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ted States California + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bic"
+   },
+   {
+    "producer": "Unturned Stone",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "ia + Les Lunes + Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Loui"
+   },
+   {
+    "producer": "Phelan Farm",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Populis + Ghostwriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt"
+   },
+   {
+    "producer": "Brij",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "twriter + Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Arge"
+   },
+   {
+    "producer": "Scythian",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "+ Edmunds St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El"
+   },
+   {
+    "producer": "Etteilla",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "St. John + Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
+   },
+   {
+    "producer": "Florez",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "Unturned Stone + Phelan Farm + Brij + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
+   },
+   {
+    "producer": "Bichi",
+    "country": "Mexico",
+    "region": "Baja California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "j + Scythian + Etteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
+   },
+   {
+    "producer": "Louis-Antoine Luyt",
+    "country": "Chile",
+    "region": "",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "tteilla + Florez + Mexico Baja California + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
+   },
+   {
+    "producer": "El Montañista",
+    "country": "Argentina",
+    "region": "",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com/producers",
+    "quote": "lifornia + Bichi + Chile + Louis-Antoine Luyt + Argentina + El Montañista"
+   },
+   {
+    "producer": "Bernardo Estevez",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com",
+    "quote": "Laura Lorenzo Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who"
+   },
+   {
+    "producer": "Alberto Nanclares",
+    "country": "Spain",
+    "region": "Galicia",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com",
+    "quote": "Laura Lorenzo Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and"
+   },
+   {
+    "producer": "Martha Stoumen",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://www.farmwineimports.com",
+    "quote": "o Guímaro Luis Rodriguez Bernardo Estevez Alberto Nanclares Martha Stoumen We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it. We"
+   }
+  ]
+ }
+}

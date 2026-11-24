@@ -1,0 +1,6 @@
+{
+ "query": "search:\"Baire Wines Imports\" hiring sales representative:{\"exact\":true,\"maxResults\":5}",
+ "candidate": "Baire Wines Imports LLC",
+ "fetchedAt": "2026-11-24T20:07:51.060Z",
+ "results": []
+}

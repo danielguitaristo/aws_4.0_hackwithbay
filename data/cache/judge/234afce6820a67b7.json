@@ -1,0 +1,70 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 5,
+   "quote": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives."
+  },
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 3,
+   "quote": "by 2013, his portfolio was 100 percent natural wines"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 2,
+   "quote": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 6,
+   "quote": "he now has a staff of nine, six of whom work in sales"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": true,
+   "snippet": 3,
+   "quote": "seeking out unknown natural wines at remote wine bars and trade shows"
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 6,
+   "quote": "It wasn’t until 2011 that he was able to hire his first employee"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 6,
+   "quote": "The company started out in New York, then added Massachusetts... by 2012, California was on board"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 7,
+   "quote": "scale up a small business into a coast-to-coast operation"
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

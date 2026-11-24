@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 8,
+   "quote": "small or micro-production wines made by accomplished wine makers working with some of the west coast’s finest vineyard sites"
+  },
+  {
+   "id": "boutique_size",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 2,
+   "quote": "Marketing and Import Logistics at Authentic Wine Selections (Apr 2023 to present)"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 1,
+   "quote": "representing a global selection of fine wines statewide in California. They offer wines from 12 countries and three US states"
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": true,
+   "snippet": 4,
+   "quote": "Atlas Peak, Napa Valley (3/750ml)............................................................... $300.00"
+  }
+ ]
+}

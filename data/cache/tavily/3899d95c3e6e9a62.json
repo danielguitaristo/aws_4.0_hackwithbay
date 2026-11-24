@@ -1,0 +1,31 @@
+{
+ "query": "extract:https://kermitlynch.com/growers,https://kermitlynch.com/regions,https://shop.kermitlynch.com/france,https://kermitlynch.com/wines,https://shop.kermitlynch.com/wines",
+ "candidate": "Kermit Lynch, Wine Merchant",
+ "fetchedAt": "2026-11-24T20:12:42.741Z",
+ "results": [
+  {
+   "url": "https://kermitlynch.com/growers",
+   "title": "Our Growers | Kermit Lynch Wine Merchant",
+   "content": "",
+   "rawContent": "KERMIT LYNCH  \nWINE MERCHANT\nKERMIT LYNCH  WINE MERCHANT\nONLINE SHOP\nGrowersWinesRegionsAboutNewslettersContact\nOur Growers\nGrowers are listed alphabetically. Filter by country, region, and farming type, or search by grower name.\nFRANCE\nITALY\n​\n​\n​\n​\nWe use cookies\nWe use cookies to ensure the best experience, understand how the site is used, and support basic functionality. You can choose to accept all cookies or adjust your settings.\nPrivacy Policy"
+  },
+  {
+   "url": "https://shop.kermitlynch.com/france",
+   "title": "Kermit Lynch Wine Merchant - France",
+   "content": "",
+   "rawContent": "France\nOne of the most geologically diverse countries in the world.\nFrance is where it all started for Kermit. He still had only a garage-sized retail shop when he made his first discovery, the red Burgundies of Hubert de Montille, and piggy-backed the shipment into the US in Frank Schoonmaker’s container. In 1976, Richard Olney introduced him to Château Thivin, Auguste Clape, and Domaine Tempier. Since the 1970s our French portfolio has grown to encompass 15 winegrowing regions and 143 producers. Though some of our relationships with producers now span four decades, we are constantly on the hunt for new wines in all corners of France. We’ve recently added new producers from Burgundy, Jura, and Beaujolais."
+  },
+  {
+   "url": "https://kermitlynch.com/wines",
+   "title": "Our Wines | Kermit Lynch Wine Merchant",
+   "content": "",
+   "rawContent": "KERMIT LYNCH  \nWINE MERCHANT\nKERMIT LYNCH  WINE MERCHANT\nONLINE SHOP\nGrowersWinesRegionsAboutNewslettersContact\nOur Wines\n​\n​\n​\n​\n​\nWe use cookies\nWe use cookies to ensure the best experience, understand how the site is used, and support basic functionality. You can choose to accept all cookies or adjust your settings.\nPrivacy Policy"
+  },
+  {
+   "url": "https://shop.kermitlynch.com/wines",
+   "title": "Kermit Lynch Wine Merchant - Wine Shop",
+   "content": "",
+   "rawContent": "France | Burgundy\n$28\nFrance | Alsace\n$45\nFrance | Alsace\n$92\nItaly | Veneto\n$23\nFrance | Southern Rhône\n$25\nFrance | Beaujolais\n$58\nFrance | Champagne\n$95\nFrance | Loire\n$36\nFrance | Burgundy\n$45\nFrance | Loire\n$34\nFrance | Loire\n$22\nFrance | Southern Rhône\n$59\nPurchase a Gift Card ⇒\nIt all started on a balmy night in Taormina, where our thirsty delegation weaved through flocks of tourists before settling on the patio of a cozy trattoria tucked in a narrow alleyway. As a refreshing Mediterranean breeze broke the summer heat and divine scents of simply prepared seafood floated over from the kitchen, we addressed our primary concern: getting something cold in the glass. “How about a crisp Insolia from a new producer in western Sicily?” the sommelier proposed… ⇒\nShop All Wines\nProducers\nProducers\nFrance\nItaly\nWine Type\nVintage\nPrice Range\nFarming Type\nYou must be 21 or older.\nSuggested: 8 or more characters, with at least 1 lowercase and 1 uppercase letter, 1 number, and 1 symbol.\nPurpose of personal data usage We send offers, news, and announcements via email and/or post. We keep track of your contact information, order history, and your general preferences to maintain compliance with applicable laws.\nPlease complete all required fields to complete registration.\nYou must be 21 or older.\nPlease rotate your device vertically for the best viewing experience."
+  }
+ ]
+}

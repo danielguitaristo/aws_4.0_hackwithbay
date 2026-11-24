@@ -93,6 +93,30 @@ export interface Lead {
   sources: Source[];
   stage: Stage;
   enriched: boolean;
+  scoreBreakdown?: ScoreItem[]; // why this score ("Tier A because..."), filled by /api/discover
+  portfolioDetail?: PortfolioItem[]; // structured portfolio read on the importer's own site
+}
+
+/** One line of a lead's score explanation. */
+export interface ScoreItem {
+  id: string; // signal id, or "coverage" / "price_estimate"
+  label: string;
+  points: number; // signed; 0 when status is "unknown" or "info"
+  status?: "fired" | "unknown" | "info"; // unknown = not enough evidence to decide; info = coverage / calculation
+  snippet: string; // verbatim evidence, or the calculation
+  url: string;
+  title?: string;
+}
+
+/** A producer an importer carries, as read on its website. */
+export interface PortfolioItem {
+  producer: string;
+  country: string;
+  region: string;
+  appellation: string;
+  grapes: string[];
+  url: string; // page where the producer is listed
+  quote: string; // verbatim text around the producer name on that page
 }
 
 export interface Message {
