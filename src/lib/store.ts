@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
-import type { Actor, Domaine, Lead, LeadEvent, Message, Stage, ThoughtLog } from "./types";
-import { DEMO_DOMAINE, MOCK_LEADS, MOCK_MESSAGES } from "./demo";
+import type { Actor, Domaine, ICP, Lead, LeadEvent, Message, Stage, ThoughtLog } from "./types";
+import { DEMO_DOMAINE, FALLBACK_ICP, MOCK_LEADS, MOCK_MESSAGES } from "./demo";
+import { cacheKey, readCache } from "./llm";
 
 export interface BillingLedgerEntry {
   id: string;
@@ -31,8 +32,22 @@ export interface RuntimeState {
 const STATE_FILE = path.join(process.cwd(), "data", "runtime", "state.json");
 const DISCOVER_CACHE_DIR = path.join(process.cwd(), "data", "cache", "discover");
 
+function normalizeDiscoveredLeads(leads: Lead[]): Lead[] {
+  return leads.map((lead) => ({
+    ...lead,
+    stage: lead.stage || "matched",
+    enriched: Boolean(lead.enriched),
+  }));
+}
+
 function loadCachedDiscoverLeads(): Lead[] {
   try {
+    const demoIcp = readCache<ICP>("icp", cacheKey(DEMO_DOMAINE)) ?? FALLBACK_ICP;
+    const demoRun = readCache<{ leads?: Lead[] }>("discover", cacheKey(demoIcp));
+    if (demoRun && Array.isArray(demoRun.leads) && demoRun.leads.length > 0) {
+      return normalizeDiscoveredLeads(demoRun.leads);
+    }
+
     if (!fs.existsSync(DISCOVER_CACHE_DIR)) return [];
     const files = fs.readdirSync(DISCOVER_CACHE_DIR).filter((file) => file.endsWith(".json"));
     const runs: { createdAt: string; leads: Lead[] }[] = [];
@@ -54,11 +69,7 @@ function loadCachedDiscoverLeads(): Lead[] {
 
     if (runs.length === 0) return [];
     runs.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
-    return runs[0].leads.map((lead) => ({
-      ...lead,
-      stage: lead.stage || "matched",
-      enriched: Boolean(lead.enriched),
-    }));
+    return normalizeDiscoveredLeads(runs[0].leads);
   } catch {
     return [];
   }
