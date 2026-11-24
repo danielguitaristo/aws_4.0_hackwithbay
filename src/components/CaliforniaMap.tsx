@@ -18,6 +18,34 @@ const CITIES: Record<string, [number, number]> = {
   "el segundo": [-118.42, 33.92], "costa mesa": [-117.92, 33.64], anaheim: [-117.91, 33.84], carlsbad: [-117.35, 33.16], torrance: [-118.34, 33.84], irvine: [-117.83, 33.68], "san diego": [-117.16, 32.72],
 };
 
+/** California first: the zones Claire can target inside the state. */
+export const METROS = ["San Francisco Bay Area", "Los Angeles", "San Diego", "Central Coast", "Sacramento"] as const;
+export type Metro = (typeof METROS)[number];
+
+/** Maps free text from the ICP ("SF Bay Area", "Greater Los Angeles"…) to one of our zones. */
+export function normalizeMetro(text: string): Metro | null {
+  const t = text.toLowerCase();
+  if (/bay area|san francisco|oakland|napa|sonoma|san jose/.test(t)) return "San Francisco Bay Area";
+  if (/los angeles|\bla\b|orange county/.test(t)) return "Los Angeles";
+  if (/san diego/.test(t)) return "San Diego";
+  if (/central coast|monterey|santa barbara|paso robles/.test(t)) return "Central Coast";
+  if (/sacramento/.test(t)) return "Sacramento";
+  return null;
+}
+
+/** Which zone an importer's city falls in (null when the city is unknown or elsewhere). */
+export function metroOf(city: string): Metro | null {
+  const c = CITIES[city.trim().toLowerCase()];
+  if (!c) return null;
+  const [lon, lat] = c;
+  if (lat >= 37.2 && lat <= 38.8 && lon < -121.7) return "San Francisco Bay Area";
+  if (lat >= 38.3 && lat <= 39 && lon >= -121.7) return "Sacramento";
+  if (lat < 33.4) return "San Diego";
+  if (lat >= 33.5 && lat <= 34.4 && lon > -118.8) return "Los Angeles";
+  if (lat >= 34.3 && lat < 37.2) return "Central Coast";
+  return null;
+}
+
 export function cityPoint(city: string, i = 0): [number, number] | null {
   const c = CITIES[city.trim().toLowerCase()];
   if (!c) return null;

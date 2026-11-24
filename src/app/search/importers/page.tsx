@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CaliforniaMap } from "@/components/CaliforniaMap";
+import { CaliforniaMap, metroOf, normalizeMetro } from "@/components/CaliforniaMap";
+import { FALLBACK_ICP } from "@/lib/demo";
 import { Back, Headline, Page, TopUpDialog } from "@/components/ui";
 import { COST, reasonOf, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
@@ -42,7 +43,8 @@ function Searching() {
 
 export default function Importers() {
   const app = useApp();
-  const { leads, letters, searching, discover, findContact, draft, moveStage, credits, ready, graph } = app;
+  const { leads, letters, searching, discover, findContact, draft, moveStage, credits, ready, graph, icp } = app;
+  const [everywhere, setEverywhere] = useState(false);
   const [finding, setFinding] = useState(false);
   const find = async (id: string) => {
     if (credits < COST.contact) return setTopUp(true);
@@ -63,14 +65,29 @@ export default function Importers() {
     }
   }, [ready, leads.length, searching, discover]);
 
-  const ranked = useMemo(() => leads.filter((l) => l.stage !== "lost").sort((a, b) => b.fitScore - a.fitScore), [leads]);
+  const allRanked = useMemo(() => leads.filter((l) => l.stage !== "lost").sort((a, b) => b.fitScore - a.fitScore), [leads]);
+  // Only the zones Claire picked on the Target step (California first).
+  const zones = useMemo(() => new Set((icp ?? FALLBACK_ICP).metros.map(normalizeMetro).filter(Boolean)), [icp]);
+  const ranked = useMemo(() => (everywhere || !zones.size ? allRanked : allRanked.filter((l) => zones.has(metroOf(l.city)))), [allRanked, zones, everywhere]);
+  const elsewhere = allRanked.length - ranked.length;
   const sel = ranked.find((l) => l.id === selected) ?? ranked[0];
   const pending = letters.filter((l) => l.status === "pending").length;
   const drafted = (id: string) => letters.some((l) => l.leadId === id);
   const shown = all ? ranked : ranked.slice(0, 4);
 
   if (!ready) return null;
-  if (searching || !ranked.length) return <Page step={2}><Searching /></Page>;
+  if (searching || !allRanked.length) return <Page step={2}><Searching /></Page>;
+  if (!ranked.length)
+    return (
+      <Page step={2}>
+        <Headline lead="No importers in these zones" tail="yet." />
+        <p className="note mt-3 text-lg">{elsewhere} fit your estate elsewhere in California.</p>
+        <div className="mt-8 flex flex-wrap items-center gap-6">
+          <button className="btn" onClick={() => setEverywhere(true)}>Show them</button>
+          <Back href="/search/target" label="Change zones" />
+        </div>
+      </Page>
+    );
 
   const good = ranked.filter((l) => l.tier !== "C").length;
   // "Portfolio Buyer" or "Owner" is a role, not a person: don't pretend to know their first name.
@@ -147,6 +164,11 @@ export default function Importers() {
           )}
           <div className="flex justify-between border-t border-rule pt-3">
             {ranked.length > 4 && <button className="caps hover:text-ink" onClick={() => setAll(!all)}>{all ? "Show fewer" : `See all ${ranked.length}`}</button>}
+            {(elsewhere > 0 || everywhere) && (
+              <button className="caps ml-auto underline hover:text-ink" onClick={() => setEverywhere(!everywhere)}>
+                {everywhere ? "Only my zones" : `${elsewhere} more elsewhere in California`}
+              </button>
+            )}
           </div>
         </div>
       </div>
