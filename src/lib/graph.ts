@@ -136,7 +136,8 @@ function buildLocalGraph(domaine: Domaine, leads: Lead[], messages: Message[]): 
     });
     addEdge(companyId, productId, "matched_to");
 
-    if (lead.contact) {
+    const hasVerifiedPerson = Boolean(lead.contact?.name && lead.contact.name !== "No verified contact found");
+    if (hasVerifiedPerson && lead.contact) {
       const personId = toId("person", `${lead.id}_${lead.contact.name}`);
       addNode({
         id: personId,
@@ -212,6 +213,18 @@ export async function syncStateToNeo4j(
   const session = driver.session();
 
   try {
+    if (leads.some((lead) => !lead.id.startsWith("mock"))) {
+      await session.run(
+        `
+        MATCH (c:Company)
+        WHERE c.leadId STARTS WITH 'mock'
+        OPTIONAL MATCH (person:Person)-[:works_at]->(c)
+        OPTIONAL MATCH (c)-[:has_signal]->(sig:Signal)
+        DETACH DELETE c, person, sig
+        `,
+      );
+    }
+
     await session.run(
       `
       MERGE (p:Product {id: $productId})
@@ -273,7 +286,8 @@ export async function syncStateToNeo4j(
         },
       );
 
-      if (lead.contact) {
+      const hasVerifiedPerson = Boolean(lead.contact?.name && lead.contact.name !== "No verified contact found");
+      if (hasVerifiedPerson && lead.contact) {
         const personId = toId("person", `${lead.id}_${lead.contact.name}`);
         await session.run(
           `
@@ -314,41 +328,47 @@ export async function syncStateToNeo4j(
         );
       }
 
-      for (const portfolioItem of lead.portfolio) {
-        const competitorId = toId("competitor", portfolioItem);
+      if (lead.portfolio.length > 0) {
+        const competitors = lead.portfolio.map((portfolioItem) => ({
+          id: toId("competitor", portfolioItem),
+          name: portfolioItem,
+          isLoire: portfolioItem.toLowerCase().includes("loire"),
+        }));
         await session.run(
           `
           MATCH (c:Company {id: $companyId}), (p:Product {id: $productId})
-          MERGE (comp:Competitor {id: $competitorId})
-          SET comp.name = $portfolioItem,
-              comp.isLoire = $isLoire
+          UNWIND $competitors AS item
+          MERGE (comp:Competitor {id: item.id})
+          SET comp.name = item.name,
+              comp.isLoire = item.isLoire
           MERGE (c)-[:carries]->(comp)
           MERGE (comp)-[:competes_with]->(p)
           `,
           {
             companyId,
             productId,
-            competitorId,
-            portfolioItem,
-            isLoire: portfolioItem.toLowerCase().includes("loire"),
+            competitors,
           },
         );
       }
 
-      for (const signalText of lead.signals) {
-        const signalId = toId("signal", `${lead.id}_${signalText.slice(0, 32)}`);
+      if (lead.signals.length > 0) {
+        const signalItems = lead.signals.map((signalText) => ({
+          id: toId("signal", `${lead.id}_${signalText.slice(0, 32)}`),
+          name: signalText,
+        }));
         await session.run(
           `
           MATCH (c:Company {id: $companyId})
-          MERGE (s:Signal {id: $signalId})
-          SET s.name = $signalText, s.leadId = $leadId
+          UNWIND $signalItems AS item
+          MERGE (s:Signal {id: item.id})
+          SET s.name = item.name, s.leadId = $leadId
           MERGE (c)-[:has_signal]->(s)
           `,
           {
             companyId,
-            signalId,
-            signalText,
             leadId: lead.id,
+            signalItems,
           },
         );
       }
@@ -478,7 +498,7 @@ export async function queryGraphInsights(
 
   if (warmIntros.length === 0) {
     for (const lead of leads) {
-      if (lead.contact && lead.tier === "A") {
+      if (lead.contact && lead.contact.name !== "No verified contact found" && lead.tier === "A") {
         warmIntros.push({
           personName: lead.contact.name,
           personRole: lead.contact.role,
