@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Headline, Page, SEARCH_STEP_NAMES } from "@/components/ui";
-import { lastTouch, useApp } from "@/lib/app-state";
+import { firstNameOf, lastTouch, OTHER_STATE, useApp } from "@/lib/app-state";
 
 export default function Home() {
   const router = useRouter();
@@ -43,7 +43,7 @@ export default function Home() {
     router.push("/search/letters");
   };
 
-  const tail = top ? `${top.contact?.name?.split(" ")[0] ?? top.name} wrote back.` : pending.length ? "Letters are waiting." : "All quiet today.";
+  const tail = top ? `${firstNameOf(top) ?? top.name} wrote back.` : pending.length ? "Letters are waiting." : "All quiet today.";
   const items = [
     ...replied.map((l, i) => (
       <div key={l.id} className={`flex flex-col items-start justify-between gap-3 border-t py-4 sm:flex-row sm:items-center sm:gap-6 ${i === 0 ? "border-wine" : "border-rule"}`}>
@@ -91,7 +91,7 @@ export default function Home() {
       {nextSearch && (
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 border-y border-rule py-4">
           <span className="font-serif text-xl text-taupe">{nextSearch.segment}</span>
-          <Link href="/search/target" className="caps underline hover:text-ink">Start</Link>
+          {OTHER_STATE.test(nextSearch.segment) ? <em className="note text-sm">coming next</em> : <Link href="/search/target" className="caps underline hover:text-ink">Start</Link>}
         </div>
       )}
     </Page>

@@ -61,6 +61,16 @@ async function call<T>(url: string, method = "GET", body?: unknown): Promise<{ o
 }
 const fire = (url: string, method: string, body: unknown) => void call(url, method, body);
 
+/** A contact's first name, or undefined when the "name" is really a role ("Portfolio Buyer", "Owner"). */
+export function firstNameOf(lead: Lead): string | undefined {
+  const name = lead.contact?.name ?? "";
+  if (!name || /buyer|owner|team|portfolio|director|founder|info|contact|manager/i.test(name)) return undefined;
+  return name.split(" ")[0];
+}
+
+/** Segments outside California can't be searched yet (California first). */
+export const OTHER_STATE = /new york|texas|illinois|florida|oregon|washington|belgium|denmark|europe|export/i;
+
 /** The single best reason this importer fits: A's top positive score line, else a cleaned signal. */
 export function reasonOf(lead: Lead): string | undefined {
   const best = (lead.scoreBreakdown ?? []).filter((s) => s.status !== "unknown" && s.points > 0).sort((a, b) => b.points - a.points)[0];
@@ -74,7 +84,7 @@ export function hookOf(lead: Lead): string {
 }
 
 function draftFor(lead: Lead, d: Domaine, variant: string): Pick<Letter, "subject" | "body" | "bodyFr"> {
-  const first = lead.contact?.name?.split(" ")[0] ?? "there";
+  const first = firstNameOf(lead) ?? "there";
   const hook = hookOf(lead);
   const signature = `Claire Martin\n${d.name}`;
   const estate = `We're a small organic estate in ${d.region.split("(")[1]?.replace(")", "") ?? d.region} making mineral ${d.grapes[0]}, still and sparkling, and we're looking for our first US partner.`;
@@ -95,8 +105,15 @@ function useAppState() {
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(KEY);
-      if (raw) setS({ ...initial, ...JSON.parse(raw) });
+      // any URL with ?reset starts a clean session (demo recordings, teammates' tests)
+      if (new URLSearchParams(window.location.search).has("reset")) {
+        localStorage.removeItem(KEY);
+        sessionStorage.clear();
+        window.history.replaceState(null, "", window.location.pathname);
+      } else {
+        const raw = localStorage.getItem(KEY);
+        if (raw) setS({ ...initial, ...JSON.parse(raw) });
+      }
     } catch {}
     setReady(true);
     fetch("/api/gmail/status")
@@ -188,9 +205,9 @@ function useAppState() {
     const base = fromApi ??{ id: uid(), leadId, channel: "email" as const, variant, status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine, variant) };
     const letter: Letter =
       kind === "follow_up"
-        ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
+        ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${firstNameOf(lead) ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
         : kind === "reply"
-          ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nWonderful, thank you. I'll ship two bottles this week, one Vouvray sec and one pétillant. Could you share the address and the best name to put on the parcel?\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Merci beaucoup. J'envoie deux bouteilles cette semaine, un Vouvray sec et un pétillant. Pouvez-vous m'indiquer l'adresse et le nom à mettre sur le colis ?" }
+          ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${firstNameOf(lead) ?? "there"},\n\nWonderful, thank you. I'll ship two bottles this week, one Vouvray sec and one pétillant. Could you share the address and the best name to put on the parcel?\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Merci beaucoup. J'envoie deux bouteilles cette semaine, un Vouvray sec et un pétillant. Pouvez-vous m'indiquer l'adresse et le nom à mettre sur le colis ?" }
           : { ...base, kind };
     setS((st) => ({ ...st, letters: [...st.letters.filter((x) => !(x.leadId === leadId && x.status === "pending")), letter], events: log(st, leadId, "drafted", "agent") }));
   }, [s.leads, s.domaine, s.letters, s.graph]);

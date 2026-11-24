@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CaliforniaMap, metroOf, normalizeMetro } from "@/components/CaliforniaMap";
 import { FALLBACK_ICP } from "@/lib/demo";
 import { Back, Headline, Page, TopUpDialog } from "@/components/ui";
-import { COST, reasonOf, useApp } from "@/lib/app-state";
+import { COST, firstNameOf, reasonOf, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
 
 const PROGRESS = [
@@ -72,7 +72,8 @@ export default function Importers() {
   const elsewhere = allRanked.length - ranked.length;
   const sel = ranked.find((l) => l.id === selected) ?? ranked[0];
   const pending = letters.filter((l) => l.status === "pending").length;
-  const drafted = (id: string) => letters.some((l) => l.leadId === id);
+  const drafted = (id: string) => letters.some((l) => l.leadId === id && l.status === "pending");
+  const sentTo = (id: string) => letters.some((l) => l.leadId === id && l.status === "sent");
   const shown = all ? ranked : ranked.slice(0, 4);
 
   if (!ready) return null;
@@ -90,9 +91,7 @@ export default function Importers() {
     );
 
   const good = ranked.filter((l) => l.tier !== "C").length;
-  // "Portfolio Buyer" or "Owner" is a role, not a person: don't pretend to know their first name.
-  const generic = /buyer|owner|team|portfolio|director|founder|info|contact/i.test(sel.contact?.name ?? "");
-  const first = generic ? undefined : sel.contact?.name?.split(" ")[0];
+  const first = firstNameOf(sel); // undefined when the contact is a role, not a person
   const hasEmail = !!sel.contact?.email;
 
   return (
@@ -138,7 +137,9 @@ export default function Importers() {
                   </div>
                 )}
                 <div className="mt-4 flex flex-wrap items-center gap-5">
-                  {drafted(l.id) ? (
+                  {sentTo(l.id) ? (
+                    <span className="caps">Letter sent ✓</span>
+                  ) : drafted(l.id) ? (
                     <Link href="/search/letters" className="caps text-wine underline">Letter ready · review</Link>
                   ) : hasEmail ? (
                     <button className="btn" onClick={() => draft(l.id)}>{first ? `Write to ${first}` : "Write a letter"}</button>
@@ -156,7 +157,7 @@ export default function Importers() {
                   {l.name} <span className="font-sans text-xs text-taupe">{l.city}</span>
                 </span>
                 <span className="flex items-baseline gap-3">
-                  {drafted(l.id) && <span className="caps">letter ready</span>}
+                  {sentTo(l.id) ? <span className="caps">sent</span> : drafted(l.id) && <span className="caps">letter ready</span>}
                   <span className="font-serif text-xl">{l.fitScore}</span>
                 </span>
               </button>

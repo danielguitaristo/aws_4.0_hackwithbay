@@ -96,6 +96,12 @@ export function TopBar({ step }: { step?: number }) {
             <button className="block w-full px-4 py-2 text-left font-serif text-base text-taupe hover:bg-sand" onClick={() => router.push("/")}>
               Sign out
             </button>
+            <button
+              className="block w-full border-t border-rule px-4 py-2 text-left font-serif text-base text-taupe hover:bg-sand"
+              onClick={() => { if (window.confirm("Start over? This clears your estate, searches and letters on this device.")) window.location.href = "/?reset"; }}
+            >
+              Start over
+            </button>
           </div>
         )}
       </div>

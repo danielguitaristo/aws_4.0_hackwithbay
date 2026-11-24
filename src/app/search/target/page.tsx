@@ -3,14 +3,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { METROS, normalizeMetro, type Metro } from "@/components/CaliforniaMap";
 import { Back, Headline, Page, Row } from "@/components/ui";
-import { useApp } from "@/lib/app-state";
+import { OTHER_STATE, useApp } from "@/lib/app-state";
 import { FALLBACK_ICP } from "@/lib/demo";
 import type { ICP } from "@/lib/types";
 
 const TYPE: Record<string, string> = { importer_distributor: "an importer who also distributes", importer: "an importer", distributor: "a distributor" };
-
-// Segments outside California can't be searched yet.
-const OTHER_STATE = /new york|texas|illinois|florida|oregon|washington|belgium|denmark|europe|export/i;
 
 type Field = { key: keyof ICP; label: string; show: (i: ICP) => string; parse: (v: string) => Partial<ICP> };
 const list = (v: string) => v.split(/[·,]/).map((x) => x.trim()).filter(Boolean);
