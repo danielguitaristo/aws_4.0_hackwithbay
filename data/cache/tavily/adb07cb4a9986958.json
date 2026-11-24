@@ -1,0 +1,19 @@
+{
+ "query": "search:\"Vincent Bergeron\" importer California:{\"exact\":true,\"maxResults\":5}",
+ "peer": "Vincent Bergeron",
+ "fetchedAt": "2026-11-24T21:00:48.745Z",
+ "results": [
+  {
+   "url": "https://linkedin.com/in/vince-bergeron-192b7b132",
+   "title": "Vincent Bergeron",
+   "content": "Vince Bergeron\nHeadline: --\nCurrent role: Independent Business Owner\nSeniority: Owner, General Management\nLocation: Roseville, California, United States\nLinkedIn: www.linkedin.com/in/vince-bergeron-192b7b132 · 6 followers\nExperience\nIndependent Business Owner at Mel's Mobile RV\nSkills\nbusiness owner, independent business owner\nLanguages: English",
+   "rawContent": "Vince Bergeron\nHeadline: --\nCurrent role: Independent Business Owner\nSeniority: Owner, General Management\nLocation: Roseville, California, United States\nLinkedIn: www.linkedin.com/in/vince-bergeron-192b7b132 · 6 followers\nExperience\nIndependent Business Owner at Mel's Mobile RV\nSkills\nbusiness owner, independent business owner\nLanguages: English"
+  },
+  {
+   "url": "https://linkedin.com/in/vince-bergeron-849a54402",
+   "title": "Vincent Bergeron",
+   "content": "Vince Bergeron\nHeadline: Content Creator at TikTok\nLocation: Escondido, California, United States\nLinkedIn: www.linkedin.com/in/vince-bergeron-849a54402 · 0 followers",
+   "rawContent": "Vince Bergeron\nHeadline: Content Creator at TikTok\nLocation: Escondido, California, United States\nLinkedIn: www.linkedin.com/in/vince-bergeron-849a54402 · 0 followers"
+  }
+ ]
+}

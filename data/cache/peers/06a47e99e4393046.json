@@ -1,0 +1,67 @@
+[
+ {
+  "producer": "Domaine de la Taille aux Loups",
+  "appellation": "Montlouis",
+  "result": 0
+ },
+ {
+  "producer": "François Chidaine",
+  "appellation": "Montlouis",
+  "result": 1
+ },
+ {
+  "producer": "François Chidaine",
+  "appellation": "Vouvray",
+  "result": 2
+ },
+ {
+  "producer": "François Chidaine",
+  "appellation": "Touraine",
+  "result": 3
+ },
+ {
+  "producer": "Alice Chidaine",
+  "appellation": "Montlouis",
+  "result": 4
+ },
+ {
+  "producer": "Pierre Chidaine",
+  "appellation": "Montlouis",
+  "result": 5
+ },
+ {
+  "producer": "Vincent Bergeron",
+  "appellation": "Montlouis-sur-Loire",
+  "result": 6
+ },
+ {
+  "producer": "Jo Pithon",
+  "appellation": "",
+  "result": 7
+ },
+ {
+  "producer": "Pascal Baudouin",
+  "appellation": "",
+  "result": 8
+ },
+ {
+  "producer": "Joël Ménard",
+  "appellation": "",
+  "result": 9
+ },
+ {
+  "producer": "Mark Angeli",
+  "appellation": "",
+  "result": 10
+ },
+ {
+  "producer": "Richard Leroy",
+  "appellation": "",
+  "result": 11
+ },
+ {
+  "producer": "Ludovic Chanson",
+  "appellation": "",
+  "result": 12
+ }
+]

@@ -1,0 +1,49 @@
+{
+ "key": "c56ffcf9aa6e03f6",
+ "portfolio": {
+  "candidateId": "6855975c40",
+  "website": "https://www.thewinesourceinc.com",
+  "pagesRead": [
+   "https://www.thewinesourceinc.com/other-french-regions",
+   "https://www.thewinesourceinc.com/producers-1",
+   "https://www.thewinesourceinc.com/loire-valley",
+   "https://www.thewinesourceinc.com/producers-by-region",
+   "https://www.thewinesourceinc.com/domaines-bunan",
+   "https://www.thewinesourceinc.com/domaine-de-lermitage",
+   "https://www.thewinesourceinc.com/domaine-chavet",
+   "https://www.thewinesourceinc.com"
+  ],
+  "producers": [
+   {
+    "producer": "Domaines Bunan",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "Bandol, Côte de Provence",
+    "grapes": [],
+    "url": "https://www.thewinesourceinc.com/domaines-bunan",
+    "quote": "Domaines Bunan Bandol Moulin Des Costes Bandol White Moulin Des Costes Bandol Rose Moulin Des Costes Bandol Red Do"
+   },
+   {
+    "producer": "Domaine de L’Ermitage",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Menetou-Salon, Sancerre",
+    "grapes": [
+     "Sauvignon Blanc",
+     "Pinot Noir"
+    ],
+    "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+    "quote": "Domaine de L’Ermitage Domaine de L’Ermitage The Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combine"
+   },
+   {
+    "producer": "Domaine Chavet",
+    "country": "France",
+    "region": "Loire",
+    "appellation": "Menetou-Salon",
+    "grapes": [],
+    "url": "https://www.thewinesourceinc.com/domaine-chavet",
+    "quote": "Domaine Chavet clos des jentonnes.PNG Clos des Jentonnes clos de coquin.PNG Clos de Coquin clos de beauregard.PNG"
+   }
+  ]
+ }
+}

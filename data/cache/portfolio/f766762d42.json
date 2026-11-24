@@ -1,0 +1,900 @@
+{
+ "key": "6d8d63627e670851",
+ "portfolio": {
+  "candidateId": "f766762d42",
+  "website": "https://grandcruselections.com",
+  "pagesRead": [
+   "https://grandcruselections.com/national-portfolio",
+   "https://grandcruselections.com/our-portfolio-gcs-ca",
+   "https://grandcruselections.com/france-ca",
+   "https://grandcruselections.com/our-portfolio-1",
+   "https://grandcruselections.com/our-portfolio-gcs-il",
+   "https://grandcruselections.com/our-portfolio",
+   "https://grandcruselections.com/francenational",
+   "https://grandcruselections.com/france-il",
+   "https://grandcruselections.com/france",
+   "https://grandcruselections.com/chateau-bonnezeaux-new",
+   "https://grandcruselections.com/gcs-cali-team",
+   "https://grandcruselections.com",
+   "https://grandcruselections.com/brendan-stater-west-new",
+   "https://grandcruselections.com/stephane-bernaudeau-new",
+   "https://grandcruselections.com/clos-des-plantes-new",
+   "https://grandcruselections.com/enfieldwine-co",
+   "https://grandcruselections.com/venica-venica-new",
+   "https://grandcruselections.com/the-team"
+  ],
+  "producers": [
+   {
+    "producer": "Champagne Noël Bazin",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Contact Us Become a Customer Inquiries Payments France (CA) Champagne Noël Bazin Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Cha"
+   },
+   {
+    "producer": "Champagne A Bergère",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ustomer Inquiries Payments France (CA) Champagne Noël Bazin Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Minière F&R"
+   },
+   {
+    "producer": "Champagne Chartogne-Taillet",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "yments France (CA) Champagne Noël Bazin Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Cha"
+   },
+   {
+    "producer": "Champagne Dhondt-Grellet",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Noël Bazin Champagne A Bergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Cham"
+   },
+   {
+    "producer": "Champagne Michel Gonet",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Cha"
+   },
+   {
+    "producer": "Champagne Minière F&R",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "gne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne"
+   },
+   {
+    "producer": "Champagne Robert Moncuit",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "hondt-Grellet Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne Jean-Marc Sélèque Burgun"
+   },
+   {
+    "producer": "Champagne Pierre Péters",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ichel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Ang"
+   },
+   {
+    "producer": "Champagne Adrien Renoir",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "nière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Didier F"
+   },
+   {
+    "producer": "Champagne Savart",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine H"
+   },
+   {
+    "producer": "Champagne Jean-Marc Sélèque",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "agne Pierre Péters Champagne Adrien Renoir Champagne Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des C"
+   },
+   {
+    "producer": "Domaine Marquis d'Angerville",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "enoir Champagne Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger D"
+   },
+   {
+    "producer": "Domaine Didier Fornerol",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "gne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Ca"
+   },
+   {
+    "producer": "Domaine Hudelot-Baillet",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "rgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Do"
+   },
+   {
+    "producer": "Domaine des Comtes Lafon",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domai"
+   },
+   {
+    "producer": "Domaine Génot-Boulanger",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "rgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Génot-Boulanger Domaine Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon Domaine Roulot Domaine Georges Rou"
+   },
+   {
+    "producer": "Domaine Roulot",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "t-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Moth"
+   },
+   {
+    "producer": "Domaine Camille Thiriet",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ne des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Ba"
+   },
+   {
+    "producer": "Domaine Moreau-Naudet",
+    "country": "France",
+    "region": "Chablis",
+    "appellation": "Chablis",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélic"
+   },
+   {
+    "producer": "Domaine Eleni et Edouard Vocoret",
+    "country": "France",
+    "region": "Chablis",
+    "appellation": "Chablis",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "oulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine"
+   },
+   {
+    "producer": "Vincent Mothe",
+    "country": "France",
+    "region": "Chablis",
+    "appellation": "Chablis",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "blis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain"
+   },
+   {
+    "producer": "Florence & François Bachelier",
+    "country": "France",
+    "region": "Chablis",
+    "appellation": "Chablis",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "oreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Va"
+   },
+   {
+    "producer": "Domaine du Pélican",
+    "country": "France",
+    "region": "Jura",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Domaine du Pélican Beaujolais Domaine Chapel Anne-Sophie Dubois Mee Godard Sylvain Martel Rhone Valley Domaine Brun-Av"
+   },
+   {
+    "producer": "Mee Godard",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ce & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave"
+   },
+   {
+    "producer": "Domaine Chapel",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "is Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Doma"
+   },
+   {
+    "producer": "Sylvain Martel",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ra Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril"
+   },
+   {
+    "producer": "Julien Duport",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "élican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril Jean-François"
+   },
+   {
+    "producer": "Domaine Jean-Louis Chave",
+    "country": "France",
+    "region": "Rhône Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "rd Domaine Chapel Sylvain Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Dom"
+   },
+   {
+    "producer": "Jean-Louis Chave Selections",
+    "country": "France",
+    "region": "Rhône Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Martel Julien Duport Rhone Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine"
+   },
+   {
+    "producer": "Domaine Brun-Avril",
+    "country": "France",
+    "region": "Rhône Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Valley Domaine Jean-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine des Trois Filles RO"
+   },
+   {
+    "producer": "Jean-François Jacouton",
+    "country": "France",
+    "region": "Rhône Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "-Louis Chave Jean-Louis Chave Selections Domaine Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine des Trois Filles ROUSSILLON Domaine Vaquer"
+   },
+   {
+    "producer": "Domaine Baravéou",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "lections Domaine Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine des Trois Filles ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORD"
+   },
+   {
+    "producer": "Domaine Marie Bèrènice",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Brun-Avril Jean-François Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine des Trois Filles ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORDEAUX Château Bourgneuf"
+   },
+   {
+    "producer": "Domaine des Trois Filles",
+    "country": "France",
+    "region": "Provence",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "s Jacouton Provence Domaine Baravéou Domaine Marie Bèrènice Domaine des Trois Filles ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bail"
+   },
+   {
+    "producer": "Domaine Vaquer",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Domaine Marie Bèrènice Domaine des Trois Filles ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonn"
+   },
+   {
+    "producer": "Clos Venturi",
+    "country": "France",
+    "region": "Corsica",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Domaine des Trois Filles ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-"
+   },
+   {
+    "producer": "Château Bourgneuf",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "les ROUSSILLON Domaine Vaquer Corsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux D"
+   },
+   {
+    "producer": "Domaine Bailly-Reverdy",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "orsica Clos Venturi BORDEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine D"
+   },
+   {
+    "producer": "Chateau de Bonnezeaux",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "Bonnezeaux",
+    "grapes": [
+     "Chenin Blanc"
+    ],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "DEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
+   },
+   {
+    "producer": "Domaine Siret-Courtaud",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "f Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
+   },
+   {
+    "producer": "Domaine Fief aux Dames",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
+   },
+   {
+    "producer": "Justin Boxler",
+    "country": "France",
+    "region": "Alsace",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "ezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
+   },
+   {
+    "producer": "Domaine Migot",
+    "country": "France",
+    "region": "Lorraine",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "urtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
+   },
+   {
+    "producer": "Champagne Éphémère",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "ergère Champagne Chartogne-Taillet Champagne Dhondt-Grellet Champagne Éphémère Champagne Michel Gonet Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champ"
+   },
+   {
+    "producer": "Guillaume Lafon",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "-Boulanger Domaine Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon Domaine Roulot Domaine Georges Roumier Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domain"
+   },
+   {
+    "producer": "Domaine Georges Roumier",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "let Domaine des Comtes Lafon Guillaume Lafon Domaine Roulot Domaine Georges Roumier Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Moth"
+   },
+   {
+    "producer": "Anne-Sophie Dubois",
+    "country": "France",
+    "region": "Beaujolais",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "ent Mothe Jura Domaine du Pélican Beaujolais Domaine Chapel Anne-Sophie Dubois Mee Godard Sylvain Martel Rhone Valley Domaine Brun-Avril Clusel Roch Provence Domaine Baravéou Cor"
+   },
+   {
+    "producer": "Clusel Roch",
+    "country": "France",
+    "region": "Rhône Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "s Mee Godard Sylvain Martel Rhone Valley Domaine Brun-Avril Clusel Roch Provence Domaine Baravéou Corsica Clos Venturi Loire Valley Domaine Bailly-Reverdy Jean-Baptiste Ha"
+   },
+   {
+    "producer": "Jean-Baptiste Hardy",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "ou Corsica Clos Venturi Loire Valley Domaine Bailly-Reverdy Jean-Baptiste Hardy Domaine Le Petit Saint Vincent Domaine Siret-Courtaud Bordeaux Château Lafleur Le Galouchey Château"
+   },
+   {
+    "producer": "Domaine Le Petit Saint Vincent",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "uri Loire Valley Domaine Bailly-Reverdy Jean-Baptiste Hardy Domaine Le Petit Saint Vincent Domaine Siret-Courtaud Bordeaux Château Lafleur Le Galouchey Château Bourgneuf 584 Broadway, Suite"
+   },
+   {
+    "producer": "Château Lafleur",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "aine Le Petit Saint Vincent Domaine Siret-Courtaud Bordeaux Château Lafleur Le Galouchey Château Bourgneuf 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all"
+   },
+   {
+    "producer": "Le Galouchey",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/francenational",
+    "quote": "int Vincent Domaine Siret-Courtaud Bordeaux Château Lafleur Le Galouchey Château Bourgneuf 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: n"
+   },
+   {
+    "producer": "Champagne Huré Fréres",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "gne-Taillet Champagne Dhondt-Grellet Champagne Michel Gonet Champagne Huré Fréres Champagne Minière F&R Champagne Robert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Cha"
+   },
+   {
+    "producer": "Domaine des Croix",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "gne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine des Croix Domaine Didier Fornerol Domaine Jerome Galeyrand Domaine Hudelot-Baillet Guillaume Lafon Domaine Ro"
+   },
+   {
+    "producer": "Domaine Jerome Galeyrand",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "quis d'Angerville Domaine des Croix Domaine Didier Fornerol Domaine Jerome Galeyrand Domaine Hudelot-Baillet Guillaume Lafon Domaine Roulot Domaine Génot-Boulanger Domaine de Cassiopé"
+   },
+   {
+    "producer": "Domaine de Cassiopée",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "let Guillaume Lafon Domaine Roulot Domaine Génot-Boulanger Domaine de Cassiopée Chanterêvres Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Doma"
+   },
+   {
+    "producer": "Chanterêvres",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "omaine Roulot Domaine Génot-Boulanger Domaine de Cassiopée Chanterêvres Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Domaine du Pélic"
+   },
+   {
+    "producer": "Domaine U Stiliccionu",
+    "country": "France",
+    "region": "Corsica",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "Valley Domaine Brun-Avril Provence Domaine Baravéou Corsica Domaine U Stiliccionu Clos Venturi Loire Valley Domaine Bailly-Reverdy Siret-Courtaud Domaine Le Petit Saint Vincent Jean"
+   },
+   {
+    "producer": "Ogereau",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "Courtaud Domaine Le Petit Saint Vincent Jean-Baptiste Hardy Ogereau Étienne Bodet & Maison Bodet-Hérold Bordeaux Chateau Lafleur Saisons de Bourgneuf Domaine les Carme"
+   },
+   {
+    "producer": "Étienne Bodet & Maison Bodet-Hérold",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "Domaine Le Petit Saint Vincent Jean-Baptiste Hardy Ogereau Étienne Bodet & Maison Bodet-Hérold Bordeaux Chateau Lafleur Saisons de Bourgneuf Domaine les Carmels Alsace Vignoble du Rêveur Savoie"
+   },
+   {
+    "producer": "Saisons de Bourgneuf",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "tienne Bodet & Maison Bodet-Hérold Bordeaux Chateau Lafleur Saisons de Bourgneuf Domaine les Carmels Alsace Vignoble du Rêveur Savoie Domaine des Côtes Rousses Sud-Ouest Domaine la"
+   },
+   {
+    "producer": "Domaine les Carmels",
+    "country": "France",
+    "region": "Bordeaux",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "Bodet-Hérold Bordeaux Chateau Lafleur Saisons de Bourgneuf Domaine les Carmels Alsace Vignoble du Rêveur Savoie Domaine des Côtes Rousses Sud-Ouest Domaine la Calamette Plaisance"
+   },
+   {
+    "producer": "Vignoble du Rêveur",
+    "country": "France",
+    "region": "Alsace",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "eau Lafleur Saisons de Bourgneuf Domaine les Carmels Alsace Vignoble du Rêveur Savoie Domaine des Côtes Rousses Sud-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc"
+   },
+   {
+    "producer": "Domaine des Côtes Rousses",
+    "country": "France",
+    "region": "Savoie",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "rgneuf Domaine les Carmels Alsace Vignoble du Rêveur Savoie Domaine des Côtes Rousses Sud-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc des Anges 584 Broadway, Suite 121"
+   },
+   {
+    "producer": "Domaine la Calamette",
+    "country": "France",
+    "region": "Sud-Ouest",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "gnoble du Rêveur Savoie Domaine des Côtes Rousses Sud-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc des Anges 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-26"
+   },
+   {
+    "producer": "Plaisance-Penavayre",
+    "country": "France",
+    "region": "Sud-Ouest",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "ie Domaine des Côtes Rousses Sud-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc des Anges 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inqui"
+   },
+   {
+    "producer": "Roc des Anges",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france-il",
+    "quote": "d-Ouest Domaine la Calamette Plaisance-Penavayre Roussillon Roc des Anges 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: newcustomers@grandc"
+   },
+   {
+    "producer": "Champagne Fréderic Savart",
+    "country": "France",
+    "region": "Champagne",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ert Moncuit Champagne Pierre Péters Champagne Adrien Renoir Champagne Fréderic Savart Champagne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Bachelet-Monnot Domaine S"
+   },
+   {
+    "producer": "Domaine Bachelet-Monnot",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "gne Jean-Marc Sélèque Burgundy Domaine Marquis d'Angerville Domaine Bachelet-Monnot Domaine Simon Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine"
+   },
+   {
+    "producer": "Domaine Simon Bize",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "rgundy Domaine Marquis d'Angerville Domaine Bachelet-Monnot Domaine Simon Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine des Croix Domaine"
+   },
+   {
+    "producer": "Château des Quarts",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "-Monnot Domaine Simon Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine des Croix Domaine Didier Fornerol Domaine Fourrier Domaine Génot-Boula"
+   },
+   {
+    "producer": "Domaine Yvon Clerget",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "on Bize Domaine de Cassiopée Chanterêves Château des Quarts Domaine Yvon Clerget Domaine des Croix Domaine Didier Fornerol Domaine Fourrier Domaine Génot-Boulanger Les Horées Domai"
+   },
+   {
+    "producer": "Domaine Fourrier",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "aine Yvon Clerget Domaine des Croix Domaine Didier Fornerol Domaine Fourrier Domaine Génot-Boulanger Les Horées Domaine Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon"
+   },
+   {
+    "producer": "Les Horées",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ne Didier Fornerol Domaine Fourrier Domaine Génot-Boulanger Les Horées Domaine Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon Domaine du Comte Liger-Belair Benj"
+   },
+   {
+    "producer": "Domaine du Comte Liger-Belair",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ne Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon Domaine du Comte Liger-Belair Benjamin Leroux Icy Liu Domaine Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Ge"
+   },
+   {
+    "producer": "Benjamin Leroux",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Comtes Lafon Guillaume Lafon Domaine du Comte Liger-Belair Benjamin Leroux Icy Liu Domaine Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Georges Mugneret-G"
+   },
+   {
+    "producer": "Icy Liu",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "illaume Lafon Domaine du Comte Liger-Belair Benjamin Leroux Icy Liu Domaine Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Georges Mugneret-Gibourg P"
+   },
+   {
+    "producer": "Domaine Olivier Merlin",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Lafon Domaine du Comte Liger-Belair Benjamin Leroux Icy Liu Domaine Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Georges Mugneret-Gibourg Parigot & Richard La Pie"
+   },
+   {
+    "producer": "Domaine Pierre Morey & Maison Morey-Blanc",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Liger-Belair Benjamin Leroux Icy Liu Domaine Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Georges Mugneret-Gibourg Parigot & Richard La Pierre Ronde Domaine Prunier-Bonheur Domaine"
+   },
+   {
+    "producer": "Domaine Georges Mugneret-Gibourg",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ne Olivier Merlin Domaine Pierre Morey & Maison Morey-Blanc Domaine Georges Mugneret-Gibourg Parigot & Richard La Pierre Ronde Domaine Prunier-Bonheur Domaine Roulot Domaine Georges Roumier Do"
+   },
+   {
+    "producer": "Parigot & Richard",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Morey & Maison Morey-Blanc Domaine Georges Mugneret-Gibourg Parigot & Richard La Pierre Ronde Domaine Prunier-Bonheur Domaine Roulot Domaine Georges Roumier Domaine Camille Thir"
+   },
+   {
+    "producer": "La Pierre Ronde",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ey-Blanc Domaine Georges Mugneret-Gibourg Parigot & Richard La Pierre Ronde Domaine Prunier-Bonheur Domaine Roulot Domaine Georges Roumier Domaine Camille Thiriet Chablis Doma"
+   },
+   {
+    "producer": "Domaine Prunier-Bonheur",
+    "country": "France",
+    "region": "Burgundy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Georges Mugneret-Gibourg Parigot & Richard La Pierre Ronde Domaine Prunier-Bonheur Domaine Roulot Domaine Georges Roumier Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domain"
+   },
+   {
+    "producer": "Croix et Courbet",
+    "country": "France",
+    "region": "Jura",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Jura Croix et Courbet Domaine du Pélican Beaujolais Domaine Chapel Anne-Sophie Dubois Mee Godard Sylvain Martel Rhone Val"
+   },
+   {
+    "producer": "Domaine Andrée",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "éou Corsica Domaine U Stiliccionu Clos Venturi Loire Valley Domaine Andrée Domaine Bailly-Reverdy Stéphane Bernaudeau Château de Bonnezeaux Jérôme Bretaudeau Jean-Baptiste Ha"
+   },
+   {
+    "producer": "Stéphane Bernaudeau",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [
+     "Chenin Blanc"
+    ],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Venturi Loire Valley Domaine Andrée Domaine Bailly-Reverdy Stéphane Bernaudeau Château de Bonnezeaux Jérôme Bretaudeau Jean-Baptiste Hardy Domaine Arnaud Lambert Domaine Le Petit"
+   },
+   {
+    "producer": "Jérôme Bretaudeau",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "ne Bailly-Reverdy Stéphane Bernaudeau Château de Bonnezeaux Jérôme Bretaudeau Jean-Baptiste Hardy Domaine Arnaud Lambert Domaine Le Petit Saint Vincent Domaine de la Renière Dom"
+   },
+   {
+    "producer": "Domaine Arnaud Lambert",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Château de Bonnezeaux Jérôme Bretaudeau Jean-Baptiste Hardy Domaine Arnaud Lambert Domaine Le Petit Saint Vincent Domaine de la Renière Domaine Siret-Courtaud Brendan Stater-West Bor"
+   },
+   {
+    "producer": "Domaine de la Renière",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Hardy Domaine Arnaud Lambert Domaine Le Petit Saint Vincent Domaine de la Renière Domaine Siret-Courtaud Brendan Stater-West Bordeaux Château Lafleur Le Galouchey Château Bourgneuf"
+   },
+   {
+    "producer": "Brendan Stater-West",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "",
+    "grapes": [
+     "Chenin Blanc",
+     "Cabernet Franc"
+    ],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Saint Vincent Domaine de la Renière Domaine Siret-Courtaud Brendan Stater-West Bordeaux Château Lafleur Le Galouchey Château Bourgneuf Roussillon Pedres Blanques Domaine Danjou-B"
+   },
+   {
+    "producer": "Pedres Blanques",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "x Château Lafleur Le Galouchey Château Bourgneuf Roussillon Pedres Blanques Domaine Danjou-Banessy Normandy Domaine Lesuffleur 584 Broadway, Suite 1210 New York, NY 10012 HQ:"
+   },
+   {
+    "producer": "Domaine Danjou-Banessy",
+    "country": "France",
+    "region": "Roussillon",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "r Le Galouchey Château Bourgneuf Roussillon Pedres Blanques Domaine Danjou-Banessy Normandy Domaine Lesuffleur 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all in"
+   },
+   {
+    "producer": "Domaine Lesuffleur",
+    "country": "France",
+    "region": "Normandy",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/france",
+    "quote": "Roussillon Pedres Blanques Domaine Danjou-Banessy Normandy Domaine Lesuffleur 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: newcustomers@grandc"
+   },
+   {
+    "producer": "Enfield Wine Co.",
+    "country": "United States",
+    "region": "California",
+    "appellation": "",
+    "grapes": [],
+    "url": "https://grandcruselections.com/enfieldwine-co",
+    "quote": "Enfield Wine Co. Santa Rosa, Sonoma, California Enfield Wine Co. is a project that, from the outset, helped redefine"
+   },
+   {
+    "producer": "Venica & Venica",
+    "country": "Italy",
+    "region": "Friuli",
+    "appellation": "Collio",
+    "grapes": [
+     "Sauvignon",
+     "Malvasia",
+     "Ribolla Gialla",
+     "Chardonnay",
+     "Traminer",
+     "Friulano",
+     "Pinot Grigio",
+     "Verduzzo"
+    ],
+    "url": "https://grandcruselections.com/venica-venica-new",
+    "quote": "Grand Cru Selections Grand Cru Selections Venica & Venica (new) Venica & Venica Dolegna, Collio, Friuli, Italy Giampaolo Venica Venica & Venica is one of Fri"
+   }
+  ]
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 0,
+   "quote": "working with small wineries in France, Italy, Germany, Spain, Portugal, California, Oregon, Mexico, and Chile"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 1,
+   "quote": "Domaine de Roally Chablis + Alice et Olivier De Moor Beaujolais + Terres Dorées - Jean-Paul Brun"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 3,
+   "quote": "Wholesaler looking for your rep? Check out our Wholesale page"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

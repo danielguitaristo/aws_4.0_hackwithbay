@@ -1,0 +1,19 @@
+{
+ "query": "search:\"Dime Group International\" hiring sales representative:{\"exact\":true,\"maxResults\":5}",
+ "candidate": "Dime Group International",
+ "fetchedAt": "2026-11-24T20:07:41.070Z",
+ "results": [
+  {
+   "url": "https://www.salary.com/research/company/browse-company-by-industry/business-services?page=56",
+   "title": "Companies under Business Services Page 56 | Salary.com",
+   "content": "Proven strategies for resume building, job searching, and acing the interview process.\nAutomate pay cycles, manage job architectures, and ensure pay equity with AI-powered compensation platforms.\nAccess validated salary benchmarks, labor market trends, and minimum wage data to stay competitive.\nParticipate in and purchase industry-specific salary surveys to obtain the most accurate, peer-reported pay data. [...] Know your market value with insights across roles — from individual contributors to executive pay and overall company compensation trends.\nAccess a suite of powerful calculators to make data-driven career decisions.\nBenchmarks and tools to calculate your market value and negotiate your target salary.\nExpert advice on earning promotions, increasing productivity, and mastering workplace leadership.\nDiscover new roles, research industry shifts, and plan your long-term professional journey.",
+   "rawContent": "Know your market value with insights across roles — from individual contributors to executive pay and overall company compensation trends.\nAccess a suite of powerful calculators to make data-driven career decisions.\nBenchmarks and tools to calculate your market value and negotiate your target salary.\nExpert advice on earning promotions, increasing productivity, and mastering workplace leadership.\nDiscover new roles, research industry shifts, and plan your long-term professional journey.\nProven strategies for resume building, job searching, and acing the interview process.\nAutomate pay cycles, manage job architectures, and ensure pay equity with AI-powered compensation platforms.\nAccess validated salary benchmarks, labor market trends, and minimum wage data to stay competitive.\nParticipate in and purchase industry-specific salary surveys to obtain the most accurate, peer-reported pay data."
+  },
+  {
+   "url": "https://www.plainsite.org/profiles/kenyon-and-kenyon-llp",
+   "title": "Verify That You Are Human",
+   "content": "For seamless research, connect PlainSite to ChatGPT and Claude for free. Learn how . × Sorry! Your activity looks suspicious to us. Please prove that you're human.",
+   "rawContent": "For seamless research, connect PlainSite to ChatGPT and Claude for free. Learn how . × Sorry! Your activity looks suspicious to us. Please prove that you're human."
+  }
+ ]
+}
