@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL is the official website of Cru Wines, LLC, and the quote is from their portfolio page."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL is the official website of Cru Wines, LLC, and the quote is from their portfolio page."
+ }
+]
