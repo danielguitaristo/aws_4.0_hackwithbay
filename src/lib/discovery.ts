@@ -4,6 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { tavily } from "@tavily/core";
 import type { Permit } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -167,4 +168,100 @@ export function loadCandidates(limit = 25): Candidate[] {
 
 function titleCase(s: string): string {
   return s.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase()).replace(/\b(Llc|Inc)\b/g, (m) => m.toUpperCase());
+}
+
+// ---- Web pages (Tavily), cached on disk ------------------------------------
+
+export interface WebPage {
+  candidateId: string;
+  url: string;
+  title: string;
+  text: string; // page text (Tavily raw content, else its snippet)
+  ownSite: boolean; // domain looks like the candidate's own website
+}
+
+// Directories / social sites: little portfolio text, often wrong company.
+const SKIP_DOMAINS = ["facebook.com", "instagram.com", "yelp.com", "bizapedia.com", "opencorporates.com", "zoominfo.com", "dnb.com", "mapquest.com", "ttb.gov", "abc.ca.gov"];
+const MAX_PAGE_CHARS = 15000;
+
+/** Search query per candidate (README step 4). */
+// Name is quoted + "California" so results are about this company, not lookalikes.
+export const searchQuery = (c: Candidate) => `"${c.name.replace(/\s+(LLC|INC)$/i, "")}" California wine importer portfolio`;
+
+const GENERIC = new Set(["WINE", "WINES", "IMPORT", "IMPORTS", "IMPORTERS", "SELECTION", "SELECTIONS", "FINE", "AND", "OF", "DE", "LA", "LE", "THE", "GROUP", "INTERNATIONAL", "MERCHANTS", "TRADERS"]);
+
+/** Name variants used to decide whether a page is really about the candidate. */
+function nameKeys(c: Candidate) {
+  const names = [c.name, c.ownerName].map(normName).filter((n) => n.length >= 4);
+  const compact = names.map((n) => n.replace(/ /g, "").toLowerCase());
+  const distinctive = names.flatMap((n) => n.split(" ")).filter((w) => w.length >= 4 && !GENERIC.has(w)).map((w) => w.toLowerCase());
+  return { names, compact, distinctive };
+}
+
+/** "full": domain spells the whole name (jolivinimports.com); "partial": only its distinctive words. */
+function siteMatch(url: string, keys: ReturnType<typeof nameKeys>): "full" | "partial" | false {
+  let host = "";
+  try {
+    host = new URL(url).hostname.replace(/^www\./, "").split(".")[0].replace(/-/g, "");
+  } catch {
+    return false;
+  }
+  if (keys.compact.some((k) => host.includes(k) || (host.length >= 6 && k.startsWith(host)))) return "full";
+  if (host.length >= 5 && keys.distinctive.some((w) => host.includes(w))) return "partial";
+  return false;
+}
+
+function mentionsName(text: string, keys: ReturnType<typeof nameKeys>) {
+  const t = normName(text);
+  return keys.names.some((n) => t.includes(n));
+}
+
+function cachePath(query: string) {
+  return path.join(CACHE_DIR, "tavily", `${crypto.createHash("sha1").update(query).digest("hex").slice(0, 16)}.json`);
+}
+
+/**
+ * Tavily search + page text for one candidate. Results are cached in data/cache/tavily,
+ * so the same query is never paid twice. `paid` is true when Tavily was actually called.
+ * With `cacheOnly`, a cache miss returns no pages instead of calling Tavily.
+ */
+export async function fetchPages(c: Candidate, opts: { cacheOnly?: boolean } = {}): Promise<{ pages: WebPage[]; paid: boolean }> {
+  const query = searchQuery(c);
+  const file = cachePath(query);
+  let results: { url: string; title: string; content: string; rawContent?: string }[];
+  let paid = false;
+
+  if (fs.existsSync(file)) {
+    results = JSON.parse(fs.readFileSync(file, "utf8")).results;
+  } else if (opts.cacheOnly || !process.env.TAVILY_API_KEY) {
+    return { pages: [], paid: false };
+  } else {
+    const res = await tavily({ apiKey: process.env.TAVILY_API_KEY }).search(query, {
+      searchDepth: "basic",
+      maxResults: 6,
+      includeRawContent: "text",
+      excludeDomains: SKIP_DOMAINS,
+    });
+    results = res.results.map((r) => ({ url: r.url, title: r.title, content: r.content, rawContent: r.rawContent?.slice(0, MAX_PAGE_CHARS) }));
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, JSON.stringify({ query, candidate: c.name, fetchedAt: new Date().toISOString(), results }, null, 1));
+    paid = true;
+  }
+
+  // Keep only pages on the company's own site or that name it, so no claim is borrowed from another importer.
+  const keys = nameKeys(c);
+  const pages = results
+    .map((r) => {
+      const text = (r.rawContent || r.content || "").trim();
+      const named = mentionsName(`${r.title} ${text}`, keys);
+      const local = new RegExp(`\\b(${c.city}|California)\\b`, "i").test(text);
+      // Own site: domain spells the name and the page names it or its city; a partial domain match
+      // must name the company in full (so grandcruselections.com is not "Grand Cru Imports").
+      const match = siteMatch(r.url, keys);
+      const ownSite = match === "full" ? named || local : match === "partial" && named;
+      return { candidateId: c.id, url: r.url, title: r.title, text, ownSite, keep: ownSite || (named && local) };
+    })
+    .filter((p) => p.text.length > 0 && p.keep)
+    .map(({ keep, ...p }) => (void keep, p));
+  return { pages, paid };
 }
