@@ -189,6 +189,23 @@ export function signalQueries(name: string): string[] {
 export const TIER_A = 60;
 export const TIER_B = 35;
 
+/*
+ * PROPOSED tier thresholds (NOT applied; waiting for the team's OK). Based on what public data
+ * actually proved on 12 CA leads (2026-11-24 run, raw scores before the 0-100 clamp):
+ *   +40 Authentic · +35 Sylvester/Rovine · +35 Amy Atwood · +20 Kermit Lynch · +5 Grand Cru Sel.
+ *   0 Wine Source, Floraison · -5 Beaune · -10 Farm Wine · -25 Cru Wines · -30 JVS, Atherton
+ * What public pages can usually prove: grower_philosophy (20), boutique_size (15), neighbor_regions (10),
+ * tastings_fairs (10), recent_or_hiring (10). portfolio_hole (30) / peer_neighbors (25) need a fully
+ * readable catalogue (rare: 1 site in 12 had coverage OK), price_match needs a bottle price in the
+ * $38-85 estimate (0 found), cola_loire is disabled. So 60+ is out of reach for almost every real lead.
+ * Proposal:
+ *   A >= 45 and no fired negative  = 3+ proven positives, e.g. philosophy + boutique + neighbor regions
+ *   B >= 25                        = 2 proven positives (philosophy + size), net positive
+ *   C < 25 or any fired -30 signal = weak or contradicting evidence
+ * Effect on the current run: no A (best is 40), B = Authentic, Sylvester/Rovine, Amy Atwood; others C.
+ */
+export const PROPOSED_TIERS = { A: 45, B: 25, noNegativeForA: true } as const;
+
 /** fitScore = sum of fired signal points, clamped to 0..100. */
 export function scoreHits(hits: SignalHit[]): { fitScore: number; tier: "A" | "B" | "C" } {
   const fitScore = Math.max(0, Math.min(100, hits.reduce((sum, h) => sum + h.points, 0)));

@@ -133,7 +133,8 @@ const METROS: Record<string, string> = {
 
 /** Same city, or both cities in the same county / metro. */
 function sameArea(cityA: string, cityB: string): boolean {
-  const a = normName(cityA), b = normName(cityB);
+  const clean = (x: string) => normName(x.replace(/,?\s*(CA|California)(\s+\d{5})?\s*$/i, "")); // "Emeryville, CA" -> EMERYVILLE
+  const a = clean(cityA), b = clean(cityB);
   if (a === b) return true;
   const ca = cityCounty.get(a), cb = cityCounty.get(b);
   return Boolean(ca && cb && (ca === cb || (METROS[ca] && METROS[ca] === METROS[cb])));
@@ -804,6 +805,15 @@ function window(text: string, needle: string, before = 120, after = 160): string
   return i < 0 ? "" : flat.slice(Math.max(0, i - before), i + needle.length + after).trim();
 }
 
+function listCache(dir: string): Mention[] {
+  try {
+    const d = path.join(CACHE_DIR, dir);
+    return fs.readdirSync(d).flatMap((f) => JSON.parse(fs.readFileSync(path.join(d, f), "utf8")) as Mention[]);
+  } catch {
+    return [];
+  }
+}
+
 function readAllPortfolios(): Portfolio[] {
   try {
     const dir = path.join(CACHE_DIR, "portfolio");
@@ -1025,6 +1035,24 @@ interface ExtraEvidence {
   shelf: ReturnType<typeof shelfRange>;
 }
 
+/** Overlapping signals (same evidence): keep the stronger one, the other becomes "info" (0 points). */
+const OVERLAPS: [string, string][] = [
+  ["similar_chenin", "peer_touraine"],
+  ["portfolio_hole", "peer_neighbors"],
+];
+
+function mergeOverlaps(hits: SignalHit[]) {
+  for (const [a, b] of OVERLAPS) {
+    const ha = hits.find((h) => h.id === a && h.status === "fired");
+    const hb = hits.find((h) => h.id === b && h.status === "fired");
+    if (!ha || !hb) continue;
+    const [keep, drop] = Math.abs(hb.points) > Math.abs(ha.points) ? [hb, ha] : [ha, hb];
+    drop.label = `${drop.label} (merged into ${keep.id})`;
+    drop.points = 0;
+    drop.status = "info";
+  }
+}
+
 async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, extra: ExtraEvidence): Promise<ScoredLead | null> {
   const c = e.candidate;
   const links = extra.links.filter((l) => l.candidateId === c.id);
@@ -1097,6 +1125,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   }
   if (!sources.length) return null; // no evidence, no lead
 
+  mergeOverlaps(hits);
   const { fitScore, tier } = scoreHits(hits);
   const own = e.pages.find((p) => p.ownSite);
   return {
@@ -1120,6 +1149,48 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   };
 }
 
+// ---- Manual candidates (named by the team), verified against the TTB file -----
+
+export interface ManualCandidate {
+  name: string;
+  permit?: string; // TTB permit number if known
+  note: string; // why it was added (not used as evidence)
+}
+
+export const MANUAL_CANDIDATES: ManualCandidate[] = [
+  { name: "Beaune Imports", permit: "CA-I-15182", note: "Added by the team (customs records mention Domaine Sylvain Bailly, Sancerre; no public URL, not used as evidence)" },
+  { name: "North Berkeley Imports", note: "Added by the team (Berkeley, France/Italy, Loire section)" },
+  { name: "The Source Imports", note: "Added by the team (Loire growers incl. Patrick Baudouin, Romain Guiberteau, Château de la Morandière)" },
+];
+
+/** Why the automatic search missed each manual candidate (computed from the same rules). */
+export const manualLog: string[] = [];
+
+/** Trade/owner name without "THE", legal suffixes and "IMPORTS"/"SELECTIONS" filler, for exact name lookups. */
+const coreName = (s: string) => normName(s).replace(/^THE /, "").replace(/\b(IMPORTS?|IMPORTERS|SELECTIONS?)\b/g, "").replace(/\s+/g, " ").trim();
+
+/** Looks up manual candidates in the CA TTB lists: by permit number, else by exact trade/owner name (never by guess). */
+export function manualCandidates(): { candidate: Candidate; byName: boolean; note: string }[] {
+  manualLog.length = 0;
+  const out: { candidate: Candidate; byName: boolean; note: string }[] = [];
+  const top = new Set(loadCandidates(25).map((c) => c.id));
+  for (const m of MANUAL_CANDIDATES) {
+    const byPermit = m.permit ? allCompanies().find((c) => c.permits.some((p) => p.number === m.permit)) : undefined;
+    const byName = byPermit ? [] : allCompanies().filter((c) => [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const co = byPermit ?? (byName.length === 1 ? byName[0] : undefined);
+    if (!co) {
+      manualLog.push(`${m.name}: ${byName.length > 1 ? `ambiguous TTB name (${byName.map((c) => c.name).join(", ")}), not added` : "no California TTB importer permit under this name (it may hold one under another legal name; not guessed), not added"}.`);
+      continue;
+    }
+    const why: string[] = [];
+    if (!top.has(co.id)) why.push(`TTB-first ranking: name score ${co.nameScore}${co.hasWholesaler ? "" : ", importer permit only (no wholesaler)"} is below the top-25 cut`);
+    if (coreName(co.name) !== coreName(m.name)) why.push(`its TTB trade name is "${co.name}" (owner "${co.ownerName}", ${co.city}), not "${m.name}"`);
+    manualLog.push(`${m.name} → ${co.name} (${co.permits.map((p) => p.number).join(", ")}, ${co.city}). Missed because: ${why.join("; ") || "-"}.`);
+    out.push({ candidate: { ...strip(co), reasons: [...co.reasons, m.note] }, byName: !byPermit, note: m.note });
+  }
+  return out;
+}
+
 /**
  * Full pipeline: candidate pool (TTB + reverse search) -> lookalike importers (peer growers)
  * -> CA shop evidence -> Moss index -> per-candidate scoring. Sorted by fitScore.
@@ -1134,6 +1205,28 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   const look = await lookalikeImporters(peers, pool.map((e) => e.candidate), u);
   for (const f of look.found) f.pages = await fullLoirePages(f.candidate, await enrichPages(f.candidate, u, f.pages, { light: true }), u);
   const all = [...pool, ...look.found.filter((f) => f.pages.length)];
+  for (const m of manualCandidates()) {
+    if (all.some((e) => e.candidate.id === m.candidate.id)) continue;
+    const pages = await fullLoirePages(m.candidate, await enrichPages(m.candidate, u, []), u);
+    // A name-only TTB match must be tied to the permit holder by a page (its city or owner name), else it is a homonym.
+    const owner = normName(m.candidate.ownerName);
+    if (m.byName && !pages.some((p) => new RegExp(`\\b${m.candidate.city}\\b`, "i").test(p.text) || normName(p.text).includes(owner))) {
+      manualLog.push(`${m.candidate.name}: no page ties the website to the TTB holder (${m.candidate.ownerName}, ${m.candidate.city}); dropped as a possible homonym.`);
+      continue;
+    }
+    if (pages.length) all.push({ candidate: m.candidate, pages });
+    else manualLog.push(`${m.candidate.name}: no page about this company found; dropped.`);
+  }
+  // Why the automatic search missed them: reverse-search / peer-search mentions that were not matched.
+  for (const m of MANUAL_CANDIDATES) {
+    const seen = [...listCache("mentions"), ...listCache("peer-mentions")].filter((x) => coreName(x.name) === coreName(m.name));
+    const inTtb = allCompanies().some((c) => (m.permit && c.permits.some((p) => p.number === m.permit)) || [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const auto = look.found.find((f) => [f.candidate.name, f.candidate.ownerName].some((n) => coreName(n) === coreName(m.name)) || (m.permit && f.candidate.permits.some((p) => p.number === m.permit)));
+    if (auto) manualLog.push(`${m.name}: now found automatically by the lookalike search (${auto.candidate.reasons.at(-1)}); before the "Emeryville, CA" city-suffix fix it was rejected by the name + city rule.`);
+    else if (seen.length) manualLog.push(`${m.name}: named ${seen.length}× by topic/peer searches (city given: ${[...new Set(seen.map((x) => x.city || "none"))].join(", ")}) but ${inTtb ? "rejected by the name + city rule (different city/metro or no city on the page)" : "there is no TTB permit to match it to"}.`);
+    else manualLog.push(`${m.name}: never named in topic/peer search results.`);
+  }
+  console.log(`[discover] manual: ${manualLog.join(" | ")}`);
   const links = [...look.links, ...(await retailerEvidence(all.map((e) => e.candidate), u))];
   const shelf = shelfRange(DEMO_DOMAINE.priceRangeEur);
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);
