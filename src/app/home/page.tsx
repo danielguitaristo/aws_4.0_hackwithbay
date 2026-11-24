@@ -54,19 +54,19 @@ export default function Home() {
           <span className="font-serif text-xl">{l.name} replied</span>
           <p className="note mt-1">&ldquo;{replies[l.id]}&rdquo;</p>
         </div>
-        {i === 0 ? <button className="btn whitespace-nowrap" onClick={() => write(l.id, "reply")}>Draft a reply</button> : <button className="caps underline" onClick={() => write(l.id, "reply")}>Reply</button>}
+        {i === 0 ? <button className="btn whitespace-nowrap" onClick={() => write(l.id, "reply")}>Draft a reply</button> : <button className="btn-line" onClick={() => write(l.id, "reply")}>Reply</button>}
       </div>
     )),
     pending.length > 0 && (
       <div key="pending" className={`flex flex-wrap items-baseline justify-between gap-x-4 border-t py-4 ${replied.length ? "border-rule" : "border-wine"}`}>
         <span className="font-serif text-xl">{pending.length} letter{pending.length > 1 ? "s" : ""} waiting for you</span>
-        <Link href="/search/letters" className="caps underline hover:text-ink">Review</Link>
+        <Link href="/search/letters" className="btn-line">Review</Link>
       </div>
     ),
     ...followUps.map((l) => (
       <div key={`f-${l.id}`} className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-rule py-4">
         <span className="font-serif text-xl">{l.name}, no answer in 7 days</span>
-        <button className="caps underline hover:text-ink" onClick={() => write(l.id, "follow_up")}>Write a follow-up</button>
+        <button className="btn-line" onClick={() => write(l.id, "follow_up")}>Write a follow-up</button>
       </div>
     )),
   ].filter(Boolean);
@@ -77,12 +77,17 @@ export default function Home() {
     <Page>
       <Headline lead="Good morning, Claire." tail={tail} />
       <div className="mt-8 border-b border-rule">
-        {items.length ? items : <p className="note border-t border-rule py-4">Nothing needs you today. We&apos;ll email you when an importer replies.</p>}
+        {items.length ? items : (
+          <div className="flex flex-col items-start justify-between gap-3 border-t border-rule py-4 sm:flex-row sm:items-center">
+            <p className="note">Nothing needs you today. We&apos;ll email you when an importer replies.</p>
+            <Link href="/search/target" className="btn whitespace-nowrap">Start a new search</Link>
+          </div>
+        )}
       </div>
 
       <div className="mt-12 mb-1 flex items-baseline justify-between">
         <span className="caps">Your searches</span>
-        <Link href="/search/target" className="caps underline hover:text-ink">New search</Link>
+        <Link href="/search/target" className="btn-line">+ New search</Link>
       </div>
       {searchStates.map((st) => {
         const inState = leads.filter((l) => (l.state || "CA") === st && l.stage !== "lost");
@@ -93,7 +98,7 @@ export default function Home() {
             <span className="font-serif text-xl">{STATE_NAMES[st]} importers</span>
             <span className="note">
               {sentHere > 0 || !current ? `${inState.length} found · ${sentHere} letter${sentHere === 1 ? "" : "s"} sent` : `Stopped at ${SEARCH_STEP_NAMES[lastSearch] ?? "Target"} · `}
-              {sentHere === 0 && current && <span className="caps not-italic underline">Resume</span>}
+              {sentHere === 0 && current && <span className="link not-italic">Resume ›</span>}
             </span>
           </Link>
         );
@@ -104,7 +109,7 @@ export default function Home() {
           <Link
             href="/search/target"
             onClick={() => { const st = stateInText(nextSearch.segment); if (st) updateIcp({ states: [st], metros: [] }); }}
-            className="caps underline hover:text-ink"
+            className="btn-line"
           >
             {stateInText(nextSearch.segment) ? `Search ${STATE_NAMES[stateInText(nextSearch.segment)!]}` : "Start"}
           </Link>

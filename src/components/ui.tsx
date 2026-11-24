@@ -78,7 +78,7 @@ export function TopBar({ step }: { step?: number }) {
       )}
       <div className="relative flex items-baseline gap-6">
         {!onboarded && step !== undefined && step > 0 && (
-          <button onClick={later} className="caps underline hover:text-ink">Finish later</button>
+          <button onClick={later} className="link">Finish later</button>
         )}
         <button onClick={() => setOpen(!open)} className="caps hover:text-ink" aria-expanded={open}>
           CL
@@ -133,7 +133,7 @@ export function Page({ children, step, wide = false }: { children: React.ReactNo
 /** "Back" link shown beside a step's main action. */
 export function Back({ href, label = "Back" }: { href: string; label?: string }) {
   return (
-    <Link href={href} className="caps hover:text-ink">
+    <Link href={href} className="link">
       ‹ {label}
     </Link>
   );
@@ -170,7 +170,7 @@ export function TopUpDialog({ need, action, onDone, onClose }: { need: number; a
         {action} uses {need} credits; you have {credits}. Add {PACK.credits} credits for ${PACK.price} and we&apos;ll carry on.
       </p>
       <div className="mt-6 flex items-center justify-between gap-4">
-        <button className="caps hover:text-ink" onClick={onClose}>Not now</button>
+        <button className="link" onClick={onClose}>Not now</button>
         <button className="btn" disabled={busy} onClick={async () => { setBusy(true); await topUp(PACK.credits); onDone(); }}>
           {busy ? "Adding…" : `Add ${PACK.credits} credits`}
         </button>
@@ -197,10 +197,56 @@ export function GmailDialog({ onDone, onClose, beforeRedirect }: { onDone: () =>
         Importers answer people, not tools. Connect Gmail and your letters leave from claire@petitespierres.fr. We only send what you approve, and only read replies to these letters. You can disconnect anytime in your profile.
       </p>
       <div className="mt-6 flex items-center justify-between gap-4">
-        <button className="caps hover:text-ink" onClick={onClose}>Not now</button>
+        <button className="link" onClick={onClose}>Not now</button>
         <button className="btn" onClick={go} disabled={busy}>{busy ? "Connecting…" : "Connect Gmail"}</button>
       </div>
     </Dialog>
+  );
+}
+
+/**
+ * Pre-filled choices instead of free text: Claire confirms or adjusts what we guessed.
+ * Values that aren't in `options` (e.g. written by the AI) still show, already selected.
+ */
+export function Chips({ options, value, onChange, multi = true, other, counts }: {
+  options: readonly string[];
+  value: string[];
+  onChange: (v: string[]) => void;
+  multi?: boolean;
+  other?: string; // placeholder for a custom value; omit to disallow
+  counts?: Record<string, number>;
+}) {
+  const [adding, setAdding] = useState(false);
+  const [text, setText] = useState("");
+  const all = [...options, ...value.filter((v) => !options.includes(v))];
+  const toggle = (o: string) => {
+    if (!multi) return onChange([o]);
+    const next = value.includes(o) ? value.filter((v) => v !== o) : [...value, o];
+    if (next.length) onChange(next); // always keep at least one answer
+  };
+  const add = () => {
+    const v = text.trim();
+    if (v) onChange(multi ? [...value.filter((x) => x !== v), v] : [v]);
+    setText("");
+    setAdding(false);
+  };
+  return (
+    <div className="flex flex-wrap gap-2">
+      {all.map((o) => (
+        <button key={o} type="button" aria-pressed={value.includes(o)} onClick={() => toggle(o)} className={`chip ${value.includes(o) ? "chip-on" : ""}`}>
+          {value.includes(o) ? "✓ " : ""}
+          {o}
+          {counts && <span className="font-sans text-xs text-taupe"> · {counts[o] ?? 0}</span>}
+        </button>
+      ))}
+      {other !== undefined &&
+        (adding ? (
+          <input autoFocus value={text} placeholder={other} onChange={(e) => setText(e.target.value)} onBlur={add} onKeyDown={(e) => e.key === "Enter" && add()}
+            className="rounded-full border border-ink bg-transparent px-3 py-1 font-serif text-base outline-none" />
+        ) : (
+          <button type="button" className="chip border-dashed" onClick={() => setAdding(true)}>+ Other</button>
+        ))}
+    </div>
   );
 }
 

@@ -30,6 +30,21 @@ body {
   .btn {
     @apply bg-wine px-5 py-3 text-[11px] uppercase tracking-[0.14em] text-cream transition-opacity hover:opacity-90 disabled:opacity-40;
   }
+  /* secondary action: clearly a button, never competing with the burgundy primary */
+  .btn-line {
+    @apply inline-block border border-ink px-4 py-2.5 text-center text-[11px] uppercase tracking-[0.14em] text-ink transition-colors hover:bg-ink hover:text-cream disabled:opacity-40;
+  }
+  /* small inline action (back, see all…): ink, not taupe, so it reads as clickable */
+  .link {
+    @apply text-[11px] uppercase tracking-[0.14em] text-ink underline decoration-rule underline-offset-4 hover:decoration-ink;
+  }
+  /* choice pill: the pre-filled answers Claire confirms instead of typing */
+  .chip {
+    @apply rounded-full border border-rule px-3 py-1 font-serif text-base text-taupe transition-colors hover:border-ink hover:text-ink;
+  }
+  .chip-on {
+    @apply border-wine text-wine hover:border-wine hover:text-wine;
+  }
   .headline {
     @apply font-serif text-3xl leading-tight font-light sm:text-4xl;
   }

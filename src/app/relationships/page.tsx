@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Headline, Page } from "@/components/ui";
+import { Chips, Headline, Page } from "@/components/ui";
 import { lastTouch, useApp } from "@/lib/app-state";
 import { STAGE_LABELS, type Stage } from "@/lib/types";
 
+const MET = ["Wine Paris", "ProWein", "Visited the estate", "Introduced by a friend", "Met in the US"];
 const COLUMNS: Stage[] = ["contacted", "replied", "samples_sent", "tasting", "signed"];
 const WORDS = ["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"];
 const word = (n: number) => WORDS[n] ?? String(n);
@@ -31,18 +32,24 @@ export default function Relationships() {
     <Page wide>
       <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
         <Headline lead={`${word(active.length)} importer${active.length === 1 ? "" : "s"},`} tail={`${word(talking).toLowerCase()} talking with you.`} />
-        <button className="caps whitespace-nowrap underline hover:text-ink" onClick={() => setAdding(!adding)}>Add one you know</button>
+        <button className="btn-line whitespace-nowrap" onClick={() => setAdding(!adding)}>+ Add one you know</button>
       </div>
 
       {adding && (
-        <div className="mt-6 grid grid-cols-1 items-end gap-4 border-t md:grid-cols-[1fr_1fr_1fr_auto] border-wine pt-4">
-          {(["name", "email", "note"] as const).map((k) => (
-            <label key={k} className="block">
-              <span className="caps">{k === "note" ? "Where you met" : k}</span>
-              <input value={form[k]} onChange={(e) => setForm({ ...form, [k]: e.target.value })} onKeyDown={(e) => e.key === "Enter" && submit()} className="mt-1 w-full border-b border-taupe bg-transparent py-1 font-serif text-lg outline-none focus:border-wine" />
-            </label>
-          ))}
-          <button className="btn" onClick={submit}>Add</button>
+        <div className="mt-6 border-t border-wine pt-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {(["name", "email"] as const).map((k) => (
+              <label key={k} className="block">
+                <span className="caps">{k === "name" ? "Importer" : "Email"}</span>
+                <input value={form[k]} placeholder={k === "name" ? "Importer name" : "name@importer.com"} onChange={(e) => setForm({ ...form, [k]: e.target.value })} onKeyDown={(e) => e.key === "Enter" && submit()} className="mt-1 w-full border-b border-taupe bg-transparent py-1 font-serif text-lg outline-none focus:border-wine" />
+              </label>
+            ))}
+          </div>
+          <p className="caps mt-4 mb-2">Where you met</p>
+          <Chips multi={false} options={MET} value={form.note ? [form.note] : []} onChange={([v]) => setForm({ ...form, note: v })} other="Somewhere else" />
+          <div className="mt-4 flex justify-end">
+            <button className="btn" onClick={submit} disabled={!form.name.trim()}>Add to relationships</button>
+          </div>
         </div>
       )}
 
@@ -83,7 +90,7 @@ export default function Relationships() {
       {active.length > 0 && (
         <p className="note mt-8 text-lg">
           {replied}% replied.{" "}
-          <Link href="/results" className="caps not-italic underline hover:text-ink">See results</Link>
+          <Link href="/results" className="btn-line not-italic">See results</Link>
           <span className="caps ml-6 not-italic">Drag a card to move it</span>
         </p>
       )}

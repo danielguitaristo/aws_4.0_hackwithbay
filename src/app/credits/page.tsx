@@ -21,7 +21,7 @@ export default function Credits() {
       <Headline lead={`${credits} credits`} tail="left." />
       <p className="note mt-2 text-lg">
         Enough for about {Math.floor(credits / (COST.contact + COST.send))} contacts.{" "}
-        <button className="caps not-italic underline hover:text-ink" onClick={() => setCosts(!costs)}>What uses credits</button>
+        <button className="link not-italic" onClick={() => setCosts(!costs)}>What uses credits</button>
       </p>
       {costs && (
         <div className="mt-4 space-y-1 border-l border-rule pl-4 text-sm text-taupe">
@@ -40,7 +40,7 @@ export default function Credits() {
         ))}
       </div>
       <div className="mt-6 flex items-center justify-between">
-        <button className="caps underline hover:text-ink" onClick={() => setHistory(!history)}>History</button>
+        <button className="link" onClick={() => setHistory(!history)}>History</button>
         <button className="btn" onClick={() => topUp(PACKS[pick].credits)}>Add {PACKS[pick].credits} credits</button>
       </div>
       {history && (

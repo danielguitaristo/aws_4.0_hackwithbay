@@ -1,36 +1,23 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Headline, Page, Row } from "@/components/ui";
+import { Chips, Headline, Page, Row } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
-import type { Domaine } from "@/lib/types";
 
-type Field = { key: keyof Domaine; label: string; show: (d: Domaine) => string; parse: (v: string) => Partial<Domaine> };
-const list = (v: string) => v.split(/[·,]/).map((x) => x.trim()).filter(Boolean);
-
-const FIELDS: Field[] = [
-  { key: "name", label: "Name", show: (d) => d.name, parse: (v) => ({ name: v }) },
-  { key: "appellations", label: "Appellations", show: (d) => d.appellations.join(" · "), parse: (v) => ({ appellations: list(v) }) },
-  { key: "grapes", label: "Grapes", show: (d) => d.grapes.join(" · "), parse: (v) => ({ grapes: list(v) }) },
-  { key: "certifications", label: "Farming", show: (d) => d.certifications.join(" · "), parse: (v) => ({ certifications: list(v) }) },
-  {
-    key: "priceRangeEur", label: "Price ex-cellar", show: (d) => `€${d.priceRangeEur.min} – ${d.priceRangeEur.max}`,
-    parse: (v) => { const [min, max] = v.replace(/[€\s]/g, "").split(/[-–]/).map(Number); return { priceRangeEur: { min: min || 0, max: max || min || 0 } }; },
-  },
-  { key: "exportBottles", label: "Bottles for the US", show: (d) => (d.exportBottles ? d.exportBottles.toLocaleString("en-US") : ""), parse: (v) => ({ exportBottles: Number(v.replace(/\D/g, "")) || 0 }) },
-];
+// Pre-filled answers: Claire confirms or adjusts instead of typing.
+const APPELLATIONS = ["Touraine", "Vouvray", "Montlouis", "Chinon", "Bourgueil", "Saumur", "Anjou", "Sancerre", "Muscadet"];
+const GRAPES = ["Chenin Blanc", "Cabernet Franc", "Sauvignon Blanc", "Gamay", "Melon de Bourgogne", "Pinot Noir", "Côt (Malbec)"];
+const FARMING = ["Conventional", "Sustainable (HVE)", "AB (organic)", "Biodynamic (Demeter)", "low-intervention"];
+const PRICES: [string, number, number][] = [["€5 – 10", 5, 10], ["€9 – 22", 9, 22], ["€15 – 30", 15, 30], ["€25 – 50", 25, 50], ["€50+", 50, 100]];
+const VOLUMES: [string, number][] = [["1,000", 1000], ["3,000", 3000], ["6,000", 6000], ["12,000", 12000], ["25,000+", 25000]];
 
 export default function Estate() {
   const router = useRouter();
-  const { domaine, saveDomaine, buildIcp, onboarded } = useApp();
-  const [editing, setEditing] = useState<keyof Domaine | null>(null);
-  const [draft, setDraft] = useState("");
+  const { domaine: d, saveDomaine, buildIcp, onboarded } = useApp();
   const [busy, setBusy] = useState(false);
 
-  const commit = (f: Field) => {
-    saveDomaine(f.parse(draft));
-    setEditing(null);
-  };
+  const price = PRICES.find(([, min, max]) => min === d.priceRangeEur.min && max === d.priceRangeEur.max)?.[0] ?? `€${d.priceRangeEur.min} – ${d.priceRangeEur.max}`;
+  const volume = VOLUMES.find(([, n]) => n === d.exportBottles)?.[0] ?? d.exportBottles.toLocaleString("en-US");
 
   const next = async () => {
     setBusy(true);
@@ -41,31 +28,38 @@ export default function Estate() {
   return (
     <Page step={onboarded ? undefined : 0}>
       <Headline lead="Your estate," tail="as we read it." />
-      <div className="mt-8">
-        <Row label="Website" first>petitespierres.fr</Row>
-        {FIELDS.map((f, i) => (
-          <div key={f.key} className={i === FIELDS.length - 1 ? "border-b border-rule" : ""}>
-            <Row label={f.label}>
-              {editing === f.key ? (
-                <input
-                  autoFocus
-                  value={draft}
-                  onChange={(e) => setDraft(e.target.value)}
-                  onBlur={() => commit(f)}
-                  onKeyDown={(e) => e.key === "Enter" && commit(f)}
-                  className="w-full border-b border-wine bg-transparent outline-none"
-                />
-              ) : (
-                <button className="text-left hover:text-wine" onClick={() => { setEditing(f.key); setDraft(f.show(domaine)); }}>
-                  {f.show(domaine) || <em className="text-taupe underline">add a number</em>}
-                </button>
-              )}
-            </Row>
-          </div>
-        ))}
+      <p className="note mt-3 text-lg">We filled this in from petitespierres.fr. Tap to adjust.</p>
+      <div className="mt-8 border-b border-rule">
+        <Row label="Name" first>
+          <input value={d.name} onChange={(e) => saveDomaine({ name: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
+        </Row>
+        <Row label="Appellations">
+          <Chips options={APPELLATIONS} value={d.appellations} onChange={(v) => saveDomaine({ appellations: v })} other="Another appellation" />
+        </Row>
+        <Row label="Grapes">
+          <Chips options={GRAPES} value={d.grapes} onChange={(v) => saveDomaine({ grapes: v })} other="Another grape" />
+        </Row>
+        <Row label="Farming">
+          <Chips options={FARMING} value={d.certifications} onChange={(v) => saveDomaine({ certifications: v })} />
+        </Row>
+        <Row label="Price ex-cellar">
+          <Chips
+            multi={false}
+            options={PRICES.map(([l]) => l)}
+            value={[price]}
+            onChange={([l]) => { const p = PRICES.find(([x]) => x === l); if (p) saveDomaine({ priceRangeEur: { min: p[1], max: p[2] } }); }}
+          />
+        </Row>
+        <Row label="Bottles for the US">
+          <Chips
+            multi={false}
+            options={VOLUMES.map(([l]) => l)}
+            value={[volume]}
+            onChange={([l]) => { const v = VOLUMES.find(([x]) => x === l); if (v) saveDomaine({ exportBottles: v[1] }); }}
+          />
+        </Row>
       </div>
-      <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-        <span className="note">Click any line to change it.</span>
+      <div className="mt-8 flex flex-wrap items-center justify-end gap-4">
         {onboarded ? (
           <span className="note">Changes save on their own.</span>
         ) : (

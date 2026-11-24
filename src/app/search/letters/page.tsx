@@ -70,7 +70,7 @@ export default function Letters() {
           {sent ? (
             <>
               <button className="btn" onClick={() => { finishOnboarding(); router.push("/home"); }}>Go to my home</button>
-              <Link href="/search/importers" className="caps underline hover:text-ink">Write to more importers</Link>
+              <Link href="/search/importers" className="btn-line">Write to more importers</Link>
             </>
           ) : (
             <Link href="/search/importers" className="btn">See importers</Link>
@@ -137,13 +137,13 @@ export default function Letters() {
         {!editing && <span className="mr-auto"><Back href="/search/importers" label="Importers" /></span>}
         {editing ? (
           <>
-            <button className="caps hover:text-ink" onClick={() => setEditing(false)}>Cancel</button>
+            <button className="link" onClick={() => setEditing(false)}>Cancel</button>
             <button className="btn" onClick={saveEdit}>Save letter</button>
           </>
         ) : (
           <>
-            <button className="caps hover:text-ink" onClick={() => go(skip)}>Skip</button>
-            <button className="caps underline hover:text-ink" onClick={startEdit}>Edit</button>
+            <button className="link" onClick={() => go(skip)}>Skip</button>
+            <button className="btn-line" onClick={startEdit}>Edit</button>
             <button className="btn" onClick={send} disabled={busy} title={`Uses ${COST.send} credits`}>
               {busy ? "Sending…" : gmail ? "Approve and send" : "Approve · connect Gmail"}
             </button>
