@@ -92,11 +92,15 @@ export function asObject(v: unknown, field: string): Record<string, unknown> {
 
 // ---- Live-call gate -------------------------------------------------------
 // The deployed site is public. Routes serve cached results first; a live
-// Mistral/Tavily/Moss call only runs on a cache miss and under a per-IP rate limit.
+// Mistral/Tavily/Moss call only runs on a cache miss, under a per-IP limit and a global
+// cap (in memory, per server instance). The cached DEMO_DOMAINE run never calls a paid API.
 
 const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_MAX = 10;
+const RATE_MAX = 10; // per IP per 10 min
+const GLOBAL_WINDOW_MS = 60 * 60 * 1000;
+const GLOBAL_MAX = 5; // live runs per hour, all visitors together
 const hits = new Map<string, number[]>();
+let globalHits: number[] = [];
 
 export type LiveGate = { live: true } | { live: false; reason: string; status?: number };
 
@@ -105,6 +109,9 @@ export function liveGate(req: Request): LiveGate {
   const now = Date.now();
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
   if (recent.length >= RATE_MAX) return { live: false, reason: "rate limit reached, try again in a few minutes", status: 429 };
+  globalHits = globalHits.filter((t) => now - t < GLOBAL_WINDOW_MS);
+  if (globalHits.length >= GLOBAL_MAX) return { live: false, reason: `global cap of ${GLOBAL_MAX} live runs per hour reached`, status: 429 };
+  globalHits.push(now);
   recent.push(now);
   hits.set(ip, recent);
   return { live: true };

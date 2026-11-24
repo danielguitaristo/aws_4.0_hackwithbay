@@ -1,5 +1,6 @@
 // Fit signals (owner A): drive both the per-candidate Tavily searches and the fitScore.
 // Edit weights / queries here; discovery and /api/discover read this list.
+import type { ScoreItem } from "./types";
 
 export interface SignalDef {
   id: string;
@@ -18,15 +19,8 @@ export interface SignalDef {
   enabled: boolean;
 }
 
-/** A fired signal with its evidence (shown in the UI as "Tier A because..."). */
-export interface SignalHit {
-  id: string;
-  label: string;
-  points: number; // signed
-  snippet: string; // verbatim evidence
-  url: string;
-  title?: string;
-}
+/** A fired (or unknown / info) signal with its evidence, shown in the UI as "Tier A because...". */
+export type SignalHit = ScoreItem;
 
 const PORTFOLIO_QUERY = '"{name}" producers portfolio France Loire';
 

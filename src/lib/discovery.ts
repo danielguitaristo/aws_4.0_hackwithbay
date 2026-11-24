@@ -5,7 +5,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { tavily } from "@tavily/core";
-import type { ICP, Lead, Permit, Source } from "./types";
+import type { ICP, Lead, Permit, PortfolioItem, Source } from "./types";
 import { asNumber, asObject, asString, cacheKey, chatJSON, hasMistral, readCache, writeCache } from "./llm";
 import { SIGNALS, WEB_SIGNALS, scoreHits, signalPoints, signalQueries, type SignalHit } from "./signals";
 import { buildIndex, type PageIndex, type Snippet } from "./retrieval";
@@ -591,15 +591,7 @@ export async function discoverCandidates(u: Usage, opts: { ttbLimit?: number; co
 
 // ---- Structured portfolio (own website -> producers) ------------------------
 
-export interface PortfolioEntry {
-  producer: string;
-  country: string;
-  region: string;
-  appellation: string;
-  grapes: string[];
-  url: string; // own-site page where the producer is listed
-  quote: string; // verbatim text around the producer name on that page (cut by code, not by the LLM)
-}
+export type PortfolioEntry = PortfolioItem;
 
 export interface Portfolio {
   candidateId: string;
@@ -710,8 +702,7 @@ function portfolioHits(pf: Portfolio): SignalHit[] {
 
 // ---- Scoring: Mistral reads ONLY retrieved snippets, code verifies every quote ----
 
-/** Lead + extras for the UI: score breakdown and structured portfolio (not yet in types.ts). */
-export type ScoredLead = Lead & { scoreBreakdown: SignalHit[]; portfolioDetail: PortfolioEntry[] };
+export type ScoredLead = Lead & Required<Pick<Lead, "scoreBreakdown" | "portfolioDetail">>;
 
 const TTB_LIST_URL = "https://www.ttb.gov/public-information/foia/list-of-permittees";
 
