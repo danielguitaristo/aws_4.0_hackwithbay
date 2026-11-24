@@ -53,7 +53,8 @@ export async function POST(req: Request) {
   }
 
   try {
-    const u: Usage = { searches: 0, credits: 0, budget: Number(process.env.TAVILY_RUN_BUDGET) || 60 };
+    const budgetEnv = Number(process.env.TAVILY_RUN_BUDGET);
+    const u: Usage = { searches: 0, credits: 0, budget: process.env.TAVILY_RUN_BUDGET && Number.isFinite(budgetEnv) ? budgetEnv : 60 }; // 0 = cache only
     const { leads, backend } = await discoverLeads(icp, u);
     await trackUsage("searches_run", u.searches);
     await trackUsage("leads_discovered", leads.length);

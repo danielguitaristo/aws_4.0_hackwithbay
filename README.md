@@ -1,8 +1,8 @@
-# WineGTM
+# Millésime
 
-AI go-to-market engine that helps small French wine estates export to the US.
+Millésime is an AI go-to-market engine that helps small French wine estates export to the US.
 
-US law forces every foreign winery to sell through a licensed US importer, then a state distributor (the three-tier system). Small estates have no export team and no idea which of the thousands of importers fits them. WineGTM takes the estate's description, infers the ideal US importer/distributor, finds real ones from public federal and California license data, explains the fit with cited sources, drafts outreach that a human approves, and tracks every lead to a signed deal.
+US law forces every foreign winery to sell through a licensed US importer, then a state distributor (the three-tier system). Small estates have no export team and no idea which of the thousands of importers fits them. Millésime takes the estate's description, infers the ideal US importer/distributor, finds real ones from public federal and California license data, explains the fit with cited sources, drafts outreach that a human approves, and tracks every lead to a signed deal.
 
 Built at HackwithBay 4.0 (AWS Builder Loft, SF).
 

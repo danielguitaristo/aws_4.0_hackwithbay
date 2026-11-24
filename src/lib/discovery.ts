@@ -133,7 +133,8 @@ const METROS: Record<string, string> = {
 
 /** Same city, or both cities in the same county / metro. */
 function sameArea(cityA: string, cityB: string): boolean {
-  const a = normName(cityA), b = normName(cityB);
+  const clean = (x: string) => normName(x.replace(/,?\s*(CA|California)(\s+\d{5})?\s*$/i, "")); // "Emeryville, CA" -> EMERYVILLE
+  const a = clean(cityA), b = clean(cityB);
   if (a === b) return true;
   const ca = cityCounty.get(a), cb = cityCounty.get(b);
   return Boolean(ca && cb && (ca === cb || (METROS[ca] && METROS[ca] === METROS[cb])));
@@ -718,6 +719,8 @@ export function coverageOf(pf: Portfolio, pages: WebPage[]): Coverage {
   return { read, total, pagesRead: pf.pagesRead.length, loireFull, low, label, detail };
 }
 
+const whereOf = (l: Link) => (l.kind === "retail" ? "CA shop" : l.kind === "estate" ? `${l.producer}'s own website` : "peer page");
+
 /**
  * Portfolio signals computed by code from the structured portfolio + peer/shop links.
  * Presence claims (carries X) need one verified listing; absence claims (no Touraine) need
@@ -739,7 +742,7 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
   const linkTouraine = linkLoire.filter((l) => l.touraine);
   const absenceOk = Boolean(pf && cov && (!cov.low || cov.loireFull) && producers.length >= 10);
   const confirm = linkLoire.filter((l) => !l.touraine)[0];
-  const linkNote = (l: Link) => `${l.kind === "retail" ? "CA shop" : "peer page"}: "${l.quote}"`;
+  const linkNote = (l: Link) => `${whereOf(l)}: "${l.quote}"`;
 
   // Presence: already carries Touraine/Vouvray (site listing, peer page or CA shop page).
   if (touraine.length) push("similar_chenin", "fired", `Already carries Touraine/Vouvray: ${touraine.map(fmt).join("; ")}. Evidence: "${touraine[0].quote}"`, touraine[0].url);
@@ -759,8 +762,8 @@ function portfolioHits(pf: Portfolio | null, cov: Coverage | null, links: Link[]
 
   // Lookalike peers (Anjou/Saumur/Chinon/... growers, and Touraine/Vouvray/Montlouis direct peers).
   const peerSite = producers.filter((p) => PEER_AOC.test(`${p.region} ${p.appellation}`));
-  const peerTouraine = [...peerSite.filter(isTouraine).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => l.touraine).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: l.kind === "retail" ? "CA shop" : "peer page" }))];
-  const peerOther = [...peerSite.filter((p) => !isTouraine(p)).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => !l.touraine && PEER_AOC.test(l.appellation)).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: l.kind === "retail" ? "CA shop" : "peer page" }))];
+  const peerTouraine = [...peerSite.filter(isTouraine).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => l.touraine).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
+  const peerOther = [...peerSite.filter((p) => !isTouraine(p)).map((p) => ({ name: p.producer, quote: p.quote, url: p.url, where: site })), ...links.filter((l) => !l.touraine && PEER_AOC.test(l.appellation)).map((l) => ({ name: l.producer, quote: l.quote, url: l.url, where: whereOf(l) }))];
   if (peerTouraine.length) push("peer_touraine", "fired", `Direct peer ${peerTouraine[0].name} (${peerTouraine[0].where}): "${peerTouraine[0].quote}"`, peerTouraine[0].url);
   else if (peerOther.length) {
     const p = peerOther[0];
@@ -786,7 +789,7 @@ export interface Peer {
 /** Evidence linking a candidate to a Loire wine/producer, from a peer's page or a CA shop page. */
 export interface Link {
   candidateId: string;
-  kind: "peer" | "retail";
+  kind: "peer" | "retail" | "estate"; // estate = the competitor estate's own website names this importer
   producer: string;
   appellation: string;
   touraine: boolean;
@@ -802,6 +805,15 @@ function window(text: string, needle: string, before = 120, after = 160): string
   const flat = text.replace(/\s+/g, " ");
   const i = flat.toLowerCase().indexOf(needle.toLowerCase());
   return i < 0 ? "" : flat.slice(Math.max(0, i - before), i + needle.length + after).trim();
+}
+
+function listCache(dir: string): Mention[] {
+  try {
+    const d = path.join(CACHE_DIR, dir);
+    return fs.readdirSync(d).flatMap((f) => JSON.parse(fs.readFileSync(path.join(d, f), "utf8")) as Mention[]);
+  } catch {
+    return [];
+  }
 }
 
 function readAllPortfolios(): Portfolio[] {
@@ -1025,6 +1037,24 @@ interface ExtraEvidence {
   shelf: ReturnType<typeof shelfRange>;
 }
 
+/** Overlapping signals (same evidence): keep the stronger one, the other becomes "info" (0 points). */
+const OVERLAPS: [string, string][] = [
+  ["similar_chenin", "peer_touraine"],
+  ["portfolio_hole", "peer_neighbors"],
+];
+
+function mergeOverlaps(hits: SignalHit[]) {
+  for (const [a, b] of OVERLAPS) {
+    const ha = hits.find((h) => h.id === a && h.status === "fired");
+    const hb = hits.find((h) => h.id === b && h.status === "fired");
+    if (!ha || !hb) continue;
+    const [keep, drop] = Math.abs(hb.points) > Math.abs(ha.points) ? [hb, ha] : [ha, hb];
+    drop.label = `${drop.label} (merged into ${keep.id})`;
+    drop.points = 0;
+    drop.status = "info";
+  }
+}
+
 async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, extra: ExtraEvidence): Promise<ScoredLead | null> {
   const c = e.candidate;
   const links = extra.links.filter((l) => l.candidateId === c.id);
@@ -1097,6 +1127,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   }
   if (!sources.length) return null; // no evidence, no lead
 
+  mergeOverlaps(hits);
   const { fitScore, tier } = scoreHits(hits);
   const own = e.pages.find((p) => p.ownSite);
   return {
@@ -1120,6 +1151,193 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   };
 }
 
+// ---- Competitor estates' own websites -> their US importer ----------------------
+
+export interface EstateRow {
+  estate: string;
+  appellation: string;
+  touraine: boolean;
+  importer: string;
+  where: string; // city/state as written on the estate page
+  url: string;
+  match?: string; // TTB CA company it matched, if any
+}
+
+/** Estate -> US importer rows found on estates' own sites (CA-matched and out-of-state "expansion"). */
+export const estateRows: EstateRow[] = [];
+
+const ESTATE_LIMIT = 6;
+const ESTATE_RESERVE = 2; // credits kept for enriching the importers found
+const STOP_WORDS = new Set(["domaine", "chateau", "clos", "les", "des", "de", "du", "la", "le", "et", "and", "vignobles", "famille", "maison", "vins", "wines", "ferme"]);
+const ascii = (x: string) => x.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const estateTokens = (estate: string) => ascii(estate).split(/[^a-z0-9]+/).filter((w) => w.length >= 4 && !STOP_WORDS.has(w));
+
+/** True if `url` is the estate's own site: its host contains every distinctive word of the estate name. */
+function estateSite(url: string, estate: string): boolean {
+  const toks = estateTokens(estate);
+  try {
+    const host = ascii(new URL(url).hostname.replace(/^www\./, "")).replace(/-/g, "");
+    return toks.length > 0 && toks.every((t) => host.includes(t));
+  } catch {
+    return false;
+  }
+}
+
+function validateEstateImporters(raw: unknown) {
+  const list = asObject(raw, "root").importers;
+  if (!Array.isArray(list)) throw new Error("importers must be an array");
+  return list.map((x, i) => {
+    const o = asObject(x, `importers[${i}]`);
+    const str = (v: unknown) => (typeof v === "string" ? v : "");
+    return { name: asString(o.name, "name"), city: str(o.city), state: str(o.state), country: str(o.country), page: o.page == null ? -1 : asNumber(o.page, "page", -1, 99) };
+  });
+}
+
+const ESTATE_PROMPT = (estate: string) => `These pages come from the website of the French wine estate "${estate}".
+List the importers / distributors it names for the UNITED STATES (USA, États-Unis) only. Copy each company name exactly as written,
+with its US city and state if the page gives them. Ignore other countries. Do not guess.
+Return JSON: {"importers":[{"name","city","state","country","page"}]}`;
+
+const US_STATE_CA = /^(ca|california|calif\.?)$/i;
+
+/**
+ * Competitor estates (peers) -> their own website (search) -> importer pages (map, then one batched
+ * extract) -> US importers named there. CA TTB matches become candidates + "estate" links; others are
+ * listed as expansion (not scored).
+ */
+export async function competitorEstates(peers: Peer[], pool: Candidate[], u: Usage): Promise<{ links: Link[]; found: CandidateEvidence[] }> {
+  estateRows.length = 0;
+  // Estates (Domaine/Château/Clos) first, alternating Touraine / neighbor estates; person names last.
+  const rank = (p: Peer) => (/^(domaine|ch[aâ]teau|clos)\b/i.test(p.producer) ? 1 : 0);
+  const byRank = [...peers].sort((a, b) => rank(b) - rank(a));
+  const t = byRank.filter((p) => p.touraine), n = byRank.filter((p) => !p.touraine);
+  const order: Peer[] = [];
+  for (let i = 0; order.length < ESTATE_LIMIT && (i < t.length || i < n.length); i++) {
+    if (n[i]) order.push(n[i]);
+    if (t[i] && order.length < ESTATE_LIMIT) order.push(t[i]);
+  }
+  // Budget 0 = cache-only run: process everything cached (cachedTavily refuses paid calls).
+  const stopAt = u.budget === 0 ? Infinity : (u.budget ?? Infinity) - ESTATE_RESERVE;
+
+  // 1) own site: cached URLs first (free), else a search on the exact estate name
+  const cachedUrls: string[] = [];
+  try {
+    for (const f of fs.readdirSync(path.join(CACHE_DIR, "tavily"))) {
+      const d = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "tavily", f), "utf8"));
+      for (const r of Array.isArray(d.results) ? d.results : []) cachedUrls.push(typeof r === "string" ? r : r?.url ?? "");
+    }
+  } catch {
+    /* no cache yet */
+  }
+  const plan: { peer: Peer; origin: string; pages: RawResult[] }[] = [];
+  for (const peer of order) {
+    if ((u.credits ?? 0) >= stopAt) break;
+    let origin = cachedUrls.find((x) => estateSite(x, peer.producer));
+    if (!origin) {
+      const res = (await search(`"${peer.producer}"`, u, { maxResults: 5 }, { estate: peer.producer })) ?? [];
+      origin = res.find((r) => estateSite(r.url, peer.producer))?.url;
+    }
+    if (!origin) {
+      estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(own website not found)", where: "", url: "" });
+      continue;
+    }
+    origin = new URL(origin).origin;
+    if ((u.credits ?? 0) >= stopAt) break;
+    // 2) importer pages on the estate's own domain (include_domains search: 1 credit, replaces map + extract)
+    const domain = new URL(origin).hostname.replace(/^www\./, "");
+    const res = (await search("importers USA importateurs export distributeurs", u, { maxResults: 5, includeDomains: [domain] }, { estate: peer.producer })) ?? [];
+    plan.push({ peer, origin, pages: res.filter((r) => estateSite(r.url, peer.producer)) });
+  }
+
+  // 3) Mistral lists the US importers named; name must be on the page
+  const links: Link[] = [];
+  const found = new Map<string, CandidateEvidence>();
+  const caCompanies = allCompanies();
+  await Promise.all(
+    plan.map(async ({ peer, origin, pages }) => {
+      if (!pages.length) {
+        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(no importer page found)", where: "", url: origin });
+        return;
+      }
+      if (!hasMistral()) return;
+      const key = cacheKey({ estate: peer.producer, urls: pages.map((p) => [p.url, (p.rawContent || p.content).length]) });
+      let list = readCache<ReturnType<typeof validateEstateImporters>>("estate-importers", key);
+      if (!list) {
+        const listing = pages.map((p, i) => `[${i}] ${p.url}\n${(p.rawContent || p.content).slice(0, 8000)}`).join("\n\n");
+        list = await chatJSON([{ role: "system", content: ESTATE_PROMPT(peer.producer) }, { role: "user", content: listing }], validateEstateImporters).catch(() => null);
+        if (!list) return;
+        writeCache("estate-importers", key, list);
+      }
+      const usable = list.filter((m) => !m.country || /us|united states|usa|[ée]tats/i.test(m.country));
+      if (!usable.length) estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: "(no US importer named)", where: "", url: pages[0].url });
+      for (const m of usable) {
+        const page = pages.find((p) => squash(`${p.title} ${p.rawContent || p.content}`).includes(squash(m.name)));
+        if (!page) continue; // name must really be on the estate's page
+        const text = `${page.title} ${page.rawContent || page.content}`;
+        const where = [m.city, m.state].filter(Boolean).join(", ");
+        const inCa = US_STATE_CA.test(m.state.trim()) || (m.city ? cityCounty.has(normName(m.city.replace(/,.*$/, ""))) : false);
+        const outOfState = Boolean(m.state) && !US_STATE_CA.test(m.state.trim());
+        // CA match: pool candidate by name, else TTB (name + city, or exact trade name when the page gives no city).
+        let company: Candidate | undefined = outOfState ? undefined : findInPool([...pool, ...[...found.values()].map((f) => f.candidate)], text, m.name);
+        if (!company && !outOfState) {
+          const co = m.city ? matchCompany(m.name, m.city, text) : caCompanies.filter((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))).length === 1 ? caCompanies.find((c) => [c.name, c.ownerName].some((x) => coreName(x) === coreName(m.name))) : undefined;
+          if (co) company = strip(co);
+        }
+        estateRows.push({ estate: peer.producer, appellation: peer.appellation.trim(), touraine: peer.touraine, importer: m.name, where: where || (inCa ? "CA" : ""), url: page.url, match: company ? `${company.name} (${company.permits[0]?.number}, ${company.city})` : undefined });
+        if (!company) continue;
+        links.push({ candidateId: company.id, kind: "estate", producer: peer.producer, appellation: peer.appellation, touraine: peer.touraine, url: page.url, quote: window(text, m.name) });
+        if (!pool.some((c) => c.id === company!.id) && !found.has(company.id)) {
+          found.set(company.id, { candidate: { ...company, reasons: [...company.reasons, `Named as US importer on ${peer.producer}'s website (${page.url})`] }, pages: [{ candidateId: company.id, url: page.url, title: page.title, text, ownSite: false }] });
+        }
+      }
+    }),
+  );
+  writeCache("estates", "summary", { createdAt: new Date().toISOString(), rows: estateRows });
+  return { links, found: [...found.values()] };
+}
+
+// ---- Manual candidates (named by the team), verified against the TTB file -----
+
+export interface ManualCandidate {
+  name: string;
+  permit?: string; // TTB permit number if known
+  note: string; // why it was added (not used as evidence)
+}
+
+export const MANUAL_CANDIDATES: ManualCandidate[] = [
+  { name: "Beaune Imports", permit: "CA-I-15182", note: "Added by the team (customs records mention Domaine Sylvain Bailly, Sancerre; no public URL, not used as evidence)" },
+  { name: "North Berkeley Imports", note: "Added by the team (Berkeley, France/Italy, Loire section)" },
+  { name: "The Source Imports", note: "Added by the team (Loire growers incl. Patrick Baudouin, Romain Guiberteau, Château de la Morandière)" },
+];
+
+/** Why the automatic search missed each manual candidate (computed from the same rules). */
+export const manualLog: string[] = [];
+
+/** Trade/owner name without "THE", legal suffixes and "IMPORTS"/"SELECTIONS" filler, for exact name lookups. */
+const coreName = (s: string) => normName(s).replace(/^THE /, "").replace(/\b(IMPORTS?|IMPORTERS|SELECTIONS?)\b/g, "").replace(/\s+/g, " ").trim();
+
+/** Looks up manual candidates in the CA TTB lists: by permit number, else by exact trade/owner name (never by guess). */
+export function manualCandidates(): { candidate: Candidate; byName: boolean; note: string }[] {
+  manualLog.length = 0;
+  const out: { candidate: Candidate; byName: boolean; note: string }[] = [];
+  const top = new Set(loadCandidates(25).map((c) => c.id));
+  for (const m of MANUAL_CANDIDATES) {
+    const byPermit = m.permit ? allCompanies().find((c) => c.permits.some((p) => p.number === m.permit)) : undefined;
+    const byName = byPermit ? [] : allCompanies().filter((c) => [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const co = byPermit ?? (byName.length === 1 ? byName[0] : undefined);
+    if (!co) {
+      manualLog.push(`${m.name}: ${byName.length > 1 ? `ambiguous TTB name (${byName.map((c) => c.name).join(", ")}), not added` : "no California TTB importer permit under this name (it may hold one under another legal name; not guessed), not added"}.`);
+      continue;
+    }
+    const why: string[] = [];
+    if (!top.has(co.id)) why.push(`TTB-first ranking: name score ${co.nameScore}${co.hasWholesaler ? "" : ", importer permit only (no wholesaler)"} is below the top-25 cut`);
+    if (coreName(co.name) !== coreName(m.name)) why.push(`its TTB trade name is "${co.name}" (owner "${co.ownerName}", ${co.city}), not "${m.name}"`);
+    manualLog.push(`${m.name} → ${co.name} (${co.permits.map((p) => p.number).join(", ")}, ${co.city}). Missed because: ${why.join("; ") || "-"}.`);
+    out.push({ candidate: { ...strip(co), reasons: [...co.reasons, m.note] }, byName: !byPermit, note: m.note });
+  }
+  return out;
+}
+
 /**
  * Full pipeline: candidate pool (TTB + reverse search) -> lookalike importers (peer growers)
  * -> CA shop evidence -> Moss index -> per-candidate scoring. Sorted by fitScore.
@@ -1134,6 +1352,38 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   const look = await lookalikeImporters(peers, pool.map((e) => e.candidate), u);
   for (const f of look.found) f.pages = await fullLoirePages(f.candidate, await enrichPages(f.candidate, u, f.pages, { light: true }), u);
   const all = [...pool, ...look.found.filter((f) => f.pages.length)];
+  for (const m of manualCandidates()) {
+    if (all.some((e) => e.candidate.id === m.candidate.id)) continue;
+    const pages = await fullLoirePages(m.candidate, await enrichPages(m.candidate, u, []), u);
+    // A name-only TTB match must be tied to the permit holder by a page (its city or owner name), else it is a homonym.
+    const owner = normName(m.candidate.ownerName);
+    if (m.byName && !pages.some((p) => new RegExp(`\\b${m.candidate.city}\\b`, "i").test(p.text) || normName(p.text).includes(owner))) {
+      manualLog.push(`${m.candidate.name}: no page ties the website to the TTB holder (${m.candidate.ownerName}, ${m.candidate.city}); dropped as a possible homonym.`);
+      continue;
+    }
+    if (pages.length) all.push({ candidate: m.candidate, pages });
+    else manualLog.push(`${m.candidate.name}: no page about this company found; dropped.`);
+  }
+  // Competitor estates' own websites -> their US importers (CA ones join the pool, light enrichment).
+  const est = await competitorEstates(peers, all.map((e) => e.candidate), u);
+  for (const f of est.found) {
+    if (all.some((e) => e.candidate.id === f.candidate.id)) continue;
+    const pages = await fullLoirePages(f.candidate, await enrichPages(f.candidate, u, f.pages, { light: true }), u);
+    if (pages.length) all.push({ candidate: f.candidate, pages });
+  }
+  look.links.push(...est.links);
+  console.log(`[discover] estates: ${estateRows.length} rows, ${est.found.length} new CA importers, credits=${u.credits ?? 0}`);
+
+  // Why the automatic search missed them: reverse-search / peer-search mentions that were not matched.
+  for (const m of MANUAL_CANDIDATES) {
+    const seen = [...listCache("mentions"), ...listCache("peer-mentions")].filter((x) => coreName(x.name) === coreName(m.name));
+    const inTtb = allCompanies().some((c) => (m.permit && c.permits.some((p) => p.number === m.permit)) || [c.name, c.ownerName].some((n) => coreName(n) === coreName(m.name)));
+    const auto = look.found.find((f) => [f.candidate.name, f.candidate.ownerName].some((n) => coreName(n) === coreName(m.name)) || (m.permit && f.candidate.permits.some((p) => p.number === m.permit)));
+    if (auto) manualLog.push(`${m.name}: now found automatically by the lookalike search (${auto.candidate.reasons.at(-1)}); before the "Emeryville, CA" city-suffix fix it was rejected by the name + city rule.`);
+    else if (seen.length) manualLog.push(`${m.name}: named ${seen.length}× by topic/peer searches (city given: ${[...new Set(seen.map((x) => x.city || "none"))].join(", ")}) but ${inTtb ? "rejected by the name + city rule (different city/metro or no city on the page)" : "there is no TTB permit to match it to"}.`);
+    else manualLog.push(`${m.name}: never named in topic/peer search results.`);
+  }
+  console.log(`[discover] manual: ${manualLog.join(" | ")}`);
   const links = [...look.links, ...(await retailerEvidence(all.map((e) => e.candidate), u))];
   const shelf = shelfRange(DEMO_DOMAINE.priceRangeEur);
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);

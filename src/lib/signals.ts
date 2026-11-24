@@ -186,13 +186,30 @@ export function signalQueries(name: string): string[] {
   return [...new Set(ACTIVE_SIGNALS.flatMap((s) => (s.query ? [s.query.replaceAll("{name}", clean)] : [])))];
 }
 
-export const TIER_A = 60;
-export const TIER_B = 35;
+/*
+ * Tier thresholds (applied 2026-11-24 with the team's OK). Based on what public data actually proved
+ * on 12 CA leads (raw scores before the 0-100 clamp):
+ *   +40 Authentic · +35 Sylvester/Rovine · +35 Amy Atwood · +20 Kermit Lynch · +5 Grand Cru Sel.
+ *   0 Wine Source, Floraison · -5 Beaune · -10 Farm Wine · -25 Cru Wines · -30 JVS, Atherton
+ * What public pages can usually prove: grower_philosophy (20), boutique_size (15), neighbor_regions (10),
+ * tastings_fairs (10), recent_or_hiring (10). portfolio_hole (30) / peer_neighbors (25) need a fully
+ * readable catalogue (rare: 1 site in 12 had coverage OK), price_match needs a bottle price in the
+ * $38-85 estimate (0 found), cola_loire is disabled. The former A >= 60 was out of reach.
+ *   A: fitScore >= 45, at least 3 proven (fired) positive signals, and no fired negative
+ *   B: fitScore >= 25 and no fired -30 signal
+ *   C: otherwise, or as soon as a -30 signal fires
+ */
+export const TIERS = { A: 45, minPositivesForA: 3, B: 25, killerNegative: -30 } as const;
 
-/** fitScore = sum of fired signal points, clamped to 0..100. */
+/** fitScore = sum of fired signal points, clamped to 0..100; tier per TIERS above. */
 export function scoreHits(hits: SignalHit[]): { fitScore: number; tier: "A" | "B" | "C" } {
   const fitScore = Math.max(0, Math.min(100, hits.reduce((sum, h) => sum + h.points, 0)));
-  return { fitScore, tier: fitScore >= TIER_A ? "A" : fitScore >= TIER_B ? "B" : "C" };
+  const fired = hits.filter((h) => (h.status ?? "fired") === "fired");
+  const positives = fired.filter((h) => h.points > 0).length;
+  const negatives = fired.filter((h) => h.points < 0);
+  if (negatives.some((h) => h.points <= TIERS.killerNegative)) return { fitScore, tier: "C" };
+  if (fitScore >= TIERS.A && positives >= TIERS.minPositivesForA && negatives.length === 0) return { fitScore, tier: "A" };
+  return { fitScore, tier: fitScore >= TIERS.B ? "B" : "C" };
 }
 
 // ---- US shelf price estimate --------------------------------------------------
