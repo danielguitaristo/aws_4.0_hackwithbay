@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 5,
+   "quote": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives."
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 6,
+   "quote": "he now has a staff of nine, six of whom work in sales."
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": true,
+   "snippet": 5,
+   "quote": "seeking out unknown natural wines at remote wine bars and trade shows"
+  },
+  {
+   "id": "price_match",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

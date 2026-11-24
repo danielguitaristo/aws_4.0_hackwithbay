@@ -1,0 +1,6 @@
+{
+ "query": "search:\"Pasternak Wine Imports\" producers portfolio France Loire:{\"exact\":true,\"maxResults\":5}",
+ "candidate": "Pasternak Wine Imports LLC",
+ "fetchedAt": "2026-11-24T20:07:43.491Z",
+ "results": []
+}

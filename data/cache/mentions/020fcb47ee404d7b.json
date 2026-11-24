@@ -1,0 +1,22 @@
+[
+ {
+  "name": "The Source Imports",
+  "city": "San Francisco",
+  "result": 0
+ },
+ {
+  "name": "Bourget Imports",
+  "city": "",
+  "result": 1
+ },
+ {
+  "name": "North Berkeley Imports",
+  "city": "Berkeley",
+  "result": 3
+ },
+ {
+  "name": "Super Glou",
+  "city": "",
+  "result": 4
+ }
+]
