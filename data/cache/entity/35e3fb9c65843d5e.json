@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The quote and context explicitly mention AuthenticWS.com and AWS Direct Import, which are associated with Authentic Wine Selections."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names Authentic Wine Selections and describes its direct-import wines and philosophy."
+ }
+]

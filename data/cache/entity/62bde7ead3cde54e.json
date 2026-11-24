@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The article explicitly names 'Amy Atwood Selections' and refers to her as the pioneering small-batch organic wine importer."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The article explicitly names 'Amy Atwood Selections' and describes it as a small-batch organic wine importer."
+ }
+]

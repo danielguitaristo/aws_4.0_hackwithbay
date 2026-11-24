@@ -1,6 +1,101 @@
 {
- "createdAt": "2026-11-24T21:31:33.420Z",
+ "createdAt": "2026-11-24T21:55:40.481Z",
  "leads": [
+  {
+   "portfolioDetail": [],
+   "id": "f7fc232351",
+   "name": "Amy Atwood Selections",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Los Angeles",
+   "address": "2658 GRIFFITH PARK BLVD UNIT 732, LOS ANGELES, CA 90039",
+   "website": "http://www.amyatwood.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-16648",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-17401",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [],
+   "fitScore": 35,
+   "tier": "B",
+   "signals": [
+    "+20 Small family / grower / low-intervention philosophy",
+    "+15 Boutique size (≈10-150 producers), fits a ~500-case first order"
+   ],
+   "sources": [
+    {
+     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
+     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide",
+     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention"
+    },
+    {
+     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
+     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily",
+     "snippet": "pioneering small-batch organic wine importer, distributor, and producer"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "grower_philosophy",
+     "label": "Small family / grower / low-intervention philosophy",
+     "points": 20,
+     "status": "fired",
+     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention",
+     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
+     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide"
+    },
+    {
+     "id": "boutique_size",
+     "label": "Boutique size (≈10-150 producers), fits a ~500-case first order",
+     "points": 15,
+     "status": "fired",
+     "snippet": "pioneering small-batch organic wine importer, distributor, and producer",
+     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
+     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily"
+    },
+    {
+     "id": "price_match",
+     "label": "Shelf price range $25-55 matches",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Prices seen ($29.99) outside estimated shelf range $38-85",
+     "url": "https://theepicureantrader.com/pages/makers/amy-atwood"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 0 producteurs, 2 pages (total non indiqué)",
+     "points": 0,
+     "status": "info",
+     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
+     "url": "https://www.amyatwood.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "http://www.amyatwood.com shows the TTB permit holder name — permit \"CLEANSKINS WINE LLC\" (CA-I-16648, CA-P-17401, Los Angeles)",
+     "url": "http://www.amyatwood.com"
+    }
+   ]
+  },
   {
    "portfolioDetail": [
     {
@@ -115,12 +210,11 @@
     "Brella (Willamette Valley), USA",
     "Domaine Loubejac (Oregon), USA"
    ],
-   "fitScore": 40,
+   "fitScore": 30,
    "tier": "B",
    "signals": [
     "+10 Already imports from neighboring French regions",
-    "+20 Small family / grower / low-intervention philosophy",
-    "+10 New permit, or hiring sales reps / expanding to new states"
+    "+20 Small family / grower / low-intervention philosophy"
    ],
    "sources": [
     {
@@ -131,11 +225,6 @@
      "url": "https://usatradetasting.com/en/blog/list-of-wine-importers-in-usa-57.htm",
      "title": "List Of Wine Importers In USA",
      "snippet": "small or micro-production wines made by accomplished wine makers"
-    },
-    {
-     "url": "https://www.linkedin.com/in/robert-morrison-b08a598",
-     "title": "Robert Morrison - Owner at Authentic Wine Selections & Voix de la ...",
-     "snippet": "is looking for a dynamic,"
     },
     {
      "url": "http://authenticws.com/wp-content/uploads/2018/12/Winter_2018.pdf",
@@ -169,9 +258,9 @@
     {
      "id": "recent_or_hiring",
      "label": "New permit, or hiring sales reps / expanding to new states",
-     "points": 10,
-     "status": "fired",
-     "snippet": "is looking for a dynamic,",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "\"is looking for a dynamic,\" — not counted: LinkedIn profile activity is undated (never counts)",
      "url": "https://www.linkedin.com/in/robert-morrison-b08a598",
      "title": "Robert Morrison - Owner at Authentic Wine Selections & Voix de la ..."
     },
@@ -198,657 +287,14 @@
      "status": "info",
      "snippet": "8 producers read on 4 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.authenticws.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "ce9536416b",
-   "name": "Sylvester/Rovine Selections",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Benicia",
-   "address": "4325 INDUSTRIAL WAY, BENICIA, CA 94510",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-16942",
-     "kind": "importer"
     },
     {
-     "source": "TTB",
-     "number": "CA-P-19055",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 35,
-   "tier": "B",
-   "signals": [
-    "+20 Small family / grower / low-intervention philosophy",
-    "+15 Boutique size (≈10-150 producers), fits a ~500-case first order"
-   ],
-   "sources": [
-    {
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily",
-     "snippet": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives."
-    },
-    {
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily",
-     "snippet": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "Wine with a Rovine Selections label on it is made with certified organic grapes, without additives.",
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily"
-    },
-    {
-     "id": "boutique_size",
-     "label": "Boutique size (≈10-150 producers), fits a ~500-case first order",
-     "points": 15,
-     "status": "fired",
-     "snippet": "Currently, Zev Rovine Selections offers wines from seven countries and 90 winemakers",
-     "url": "https://daily.sevenfifty.com/exploring-zev-rovines-success-as-a-natural-wine-importer",
-     "title": "Exploring Zev Rovine’s Success as a Natural Wine Importer | SevenFifty Daily"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
+     "id": "permit_match",
+     "label": "Permit match verified",
      "points": 0,
      "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "f7fc232351",
-   "name": "Amy Atwood Selections",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Los Angeles",
-   "address": "2658 GRIFFITH PARK BLVD UNIT 732, LOS ANGELES, CA 90039",
-   "website": "http://www.amyatwood.com",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-16648",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-17401",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 35,
-   "tier": "B",
-   "signals": [
-    "+20 Small family / grower / low-intervention philosophy",
-    "+15 Boutique size (≈10-150 producers), fits a ~500-case first order"
-   ],
-   "sources": [
-    {
-     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
-     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide",
-     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention"
-    },
-    {
-     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
-     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily",
-     "snippet": "pioneering small-batch organic wine importer, distributor, and producer"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "smaller production wineries, making wines more naturally. This means organic or sustainable farming, and little to zero intervention",
-     "url": "https://voyagela.com/interview/exploring-life-business-with-amy-atwood-of-amy-atwood-selections",
-     "title": "Exploring Life & Business with Amy Atwood of Amy Atwood Selections – Voyage LA Magazine | LA City Guide"
-    },
-    {
-     "id": "boutique_size",
-     "label": "Boutique size (≈10-150 producers), fits a ~500-case first order",
-     "points": 15,
-     "status": "fired",
-     "snippet": "pioneering small-batch organic wine importer, distributor, and producer",
-     "url": "https://daily.sevenfifty.com/how-amy-atwood-built-a-multi-tier-natural-wine-business",
-     "title": "How Amy Atwood Built a Multi-Tier Natural Wine Business | SevenFifty Daily"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "Prices seen ($29.99) outside estimated shelf range $38-85",
-     "url": "https://theepicureantrader.com/pages/makers/amy-atwood"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 0 producteurs, 2 pages (total non indiqué)",
-     "points": 0,
-     "status": "info",
-     "snippet": "0 producers read on 2 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
-     "url": "https://www.amyatwood.com"
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [
-    {
-     "producer": "Thierry Germain",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,"
-    },
-    {
-     "producer": "Domaine Roger Neveu",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "k today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France B"
-    },
-    {
-     "producer": "Pascal Janvier",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "rry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France D"
-    },
-    {
-     "producer": "Eric Chevalier",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "aine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire,"
-    },
-    {
-     "producer": "Régis Minet",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "e Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte R"
-    },
-    {
-     "producer": "Bernard Baudry",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "ance Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all"
-    },
-    {
-     "producer": "Domaine Michel Brégeon",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "ance Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Youn"
-    },
-    {
-     "producer": "Domaine Hippolyte Reverdy",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "d Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Young Sauvignon Blanc | © Camille Huguenot C"
-    },
-    {
-     "producer": "Charles Joguet",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "irst imports came from the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route an"
-    },
-    {
-     "producer": "Château d’Epiré",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://kermitlynch.com/region/loire",
-     "quote": "rom the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route and with whom we still"
-    },
-    {
-     "producer": "Domaine de la Tour du Bon",
-     "country": "France",
-     "region": "Provence",
-     "appellation": "Bandol",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "2025 Bandol RoséDomaine de la Tour du Bon France | Provence $42.00 2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierr"
-    },
-    {
-     "producer": "M. & C. Lapierre",
-     "country": "France",
-     "region": "Beaujolais",
-     "appellation": "Vin de France",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser"
-    },
-    {
-     "producer": "Albert Boxler",
-     "country": "France",
-     "region": "Alsace",
-     "appellation": "",
-     "grapes": [
-      "Pinot Blanc"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ance <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc RéserveAlbert Boxler France | Alsace $52.00 2022 Pinot <i>Blanc</i> Réserve 2025 Languedoc Rosé “Gris de Gris”Domaine de"
-    },
-    {
-     "producer": "Domaine de Fontsainte",
-     "country": "France",
-     "region": "Languedoc-Roussillon",
-     "appellation": "Languedoc",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "inot <i>Blanc</i> Réserve 2025 Languedoc Rosé “Gris de Gris”Domaine de Fontsainte France | Languedoc-Roussillon $22.00 2025 Languedoc Rosé “Gris de Gris” From The Store Floor From T"
-    },
-    {
-     "producer": "Domaine de Durban",
-     "country": "France",
-     "region": "Southern Rhône",
-     "appellation": "Beaumes-de-Venise",
-     "grapes": [
-      "Grenache",
-      "Syrah",
-      "Mourvèdre"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ard From Recent Club Shipments 2025 Beaumes-de-Venise Rouge Domaine de Durban November Club Chevalier ~ Grenache is joined by Syrah and a drop of Mourvèdre to create this deligh"
-    },
-    {
-     "producer": "Sommariva",
-     "country": "Italy",
-     "region": "Veneto",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "aumes-de-Venise <i>Rouge</i> Rosato Spumante Brut “Il Rosa” Sommariva October Club Gourmand ~ A spritzy rosato with scents of frutti di bosco and wildflowers. $19.95 Ros"
-    },
-    {
-     "producer": "Guido Porro",
-     "country": "Italy",
-     "region": "Piedmont",
-     "appellation": "Dolcetto d’Alba",
-     "grapes": [
-      "Dolcetto"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ante <em>Brut</em> “Il Rosa” 2025 Dolcetto d’Alba “V. Pari” Guido Porro October Club Gourmand ~ Prime placement in a great vineyard site provides exquisite balance, gentle"
-    },
-    {
-     "producer": "Domaine Jolivet",
-     "country": "France",
-     "region": "Northern Rhône",
-     "appellation": "Saint-Joseph",
-     "grapes": [
-      "Syrah"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "cetto d’Alba “V. Pari” 2022 Saint-Joseph Rouge “L’Instinct” Domaine Jolivet October Club Rouge ~ It is a real-deal northern Rhône roasted-slope Syrah that walks the tightrope"
-    },
-    {
-     "producer": "André & Michel Quenard",
-     "country": "France",
-     "region": "Savoie",
-     "appellation": "Crémant de Savoie",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "00 2023 Chinon “Les Grézeaux” Crémant de Savoie Brut Nature André & Michel Quenard October Club Bianc ~ A wonderfully dry, fresh, sparkling wine from one of the most beautiful region"
-    },
-    {
-     "producer": "Lionel Faury",
-     "country": "France",
-     "region": "Northern Rhône",
-     "appellation": "Collines Rhodaniennes",
-     "grapes": [
-      "Syrah"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "t Nature</em> 2024 Collines Rhodaniennes Syrah “l’Art Zélé” Lionel Faury November Club Rouge ~ If you want to experience classic flavors of northern Rhône Syrah, here is a"
-    },
-    {
-     "producer": "Catherine & Pierre Breton",
-     "country": "France",
-     "region": "Loire",
-     "appellation": "Vin de France",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ls 2025 Vin de France Rosé Brut “Elle est pas bulle la vie?”Catherine & Pierre Breton It’s refreshingly bright on the palate, flush with delicate notes of strawberry rhubarb, and dange."
-    },
-    {
-     "producer": "Henri Perrusset",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "Mâcon-Villages",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ie?” 2025 Mâcon-Villages “Terroir de Farges Vieilles Vignes”Henri Perrusset The tiny village of Farges-lès-Mâcon is a wonderful terroir for textbook, perfectly opulent, flora."
-    },
-    {
-     "producer": "La Marca di San Michele",
-     "country": "Italy",
-     "region": "Veneto",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "Vignes” 2022 Spumante Dosaggio Zero Col Fondo “Numerosette”La Marca di San Michele The wine’s salinity finds balance with a delightfully tart note of lemon rind. $46.00 2022 Spumante"
-    },
-    {
-     "producer": "Gregoletto",
-     "country": "Italy",
-     "region": "Veneto",
-     "appellation": "Colli Trevigiani",
-     "grapes": [
-      "Merlot"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "<i>Col Fondo</i> “Numerosette” 2025 Colli Trevigiani MerlotGregoletto October Club Rouge ~ It’s like eating freshly picked blackberries and raspberries, only you add th."
-    },
-    {
-     "producer": "Domaine de la Cadette",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "Bourgogne",
-     "grapes": [
-      "Pinot Noir"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "25 Colli Trevigiani Merlot 2025 Bourgogne Rouge “L’Ermitage”Domaine de la Cadette A beautiful Cadette rouge with a bit more structure and plenty of pleasure. $45.00 2025 Bourgogne <"
-    },
-    {
-     "producer": "Domaine Ostertag",
-     "country": "France",
-     "region": "Alsace",
-     "appellation": "",
-     "grapes": [
-      "Pinot Noir"
-     ],
-     "url": "https://shop.kermitlynch.com",
-     "quote": "ogne <i>Rouge</i> “L’Ermitage” 2025 Pinot Noir “Les Jardins”Domaine Ostertag The idea with this wine is vibrant fruitiness. An absolutely delicious Pi"
-    }
-   ],
-   "id": "4d0673c00d",
-   "name": "Kermit Lynch, Wine Merchant",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "Berkeley",
-   "address": "830 CEDAR ST, BERKELEY, CA 94710",
-   "website": "https://kermitlynch.com",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-16447",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-21694",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-2216",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-22286",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-22289",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-22788",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-22789",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-I-23548",
-     "kind": "importer"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-22890",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-22891",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-24174",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-24178",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-25121",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-25122",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-26304",
-     "kind": "wholesaler"
-    },
-    {
-     "source": "TTB",
-     "number": "CA-P-5084",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [
-    "Thierry Germain (Loire), France",
-    "Domaine Roger Neveu (Loire), France",
-    "Pascal Janvier (Loire), France",
-    "Eric Chevalier (Loire), France",
-    "Régis Minet (Loire), France",
-    "Bernard Baudry (Loire), France",
-    "Domaine Michel Brégeon (Loire), France",
-    "Domaine Hippolyte Reverdy (Loire), France",
-    "Charles Joguet (Loire), France",
-    "Château d’Epiré (Loire), France",
-    "Domaine de la Tour du Bon (Bandol), France",
-    "M. & C. Lapierre (Vin de France), France",
-    "Albert Boxler (Alsace), France",
-    "Domaine de Fontsainte (Languedoc), France",
-    "Domaine de Durban (Beaumes-de-Venise), France",
-    "Sommariva (Veneto), Italy",
-    "Guido Porro (Dolcetto d’Alba), Italy",
-    "Domaine Jolivet (Saint-Joseph), France",
-    "André & Michel Quenard (Crémant de Savoie), France",
-    "Lionel Faury (Collines Rhodaniennes), France",
-    "Catherine & Pierre Breton (Vin de France), France",
-    "Henri Perrusset (Mâcon-Villages), France",
-    "La Marca di San Michele (Veneto), Italy",
-    "Gregoletto (Colli Trevigiani), Italy",
-    "Domaine de la Cadette (Bourgogne), France",
-    "Domaine Ostertag (Alsace), France"
-   ],
-   "fitScore": 20,
-   "tier": "C",
-   "signals": [
-    "-30 Loire saturated (10+ Loire producers already)",
-    "+10 Already imports from neighboring French regions",
-    "+20 Small family / grower / low-intervention philosophy",
-    "+10 Runs portfolio tastings or attends trade / natural wine fairs",
-    "+10 New permit, or hiring sales reps / expanding to new states"
-   ],
-   "sources": [
-    {
-     "url": "https://kermitlynch.com/region/loire",
-     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\""
-    },
-    {
-     "url": "https://shop.kermitlynch.com",
-     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\""
-    },
-    {
-     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
-     "title": "Kermit Lynch Wine Merchant",
-     "snippet": "purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region"
-    },
-    {
-     "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
-     "title": "Kermit Lynch Wines, New & Current wines reviewed",
-     "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch"
-    },
-    {
-     "url": "https://www.linkedin.com/in/clarkzterry",
-     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant",
-     "snippet": "I’m #hiring for a new associate role in my department"
-    },
-    {
-     "url": "https://kermitlynch.com/region/loire",
-     "snippet": "Producers listed: Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); Eric Chevalier (Loire); Régis Minet (Loire); Bernard Baudry (Loire); Domaine Michel Brégeon (Loire); Domaine Hippolyte Reverdy (Loire); Charles Joguet (Loire); Château d’Epiré (Loire)"
-    },
-    {
-     "url": "https://shop.kermitlynch.com",
-     "snippet": "Producers listed: Domaine de la Tour du Bon (Bandol); M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); Domaine de Fontsainte (Languedoc); Domaine de Durban (Beaumes-de-Venise); Sommariva (Veneto); Guido Porro (Dolcetto d’Alba); Domaine Jolivet (Saint-Joseph); André & Michel Quenard (Crémant de Savoie); Lionel Faury (Collines Rhodaniennes); Catherine & Pierre Breton (Vin de France); Henri Perrusset (Mâcon-Villages) (+4 more)"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "grower_philosophy",
-     "label": "Small family / grower / low-intervention philosophy",
-     "points": 20,
-     "status": "fired",
-     "snippet": "purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region",
-     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
-     "title": "Kermit Lynch Wine Merchant"
-    },
-    {
-     "id": "neighbor_regions",
-     "label": "Already imports from neighboring French regions",
-     "points": 10,
-     "status": "fired",
-     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\"",
-     "url": "https://shop.kermitlynch.com"
-    },
-    {
-     "id": "tastings_fairs",
-     "label": "Runs portfolio tastings or attends trade / natural wine fairs",
-     "points": 10,
-     "status": "fired",
-     "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch",
-     "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
-     "title": "Kermit Lynch Wines, New & Current wines reviewed"
-    },
-    {
-     "id": "recent_or_hiring",
-     "label": "New permit, or hiring sales reps / expanding to new states",
-     "points": 10,
-     "status": "fired",
-     "snippet": "I’m #hiring for a new associate role in my department",
-     "url": "https://www.linkedin.com/in/clarkzterry",
-     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant"
-    },
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "Prices seen ($36) outside estimated shelf range $38-85",
-     "url": "https://shop.kermitlynch.com/wines"
-    },
-    {
-     "id": "loire_saturated",
-     "label": "Loire saturated (10+ Loire producers already)",
-     "points": -30,
-     "status": "fired",
-     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\"",
-     "url": "https://kermitlynch.com/region/loire"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
-     "points": 0,
-     "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
-     "url": ""
-    },
-    {
-     "id": "coverage",
-     "label": "catalogue lu : 26/143",
-     "points": 0,
-     "status": "info",
-     "snippet": "26 producers read on 11 own-site pages; the site states 143; Loire region page read in full. Coverage LOW.",
-     "url": "https://kermitlynch.com"
+     "snippet": "https://www.authenticws.com shows the TTB permit city (Oakland) — permit \"NATURAL MYSTIC, INC.\" (CA-I-21354, CA-P-21883, Oakland)",
+     "url": "https://www.authenticws.com/california"
     }
    ]
   },
@@ -1933,6 +1379,14 @@
      "status": "info",
      "snippet": "95 producers read on 18 own-site pages. Coverage OK.",
      "url": "https://grandcruselections.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://grandcruselections.com shows the TTB permit holder name — permit \"GRAND CRU SELECTIONS LLC\" (CA-I-24059, CA-P-27027, Benicia)",
+     "url": "https://grandcruselections.com/gcs-cali-team"
     }
    ]
   },
@@ -2354,10 +1808,6 @@
      "snippet": "11 producer(s) from neighboring regions — Chateau de Javernand (Beaujolais); Domaine de la Madone (Fleurie); Domaine Frederic Sornin (Beaujolais); Domaine Denis Pere & Fils (Burgundy). Evidence: \"Home Portfolio Contact Us Beaujolais Chateau de Javernand Domaine de la Madone IGP Viognier Domaine Frederic Sornin Bordeaux Chateau des Capucins Lalande de\""
     },
     {
-     "url": "https://cruwines.net/portfolio",
-     "snippet": "Direct peer Domaine Guy Allion (cruwines.net): \"ge Brut Le Beauchet Single Vineyard Vintage Champagne Loire Domaine Guy Allion Touraine Le Pavillon du Roy Muscadet Sevre et Maine Denis Breussin Vouvray Sec Vouvray Demi Sec Vou\""
-    },
-    {
      "url": "https://cruwines.net/chateau-des-graviers",
      "title": "Chateau des Graviers | Cru Wines, LLC",
      "snippet": "adjacent parcels are Grands Crus Classes such as Chateau Issan, Rauzan-Ségla"
@@ -2437,6 +1887,14 @@
      "points": 0,
      "status": "info",
      "snippet": "35 producers read on 11 own-site pages. Coverage OK.",
+     "url": "https://cruwines.net"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://cruwines.net shows the TTB permit holder name — permit \"CRU WINES, LLC\" (CA-I-15507, CA-P-15905, Los Angeles)",
      "url": "https://cruwines.net"
     }
    ]
@@ -4138,10 +3596,6 @@
      "snippet": "16 producer(s) from neighboring regions — Andre Beaufort (Champagne); Benoît Marguet (Champagne); Olivier & Marie Horiot (Champagne); Tarlant (Champagne). Evidence: \"+ France Champagne + Andre Beaufort + Benoît Marguet + Olivier & Marie Horiot + Tarlant + Delphine Boulard + Jacques Lassaigne + Ulysse\""
     },
     {
-     "url": "https://www.farmwineimports.com/producers",
-     "snippet": "Direct peer Julien Pineau (farmwineimports.com): \"ic Bouchard Pays Nantais + Domaine de la Pépière Touraine + Julien Pineau + Noëlla Morantin + Clos du Tue-Boeuf + Pierrot Bonhomme + François Cazin + François and Julien Pin\""
-    },
-    {
      "url": "https://www.farmwineimports.com",
      "title": "Farm Wine Imports - California Natural Wine Wholesaler",
      "snippet": "We’re dedicated to our growers, the vignerons and vigneronnes who grow the fruit and vinify it."
@@ -4236,6 +3690,14 @@
      "status": "info",
      "snippet": "165 producers read on 4 own-site pages. Coverage OK.",
      "url": "https://www.farmwineimports.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.farmwineimports.com shows the TTB permit city (Berkeley) — permit \"FARM WINE IMPORTS LLC\" (CA-I-22444, CA-P-24511, Berkeley)",
+     "url": "https://www.farmwineimports.com/contact"
     }
    ]
   },
@@ -4304,68 +3766,13 @@
      "status": "info",
      "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
      "url": ""
-    }
-   ]
-  },
-  {
-   "portfolioDetail": [],
-   "id": "c285a1779c",
-   "name": "Atherton Wine Imports",
-   "type": "importer_distributor",
-   "state": "CA",
-   "city": "San Jose",
-   "address": "2038 CONCOURSE DR STE 20, SAN JOSE, CA 95131",
-   "permits": [
-    {
-     "source": "TTB",
-     "number": "CA-I-3090",
-     "kind": "importer"
     },
     {
-     "source": "TTB",
-     "number": "CA-P-6013",
-     "kind": "wholesaler"
-    }
-   ],
-   "portfolio": [],
-   "fitScore": 0,
-   "tier": "C",
-   "signals": [
-    "-30 Mega-distributor or high minimum volumes (national brands, 500+ SKUs)"
-   ],
-   "sources": [
-    {
-     "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4",
-     "title": "Atherton Wine Imports",
-     "snippet": "one of the largest importers of Bordeaux and burgundy on the west coast"
-    }
-   ],
-   "stage": "matched",
-   "enriched": false,
-   "scoreBreakdown": [
-    {
-     "id": "price_match",
-     "label": "Shelf price range $25-55 matches",
-     "points": 0,
-     "status": "unknown",
-     "snippet": "No bottle price found on the site or in CA shops",
-     "url": ""
-    },
-    {
-     "id": "mega_distributor",
-     "label": "Mega-distributor or high minimum volumes (national brands, 500+ SKUs)",
-     "points": -30,
-     "status": "fired",
-     "snippet": "one of the largest importers of Bordeaux and burgundy on the west coast",
-     "url": "https://tavily.com/knowledge/company/4TekWvtzU7H4",
-     "title": "Atherton Wine Imports"
-    },
-    {
-     "id": "price_estimate",
-     "label": "Estimated US shelf price $38-85",
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
      "points": 0,
      "status": "info",
-     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "snippet": "No own website found: TTB permit \"JVS WINES IMPORT, INC.\" (CA-I-4794, CA-P-16320, CA-P-8525, South San Francisco) is not tied to a website",
      "url": ""
     }
    ]
@@ -4682,10 +4089,6 @@
      "snippet": "8 producer(s) from neighboring regions — Julien Sunier (Beaujolais-Villages); Marie Courtin (Champagne); Flavien Nowack (Alsace); Domaine de la Tournelle (Arbois). Evidence: \"the world may be. prev / next Back to Growers & Domaines 0 Julien Sunier 0 Thomas Pico - Pattes Loup/ Bois d'Yver 0 Domaine de la Sarazinière 0 Marie Courtin 0 Flavien Nowa\""
     },
     {
-     "url": "https://www.floraisonselections.com/loire",
-     "snippet": "Direct peer Domaine Bonnigal-Bodet (floraisonselections.com): \"Bourgueil with 1ha of Cabernet Franc. (read more) Touraine Domaine Bonnigal-Bodet | Limeray / Amboise Certified Organic Long time best friends Jean-Baptiste Bonnigal and Stéphane Bo\""
-    },
-    {
      "url": "https://www.wineberserkers.com/t/notes-from-the-third-annual-winefare-tasting-in-san-francisco-march-7th-2020/159134",
      "title": "Notes from the third annual WINeFare tasting in San Francisco – March 7th, 2020 - WINE TALK - WineBerserkers",
      "snippet": "Domaine de Sérol (from Floraison Selections)"
@@ -4766,6 +4169,496 @@
      "status": "info",
      "snippet": "24 producers read on 13 own-site pages. Coverage OK.",
      "url": "https://www.floraisonselections.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.floraisonselections.com shows the TTB permit city (Emeryville) — permit \"NBD WINES, LLC\" (CA-I-22099, CA-P-23814, Emeryville)",
+     "url": "https://www.floraisonselections.com/loire"
+    }
+   ]
+  },
+  {
+   "portfolioDetail": [
+    {
+     "producer": "Thierry Germain",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,"
+    },
+    {
+     "producer": "Domaine Roger Neveu",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "k today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France B"
+    },
+    {
+     "producer": "Pascal Janvier",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "rry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France D"
+    },
+    {
+     "producer": "Eric Chevalier",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "aine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire,"
+    },
+    {
+     "producer": "Régis Minet",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "e Pascal Janvier Loire, France Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte R"
+    },
+    {
+     "producer": "Bernard Baudry",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "ance Eric Chevalier Loire, France Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all"
+    },
+    {
+     "producer": "Domaine Michel Brégeon",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "ance Régis Minet Loire, France Bernard Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Youn"
+    },
+    {
+     "producer": "Domaine Hippolyte Reverdy",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "d Baudry Loire, France Domaine Michel Brégeon Loire, France Domaine Hippolyte Reverdy Loire, France Show all Gallery Sancerre | © Gail Skoff Young Sauvignon Blanc | © Camille Huguenot C"
+    },
+    {
+     "producer": "Charles Joguet",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "irst imports came from the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route an"
+    },
+    {
+     "producer": "Château d’Epiré",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://kermitlynch.com/region/loire",
+     "quote": "rom the Loire, most notably the wines of Charles Joguet and Château d’Epiré—two producers who are featured in Kermit’s book Adventures on the Wine Route and with whom we still"
+    },
+    {
+     "producer": "Domaine de la Tour du Bon",
+     "country": "France",
+     "region": "Provence",
+     "appellation": "Bandol",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "2025 Bandol RoséDomaine de la Tour du Bon France | Provence $42.00 2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierr"
+    },
+    {
+     "producer": "M. & C. Lapierre",
+     "country": "France",
+     "region": "Beaujolais",
+     "appellation": "Vin de France",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser"
+    },
+    {
+     "producer": "Albert Boxler",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [
+      "Pinot Blanc"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ance <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc RéserveAlbert Boxler France | Alsace $52.00 2022 Pinot <i>Blanc</i> Réserve 2025 Languedoc Rosé “Gris de Gris”Domaine de"
+    },
+    {
+     "producer": "Domaine de Fontsainte",
+     "country": "France",
+     "region": "Languedoc-Roussillon",
+     "appellation": "Languedoc",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "inot <i>Blanc</i> Réserve 2025 Languedoc Rosé “Gris de Gris”Domaine de Fontsainte France | Languedoc-Roussillon $22.00 2025 Languedoc Rosé “Gris de Gris” From The Store Floor From T"
+    },
+    {
+     "producer": "Domaine de Durban",
+     "country": "France",
+     "region": "Southern Rhône",
+     "appellation": "Beaumes-de-Venise",
+     "grapes": [
+      "Grenache",
+      "Syrah",
+      "Mourvèdre"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ard From Recent Club Shipments 2025 Beaumes-de-Venise Rouge Domaine de Durban November Club Chevalier ~ Grenache is joined by Syrah and a drop of Mourvèdre to create this deligh"
+    },
+    {
+     "producer": "Sommariva",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "aumes-de-Venise <i>Rouge</i> Rosato Spumante Brut “Il Rosa” Sommariva October Club Gourmand ~ A spritzy rosato with scents of frutti di bosco and wildflowers. $19.95 Ros"
+    },
+    {
+     "producer": "Guido Porro",
+     "country": "Italy",
+     "region": "Piedmont",
+     "appellation": "Dolcetto d’Alba",
+     "grapes": [
+      "Dolcetto"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ante <em>Brut</em> “Il Rosa” 2025 Dolcetto d’Alba “V. Pari” Guido Porro October Club Gourmand ~ Prime placement in a great vineyard site provides exquisite balance, gentle"
+    },
+    {
+     "producer": "Domaine Jolivet",
+     "country": "France",
+     "region": "Northern Rhône",
+     "appellation": "Saint-Joseph",
+     "grapes": [
+      "Syrah"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "cetto d’Alba “V. Pari” 2022 Saint-Joseph Rouge “L’Instinct” Domaine Jolivet October Club Rouge ~ It is a real-deal northern Rhône roasted-slope Syrah that walks the tightrope"
+    },
+    {
+     "producer": "André & Michel Quenard",
+     "country": "France",
+     "region": "Savoie",
+     "appellation": "Crémant de Savoie",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "00 2023 Chinon “Les Grézeaux” Crémant de Savoie Brut Nature André & Michel Quenard October Club Bianc ~ A wonderfully dry, fresh, sparkling wine from one of the most beautiful region"
+    },
+    {
+     "producer": "Lionel Faury",
+     "country": "France",
+     "region": "Northern Rhône",
+     "appellation": "Collines Rhodaniennes",
+     "grapes": [
+      "Syrah"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "t Nature</em> 2024 Collines Rhodaniennes Syrah “l’Art Zélé” Lionel Faury November Club Rouge ~ If you want to experience classic flavors of northern Rhône Syrah, here is a"
+    },
+    {
+     "producer": "Catherine & Pierre Breton",
+     "country": "France",
+     "region": "Loire",
+     "appellation": "Vin de France",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ls 2025 Vin de France Rosé Brut “Elle est pas bulle la vie?”Catherine & Pierre Breton It’s refreshingly bright on the palate, flush with delicate notes of strawberry rhubarb, and dange."
+    },
+    {
+     "producer": "Henri Perrusset",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Mâcon-Villages",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ie?” 2025 Mâcon-Villages “Terroir de Farges Vieilles Vignes”Henri Perrusset The tiny village of Farges-lès-Mâcon is a wonderful terroir for textbook, perfectly opulent, flora."
+    },
+    {
+     "producer": "La Marca di San Michele",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "",
+     "grapes": [],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "Vignes” 2022 Spumante Dosaggio Zero Col Fondo “Numerosette”La Marca di San Michele The wine’s salinity finds balance with a delightfully tart note of lemon rind. $46.00 2022 Spumante"
+    },
+    {
+     "producer": "Gregoletto",
+     "country": "Italy",
+     "region": "Veneto",
+     "appellation": "Colli Trevigiani",
+     "grapes": [
+      "Merlot"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "<i>Col Fondo</i> “Numerosette” 2025 Colli Trevigiani MerlotGregoletto October Club Rouge ~ It’s like eating freshly picked blackberries and raspberries, only you add th."
+    },
+    {
+     "producer": "Domaine de la Cadette",
+     "country": "France",
+     "region": "Burgundy",
+     "appellation": "Bourgogne",
+     "grapes": [
+      "Pinot Noir"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "25 Colli Trevigiani Merlot 2025 Bourgogne Rouge “L’Ermitage”Domaine de la Cadette A beautiful Cadette rouge with a bit more structure and plenty of pleasure. $45.00 2025 Bourgogne <"
+    },
+    {
+     "producer": "Domaine Ostertag",
+     "country": "France",
+     "region": "Alsace",
+     "appellation": "",
+     "grapes": [
+      "Pinot Noir"
+     ],
+     "url": "https://shop.kermitlynch.com",
+     "quote": "ogne <i>Rouge</i> “L’Ermitage” 2025 Pinot Noir “Les Jardins”Domaine Ostertag The idea with this wine is vibrant fruitiness. An absolutely delicious Pi"
+    }
+   ],
+   "id": "4d0673c00d",
+   "name": "Kermit Lynch, Wine Merchant",
+   "type": "importer_distributor",
+   "state": "CA",
+   "city": "Berkeley",
+   "address": "830 CEDAR ST, BERKELEY, CA 94710",
+   "website": "https://kermitlynch.com",
+   "permits": [
+    {
+     "source": "TTB",
+     "number": "CA-I-16447",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-21694",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-2216",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-22286",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-22289",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-22788",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-22789",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-I-23548",
+     "kind": "importer"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-22890",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-22891",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-24174",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-24178",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-25121",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-25122",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-26304",
+     "kind": "wholesaler"
+    },
+    {
+     "source": "TTB",
+     "number": "CA-P-5084",
+     "kind": "wholesaler"
+    }
+   ],
+   "portfolio": [
+    "Thierry Germain (Loire), France",
+    "Domaine Roger Neveu (Loire), France",
+    "Pascal Janvier (Loire), France",
+    "Eric Chevalier (Loire), France",
+    "Régis Minet (Loire), France",
+    "Bernard Baudry (Loire), France",
+    "Domaine Michel Brégeon (Loire), France",
+    "Domaine Hippolyte Reverdy (Loire), France",
+    "Charles Joguet (Loire), France",
+    "Château d’Epiré (Loire), France",
+    "Domaine de la Tour du Bon (Bandol), France",
+    "M. & C. Lapierre (Vin de France), France",
+    "Albert Boxler (Alsace), France",
+    "Domaine de Fontsainte (Languedoc), France",
+    "Domaine de Durban (Beaumes-de-Venise), France",
+    "Sommariva (Veneto), Italy",
+    "Guido Porro (Dolcetto d’Alba), Italy",
+    "Domaine Jolivet (Saint-Joseph), France",
+    "André & Michel Quenard (Crémant de Savoie), France",
+    "Lionel Faury (Collines Rhodaniennes), France",
+    "Catherine & Pierre Breton (Vin de France), France",
+    "Henri Perrusset (Mâcon-Villages), France",
+    "La Marca di San Michele (Veneto), Italy",
+    "Gregoletto (Colli Trevigiani), Italy",
+    "Domaine de la Cadette (Bourgogne), France",
+    "Domaine Ostertag (Alsace), France"
+   ],
+   "fitScore": 0,
+   "tier": "C",
+   "signals": [
+    "-30 Loire saturated (10+ Loire producers already)",
+    "+10 Already imports from neighboring French regions",
+    "+10 Runs portfolio tastings or attends trade / natural wine fairs"
+   ],
+   "sources": [
+    {
+     "url": "https://kermitlynch.com/region/loire",
+     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\""
+    },
+    {
+     "url": "https://shop.kermitlynch.com",
+     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\""
+    },
+    {
+     "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
+     "title": "Kermit Lynch Wines, New & Current wines reviewed",
+     "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch"
+    },
+    {
+     "url": "https://kermitlynch.com/region/loire",
+     "snippet": "Producers listed: Thierry Germain (Loire); Domaine Roger Neveu (Loire); Pascal Janvier (Loire); Eric Chevalier (Loire); Régis Minet (Loire); Bernard Baudry (Loire); Domaine Michel Brégeon (Loire); Domaine Hippolyte Reverdy (Loire); Charles Joguet (Loire); Château d’Epiré (Loire)"
+    },
+    {
+     "url": "https://shop.kermitlynch.com",
+     "snippet": "Producers listed: Domaine de la Tour du Bon (Bandol); M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); Domaine de Fontsainte (Languedoc); Domaine de Durban (Beaumes-de-Venise); Sommariva (Veneto); Guido Porro (Dolcetto d’Alba); Domaine Jolivet (Saint-Joseph); André & Michel Quenard (Crémant de Savoie); Lionel Faury (Collines Rhodaniennes); Catherine & Pierre Breton (Vin de France); Henri Perrusset (Mâcon-Villages) (+4 more)"
+    }
+   ],
+   "stage": "matched",
+   "enriched": false,
+   "scoreBreakdown": [
+    {
+     "id": "neighbor_regions",
+     "label": "Already imports from neighboring French regions",
+     "points": 10,
+     "status": "fired",
+     "snippet": "6 producer(s) from neighboring regions — M. & C. Lapierre (Vin de France); Albert Boxler (Alsace); André & Michel Quenard (Crémant de Savoie); Henri Perrusset (Mâcon-Villages). Evidence: \"2025 Bandol Rosé 2025 Vin de France Rouge “Raisins Gaulois”M. & C. Lapierre France | Beaujolais $26.00 2025 Vin de France <i>Rouge</i> “Raisins Gaulois” 2022 Pinot Blanc Réser\"",
+     "url": "https://shop.kermitlynch.com"
+    },
+    {
+     "id": "tastings_fairs",
+     "label": "Runs portfolio tastings or attends trade / natural wine fairs",
+     "points": 10,
+     "status": "fired",
+     "snippet": "recent portfolio tasting offered by one of the pioneering, quality-oriented, importers in America; Kermit Lynch",
+     "url": "https://joelbutlermw.substack.com/p/kermit-lynch-wines-new-and-current",
+     "title": "Kermit Lynch Wines, New & Current wines reviewed"
+    },
+    {
+     "id": "grower_philosophy",
+     "label": "Small family / grower / low-intervention philosophy",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Source rule: auto-generated profile page (tavily.com) never counts as evidence. Evidence: purchasing wines direct from the domaines and focusing on small producers whose wines express the authentic style of their native region",
+     "url": "https://tavily.com/knowledge/company/OVD2bMckEubl",
+     "title": "Kermit Lynch Wine Merchant"
+    },
+    {
+     "id": "recent_or_hiring",
+     "label": "New permit, or hiring sales reps / expanding to new states",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "\"I’m #hiring for a new associate role in my department\" — not counted: LinkedIn profile activity is undated (never counts)",
+     "url": "https://www.linkedin.com/in/clarkzterry",
+     "title": "Clark Terry - Marketing Director at Kermit Lynch Wine Merchant"
+    },
+    {
+     "id": "price_match",
+     "label": "Shelf price range $25-55 matches",
+     "points": 0,
+     "status": "unknown",
+     "snippet": "Prices seen ($36) outside estimated shelf range $38-85",
+     "url": "https://shop.kermitlynch.com/wines"
+    },
+    {
+     "id": "loire_saturated",
+     "label": "Loire saturated (10+ Loire producers already)",
+     "points": -30,
+     "status": "fired",
+     "snippet": "11 Loire producers listed on kermitlynch.com. Evidence: \"ute and with whom we still work today. France Loire Growers Thierry Germain Loire, France Domaine Roger Neveu Loire, France Pascal Janvier Loire, France Eric Chevalier Loire,\"",
+     "url": "https://kermitlynch.com/region/loire"
+    },
+    {
+     "id": "price_estimate",
+     "label": "Estimated US shelf price $38-85",
+     "points": 0,
+     "status": "info",
+     "snippet": "Low: €9 × 1.08 = $9.72 → +15% tariff +$1.50 freight = $12.68 landed → importer ÷0.70 = $18.11 → distributor ÷0.72 = $25.15 → retailer ÷0.67 = $37.54. High: €22 × 1.08 = $23.76 → +15% tariff +$1.50 freight = $28.82 landed → importer ÷0.70 = $41.18 → distributor ÷0.72 = $57.19 → retailer ÷0.67 = $85.36. Assumptions (editable in signals.ts): EUR→USD exchange rate = 1.08; US tariff on EU wine, on ex-cellar value = 0.15; Freight, insurance & excise per bottle, USD = 1.5; Importer gross margin on its selling price = 0.3; Distributor gross margin on its selling price = 0.28; Retailer gross margin on shelf price = 0.33.",
+     "url": ""
+    },
+    {
+     "id": "coverage",
+     "label": "catalogue lu : 26/143",
+     "points": 0,
+     "status": "info",
+     "snippet": "26 producers read on 11 own-site pages; the site states 143; Loire region page read in full. Coverage LOW.",
+     "url": "https://kermitlynch.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://kermitlynch.com shows the TTB permit city (Berkeley) — permit \"KERMIT LYNCH, WINE MERCHANT\" (CA-I-16447, CA-I-21694, CA-I-2216, CA-I-22286, CA-I-22289, CA-I-22788, CA-I-22789, CA-I-23548, CA-P-22890, CA-P-22891, CA-P-24174, CA-P-24178, CA-P-25121, CA-P-25122, CA-P-26304, CA-P-5084, Berkeley)",
+     "url": "https://shop.kermitlynch.com/wine-clubs"
     }
    ]
   },
@@ -4877,6 +4770,14 @@
      "status": "info",
      "snippet": "3 producers read on 8 own-site pages. Coverage LOW: absence claims (no Touraine/Vouvray) are marked unknown unless a peer or CA shop page confirms.",
      "url": "https://www.thewinesourceinc.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match verified",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.thewinesourceinc.com shows the TTB permit city (Gardena) — permit \"THE WINE SOURCE INC.\" (CA-I-21110, CA-P-21316, Gardena)",
+     "url": "https://www.thewinesourceinc.com/domaine-chavet"
     }
    ]
   },
@@ -4989,42 +4890,6 @@
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "apet Alsace Beaujolais + Antoine Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos d"
-    },
-    {
-     "producer": "Chteau Falfas",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "ne Sunier + Dominique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chabli"
-    },
-    {
-     "producer": "Chteau Milon",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "nique Piron + Jean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Dom"
-    },
-    {
-     "producer": "Chteau Peyredon Lagravette",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "ean-Claude Lapalu Bordeaux + Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Je"
-    },
-    {
-     "producer": "Chteau Sainte-Marie",
-     "country": "France",
-     "region": "Bordeaux",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "Chteau Falfas + Chteau Milon + Chteau Peyredon Lagravette + Chteau Sainte-Marie + Clos de la Cure Burgundy Chablis/Auxerre + Domaine Hervé Azo + Guilhem & Jean-Hugues Goisot + Le"
     },
     {
      "producer": "Clos de la Cure",
@@ -5187,15 +5052,6 @@
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "Lienhardt + Domaine Confuron-Cotetidot + Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet"
-    },
-    {
-     "producer": "Chteau des Quarts",
-     "country": "France",
-     "region": "Burgundy",
-     "appellation": "Mâconnais",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "+ Domaine Duroché + Domaine Trapet Père et Fils Maconnais + Chteau des Quarts + Domaine Manciat-Poncet + Heritiers du Comte Lafon + Nicolas Maillet Champagne Coteaux Sud d'Épern"
     },
     {
      "producer": "Domaine Manciat-Poncet",
@@ -5556,24 +5412,6 @@
      "grapes": [],
      "url": "https://www.beauneimports.com/producers",
      "quote": "e de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des E"
-    },
-    {
-     "producer": "Chteau de Montmirail",
-     "country": "France",
-     "region": "Rhône & Provence",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "iet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domain"
-    },
-    {
-     "producer": "Chteau la Canorgue",
-     "country": "France",
-     "region": "Rhône & Provence",
-     "appellation": "",
-     "grapes": [],
-     "url": "https://www.beauneimports.com/producers",
-     "quote": "omaine du Bel Air Rhône & Provence + Chteau de Montmirail + Chteau la Canorgue + Domaine de Trévallon + Domaine des Entrefaux + Domaine Verset A & E + Domaine Verzier + La Cabott"
     },
     {
      "producer": "Domaine de Trévallon",
@@ -6232,10 +6070,6 @@
     "Antoine Sunier (Beaujolais), France",
     "Dominique Piron (Beaujolais), France",
     "Jean-Claude Lapalu (Beaujolais), France",
-    "Chteau Falfas (Bordeaux), France",
-    "Chteau Milon (Bordeaux), France",
-    "Chteau Peyredon Lagravette (Bordeaux), France",
-    "Chteau Sainte-Marie (Bordeaux), France",
     "Clos de la Cure (Bordeaux), France",
     "Domaine Hervé Azo (Chablis/Auxerre), France",
     "Guilhem & Jean-Hugues Goisot (Chablis/Auxerre), France",
@@ -6254,7 +6088,6 @@
     "Domaine Confuron-Cotetidot (Côte de Nuits), France",
     "Domaine Duroché (Côte de Nuits), France",
     "Domaine Trapet Père et Fils (Côte de Nuits), France",
-    "Chteau des Quarts (Mâconnais), France",
     "Domaine Manciat-Poncet (Mâconnais), France",
     "Heritiers du Comte Lafon (Mâconnais), France",
     "Nicolas Maillet (Mâconnais), France",
@@ -6293,8 +6126,6 @@
     "François Chidaine (Touraine), France",
     "Philippe Alliet (Chinon), France",
     "Pierre Gauthier/Domaine du Bel Air (Touraine), France",
-    "Chteau de Montmirail (Rhône & Provence), France",
-    "Chteau la Canorgue (Rhône & Provence), France",
     "Domaine de Trévallon (Rhône & Provence), France",
     "Domaine des Entrefaux (Rhône & Provence), France",
     "Domaine Verset A & E (Rhône & Provence), France",
@@ -6384,11 +6215,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "42 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
-    },
-    {
-     "url": "https://www.beauneimports.com/product/vouvray-sec",
-     "snippet": "Direct peer Domaine de la Fontainerie (beauneimports.com): \"t • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050. Domaine de la Fontainerie, 2023 Vouvray Sec. Producer. Domaine de la Fontainerie\""
+     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\""
     },
     {
      "url": "https://www.beauneimports.com/about",
@@ -6410,7 +6237,7 @@
     },
     {
      "url": "https://www.beauneimports.com/producers",
-     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+122 more)"
+     "snippet": "Producers listed: Weinkultur Preiss (Traisental); Weingut Donabaum (Wachau); Eye Cyder (California); Hanabi Lager (California); Susurrus Sparkling Teas (California); eclectik (Burgundy); Eric Bordelet (Normandy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais); Dominique Piron (Beaujolais); Jean-Claude Lapalu (Beaujolais) (+115 more)"
     },
     {
      "url": "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
@@ -6455,7 +6282,7 @@
      "label": "Already imports from neighboring French regions",
      "points": 10,
      "status": "fired",
-     "snippet": "42 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\"",
+     "snippet": "41 producer(s) from neighboring regions — eclectik (Burgundy); Domaine Roland Schmitt (Alsace); Domaine Trapet Alsace (Alsace); Antoine Sunier (Beaujolais). Evidence: \"Hanabi Lager + Susurrus Sparkling Teas France - Burgundy + eclectik France - Normandy + Eric Bordelet ## France Alsace + Domaine Roland Schmitt + Domaine Trapet Alsace\"",
      "url": "https://www.beauneimports.com/producers"
     },
     {
@@ -6500,10 +6327,18 @@
     },
     {
      "id": "coverage",
-     "label": "catalogue lu : 143 producteurs, 12 pages (total non indiqué)",
+     "label": "catalogue lu : 136 producteurs, 12 pages (total non indiqué)",
      "points": 0,
      "status": "info",
-     "snippet": "143 producers read on 12 own-site pages. Coverage OK.",
+     "snippet": "136 producers read on 12 own-site pages. Coverage OK.",
+     "url": "https://www.beauneimports.com"
+    },
+    {
+     "id": "permit_match",
+     "label": "Permit match unverified — capped at tier C",
+     "points": 0,
+     "status": "info",
+     "snippet": "https://www.beauneimports.com shows neither the TTB permit city (Berkeley) nor the holder name \"LE POIL INC\" on the 12 own-site page(s) read",
      "url": "https://www.beauneimports.com"
     }
    ]

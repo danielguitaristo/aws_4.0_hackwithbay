@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own website, listing a product they import."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own website, listing their producers."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own website, listing their producers by region."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own website, referencing their imported product."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own 'About' page, describing the company."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Beaune Imports' own 'About' page, describing the company."
+ }
+]
