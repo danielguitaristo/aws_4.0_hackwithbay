@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { CaliforniaMap } from "@/components/CaliforniaMap";
+import { StateMap } from "@/components/UsMap";
 import { Headline, Logo } from "@/components/ui";
 import { useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
@@ -25,7 +25,7 @@ export default function SignIn() {
       <section className="flex min-h-[45vh] flex-col justify-between gap-8 bg-sand p-6 sm:p-10">
         <Logo size="text-2xl" />
         <div className="w-1/2 max-w-60 opacity-60">
-          <CaliforniaMap leads={MOCK_LEADS.slice(0, 3)} />
+          <StateMap state="CA" leads={MOCK_LEADS.slice(0, 3)} />
         </div>
         <Headline lead="Find the US importer" tail="made for your wine." className="max-w-md" />
       </section>

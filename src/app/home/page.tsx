@@ -3,11 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Headline, Page, SEARCH_STEP_NAMES } from "@/components/ui";
-import { firstNameOf, lastTouch, OTHER_STATE, useApp } from "@/lib/app-state";
+import { STATE_NAMES } from "@/components/UsMap";
+import { firstNameOf, lastTouch, stateOf, useApp } from "@/lib/app-state";
+import { stateInText } from "@/lib/places";
 
 export default function Home() {
   const router = useRouter();
-  const { leads, letters, events, replies, icp, draft, weekLater, ready, lastSearch, checkReplies } = useApp();
+  const { leads, letters, events, replies, icp, draft, weekLater, ready, lastSearch, checkReplies, updateIcp } = useApp();
 
   // Real Gmail: look for replies when Home opens, then every 30 seconds while it stays open.
   useEffect(() => {
@@ -35,7 +37,8 @@ export default function Home() {
     return t && t.days >= 7;
   });
   const sent = letters.filter((l) => l.status === "sent").length;
-  const found = leads.filter((l) => l.stage !== "lost").length;
+  // One row per state searched so far (the current one first).
+  const searchStates = [...new Set([stateOf(icp), ...leads.map((l) => l.state || "CA")])];
   const top = replied[0];
 
   const write = async (leadId: string, kind: "reply" | "follow_up") => {
@@ -81,17 +84,30 @@ export default function Home() {
         <span className="caps">Your searches</span>
         <Link href="/search/target" className="caps underline hover:text-ink">New search</Link>
       </div>
-      <Link href={lastSearch} className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-rule py-4 hover:text-wine">
-        <span className="font-serif text-xl">California importers</span>
-        <span className="note">
-          {sent > 0 ? `${found} found · ${sent} letter${sent === 1 ? "" : "s"} sent` : `Stopped at ${SEARCH_STEP_NAMES[lastSearch] ?? "Target"} · `}
-          {sent === 0 && <span className="caps not-italic underline">Resume</span>}
-        </span>
-      </Link>
+      {searchStates.map((st) => {
+        const inState = leads.filter((l) => (l.state || "CA") === st && l.stage !== "lost");
+        const sentHere = letters.filter((l) => l.status === "sent" && inState.some((x) => x.id === l.leadId)).length;
+        const current = st === stateOf(icp);
+        return (
+          <Link key={st} href={current ? lastSearch : "/search/target"} onClick={() => !current && updateIcp({ states: [st], metros: [] })} className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-rule py-4 hover:text-wine">
+            <span className="font-serif text-xl">{STATE_NAMES[st]} importers</span>
+            <span className="note">
+              {sentHere > 0 || !current ? `${inState.length} found · ${sentHere} letter${sentHere === 1 ? "" : "s"} sent` : `Stopped at ${SEARCH_STEP_NAMES[lastSearch] ?? "Target"} · `}
+              {sentHere === 0 && current && <span className="caps not-italic underline">Resume</span>}
+            </span>
+          </Link>
+        );
+      })}
       {nextSearch && (
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 border-y border-rule py-4">
           <span className="font-serif text-xl text-taupe">{nextSearch.segment}</span>
-          {OTHER_STATE.test(nextSearch.segment) ? <em className="note text-sm">coming next</em> : <Link href="/search/target" className="caps underline hover:text-ink">Start</Link>}
+          <Link
+            href="/search/target"
+            onClick={() => { const st = stateInText(nextSearch.segment); if (st) updateIcp({ states: [st], metros: [] }); }}
+            className="caps underline hover:text-ink"
+          >
+            {stateInText(nextSearch.segment) ? `Search ${STATE_NAMES[stateInText(nextSearch.segment)!]}` : "Start"}
+          </Link>
         </div>
       )}
     </Page>

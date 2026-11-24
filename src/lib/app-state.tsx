@@ -61,15 +61,15 @@ async function call<T>(url: string, method = "GET", body?: unknown): Promise<{ o
 }
 const fire = (url: string, method: string, body: unknown) => void call(url, method, body);
 
+/** The state being searched (California first). */
+export const stateOf = (icp: ICP | null) => (icp?.states?.[0] ?? "CA").toUpperCase();
+
 /** A contact's first name, or undefined when the "name" is really a role ("Portfolio Buyer", "Owner"). */
 export function firstNameOf(lead: Lead): string | undefined {
   const name = lead.contact?.name ?? "";
   if (!name || /buyer|owner|team|portfolio|director|founder|info|contact|manager/i.test(name)) return undefined;
   return name.split(" ")[0];
 }
-
-/** Segments outside California can't be searched yet (California first). */
-export const OTHER_STATE = /new york|texas|illinois|florida|oregon|washington|belgium|denmark|europe|export/i;
 
 /** The single best reason this importer fits: A's top positive score line, else a cleaned signal. */
 export function reasonOf(lead: Lead): string | undefined {
@@ -157,17 +157,25 @@ function useAppState() {
   const discover = useCallback(async () => {
     setSearching(true);
     const started = Date.now();
-    const found = await post<Lead[]>("/api/discover", s.icp ?? FALLBACK_ICP);
-    const leads = found && found.length ? found : MOCK_LEADS;
+    const icp = s.icp ?? FALLBACK_ICP;
+    const state = stateOf(icp);
+    const found = await post<Lead[]>("/api/discover", icp);
+    const leads = found && found.length ? found : state === "CA" ? MOCK_LEADS : [];
     // keep the progress visible long enough to read in the demo
     await new Promise((r) => setTimeout(r, Math.max(0, 6000 - (Date.now() - started))));
-    const matched = leads.map((l) => ({ ...l, stage: "matched" as Stage }));
-    setS((st) => ({ ...st, leads: matched }));
+    const matched = leads.map((l) => ({ ...l, state: l.state || state, stage: "matched" as Stage }));
+    // Add this state's importers without wiping other states; relationships already in progress keep their stage.
+    setS((st) => {
+      const old = new Map(st.leads.map((l) => [l.id, l]));
+      const merged = matched.map((m) => (old.get(m.id) && old.get(m.id)!.stage !== "matched" ? old.get(m.id)! : m));
+      const ids = new Set(merged.map((m) => m.id));
+      return { ...st, leads: [...st.leads.filter((l) => !ids.has(l.id)), ...merged] };
+    });
     setSearching(false);
     // Hand the leads to B (store + knowledge graph), then keep the graph's multi-hop insights.
     await call("/api/leads", "POST", { action: "ingest", leads: matched, domaine: s.domaine });
     const g = await call<{ appellationGaps?: { leadId: string; reason: string }[] }>("/api/graph?charge=false");
-    if (g.data?.appellationGaps?.length) setS((st) => ({ ...st, graph: Object.fromEntries(g.data!.appellationGaps!.map((x) => [x.leadId, x.reason])) }));
+    if (g.data?.appellationGaps?.length) setS((st) => ({ ...st, graph: { ...st.graph, ...Object.fromEntries(g.data!.appellationGaps!.map((x) => [x.leadId, x.reason])) } }));
   }, [s.icp, s.domaine]);
 
   /** B's Hunter enrichment (metered by Flexprice). Returns "credits" when the balance is too low. */
