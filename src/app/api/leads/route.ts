@@ -105,8 +105,10 @@ export async function POST(req: Request) {
       }
       const incoming = Array.isArray(body.leads) ? body.leads : [];
       const saved = upsertLeads(incoming);
-      await syncStateToNeo4j(getDomaine(), listLeads(), listMessages());
-      addThought("planner", `Ingested ${saved.length} buyer leads into pipeline and synced to knowledge graph.`);
+      void syncStateToNeo4j(getDomaine(), listLeads(), listMessages()).catch((err) => {
+        console.warn("[api/leads] background Neo4j sync failed:", err);
+      });
+      addThought("planner", `Ingested ${saved.length} buyer leads into pipeline and queued knowledge graph sync.`);
 
       return NextResponse.json({
         leads: listLeads(),
@@ -132,7 +134,9 @@ export async function POST(req: Request) {
         );
       }
 
-      await syncStateToNeo4j(getDomaine(), listLeads(), listMessages());
+      void syncStateToNeo4j(getDomaine(), listLeads(), listMessages()).catch((err) => {
+        console.warn("[api/leads] background Neo4j sync failed:", err);
+      });
       return NextResponse.json({
         lead: result.lead,
         source: result.source,

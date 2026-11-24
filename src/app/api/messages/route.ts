@@ -181,8 +181,10 @@ export async function POST(req: Request) {
         channel: existing.channel,
       });
 
-      await syncStateToNeo4j(getDomaine(), listLeads(), listMessages());
-      addThought("writer", `Sent approved ${existing.channel} message ${existing.id} and updated graph.`);
+      void syncStateToNeo4j(getDomaine(), listLeads(), listMessages()).catch((err) => {
+        console.warn("[api/messages] background Neo4j sync failed:", err);
+      });
+      addThought("writer", `Sent approved ${existing.channel} message ${existing.id} and queued graph update.`);
 
       return NextResponse.json({
         message: updated,

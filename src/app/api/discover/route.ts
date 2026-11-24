@@ -19,7 +19,7 @@ interface CachedRun {
   leads: ScoredLead[];
 }
 
-async function persistAndReply(
+function persistAndReply(
   leads: ScoredLead[],
   mode: "live" | "cache" | "cache-latest" | "empty",
   reason = "",
@@ -27,7 +27,9 @@ async function persistAndReply(
 ) {
   if (leads.length > 0) {
     upsertLeads(leads);
-    await syncStateToNeo4j(getDomaine(), listLeads(), listMessages());
+    void syncStateToNeo4j(getDomaine(), listLeads(), listMessages()).catch((err) => {
+      console.warn("[api/discover] background Neo4j sync failed:", err);
+    });
   }
   return NextResponse.json(leads, { status, headers: { "x-mode": mode, "x-reason": reason } });
 }
