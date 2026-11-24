@@ -153,6 +153,7 @@ const PACK = { credits: 200, price: 20 };
 /** Shown when an action costs more than the balance: top up in place, then the action runs. */
 export function TopUpDialog({ need, action, onDone, onClose }: { need: number; action: string; onDone: () => void; onClose: () => void }) {
   const { credits, topUp } = useApp();
+  const [busy, setBusy] = useState(false);
   return (
     <Dialog onClose={onClose}>
       <h2 className="headline text-3xl">
@@ -163,7 +164,9 @@ export function TopUpDialog({ need, action, onDone, onClose }: { need: number; a
       </p>
       <div className="mt-6 flex items-center justify-between gap-4">
         <button className="caps hover:text-ink" onClick={onClose}>Not now</button>
-        <button className="btn" onClick={() => { topUp(PACK.credits); onDone(); }}>Add {PACK.credits} credits</button>
+        <button className="btn" disabled={busy} onClick={async () => { setBusy(true); await topUp(PACK.credits); onDone(); }}>
+          {busy ? "Adding…" : `Add ${PACK.credits} credits`}
+        </button>
       </div>
     </Dialog>
   );

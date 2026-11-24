@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Back, GmailDialog, Headline, Page, TopUpDialog } from "@/components/ui";
-import { COST, hookOf, useApp } from "@/lib/app-state";
+import { COST, CREDITS, hookOf, useApp } from "@/lib/app-state";
 
 const AFTER_GMAIL = "millesime-send-after-gmail";
 const NUM =["No letters", "One letter", "Two letters", "Three letters", "Four letters", "Five letters"];
@@ -43,6 +43,7 @@ export default function Letters() {
     setError(null);
     const err = await sendLetter(id);
     setBusy(false);
+    if (err === CREDITS) return setAsk("credits");
     if (err) return setError(err);
     setSelected(undefined);
     setEditing(false);

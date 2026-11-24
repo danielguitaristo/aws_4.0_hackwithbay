@@ -42,7 +42,14 @@ function Searching() {
 
 export default function Importers() {
   const app = useApp();
-  const { leads, letters, searching, discover, findContact, draft, moveStage, credits, ready } = app;
+  const { leads, letters, searching, discover, findContact, draft, moveStage, credits, ready, graph } = app;
+  const [finding, setFinding] = useState(false);
+  const find = async (id: string) => {
+    if (credits < COST.contact) return setTopUp(true);
+    setFinding(true);
+    if ((await findContact(id)) === "credits") setTopUp(true);
+    setFinding(false);
+  };
   const started = useRef(false);
   const [selected, setSelected] = useState<string>();
   const [why, setWhy] = useState(false);
@@ -66,7 +73,9 @@ export default function Importers() {
   if (searching || !ranked.length) return <Page step={2}><Searching /></Page>;
 
   const good = ranked.filter((l) => l.tier !== "C").length;
-  const first = sel.contact?.name?.split(" ")[0];
+  // "Portfolio Buyer" or "Owner" is a role, not a person: don't pretend to know their first name.
+  const generic = /buyer|owner|team|portfolio|director|founder|info|contact/i.test(sel.contact?.name ?? "");
+  const first = generic ? undefined : sel.contact?.name?.split(" ")[0];
   const hasEmail = !!sel.contact?.email;
 
   return (
@@ -90,6 +99,7 @@ export default function Importers() {
                 </p>
                 {why && (
                   <div className="mt-3 space-y-3 border-l border-rule pl-4 text-sm text-taupe">
+                    {graph[l.id] && <p className="text-ink"><span className="caps">Graph ·</span> {graph[l.id]}</p>}
                     {l.scoreBreakdown?.length ? (
                       l.scoreBreakdown
                         .filter((s) => s.status === "fired")
@@ -114,10 +124,10 @@ export default function Importers() {
                   {drafted(l.id) ? (
                     <Link href="/search/letters" className="caps text-wine underline">Letter ready · review</Link>
                   ) : hasEmail ? (
-                    <button className="btn" onClick={() => draft(l.id)}>Write to {first ?? "them"}</button>
+                    <button className="btn" onClick={() => draft(l.id)}>{first ? `Write to ${first}` : "Write a letter"}</button>
                   ) : (
-                    <button className="btn" onClick={() => (credits < COST.contact ? setTopUp(true) : findContact(l.id))}>
-                      Find contact · {COST.contact} credits
+                    <button className="btn" disabled={finding} onClick={() => find(l.id)}>
+                      {finding ? "Finding the right person…" : `Find contact · ${COST.contact} credits`}
                     </button>
                   )}
                   <button className="text-xs text-taupe hover:text-ink" onClick={() => moveStage(l.id, "lost")}>Not for me</button>
@@ -145,7 +155,7 @@ export default function Importers() {
         {pending > 0 && <Link href="/search/letters" className="caps text-wine underline">Review {pending} letter{pending > 1 ? "s" : ""} ›</Link>}
       </div>
       {topUp && (
-        <TopUpDialog need={COST.contact} action="Finding a contact" onClose={() => setTopUp(false)} onDone={() => { findContact(sel.id); setTopUp(false); }} />
+        <TopUpDialog need={COST.contact} action="Finding a contact" onClose={() => setTopUp(false)} onDone={() => { setTopUp(false); find(sel.id); }} />
       )}
     </Page>
   );

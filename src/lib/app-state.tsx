@@ -9,6 +9,8 @@ import type { Actor, Domaine, ICP, Lead, LeadEvent, Message, Stage } from "./typ
 export type Letter = Message & { bodyFr?: string; kind?: "intro" | "follow_up" | "reply"; to?: string; threadId?: string };
 
 export const COST = { contact: 5, send: 2 } as const;
+/** sendLetter() returns this when the balance can't cover the send. */
+export const CREDITS = "__credits__";
 
 interface State {
   domaine: Domaine;
@@ -22,6 +24,7 @@ interface State {
   lastSearch: string; // last search step Claire was on, for "Resume"
   gmail: boolean; // Gmail connected for sending (asked at first send, not at sign-in)
   gmailEmail?: string;
+  graph: Record<string, string>; // leadId -> multi-hop insight from B's knowledge graph
 }
 
 const initial: State = {
@@ -35,6 +38,7 @@ const initial: State = {
   replies: {},
   lastSearch: "/search/target",
   gmail: false,
+  graph: {},
 };
 
 const KEY = "millesime-state-v1";
@@ -42,14 +46,20 @@ const uid = () => Math.random().toString(36).slice(2, 10);
 const now = () => new Date().toISOString();
 
 async function post<T>(url: string, body: unknown): Promise<T | null> {
+  return (await call<T>(url, "POST", body)).data;
+}
+
+/** fetch wrapper that never throws: { ok, status, data } (data is null on failure). */
+async function call<T>(url: string, method = "GET", body?: unknown): Promise<{ ok: boolean; status: number; data: T | null }> {
   try {
-    const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
-    if (!res.ok) return null;
-    return (await res.json()) as T;
+    const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) });
+    const data = (await res.json().catch(() => null)) as T | null;
+    return { ok: res.ok, status: res.status, data: res.ok ? data : null };
   } catch {
-    return null;
+    return { ok: false, status: 0, data: null };
   }
 }
+const fire = (url: string, method: string, body: unknown) => void call(url, method, body);
 
 /** The single best reason this importer fits: A's top positive score line, else a cleaned signal. */
 export function reasonOf(lead: Lead): string | undefined {
@@ -97,6 +107,13 @@ function useAppState() {
         setS((x) => ({ ...x, gmail: st.connected, gmailEmail: st.email }));
       })
       .catch(() => {});
+    syncCredits();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  /** Credits come from B's billing (Flexprice) when it answers; the local counter is the fallback. */
+  const syncCredits = useCallback(async () => {
+    const r = await call<{ creditsRemaining: number }>("/api/billing");
+    if (r.data && typeof r.data.creditsRemaining === "number") setS((x) => ({ ...x, credits: r.data!.creditsRemaining }));
   }, []);
   useEffect(() => {
     if (!ready) return;
@@ -127,14 +144,29 @@ function useAppState() {
     const leads = found && found.length ? found : MOCK_LEADS;
     // keep the progress visible long enough to read in the demo
     await new Promise((r) => setTimeout(r, Math.max(0, 6000 - (Date.now() - started))));
-    setS((st) => ({ ...st, leads: leads.map((l) => ({ ...l, stage: "matched" as Stage })) }));
+    const matched = leads.map((l) => ({ ...l, stage: "matched" as Stage }));
+    setS((st) => ({ ...st, leads: matched }));
     setSearching(false);
-  }, [s.icp]);
+    // Hand the leads to B (store + knowledge graph), then keep the graph's multi-hop insights.
+    await call("/api/leads", "POST", { action: "ingest", leads: matched, domaine: s.domaine });
+    const g = await call<{ appellationGaps?: { leadId: string; reason: string }[] }>("/api/graph?charge=false");
+    if (g.data?.appellationGaps?.length) setS((st) => ({ ...st, graph: Object.fromEntries(g.data!.appellationGaps!.map((x) => [x.leadId, x.reason])) }));
+  }, [s.icp, s.domaine]);
 
-  const findContact = useCallback((leadId: string) => {
+  /** B's Hunter enrichment (metered by Flexprice). Returns "credits" when the balance is too low. */
+  const findContact = useCallback(async (leadId: string): Promise<"ok" | "credits"> => {
+    const r = await call<{ lead: Lead }>("/api/leads", "POST", { action: "enrich", leadId });
+    if (r.status === 402) return "credits";
+    if (r.data?.lead?.contact?.email) {
+      const enriched = r.data.lead;
+      setS((st) => ({ ...st, leads: st.leads.map((l) => (l.id === leadId ? { ...l, enriched: true, contact: enriched.contact } : l)), events: log(st, leadId, "enriched", "agent") }));
+      syncCredits();
+      return "ok";
+    }
+    if (s.credits < COST.contact) return "credits";
     setS((st) => {
       if (st.credits < COST.contact) return st;
-      // Demo fallback until B's enrichment route exists: keep a known name, fill the missing email.
+      // Fallback when B's enrichment finds nothing: keep a known name, fill a likely email.
       const leads = st.leads.map((l) => {
         if (l.id !== leadId) return l;
         const domain = l.website?.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] ?? `${l.name.toLowerCase().replace(/[^a-z0-9]+/g, "")}.com`;
@@ -144,14 +176,16 @@ function useAppState() {
       });
       return { ...st, leads, credits: st.credits - COST.contact, events: log(st, leadId, "enriched", "agent") };
     });
-  }, []);
+    return "ok";
+  }, [s.credits, syncCredits]);
 
   const draft = useCallback(async (leadId: string, kind: Letter["kind"] = "intro") => {
     const lead = s.leads.find((l) => l.id === leadId);
     if (!lead) return;
     const variant = s.letters.filter((l) => l.kind === "intro").length % 2 ? "B" : "A";
-    const fromApi = await post<Message>(`/api/leads/${leadId}/draft`, { channel: "email", variant });
-    const base = fromApi ?? { id: uid(), leadId, channel: "email" as const, variant, status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine, variant) };
+    // B's Mistral draft (intro letters only); local template as fallback.
+    const fromApi = kind === "intro" ? (await post<{ message: Message }>("/api/messages", { action: "draft", leadId, channel: "email", variant, graphReason: s.graph[leadId] }))?.message : null;
+    const base = fromApi ??{ id: uid(), leadId, channel: "email" as const, variant, status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine, variant) };
     const letter: Letter =
       kind === "follow_up"
         ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
@@ -159,9 +193,10 @@ function useAppState() {
           ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nWonderful, thank you. I'll ship two bottles this week, one Vouvray sec and one pétillant. Could you share the address and the best name to put on the parcel?\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Merci beaucoup. J'envoie deux bouteilles cette semaine, un Vouvray sec et un pétillant. Pouvez-vous m'indiquer l'adresse et le nom à mettre sur le colis ?" }
           : { ...base, kind };
     setS((st) => ({ ...st, letters: [...st.letters.filter((x) => !(x.leadId === leadId && x.status === "pending")), letter], events: log(st, leadId, "drafted", "agent") }));
-  }, [s.leads, s.domaine]);
+  }, [s.leads, s.domaine, s.letters, s.graph]);
 
   const editLetter = useCallback((id: string, patch: Partial<Letter>) => {
+    fire("/api/messages", "POST", { action: "edit", messageId: id, subject: patch.subject, body: patch.body });
     setS((st) => ({ ...st, letters: st.letters.map((l) => (l.id === id ? { ...l, ...patch, bodyFr: patch.body ? undefined : l.bodyFr } : l)), events: log(st, st.letters.find((l) => l.id === id)!.leadId, "edited", "rep") }));
   }, []);
 
@@ -182,8 +217,14 @@ function useAppState() {
       const letter = s.letters.find((l) => l.id === id);
       const lead = letter && s.leads.find((l) => l.id === letter.leadId);
       if (!letter || !lead) return "Letter not found";
+      // B's HITL gate: record the human approval, then the send (metered by Flexprice).
+      // 404 means the letter only exists locally (fallback draft) — carry on.
+      await call("/api/messages", "POST", { action: "approve", messageId: id, subject: letter.subject, body: letter.body });
+      const b = await call("/api/messages", "POST", { action: "send", messageId: id });
+      if (b.status === 402) return CREDITS;
       if (!gmailReal) {
         approve(id);
+        syncCredits();
         return null;
       }
       const to = letter.to ?? lead.contact?.email;
@@ -195,12 +236,13 @@ function useAppState() {
         const data = await res.json();
         if (!res.ok) return data.error ?? "Gmail refused the letter.";
         approve(id, { threadId: data.threadId, to: data.to });
+        syncCredits();
         return null;
       } catch {
         return "Couldn't reach Gmail. Try again.";
       }
     },
-    [s.letters, s.leads, gmailReal, approve],
+    [s.letters, s.leads, gmailReal, approve, syncCredits],
   );
 
   /** Looks for replies in the Gmail threads of sent letters and moves those leads to "replied". */
@@ -225,10 +267,12 @@ function useAppState() {
   }, [s.letters, s.gmail, gmailReal]);
 
   const skip = useCallback((id: string) => {
+    fire("/api/messages", "POST", { action: "reject", messageId: id });
     setS((st) => ({ ...st, letters: st.letters.map((l) => (l.id === id ? { ...l, status: "rejected" } : l)), events: log(st, st.letters.find((l) => l.id === id)!.leadId, "rejected", "rep") }));
   }, []);
 
   const moveStage = useCallback((leadId: string, stage: Stage, actor: Actor = "rep") => {
+    fire("/api/leads", "PATCH", { leadId, stage, actor });
     setS((st) => ({ ...st, leads: st.leads.map((l) => (l.id === leadId ? { ...l, stage } : l)), events: log(st, leadId, "stage", actor, { stage }) }));
   }, []);
 
@@ -243,7 +287,12 @@ function useAppState() {
 
   const finishOnboarding = useCallback(() => setS((st) => ({ ...st, onboarded: true })), []);
   const rememberSearch = useCallback((path: string) => setS((st) => (st.lastSearch === path ? st : { ...st, lastSearch: path })), []);
-  const topUp = useCallback((n: number) => setS((st) => ({ ...st, credits: st.credits + n })), []);
+  /** Top-up through B's billing (Flexprice wallet); the local counter moves at once so the UI never waits. */
+  const topUp = useCallback(async (n: number) => {
+    setS((st) => ({ ...st, credits: st.credits + n }));
+    await call("/api/billing", "POST", { action: "topup", amount: n });
+    await syncCredits();
+  }, [syncCredits]);
   /** Real Google consent when keys are set (the page leaves, returns with ?gmail=connected), simulated otherwise.
    *  Resolves true when connected right away, false when redirecting to Google. */
   const connectGmail = useCallback(async () => {
