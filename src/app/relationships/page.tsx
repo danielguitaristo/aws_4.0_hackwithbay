@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 import { Headline, Page } from "@/components/ui";
 import { lastTouch, useApp } from "@/lib/app-state";
@@ -79,7 +80,13 @@ export default function Relationships() {
           );
         })}
       </div>
-      {active.length > 0 && <p className="note mt-8 text-lg">{replied}% replied. <span className="caps not-italic">Drag a card to move it</span></p>}
+      {active.length > 0 && (
+        <p className="note mt-8 text-lg">
+          {replied}% replied.{" "}
+          <Link href="/results" className="caps not-italic underline hover:text-ink">See results</Link>
+          <span className="caps ml-6 not-italic">Drag a card to move it</span>
+        </p>
+      )}
     </Page>
   );
 }

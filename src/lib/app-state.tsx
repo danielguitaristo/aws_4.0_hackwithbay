@@ -46,13 +46,15 @@ async function post<T>(url: string, body: unknown): Promise<T | null> {
   }
 }
 
-function draftFor(lead: Lead, d: Domaine): Pick<Letter, "subject" | "body" | "bodyFr"> {
+function draftFor(lead: Lead, d: Domaine, variant: string): Pick<Letter, "subject" | "body" | "bodyFr"> {
   const first = lead.contact?.name?.split(" ")[0] ?? "there";
   const hook = lead.signals[0] ?? `I came across ${lead.name} while looking for importers who love small growers`;
   const signature = `Claire Martin\n${d.name}`;
+  const estate = `We're a small organic estate in ${d.region.split("(")[1]?.replace(")", "") ?? d.region} making mineral ${d.grapes[0]}, still and sparkling, and we're looking for our first US partner.`;
   return {
     subject: `Organic ${d.appellations[1] ?? d.appellations[0]} for ${lead.name}?`,
-    body: `Hi ${first},\n\n${hook}. We're a small organic estate in ${d.region.split("(")[1]?.replace(")", "") ?? d.region} making mineral ${d.grapes[0]}, still and sparkling, and we're looking for our first US partner.\n\nCould I send you two sample bottles?\n\n${signature}`,
+    // A leads with the importer's signal, B leads with the estate's story — compared on the Results page.
+    body: variant === "B" ? `Hi ${first},\n\n${estate} ${hook}.\n\nCould I send you two sample bottles?\n\n${signature}` : `Hi ${first},\n\n${hook}. ${estate}\n\nCould I send you two sample bottles?\n\n${signature}`,
     bodyFr: `Bonjour ${first},\n\n(${hook}.) Nous sommes un petit domaine bio qui produit du ${d.grapes[0]} minéral, tranquille et effervescent, et nous cherchons notre premier partenaire aux États-Unis.\n\nPuis-je vous envoyer deux bouteilles à déguster ?\n\n${signature}`,
   };
 }
@@ -117,8 +119,9 @@ function useAppState() {
   const draft = useCallback(async (leadId: string, kind: Letter["kind"] = "intro") => {
     const lead = s.leads.find((l) => l.id === leadId);
     if (!lead) return;
-    const fromApi = await post<Message>(`/api/leads/${leadId}/draft`, { channel: "email", variant: "A" });
-    const base = fromApi ?? { id: uid(), leadId, channel: "email" as const, variant: "A", status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine) };
+    const variant = s.letters.filter((l) => l.kind === "intro").length % 2 ? "B" : "A";
+    const fromApi = await post<Message>(`/api/leads/${leadId}/draft`, { channel: "email", variant });
+    const base = fromApi ?? { id: uid(), leadId, channel: "email" as const, variant, status: "pending" as const, createdAt: now(), ...draftFor(lead, s.domaine, variant) };
     const letter: Letter =
       kind === "follow_up"
         ? { ...base, kind, subject: `Re: ${base.subject}`, body: `Hi ${lead.contact?.name?.split(" ")[0] ?? "there"},\n\nJust following up on my note last week. Happy to send two bottles whenever suits you.\n\nClaire Martin\n${s.domaine.name}`, bodyFr: "Petite relance de mon message de la semaine dernière. Je peux vous envoyer deux bouteilles quand vous voulez." }
