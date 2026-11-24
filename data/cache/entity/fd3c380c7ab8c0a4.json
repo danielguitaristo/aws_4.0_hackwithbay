@@ -1,0 +1,22 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Cru Wines' own portfolio page, listing wines they import."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and quote are from Cru Wines' own portfolio page, listing wines they import."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The quote explicitly references Cru Wines' portfolio and the URL is from their website."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL is from Cru Wines' website, describing a specific chateau they import."
+ }
+]

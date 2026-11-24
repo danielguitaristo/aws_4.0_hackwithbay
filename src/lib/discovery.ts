@@ -1035,6 +1035,121 @@ function usableSnippets(c: Candidate, snippets: Snippet[]): Snippet[] {
 interface ExtraEvidence {
   links: Link[]; // peer pages + CA shop pages naming this importer
   shelf: ReturnType<typeof shelfRange>;
+  u: Usage; // Tavily budget for the own-site philosophy lookup
+}
+
+// ---- Entity check: is each piece of evidence about THIS company? -------------------
+
+export type EntityVerdict = "same_company" | "sister_or_related_company" | "different_company" | "unclear";
+const VERDICTS: EntityVerdict[] = ["same_company", "sister_or_related_company", "different_company", "unclear"];
+
+/** Every entity verdict of the last run, for audits (lead, signal, verdict, reason, URL). */
+export const entityLog: { lead: string; signal: string; verdict: EntityVerdict; reason: string; url: string }[] = [];
+
+let pageTextIndex: Map<string, string> | null = null;
+/** Full text of a page from the Tavily cache (pages that are not in the candidate's page list, e.g. peer pages). */
+function cachedPageText(url: string): string {
+  if (!pageTextIndex) {
+    pageTextIndex = new Map();
+    try {
+      for (const f of fs.readdirSync(path.join(CACHE_DIR, "tavily"))) {
+        const d = JSON.parse(fs.readFileSync(path.join(CACHE_DIR, "tavily", f), "utf8"));
+        for (const r of Array.isArray(d.results) ? d.results : []) {
+          if (!r || typeof r !== "object" || !r.url) continue;
+          const t = r.rawContent || r.content || "";
+          if (t.length > (pageTextIndex.get(r.url)?.length ?? 0)) pageTextIndex.set(r.url, t);
+        }
+      }
+    } catch {
+      /* no cache */
+    }
+  }
+  return pageTextIndex.get(url) ?? "";
+}
+
+/** The quote of a hit + ~500 characters of surrounding page text. */
+function evidenceContext(h: SignalHit, pages: WebPage[]): { quote: string; context: string } {
+  const quote = (h.snippet.match(/Evidence: "([\s\S]+?)"\s*$/)?.[1] ?? h.snippet.match(/^"([\s\S]+?)"/)?.[1] ?? h.snippet).trim();
+  const text = (pages.find((p) => p.url === h.url)?.text || cachedPageText(h.url) || "").replace(/\s+/g, " ");
+  const i = text.toLowerCase().indexOf(quote.replace(/\s+/g, " ").toLowerCase().slice(0, 60));
+  return { quote, context: i >= 0 ? text.slice(Math.max(0, i - 250), i + quote.length + 250) : quote };
+}
+
+function validateChecks(raw: unknown): { i: number; verdict: EntityVerdict; reason: string }[] {
+  const list = asObject(raw, "root").checks;
+  if (!Array.isArray(list)) throw new Error("checks must be an array");
+  return list.map((x, k) => {
+    const o = asObject(x, `checks[${k}]`);
+    const verdict = VERDICTS.includes(o.verdict as EntityVerdict) ? (o.verdict as EntityVerdict) : "unclear";
+    return { i: asNumber(o.i, "i", 0, 999), verdict, reason: typeof o.reason === "string" ? o.reason : "" };
+  });
+}
+
+const ENTITY_PROMPT = (c: Candidate, website?: string) => `You check whether each piece of evidence is about ONE specific US wine importer.
+Company: "${c.name}" — TTB permit holder "${c.ownerName}", ${c.city}, California; website: ${website ?? "unknown"}.
+For each numbered item (claim, URL, quote and the text around it) answer exactly one verdict:
+- "same_company": the text is clearly about this company (its own website, or a page naming it as the company the claim is about)
+- "sister_or_related_company": about a parent, sister, affiliate or partner company, a similarly named company, or a person's other employer
+- "different_company": about another company
+- "unclear": the text does not show which company
+Give a one-line reason. Return JSON: {"checks":[{"i":<item number>,"verdict":"...","reason":"..."}]}`;
+
+/** Only "same_company" evidence counts; anything else becomes "unknown", 0 points, with the reason. Cached in data/cache/entity. */
+// Auto-generated company profiles (AI summaries, data brokers) never count as evidence.
+const AUTO_PROFILE = /(^|\.)(tavily\.com|contactout\.com|rocketreach\.co|zoominfo\.com|signalhire\.com)$/i;
+
+async function verifyEntities(c: Candidate, hits: SignalHit[], pages: WebPage[], website?: string): Promise<void> {
+  const fired = hits.filter((h) => h.status === "fired" && h.points !== 0 && h.url && h.url !== TTB_LIST_URL);
+  const hostOf = (u: string) => {
+    try {
+      return new URL(u).hostname;
+    } catch {
+      return "";
+    }
+  };
+  for (const h of fired.filter((x) => AUTO_PROFILE.test(hostOf(x.url)))) {
+    const reason = `auto-generated profile page (${hostOf(h.url)}) never counts as evidence`;
+    entityLog.push({ lead: c.name, signal: h.id, verdict: "unclear", reason, url: h.url });
+    h.points = 0;
+    h.status = "unknown";
+    h.snippet = `Source rule: ${reason}. Evidence: ${h.snippet}`;
+  }
+  const targets = fired.filter((x) => !AUTO_PROFILE.test(hostOf(x.url)));
+  if (!targets.length) return;
+  const items = targets.map((h) => ({ h, ...evidenceContext(h, pages) }));
+  const key = cacheKey({ c: c.id, owner: c.ownerName, city: c.city, website, items: items.map((x) => [x.h.id, x.h.url, x.h.snippet]), model: process.env.MISTRAL_MODEL });
+  let checks = readCache<ReturnType<typeof validateChecks>>("entity", key);
+  if (!checks && hasMistral()) {
+    const listing = items.map((x, i) => `[${i}] claim: ${x.h.label}\\nURL: ${x.h.url}\\nquote: "${x.quote}"\\ncontext: …${x.context}…`).join("\\n\\n");
+    checks = await chatJSON([{ role: "system", content: ENTITY_PROMPT(c, website) }, { role: "user", content: listing }], validateChecks).catch((err) => {
+      console.error(`[entity] Mistral failed for ${c.name}:`, err);
+      return null;
+    });
+    if (checks) writeCache("entity", key, checks);
+  }
+  items.forEach((x, i) => {
+    const ch = checks?.find((k) => k.i === i);
+    const verdict: EntityVerdict = ch?.verdict ?? "unclear";
+    const reason = ch?.reason || (checks ? "no answer for this item" : "entity check unavailable");
+    entityLog.push({ lead: c.name, signal: x.h.id, verdict, reason, url: x.h.url });
+    if (verdict === "same_company") return;
+    x.h.points = 0;
+    x.h.status = "unknown";
+    x.h.snippet = `Entity check: ${verdict} — ${reason}. Evidence: ${x.h.snippet}`;
+  });
+}
+
+/** The TTB permit must match the lead's own website: its city (address) or the permit's legal name must appear there. */
+function permitMatch(c: Candidate, pages: WebPage[], website?: string): { verified: boolean; detail: string; url: string } {
+  const own = pages.filter((p) => p.ownSite);
+  const permitName = `"${c.ownerName}" (${c.permits.map((p) => p.number).join(", ")}, ${c.city})`;
+  if (!own.length || !website) return { verified: false, detail: `No own website found: TTB permit ${permitName} is not tied to a website`, url: "" };
+  const cityPage = own.find((p) => new RegExp(`\\b${c.city.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i").test(p.text));
+  if (cityPage) return { verified: true, detail: `${website} shows the TTB permit city (${c.city}) — permit ${permitName}`, url: cityPage.url };
+  const owner = normName(c.ownerName);
+  const ownerPage = owner.length >= 6 ? own.find((p) => normName(p.text).includes(owner)) : undefined;
+  if (ownerPage) return { verified: true, detail: `${website} shows the TTB permit holder name — permit ${permitName}`, url: ownerPage.url };
+  return { verified: false, detail: `${website} shows neither the TTB permit city (${c.city}) nor the holder name "${c.ownerName}" on the ${own.length} own-site page(s) read`, url: website };
 }
 
 // ---- Hiring evidence: dated (last 12 months) + named role; LinkedIn activity never counts ----
@@ -1109,20 +1224,47 @@ function competitorOf(p: { producer: string; appellation: string; url: string; q
   return { producer: p.producer, appellation: p.appellation, styles, prices, url: p.url, text };
 }
 
-function subScores(hits: SignalHit[], pf: Portfolio | null, cov: Coverage | null, links: Link[], pages: WebPage[], shelf: ReturnType<typeof shelfRange>) {
+// Own-site sentences preferred over third-party evidence (team rule: prefer the importer's own site).
+const OWN_ORGANIC = /\b(organic(ally)?|biodynamic(ally)?|natural wines?|low[- ]intervention|sustainabl[ey]|no additives|native yeasts?)\b/i;
+const OWN_SMALL = /\b(small (family|producers?|growers?|domaines?|estates?|wineries)|family[- ](owned|run|estates?|domaines?)|independent (growers?|producers?)|grower[- ]producers?|artisanal)\b/i;
+const OWN_TASTING = /\b(portfolio tasting|trade tasting|grand tasting|tasting (event|series|tour)|wine fair)\b/i;
+
+function ownSentence(pages: WebPage[], re: RegExp): { snippet: string; url: string; title?: string } | null {
+  for (const p of pages.filter((x) => x.ownSite)) {
+    const sentence = p.text.replace(/\s+/g, " ").split(/(?<=[.!?])\s+/).find((x) => x.length >= 40 && x.length <= 320 && re.test(x));
+    if (sentence) return { snippet: sentence.trim(), url: p.url, title: p.title || undefined };
+  }
+  return null;
+}
+
+/** "About / our company" pages listed in the cached map of the importer's site, extracted once (1 credit, cached). */
+async function ownSiteAboutPages(c: Candidate, website: string, u: Usage): Promise<WebPage[]> {
+  const mapFile = cacheFile(`map:${website}`);
+  if (!fs.existsSync(mapFile)) return []; // never pay for a new map here
+  const urls = (JSON.parse(fs.readFileSync(mapFile, "utf8")).results as string[]).filter((x) => /\/(about|our-company|our-story|story|history|philosophy|who-we-are)[^/]*$/i.test(new URL(x).pathname)).slice(0, 3);
+  if (!urls.length) return [];
+  const res = await cachedTavily<RawResult[]>(`extract-about:${urls.join(",")}`, u, async () => {
+    const r = await tavilyClient().extract(urls, { extractDepth: "basic", format: "text", includeUsage: true });
+    return { results: r.results.map((x) => ({ url: x.url, title: x.title ?? "", content: "", rawContent: x.rawContent.slice(0, MAX_PAGE_CHARS) })), credits: r.usage?.credits ?? 1 };
+  }, { candidate: c.name });
+  return relevantPages(c, res ?? [], true);
+}
+
+/** One include_domains search on the importer's own site for its philosophy (1 credit, cached). */
+async function ownSitePhilosophyPages(c: Candidate, website: string, u: Usage): Promise<WebPage[]> {
+  const domain = new URL(website).hostname.replace(/^www\./, "");
+  const res = (await search("small family growers organic farming our producers philosophy", u, { maxResults: 5, includeDomains: [domain] }, { candidate: c.name, ownSitePhilosophy: true })) ?? [];
+  return relevantPages(c, res.filter((r) => baseDomain(new URL(r.url).hostname) === baseDomain(domain)), true);
+}
+
+async function subScores(c: Candidate, hits: SignalHit[], pf: Portfolio | null, cov: Coverage | null, links: Link[], pages: WebPage[], shelf: ReturnType<typeof shelfRange>, website?: string, permit?: { verified: boolean; detail: string; url: string }, u?: Usage) {
   const W = SUBSCORE_WEIGHTS;
   const replaced = new Set(["portfolio_hole", "loire_saturated", "similar_chenin", "peer_touraine", "peer_neighbors", "grower_philosophy"]);
   const keep = hits.filter((h) => !replaced.has(h.id));
   const got = (id: string) => hits.find((h) => h.id === id && h.status === "fired");
   const items: SignalHit[] = [];
-  const parts = { Fit: [] as string[], Opening: [] as string[] };
-  let fit = 0, opening = 0;
   const add = (side: "Fit" | "Opening", id: string, label: string, points: number, status: "fired" | "unknown", snippet: string, url: string, title?: string) => {
     items.push({ id, label: `${side} · ${label}`, points: status === "fired" ? points : 0, status, snippet, url, title });
-    if (status !== "fired") return;
-    if (side === "Fit") fit += points;
-    else opening += points;
-    parts[side].push(`${label} ${points > 0 ? "+" : ""}${points}`);
   };
 
   // Evidence sets from the structured portfolio + peer / estate / shop links (distinct producers).
@@ -1187,16 +1329,59 @@ function subScores(hits: SignalHit[], pf: Portfolio | null, cov: Coverage | null
   const mg = got("mega_distributor");
   if (mg) add("Opening", "mega_distributor", "mega-distributor / high minimums", W.opening.megaDistributor, "fired", mg.snippet, mg.url, mg.title);
 
+  // Entity check on every fired item (only same_company counts).
+  await verifyEntities(c, items, pages, website);
+  // Prefer the importer's own site: a claim whose evidence was rejected (source rule / entity check)
+  // may be proven by a sentence on its own website (cached pages, then its about pages, then one search).
+  const FALLBACK: [string, RegExp, number][] = [
+    ["organic_natural", OWN_ORGANIC, W.fit.organicNatural],
+    ["small_growers", OWN_SMALL, W.fit.smallGrowers],
+    ["tastings_fairs", OWN_TASTING, W.opening.tastings],
+  ];
+  const replacements: SignalHit[] = [];
+  let looked = false;
+  for (const [id, re, pts] of FALLBACK) {
+    const rejected = items.find((h) => h.id === id && h.status === "unknown" && /^(Entity check|Source rule):/.test(h.snippet));
+    if (!rejected) continue;
+    let ev = ownSentence(pages, re);
+    if (!ev && website && u && !looked) {
+      looked = true;
+      pages = [...pages, ...(await ownSiteAboutPages(c, website, u))];
+      ev = ownSentence(pages, re);
+      if (!ev) {
+        pages = [...pages, ...(await ownSitePhilosophyPages(c, website, u))];
+        ev = ownSentence(pages, re);
+      }
+    }
+    if (!ev) continue;
+    replacements.push({ id, label: `${rejected.label} (own website)`, points: pts, status: "fired", snippet: ev.snippet, url: ev.url, title: ev.title });
+  }
+  if (replacements.length) {
+    await verifyEntities(c, replacements, pages, website);
+    items.push(...replacements);
+  }
+  const parts = { Fit: [] as string[], Opening: [] as string[] };
+  let fit = 0, opening = 0;
+  for (const it of items) {
+    if (it.status !== "fired") continue;
+    const side = it.label.startsWith("Fit") ? "Fit" : "Opening";
+    if (side === "Fit") fit += it.points;
+    else opening += it.points;
+    parts[side].push(`${it.label.replace(/^(Fit|Opening) · /, "")} ${it.points > 0 ? "+" : ""}${it.points}`);
+  }
+  const has = (id: string) => items.some((h) => h.id === id && h.status === "fired");
   const b = blendScores(fit, opening);
-  const angle = angleFor({ ours, rated: comps.map((k) => k), loire, sat, hiring: rh?.status === "fired", tastings: Boolean(tf), organic: Boolean(gp && ORGANIC_RE.test(gp.snippet)), mega: mg, bigHouses: bh, absenceOk });
+  const tier = permit && !permit.verified ? "C" : b.tier;
+  const angle = angleFor({ ours, rated: comps.map((k) => k), loire: has("loire_presence") ? loire : [], sat, hiring: has("recent_or_hiring"), tastings: has("tastings_fairs"), organic: has("organic_natural"), mega: has("mega_distributor") ? mg : undefined, bigHouses: has("big_houses") ? bh : undefined, absenceOk });
   items.push(
     { id: "fit_score", label: `Fit ${b.fit}/100`, points: 0, status: "info", snippet: parts.Fit.join(", ") || "no fit signal proven", url: "" },
     { id: "opening_score", label: `Opening ${b.opening}/100`, points: 0, status: "info", snippet: parts.Opening.join(", ") || "no opening signal proven", url: "" },
-    { id: "final_score", label: `fitScore ${b.fitScore} → ${b.tier}`, points: 0, status: "info", snippet: `0.6 × Fit ${b.fit} + 0.4 × Opening ${b.opening} = ${b.fitScore} (A ≥ 60, B ≥ 40)`, url: "" },
+    { id: "final_score", label: `fitScore ${b.fitScore} → ${tier}`, points: 0, status: "info", snippet: `0.6 × Fit ${b.fit} + 0.4 × Opening ${b.opening} = ${b.fitScore} (A ≥ 60, B ≥ 40)${tier !== b.tier ? ` — capped at C: permit match unverified` : ""}`, url: "" },
     { id: "angle", label: "Angle", points: 0, status: "info", snippet: angle, url: "" },
+    ...(permit ? [{ id: "permit_match", label: permit.verified ? "Permit match verified" : "Permit match unverified — capped at tier C", points: 0, status: "info" as const, snippet: permit.detail, url: permit.url }] : []),
     ...keep.filter((h) => h.status === "info"),
   );
-  return { ...b, items };
+  return { ...b, tier, items };
 }
 
 /** One line on how to approach the importer, built only from the evidence above. */
@@ -1280,7 +1465,11 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     hits.push({ id: def.id, label: def.label, points: signalPoints(def), status: "fired", snippet: `TTB permit ${c.permits[0].number} flagged as newly issued`, url: TTB_LIST_URL, title: "TTB List of Permittees" });
   }
 
-  const sub = subScores(hits, pf, cov, links, e.pages, extra.shelf);
+  // Correctness first: every fired Fit/Opening item must be about THIS company, and the permit must match its website.
+  const own = e.pages.find((p) => p.ownSite);
+  const website = own ? new URL(own.url).origin : undefined;
+  const permit = permitMatch(c, e.pages, website);
+  const sub = await subScores(c, hits, pf, cov, links, e.pages, extra.shelf, website, permit, extra.u);
   hits.splice(0, hits.length, ...sub.items);
 
   const sources: Source[] = [];
@@ -1297,7 +1486,6 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
   if (!sources.length) return null; // no evidence, no lead
 
   const { fitScore, tier } = sub;
-  const own = e.pages.find((p) => p.ownSite);
   return {
     portfolioDetail: pf?.producers ?? [],
     id: c.id,
@@ -1306,7 +1494,7 @@ async function scoreCandidate(e: CandidateEvidence, index: PageIndex, icp: ICP, 
     state: "CA",
     city: c.city,
     address: c.address,
-    website: own ? new URL(own.url).origin : undefined,
+    website,
     permits: c.permits,
     portfolio: (pf?.producers ?? []).map((p) => `${fmt(p)}${p.country ? `, ${p.country}` : ""}`),
     fitScore,
@@ -1557,10 +1745,13 @@ export async function discoverLeads(icp: ICP, u: Usage): Promise<{ leads: Scored
   console.log(`[discover] pool=${pool.length} peers=${peers.length} lookalike=${look.found.length} links=${links.length} tavily_credits=${u.credits ?? 0}`);
 
   const index = await buildIndex(all.flatMap((e) => e.pages));
+  entityLog.length = 0;
   const leads: ScoredLead[] = [];
   for (let i = 0; i < all.length; i += 4) {
-    const batch = await Promise.all(all.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp, { links, shelf })));
+    const batch = await Promise.all(all.slice(i, i + 4).map((e) => scoreCandidate(e, index, icp, { links, shelf, u })));
     leads.push(...batch.filter((l): l is ScoredLead => l !== null));
   }
+  // Audit trail of every entity verdict (incl. leads dropped because no verified source was left).
+  writeCache("entity", `run-${cacheKey(icp)}`, { createdAt: new Date().toISOString(), log: entityLog });
   return { leads: leads.sort((a, b) => b.fitScore - a.fitScore), backend: index.backend };
 }

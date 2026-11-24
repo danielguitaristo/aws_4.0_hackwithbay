@@ -1,0 +1,12 @@
+[
+ {
+  "i": 0,
+  "verdict": "different_company",
+  "reason": "The text refers to Zev Rovine Selections, not Sylvester/Rovine Selections or Sylvester Wine Imports, Inc."
+ },
+ {
+  "i": 1,
+  "verdict": "different_company",
+  "reason": "The text refers to Zev Rovine Selections, not Sylvester/Rovine Selections or Sylvester Wine Imports, Inc."
+ }
+]
