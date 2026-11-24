@@ -1,0 +1,37 @@
+{
+ "query": "extract:https://grandcruselections.com/france-il,https://grandcruselections.com/france-ca,https://grandcruselections.com/our-portfolio-1,https://grandcruselections.com/francenational,https://grandcruselections.com/our-portfolio-gcs-ca",
+ "candidate": "Grand Cru Selections LLC",
+ "fetchedAt": "2026-11-24T20:07:22.830Z",
+ "results": [
+  {
+   "url": "https://grandcruselections.com/our-portfolio-gcs-ca",
+   "title": "GCS CA — Grand Cru Selections",
+   "content": "",
+   "rawContent": "Home Our Portfolio GCS NY/NJ GCS CA GCS IL The Team GCS NY/NJ GCS CA GCS IL National Our Partners National Portfolio Contact Us Become a Customer Inquiries Payments Home Our Portfolio GCS NY/NJ GCS CA GCS IL The Team GCS NY/NJ GCS CA GCS IL National Our Partners National Portfolio Contact Us Become a Customer Inquiries Payments GCS CA Italy France United States Spain SLOVENIA Germany Austria Australia Argentina"
+  },
+  {
+   "url": "https://grandcruselections.com/our-portfolio-1",
+   "title": "GCS NY/NJ — Grand Cru Selections",
+   "content": "",
+   "rawContent": "Grand Cru Selections\nGrand Cru Selections\nGCS NY/NJ\nItaly\nFrance\nUnited States\nSpain\nSlovenia\nAustria\nGermany\nArgentina\nAustralia\nSake\nSpirits\n584 Broadway, Suite 1210  \nNew York, NY 10012  \nHQ: 917-261-6628\nFor all inquiries: newcustomers@grandcruselections.com"
+  },
+  {
+   "url": "https://grandcruselections.com/francenational",
+   "title": "France-National — Grand Cru Selections",
+   "content": "",
+   "rawContent": "Grand Cru Selections\nGrand Cru Selections\nFrance-National\nChampagne\nChampagne A Bergère\nChampagne Chartogne-Taillet\nChampagne Dhondt-Grellet\nChampagne Éphémère\nChampagne Michel Gonet\nChampagne Minière F&R\nChampagne Robert Moncuit\nChampagne Pierre Péters\nChampagne Adrien Renoir\nChampagne Savart\nChampagne Jean-Marc Sélèque\nBurgundy\nDomaine Marquis d'Angerville\nDomaine Didier Fornerol\nDomaine Génot-Boulanger\nDomaine Hudelot-Baillet\nDomaine des Comtes Lafon\nGuillaume Lafon\nDomaine Roulot\nDomaine Georges Roumier\nDomaine Camille Thiriet\nChablis\nDomaine Moreau-Naudet\nDomaine Eleni et Edouard Vocoret\nVincent Mothe\nJura\nDomaine du Pélican\nBeaujolais\nDomaine Chapel\nAnne-Sophie Dubois\nMee Godard\nSylvain Martel\nRhone Valley\nDomaine Brun-Avril\nClusel Roch\nProvence\nDomaine Baravéou\nCorsica\nClos Venturi\nLoire Valley\nDomaine Bailly-Reverdy\nJean-Baptiste Hardy\nDomaine Le Petit Saint Vincent\nDomaine Siret-Courtaud\nBordeaux\nChâteau Lafleur\nLe Galouchey\nChâteau Bourgneuf\n584 Broadway, Suite 1210  \nNew York, NY 10012  \nHQ: 917-261-6628\nFor all inquiries: newcustomers@grandcruselections.com"
+  },
+  {
+   "url": "https://grandcruselections.com/france-ca",
+   "title": "France (CA) — Grand Cru Selections",
+   "content": "",
+   "rawContent": "Grand Cru Selections\nGrand Cru Selections\nFrance (CA)\nChampagne\nNoël Bazin\nChampagne A Bergère\nChampagne Chartogne-Taillet\nChampagne Dhondt-Grellet\nChampagne Michel Gonet\nChampagne Minière F&R\nChampagne Robert Moncuit\nChampagne Pierre Péters\nChampagne Adrien Renoir\nChampagne Savart\nChampagne Jean-Marc Sélèque\nBurgundy\nDomaine Marquis d'Angerville\nDomaine Didier Fornerol\nDomaine Hudelot-Baillet\nDomaine des Comtes Lafon\nDomaine Génot-Boulanger\nDomaine Roulot\nDomaine Camille Thiriet\nChablis\nDomaine Moreau-Naudet\nDomaine Eleni et Edouard Vocoret\nVincent Mothe\nFlorence & François Bachelier\nJura\nDomaine du Pélican\nBeaujolais\nMee Godard\nDomaine Chapel\nSylvain Martel\nJulien Duport\nRhone Valley\nDomaine Jean-Louis Chave\nJean-Louis Chave Selections\nDomaine Brun-Avril\nJean-François Jacouton\nProvence\nDomaine Baravéou\nDomaine Marie Bèrènice\nDomaine des Trois Filles\nROUSSILLON\nDomaine Vaquer\nCorsica\nClos Venturi\nBORDEAUX\nChâteau Bourgneuf\nLoire Valley\nDomaine Bailly-Reverdy\nChateau de Bonnezeaux\nDomaine Siret-Courtaud\nDomaine Fief aux Dames\nAlsace\nJustin Boxler\nLorraine\nDomaine Migot\n584 Broadway, Suite 1210  \nNew York, NY 10012  \nHQ: 917-261-6628\nFor all inquiries: newcustomers@grandcruselections.com"
+  },
+  {
+   "url": "https://grandcruselections.com/france-il",
+   "title": "France (IL) — Grand Cru Selections",
+   "content": "",
+   "rawContent": "Grand Cru Selections\nGrand Cru Selections\nFrance (IL)\nChampagne\nChampagne A Bergère\nChampagne Chartogne-Taillet\nChampagne Dhondt-Grellet\nChampagne Michel Gonet\nChampagne Huré Fréres\nChampagne Minière F&R\nChampagne Robert Moncuit\nChampagne Pierre Péters\nChampagne Adrien Renoir\nChampagne Savart\nChampagne Jean-Marc Sélèque\nBurgundy\nDomaine Marquis d'Angerville\nDomaine des Croix\nDomaine Didier Fornerol\nDomaine Jerome Galeyrand\nDomaine Hudelot-Baillet\nGuillaume Lafon\nDomaine Roulot\nDomaine Génot-Boulanger\nDomaine de Cassiopée\nChanterêvres\nChablis\nDomaine Moreau-Naudet\nDomaine Eleni et Edouard Vocoret\nVincent Mothe\nJura\nDomaine du Pélican\nBeaujolais\nMee Godard\nDomaine Chapel\nSylvain Martel\nRhone Valley\nDomaine Brun-Avril\nProvence\nDomaine Baravéou\nCorsica\nDomaine U Stiliccionu\nClos Venturi\nLoire Valley\nDomaine Bailly-Reverdy\nSiret-Courtaud\nDomaine Le Petit Saint Vincent\nJean-Baptiste Hardy\nOgereau\nÉtienne Bodet & Maison Bodet-Hérold\nBordeaux\nChateau Lafleur\nSaisons de Bourgneuf\nDomaine les Carmels\nAlsace\nVignoble du Rêveur\nSavoie\nDomaine des Côtes Rousses\nSud-Ouest\nDomaine la Calamette\nPlaisance-Penavayre\nRoussillon\nRoc des Anges\n584 Broadway, Suite 1210  \nNew York, NY 10012  \nHQ: 917-261-6628\nFor all inquiries: newcustomers@grandcruselections.com"
+  }
+ ]
+}
