@@ -159,7 +159,7 @@ function useAppState() {
     const started = Date.now();
     const icp = s.icp ?? FALLBACK_ICP;
     const state = stateOf(icp);
-    const found = await post<Lead[]>("/api/discover", icp);
+    const found = await post<Lead[]>("/api/discover", { icp, domaine: s.domaine });
     const leads = found && found.length ? found : state === "CA" ? MOCK_LEADS : [];
     // keep the progress visible long enough to read in the demo
     await new Promise((r) => setTimeout(r, Math.max(0, 6000 - (Date.now() - started))));

@@ -61,6 +61,7 @@ export async function POST(req: Request) {
   try {
     domaine = (await req.json()) as Domaine;
     asString(domaine?.name, "name");
+    delete domaine.website; // display only: never part of the engine input or the cache key
   } catch {
     return NextResponse.json({ error: "Body must be a Domaine JSON object" }, { status: 400 });
   }

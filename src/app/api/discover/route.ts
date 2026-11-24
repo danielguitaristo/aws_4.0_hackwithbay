@@ -54,7 +54,8 @@ export async function POST(req: Request) {
   try {
     const body = (await req.json()) as { icp?: ICP; domaine?: Domaine } & ICP;
     icp = body?.icp ?? body;
-    if (body?.icp && body.domaine) domaine = body.domaine;
+    if (body?.icp && body.domaine) domaine = { ...body.domaine };
+    delete domaine.website; // display only: never part of the engine input or the cache key
     if (!Array.isArray(icp?.portfolioFit) || typeof icp.sizeBand !== "string") throw new Error();
     if (typeof domaine?.name !== "string" || !Array.isArray(domaine.grapes) || typeof domaine.priceRangeEur?.min !== "number") throw new Error();
   } catch {
