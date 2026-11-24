@@ -1,0 +1,52 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 5,
+   "quote": "Company Size 11-50 employees"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": true,
+   "snippet": 1,
+   "quote": "c., $30. Imported by Martine’s Wines, Novato, CA."
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 2,
+   "quote": "We are hiring for our sales team in New York City."
+  },
+  {
+   "id": "mega_distributor",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

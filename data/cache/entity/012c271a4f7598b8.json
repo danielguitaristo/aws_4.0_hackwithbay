@@ -1,0 +1,22 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "LinkedIn page explicitly names and describes True North Wine Merchants"
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "Official website of True North Wine Merchants listing producers"
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "Official website of True North Wine Merchants detailing Burgundy portfolio"
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "LinkedIn page explicitly names and describes True North Wine Merchants as a boutique importer"
+ }
+]

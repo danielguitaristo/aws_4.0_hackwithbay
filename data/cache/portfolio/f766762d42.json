@@ -1,5 +1,5 @@
 {
- "key": "6d8d63627e670851",
+ "key": "54df0f4f39e80e6b",
  "portfolio": {
   "candidateId": "f766762d42",
   "website": "https://grandcruselections.com",
@@ -13,15 +13,8 @@
    "https://grandcruselections.com/francenational",
    "https://grandcruselections.com/france-il",
    "https://grandcruselections.com/france",
-   "https://grandcruselections.com/chateau-bonnezeaux-new",
    "https://grandcruselections.com/gcs-cali-team",
-   "https://grandcruselections.com",
-   "https://grandcruselections.com/brendan-stater-west-new",
-   "https://grandcruselections.com/stephane-bernaudeau-new",
-   "https://grandcruselections.com/clos-des-plantes-new",
-   "https://grandcruselections.com/enfieldwine-co",
-   "https://grandcruselections.com/venica-venica-new",
-   "https://grandcruselections.com/the-team"
+   "https://grandcruselections.com"
   ],
   "producers": [
    {
@@ -160,13 +153,13 @@
     "quote": "'Angerville Domaine Didier Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domai"
    },
    {
-    "producer": "Domaine Génot-Boulanger",
+    "producer": "Domaine Génot-Boulanger",
     "country": "France",
     "region": "Burgundy",
     "appellation": "",
     "grapes": [],
-    "url": "https://grandcruselections.com/francenational",
-    "quote": "rgundy Domaine Marquis d'Angerville Domaine Didier Fornerol Domaine Génot-Boulanger Domaine Hudelot-Baillet Domaine des Comtes Lafon Guillaume Lafon Domaine Roulot Domaine Georges Rou"
+    "url": "https://grandcruselections.com/france-ca",
+    "quote": "r Fornerol Domaine Hudelot-Baillet Domaine des Comtes Lafon Domaine Génot-Boulanger Domaine Roulot Domaine Camille Thiriet Chablis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocor"
    },
    {
     "producer": "Domaine Roulot",
@@ -208,7 +201,7 @@
     "producer": "Vincent Mothe",
     "country": "France",
     "region": "Chablis",
-    "appellation": "Chablis",
+    "appellation": "",
     "grapes": [],
     "url": "https://grandcruselections.com/france-ca",
     "quote": "blis Domaine Moreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain"
@@ -217,7 +210,7 @@
     "producer": "Florence & François Bachelier",
     "country": "France",
     "region": "Chablis",
-    "appellation": "Chablis",
+    "appellation": "",
     "grapes": [],
     "url": "https://grandcruselections.com/france-ca",
     "quote": "oreau-Naudet Domaine Eleni et Edouard Vocoret Vincent Mothe Florence & François Bachelier Jura Domaine du Pélican Beaujolais Mee Godard Domaine Chapel Sylvain Martel Julien Duport Rhone Va"
@@ -370,10 +363,8 @@
     "producer": "Chateau de Bonnezeaux",
     "country": "France",
     "region": "Loire Valley",
-    "appellation": "Bonnezeaux",
-    "grapes": [
-     "Chenin Blanc"
-    ],
+    "appellation": "",
+    "grapes": [],
     "url": "https://grandcruselections.com/france-ca",
     "quote": "DEAUX Château Bourgneuf Loire Valley Domaine Bailly-Reverdy Chateau de Bonnezeaux Domaine Siret-Courtaud Domaine Fief aux Dames Alsace Justin Boxler Lorraine Domaine Migot"
    },
@@ -796,9 +787,7 @@
     "country": "France",
     "region": "Loire Valley",
     "appellation": "",
-    "grapes": [
-     "Chenin Blanc"
-    ],
+    "grapes": [],
     "url": "https://grandcruselections.com/france",
     "quote": "Venturi Loire Valley Domaine Andrée Domaine Bailly-Reverdy Stéphane Bernaudeau Château de Bonnezeaux Jérôme Bretaudeau Jean-Baptiste Hardy Domaine Arnaud Lambert Domaine Le Petit"
    },
@@ -834,10 +823,7 @@
     "country": "France",
     "region": "Loire Valley",
     "appellation": "",
-    "grapes": [
-     "Chenin Blanc",
-     "Cabernet Franc"
-    ],
+    "grapes": [],
     "url": "https://grandcruselections.com/france",
     "quote": "Saint Vincent Domaine de la Renière Domaine Siret-Courtaud Brendan Stater-West Bordeaux Château Lafleur Le Galouchey Château Bourgneuf Roussillon Pedres Blanques Domaine Danjou-B"
    },
@@ -867,33 +853,6 @@
     "grapes": [],
     "url": "https://grandcruselections.com/france",
     "quote": "Roussillon Pedres Blanques Domaine Danjou-Banessy Normandy Domaine Lesuffleur 584 Broadway, Suite 1210 New York, NY 10012 HQ: 917-261-6628 For all inquiries: newcustomers@grandc"
-   },
-   {
-    "producer": "Enfield Wine Co.",
-    "country": "United States",
-    "region": "California",
-    "appellation": "",
-    "grapes": [],
-    "url": "https://grandcruselections.com/enfieldwine-co",
-    "quote": "Enfield Wine Co. Santa Rosa, Sonoma, California Enfield Wine Co. is a project that, from the outset, helped redefine"
-   },
-   {
-    "producer": "Venica & Venica",
-    "country": "Italy",
-    "region": "Friuli",
-    "appellation": "Collio",
-    "grapes": [
-     "Sauvignon",
-     "Malvasia",
-     "Ribolla Gialla",
-     "Chardonnay",
-     "Traminer",
-     "Friulano",
-     "Pinot Grigio",
-     "Verduzzo"
-    ],
-    "url": "https://grandcruselections.com/venica-venica-new",
-    "quote": "Grand Cru Selections Grand Cru Selections Venica & Venica (new) Venica & Venica Dolegna, Collio, Friuli, Italy Giampaolo Venica Venica & Venica is one of Fri"
    }
   ]
  }

@@ -1,0 +1,32 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The quote explicitly names Beaune Imports and describes it as a small, family-owned importer."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' own website, listing a producer they import."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The quote is from Beaune Imports' website, discussing their Burgundy producer portfolio."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Beaune Imports' own website, listing their producers by region."
+ },
+ {
+  "i": 4,
+  "verdict": "same_company",
+  "reason": "The quote is from Beaune Imports' website, detailing their Burgundy producer list."
+ },
+ {
+  "i": 5,
+  "verdict": "same_company",
+  "reason": "The quote explicitly describes Beaune Imports as a small, family-owned importer."
+ }
+]

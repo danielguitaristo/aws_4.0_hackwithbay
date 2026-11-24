@@ -1,0 +1,57 @@
+[
+ {
+  "producer": "Vin Noé",
+  "appellation": "",
+  "result": -1
+ },
+ {
+  "producer": "Domaine de Villaine",
+  "appellation": "Bouzeron",
+  "result": -1
+ },
+ {
+  "producer": "Domaine de Villaine",
+  "appellation": "Rully",
+  "result": -1
+ },
+ {
+  "producer": "Domaine de Villaine",
+  "appellation": "Mercurey",
+  "result": -1
+ },
+ {
+  "producer": "Domaine Jeannin-Naltet",
+  "appellation": "Mercurey",
+  "result": -1
+ },
+ {
+  "producer": "La Grange aux Sources",
+  "appellation": "Mercurey",
+  "result": -1
+ },
+ {
+  "producer": "Domaine MIA",
+  "appellation": "Mercurey",
+  "result": -1
+ },
+ {
+  "producer": "Domaine MIA",
+  "appellation": "Rully",
+  "result": -1
+ },
+ {
+  "producer": "Domaine Joblot",
+  "appellation": "Givry",
+  "result": -1
+ },
+ {
+  "producer": "Domaine François Lumpp",
+  "appellation": "Givry",
+  "result": -1
+ },
+ {
+  "producer": "Domaine de La Ferté",
+  "appellation": "Givry",
+  "result": -1
+ }
+]

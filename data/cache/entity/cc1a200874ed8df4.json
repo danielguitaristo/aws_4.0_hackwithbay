@@ -1,0 +1,22 @@
+[
+ {
+  "i": 0,
+  "verdict": "same_company",
+  "reason": "The URL and context explicitly reference Folio Fine Wine Partners, which is the company name used by Folio Wine Company, LLC."
+ },
+ {
+  "i": 1,
+  "verdict": "same_company",
+  "reason": "The URL and quote explicitly state 'Folio Fine Wine Partners' as the importer, which is the company name used by Folio Wine Company, LLC."
+ },
+ {
+  "i": 2,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Folio Wine Company, LLC's official website, listing their portfolio regions."
+ },
+ {
+  "i": 3,
+  "verdict": "same_company",
+  "reason": "The URL and context are from Folio Wine Company, LLC's official news page, referencing their partnership with Maison Champy."
+ }
+]

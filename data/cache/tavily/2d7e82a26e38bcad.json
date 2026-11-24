@@ -1,0 +1,55 @@
+{
+ "query": "extract:https://www.thewinesourceinc.com/other-french-regions,https://www.thewinesourceinc.com/producers-1,https://www.thewinesourceinc.com/burgundy,https://www.thewinesourceinc.com/producers-by-region,https://www.thewinesourceinc.com/domaines-bunan,https://www.thewinesourceinc.com/news-updates/understanding-burgundy,https://www.thewinesourceinc.com/domaine-de-lermitage,https://www.thewinesourceinc.com/domaine-chavet",
+ "candidate": "The Source",
+ "fetchedAt": "2026-11-24T22:47:05.593Z",
+ "results": [
+  {
+   "url": "https://www.thewinesourceinc.com/other-french-regions",
+   "title": "Gallery 3 — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Skip to Content \nThe Wine Source Inc.\nThe Wine Source Inc.\nOTHER FRENCH REGIONS"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/producers-1",
+   "title": "By Region — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Browse Some Of Our Producers By Region Contact Us For Our Current Catalog BORDEAUX BURGUNDY CHAMPAGNE LOIRE VALLEY PROVENCE RHONE VALLEY OTHER FRENCH REGIONS ITALY Domestic"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/burgundy",
+   "title": "Gallery 3 — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Skip to Content \nThe Wine Source Inc.\nThe Wine Source Inc.\nBURGUNDY"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/producers-by-region",
+   "title": "By Region — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Skip to Content \nThe Wine Source Inc.\nThe Wine Source Inc.\nBrowse Some Of Our Producers By Region\nContact Us For Our Current Catalog"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/domaines-bunan",
+   "title": "Domaines Bunan — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Domaines Bunan\nBandol\nMoulin Des Costes Bandol White\nMoulin Des Costes Bandol White\nMoulin Des Costes Bandol Rose\nMoulin Des Costes Bandol Rose\nMoulin Des Costes Bandol Red\nMoulin Des Costes Bandol Red\nDomaines Bunan - Three Terroirs, One Entity\nThe story begins with Félix and Lucie. They passed on their passion for wine to their children, Paul and Pierre. Today, Françoise, Claire, Laurent, and Philippe—work together, combining their skills while respecting family tradition to pass on a deeply rooted legacy in authenticity. Their motto: to create emotion and share their love of the land.\nIn 1954, Paul Bunan, living in Oran, first heard about Bandol in a newspaper. Seven years later in 1961, the two brothers, Paul and Pierre, laid the foundations for Domaines Bunan in La Cadière d'Azur, creating the Moulin des Costes terroir. It was love at first sight with the Bandol region and its prestigious appellation. In 1969, Pierre Bunan bought Château la Rouvière in Le Castellet, a small south-facing plot whose old Mourvèdre vines overlook the sea. Finally, in 1978, the two brothers reconstituted the Bélouvé vineyard, formerly owned by monks, to create a Côte de Provence appellation wine. Together, these three distinct terroirs (Moulin des Costes, Château la Rouvière, and Bélouvé) formed a single entity: Domaines Bunan."
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/domaine-de-lermitage",
+   "title": "Domaine de L'Ermitage — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Domaine de L’Ermitage\n\nDomaine de L’Ermitage\nThe Domaine de l’Ermitage, nestled in the heart of the Menetou-Salon, combines modernism and tradition, for the sake of quality, and for the passion of wine. Bernard Clement was one of the founders of the Menetou-Salon appellation in 1959. His daughter, Laurence de la Farge, and her husband, Geraud, continued a legacy in winemaking, and in 2003, the family established Domaine de l’Ermitage. Today, their children, Antoine and Sophie, continue to run the estate.\nThe Domaine covers approximately 30 acres of vines in the heart of the Menetou-Salon appellation, right next to Sancerre. 80% of the vineplants are Sauvignon Blanc and the remaining 20% are Pinot Noir. All the work is done by hand.\nRegion, Country: Centre-Loire, France\nAppellation: Menetou-Salon & Sancerre\nFarming: Sustainable, By Hand\nTotal Area: 12 hectares\nYield: Limited"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/domaine-chavet",
+   "title": "Domaine de L'Ermitage — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Domaine Chavet\n\nA letter from Antoine de La Farge, Winegrower and Winemaker at Domaine Chavet\nThe Chavet family has been in Menetou-Salon since the 17th century. The ancestral vineyards, handed down from generation to generation, are cultivated with the greatest respect for the vine and its environment. A winegrower does not inherit the vineyard, he or she is its guardian for future generations. It is in this spirit, and with the belief that in order to obtain a great wine it is necessary to accompany and preserve nature, that the estate has, since 2002, had Terra Vitis certification, a label that certifies that the wine is produced using sustainable viticulture techniques.\nBiodiversity is our priority in the vineyard. This is why we no longer use weedkillers and favour the use of grass cover and soil management techniques. In the cellar, we accompany the natural transformation of the grapes with extreme gentleness, limiting our interventions to the strict minimum, according to the daily tastings. All our wines are aged - from 6 months in vats to 18 months in amphorae and barrels - in order to reveal the depth and essence of our great terroir. We hope to have the pleasure of seeing our cuvées in your establishment soon.\nWarm Regards,\nAntoine\nRegion, Country: Centre-Loire, France\nAppellation: Menetou-Salon\nFarming: Sustainable (Terra Vitis)\nTotal Area: 10 hectares\nYield: Limited"
+  },
+  {
+   "url": "https://www.thewinesourceinc.com/news-updates/understanding-burgundy",
+   "title": "Understanding Burgundy — The Wine Source Inc.",
+   "content": "",
+   "rawContent": "Understanding Burgundy\nBurgundy is one of the most renowned wine regions in the world, and is known for producing some of the most sought-after wines including Domaine de la Romanée-Conti, which can retail for thousands of dollars a bottle. For those interested in Burgundian wines, it's important to understand the nuances between the major areas in Burgundy to help you navigate the region and find exactly what you’re looking for.\nLet's start with Chablis, which is located in the north of Burgundy. Chablis is known for producing white wines made from the Chardonnay grape. The wines from Chablis are characterized by their stony and mineral-driven flavors, as well as their crisp acidity. These wines are particularly good for aging, and can develop rich and complex aromas over time.\nCote de Nuits, located in the northern part of the Côte d'Or, is known for its red wines, specifically Pinot Noir. Some of the most famous villages in the Côte de Nuits include Gevrey-Chambertin, Chablis, and Nuits-Saint-Georges. The wines from this area are known for their rich, full-bodied characteristics and high tannins.\nCote de Beaune, located in the southern part of the Côte d'Or, is known for its white wines, specifically Chardonnay. Some of the most famous villages in the Côte de Beaune include Meursault, Puligny-Montrachet, and Chassagne-Montrachet. The wines from this area are known for their elegance and finesse, with a balance of acidity and minerality.\nCote Chalonaise, located south of the Côte d'Or, is known for its red and white wines. The most famous village in this area is Rully. The wines from this area are typically more fruit-forward and less tannic than those from the Côte d'Or.\nFinally, Maconnais, located in the southern part of Burgundy, is known for its white wines made from the Chardonnay grape. The wines from this area are typically less expensive than those from the Côte d'Or, but still offer a high quality and great value. Some of the most famous villages in the Maconnais include Pouilly-Fuissé, Saint-Véran, and Mâcon.\nBurgundy is a complex and diverse region, but by understanding the nuances between the major areas, you can better navigate the selection and find the perfect wine for any occasion. Whether you are looking for a crisp and mineral-driven Chablis, a rich and full-bodied Pinot Noir from Cote de Nuits, or a elegant Chardonnay with finesse from the Cote de Beaune, Burgundy has something to offer for every wine lover.\n\nBest Sommelier in the World - Raimonds Tomsons\nCamille Cayran Grande Reserve Receives 96 Points from Decanter!\nAbout The Wine Source Inc.\nContact Us\nCareers\nMake a Payment\nCredit Application\nDirect Import Offers\nOffice: (310) 516 6799\n14415 South Main Street\nGardena, CA 90248"
+  }
+ ]
+}

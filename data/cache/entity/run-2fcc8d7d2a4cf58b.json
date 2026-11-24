@@ -1,5 +1,5 @@
 {
- "createdAt": "2026-11-24T22:34:54.443Z",
+ "createdAt": "2026-11-24T22:44:15.598Z",
  "log": [
   {
    "lead": "Authentic Wine Selections",
@@ -355,14 +355,14 @@
    "lead": "Beaune Imports",
    "signal": "loire_presence",
    "verdict": "same_company",
-   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
-   "url": "https://www.beauneimports.com/producer/francois-chidaine"
+   "reason": "The quote is from Beaune Imports' own website, listing producers they import.",
+   "url": "https://www.beauneimports.com/producers"
   },
   {
    "lead": "Beaune Imports",
    "signal": "neighbor_regions",
    "verdict": "same_company",
-   "reason": "The URL and context are from Beaune Imports' website, listing their producers by region.",
+   "reason": "The quote is from Beaune Imports' own website, listing regions and producers they import.",
    "url": "https://www.beauneimports.com/producers"
   },
   {
@@ -376,8 +376,8 @@
    "lead": "Beaune Imports",
    "signal": "loire_saturated",
    "verdict": "same_company",
-   "reason": "The URL and context are from Beaune Imports' website, listing a producer they import.",
-   "url": "https://www.beauneimports.com/producer/francois-chidaine"
+   "reason": "The quote is from Beaune Imports' own website, listing Touraine producers they import.",
+   "url": "https://www.beauneimports.com/producers"
   }
  ]
 }

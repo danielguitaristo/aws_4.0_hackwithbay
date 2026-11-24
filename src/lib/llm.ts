@@ -96,24 +96,29 @@ export function asObject(v: unknown, field: string): Record<string, unknown> {
 // cap (in memory, per server instance). The cached DEMO_DOMAINE run never calls a paid API.
 
 const RATE_WINDOW_MS = 10 * 60 * 1000;
-const RATE_MAX = 10; // per IP per 10 min
 const GLOBAL_WINDOW_MS = 60 * 60 * 1000;
-const GLOBAL_MAX = 5; // live runs per hour, all visitors together
-const hits = new Map<string, number[]>();
-let globalHits: number[] = [];
+// Configurable caps: LIVE_IP_MAX live calls per IP per 10 min (default 10), LIVE_GLOBAL_MAX per hour for
+// all visitors together (default 20). Each scope has its own counters, so /api/icp never uses the discover cap.
+const ipMax = () => Number(process.env.LIVE_IP_MAX) || 10;
+const globalMax = () => Number(process.env.LIVE_GLOBAL_MAX) || 20;
+const hits = new Map<string, number[]>(); // "scope:ip" -> timestamps
+const globalHits = new Map<string, number[]>(); // scope -> timestamps
 
 export type LiveGate = { live: true } | { live: false; reason: string; status?: number };
+export type LiveScope = "discover" | "icp";
 
-export function liveGate(req: Request): LiveGate {
+export function liveGate(req: Request, scope: LiveScope = "discover"): LiveGate {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
-  if (recent.length >= RATE_MAX) return { live: false, reason: "rate limit reached, try again in a few minutes", status: 429 };
-  globalHits = globalHits.filter((t) => now - t < GLOBAL_WINDOW_MS);
-  if (globalHits.length >= GLOBAL_MAX) return { live: false, reason: `global cap of ${GLOBAL_MAX} live runs per hour reached`, status: 429 };
-  globalHits.push(now);
+  const key = `${scope}:${ip}`;
+  const recent = (hits.get(key) ?? []).filter((t) => now - t < RATE_WINDOW_MS);
+  if (recent.length >= ipMax()) return { live: false, reason: "rate limit reached, try again in a few minutes", status: 429 };
+  const global = (globalHits.get(scope) ?? []).filter((t) => now - t < GLOBAL_WINDOW_MS);
+  if (global.length >= globalMax()) return { live: false, reason: `global cap of ${globalMax()} live ${scope} runs per hour reached`, status: 429 };
+  global.push(now);
+  globalHits.set(scope, global);
   recent.push(now);
-  hits.set(ip, recent);
+  hits.set(key, recent);
   return { live: true };
 }
 

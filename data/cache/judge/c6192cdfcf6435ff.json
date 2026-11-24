@@ -1,0 +1,70 @@
+{
+ "signals": [
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 5,
+   "quote": "purchasing direct from domaines and building multi-generational relationships with growers"
+  },
+  {
+   "id": "grower_philosophy",
+   "fired": true,
+   "snippet": 3,
+   "quote": "providing a voice for small wine producers"
+  },
+  {
+   "id": "boutique_size",
+   "fired": true,
+   "snippet": 2,
+   "quote": "our French portfolio has grown to encompass 15 winegrowing regions and 143 producers"
+  },
+  {
+   "id": "tastings_fairs",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "price_match",
+   "fired": true,
+   "snippet": 4,
+   "quote": "France | Burgundy $28"
+  },
+  {
+   "id": "price_match",
+   "fired": true,
+   "snippet": 4,
+   "quote": "France | Burgundy $45"
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 1,
+   "quote": "I’m #hiring for a new associate role in my department"
+  },
+  {
+   "id": "recent_or_hiring",
+   "fired": true,
+   "snippet": 5,
+   "quote": "opened its second retail shop at Marin Country Mart in Larkspur, California"
+  },
+  {
+   "id": "mega_distributor",
+   "fired": true,
+   "snippet": 5,
+   "quote": "national distribution department overseeing sales to distributors in all other US states, Canada, and Puerto Rico"
+  },
+  {
+   "id": "spirits_beer_only",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  },
+  {
+   "id": "big_houses",
+   "fired": false,
+   "snippet": -1,
+   "quote": ""
+  }
+ ]
+}

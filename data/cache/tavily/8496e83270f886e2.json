@@ -1,0 +1,6 @@
+{
+ "query": "search:importers USA importateurs export distributeurs:{\"maxResults\":5,\"includeDomains\":[\"domaine-joblot.com\"]}",
+ "estate": "Domaine Joblot",
+ "fetchedAt": "2026-11-24T22:47:07.642Z",
+ "results": []
+}

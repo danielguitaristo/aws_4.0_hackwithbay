@@ -1,10 +1,10 @@
 {
- "key": "716092b5eb634b98",
+ "key": "ab1eb1536fe05bf8",
  "portfolio": {
   "candidateId": "1436d8e240",
   "website": "https://www.beauneimports.com",
   "pagesRead": [
-   "https://www.beauneimports.com/producer/francois-chidaine",
+   "https://www.beauneimports.com/producer/domaine-mia",
    "https://www.beauneimports.com/producers",
    "https://www.beauneimports.com/producer/michel-laroche-et-ses-enfants",
    "https://www.beauneimports.com/producer/pojer-e-sandri",
@@ -19,17 +19,13 @@
   ],
   "producers": [
    {
-    "producer": "François Chidaine",
+    "producer": "Domaine MIA",
     "country": "France",
-    "region": "Loire Valley",
-    "appellation": "Montlouis, Vouvray, Touraine",
-    "grapes": [
-     "Chenin Blanc",
-     "Sauvignon Blanc",
-     "Gamay"
-    ],
-    "url": "https://www.beauneimports.com/producer/francois-chidaine",
-    "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 François Chidaine Region FranceLoire Valley Farming Biodynamic No/Low till, regenerative viticulture François Chidain"
+    "region": "Burgundy",
+    "appellation": "Côte Chalonnaise",
+    "grapes": [],
+    "url": "https://www.beauneimports.com/producer/domaine-mia",
+    "quote": "et • Emeryville, CA 94608 • T 510-653-1040 • F 510-653-1050 Domaine MIA Region FranceBurgundyCôte Chalonnaise Farming Biodynamic Extending over 18 hectares in the Côte Cha"
    },
    {
     "producer": "Weinkultur Preiss",
@@ -179,19 +175,10 @@
     "producer": "Michel Laroche et Ses Enfants",
     "country": "France",
     "region": "Burgundy",
-    "appellation": "Chablis",
+    "appellation": "Chablis/Auxerre",
     "grapes": [],
     "url": "https://www.beauneimports.com/producers",
     "quote": "é Azo + Guilhem & Jean-Hugues Goisot + Le Domaine d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus"
-   },
-   {
-    "producer": "Domaine MIA",
-    "country": "France",
-    "region": "Burgundy",
-    "appellation": "Côte Chalonnaise",
-    "grapes": [],
-    "url": "https://www.beauneimports.com/producers",
-    "quote": "d’Henri + Michel Laroche et Ses Enfants Côte Chalonnaise + Domaine MIA Côte de Beaune + Chapelle et Fils + David Trousselle + Domaine Camus-Bruchon + Domaine de Montille"
    },
    {
     "producer": "Chapelle et Fils",
@@ -546,7 +533,9 @@
     "region": "Loire Valley",
     "appellation": "Anjou/Nantais/Saumur",
     "grapes": [
-     "Melon de Bourgogne"
+     "Melon de Bourgogne",
+     "Sauvignon",
+     "Grolleau"
     ],
     "url": "https://www.beauneimports.com/producers",
     "quote": "Delrieu-Ducleux + Domaine des Sanzay + Domaine du Closel + Domaine du Haut Bourg + Jo Landron-Domaine de la Louvetrie + Moulin Touchais Sancerre/Pouilly/Menetou-Salon + Domaine des"
@@ -624,10 +613,19 @@
     "quote": "ne Pellé + Domaine Sylvain Bailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chtea"
    },
    {
+    "producer": "François Chidaine",
+    "country": "France",
+    "region": "Loire Valley",
+    "appellation": "Touraine",
+    "grapes": [],
+    "url": "https://www.beauneimports.com/producers",
+    "quote": "ailly + Firmin Dezat Touraine + Domaine de la Fontainerie + François Chidaine + Philippe Alliet + Pierre Gauthier/Domaine du Bel Air Rhône & Provence + Chteau de Montmirail + Ch"
+   },
+   {
     "producer": "Philippe Alliet",
     "country": "France",
     "region": "Loire Valley",
-    "appellation": "Chinon",
+    "appellation": "Touraine",
     "grapes": [
      "Cabernet Franc",
      "Chenin Blanc"

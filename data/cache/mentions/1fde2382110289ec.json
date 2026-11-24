@@ -1,0 +1,27 @@
+[
+ {
+  "name": "Folio Fine Wine Partners",
+  "city": "Napa",
+  "result": 0
+ },
+ {
+  "name": "North Berkeley Imports",
+  "city": "Berkeley",
+  "result": 1
+ },
+ {
+  "name": "Wine Agencies Inc.",
+  "city": "Van Nuys",
+  "result": 1
+ },
+ {
+  "name": "Martine’s Wines Inc.",
+  "city": "Novato",
+  "result": 1
+ },
+ {
+  "name": "Martine's Wines",
+  "city": "",
+  "result": 4
+ }
+]
