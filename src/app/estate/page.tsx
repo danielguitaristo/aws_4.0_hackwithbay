@@ -33,6 +33,12 @@ export default function Estate() {
         <Row label="Name" first>
           <input value={d.name} onChange={(e) => saveDomaine({ name: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
         </Row>
+        <Row label="Region">
+          <input value={d.region} onChange={(e) => saveDomaine({ region: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
+        </Row>
+        <Row label="Website">
+          <input value={d.website ?? "petitespierres.fr"} onChange={(e) => saveDomaine({ website: e.target.value })} className="w-full border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
+        </Row>
         <Row label="Appellations">
           <Chips options={APPELLATIONS} value={d.appellations} onChange={(v) => saveDomaine({ appellations: v })} other="Another appellation" />
         </Row>
@@ -57,6 +63,9 @@ export default function Estate() {
             value={[volume]}
             onChange={([l]) => { const v = VOLUMES.find(([x]) => x === l); if (v) saveDomaine({ exportBottles: v[1] }); }}
           />
+        </Row>
+        <Row label="Description">
+          <textarea value={d.description} onChange={(e) => saveDomaine({ description: e.target.value })} rows={4} className="w-full resize-y border-b border-transparent bg-transparent outline-none hover:border-rule focus:border-wine" />
         </Row>
       </div>
       <div className="mt-8 flex flex-wrap items-center justify-end gap-4">

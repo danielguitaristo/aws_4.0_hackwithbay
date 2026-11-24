@@ -15,6 +15,7 @@ export interface Domaine {
   currentExport: string[]; // existing export markets / reference wins
   targetStates: string[]; // e.g. ["CA", "NY"]
   description: string;
+  website?: string; // display only: not used by the engine, never part of a cache key
 }
 
 /** US buyers of imported wine. importer_distributor = imports AND sells to retailers in-state. */
