@@ -30,6 +30,7 @@ function computeAnalytics() {
   const stageCounts: Record<Stage, number> = {
     matched: 0,
     contacted: 0,
+    replied: 0,
     samples_sent: 0,
     tasting: 0,
     signed: 0,

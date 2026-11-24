@@ -65,11 +65,12 @@ export interface Contact {
   linkedin?: string;
 }
 
-export type Stage = "matched" | "contacted" | "samples_sent" | "tasting" | "signed" | "lost";
-export const STAGES: Stage[] = ["matched", "contacted", "samples_sent", "tasting", "signed", "lost"];
+export type Stage = "matched" | "contacted" | "replied" | "samples_sent" | "tasting" | "signed" | "lost";
+export const STAGES: Stage[] = ["matched", "contacted", "replied", "samples_sent", "tasting", "signed", "lost"];
 export const STAGE_LABELS: Record<Stage, string> = {
   matched: "Matched",
   contacted: "Contacted",
+  replied: "Replied",
   samples_sent: "Samples sent",
   tasting: "Tasting",
   signed: "Signed",
