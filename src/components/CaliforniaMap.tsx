@@ -12,7 +12,10 @@ const CITIES: Record<string, [number, number]> = {
   monterey: [-121.89, 36.6], fresno: [-119.79, 36.74], "paso robles": [-120.69, 35.63], "san luis obispo": [-120.66, 35.28],
   "santa barbara": [-119.7, 34.42], "los angeles": [-118.24, 34.05], "santa monica": [-118.49, 34.02], "culver city": [-118.4, 34.02],
   pasadena: [-118.14, 34.15], glendale: [-118.26, 34.14], burbank: [-118.31, 34.18], "van nuys": [-118.45, 34.19],
-  "long beach": [-118.19, 33.77], torrance: [-118.34, 33.84], irvine: [-117.83, 33.68], "san diego": [-117.16, 32.72],
+  "long beach": [-118.19, 33.77], benicia: [-122.16, 38.05], "american canyon": [-122.26, 38.17], gardena: [-118.31, 33.89],
+  vallejo: [-122.26, 38.1], "walnut creek": [-122.06, 37.91], "san carlos": [-122.26, 37.51], "redwood city": [-122.24, 37.49],
+  "palo alto": [-122.14, 37.44], novato: [-122.57, 38.11], "st. helena": [-122.47, 38.51], "saint helena": [-122.47, 38.51],
+  "el segundo": [-118.42, 33.92], "costa mesa": [-117.92, 33.64], anaheim: [-117.91, 33.84], carlsbad: [-117.35, 33.16], torrance: [-118.34, 33.84], irvine: [-117.83, 33.68], "san diego": [-117.16, 32.72],
 };
 
 export function cityPoint(city: string, i = 0): [number, number] | null {

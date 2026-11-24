@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CaliforniaMap } from "@/components/CaliforniaMap";
 import { Back, Headline, Page, TopUpDialog } from "@/components/ui";
-import { COST, useApp } from "@/lib/app-state";
+import { COST, reasonOf, useApp } from "@/lib/app-state";
 import { MOCK_LEADS } from "@/lib/demo";
 
 const PROGRESS = [
@@ -65,12 +65,13 @@ export default function Importers() {
   if (!ready) return null;
   if (searching || !ranked.length) return <Page step={2}><Searching /></Page>;
 
+  const good = ranked.filter((l) => l.tier !== "C").length;
   const first = sel.contact?.name?.split(" ")[0];
   const hasEmail = !!sel.contact?.email;
 
   return (
     <Page step={2}>
-      <Headline lead={`${ranked.length} importers`} tail="fit your estate." />
+      <Headline lead={`${ranked.length} importers,`} tail={good === 0 ? "none an obvious fit yet." : `${good === 1 ? "one" : good} worth a letter.`} />
       <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[200px_1fr] md:gap-10">
         <div className="max-w-48 md:max-w-none">
           <CaliforniaMap leads={ranked} selected={sel.id} onSelect={(id) => { setSelected(id); setWhy(false); }} />
@@ -83,18 +84,30 @@ export default function Importers() {
                   <span className="truncate font-serif text-2xl">{l.name}</span>
                   <span className="font-serif text-3xl text-wine">{l.fitScore}</span>
                 </div>
-                {l.signals[0] && <p className="mt-2 font-serif text-lg italic">{l.signals[0]}</p>}
+                {reasonOf(l) && <p className="mt-2 font-serif text-lg italic">{reasonOf(l)}</p>}
                 <p className="mt-2 text-xs text-taupe">
                   {l.city} · <button className="underline hover:text-ink" onClick={() => setWhy(!why)}>{why ? "hide details" : "why this match"}</button>
                 </p>
                 {why && (
-                  <div className="mt-3 space-y-1 border-l border-rule pl-4 text-sm text-taupe">
-                    {l.portfolio.length > 0 && <p>Already imports: {l.portfolio.join(", ")}</p>}
-                    {l.permits.map((p) => <p key={p.number}>{p.source} {p.kind} permit ✓</p>)}
-                    {l.signals.slice(1).map((s) => <p key={s}>{s}</p>)}
-                    {l.sources.map((s) => (
-                      <a key={s.url} href={s.url} target="_blank" rel="noreferrer" className="block underline hover:text-ink">{s.title ?? new URL(s.url).hostname}</a>
-                    ))}
+                  <div className="mt-3 space-y-3 border-l border-rule pl-4 text-sm text-taupe">
+                    {l.scoreBreakdown?.length ? (
+                      l.scoreBreakdown
+                        .filter((s) => s.status === "fired")
+                        .map((s) => (
+                          <div key={s.id}>
+                            <p className="text-ink">
+                              <span className="font-serif tabular-nums">{s.points > 0 ? `+${s.points}` : s.points}</span> {s.label}
+                            </p>
+                            <p className="note text-sm">
+                              &ldquo;{s.snippet}&rdquo;{" "}
+                              <a href={s.url} target="_blank" rel="noreferrer" className="not-italic underline hover:text-ink">{s.title ? s.title.slice(0, 40) : new URL(s.url).hostname}</a>
+                            </p>
+                          </div>
+                        ))
+                    ) : (
+                      l.signals.map((s) => <p key={s}>{s}</p>)
+                    )}
+                    {l.permits.length > 0 && <p>{l.permits.map((p) => `${p.source} ${p.kind} permit ✓`).join(" · ")}</p>}
                   </div>
                 )}
                 <div className="mt-4 flex flex-wrap items-center gap-5">

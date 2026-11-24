@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Back, GmailDialog, Headline, Page, TopUpDialog } from "@/components/ui";
-import { COST, useApp } from "@/lib/app-state";
+import { COST, hookOf, useApp } from "@/lib/app-state";
 
 const NUM = ["No letters", "One letter", "Two letters", "Three letters", "Four letters", "Five letters"];
 
@@ -88,7 +88,7 @@ export default function Letters() {
             <>
               <h2 className="mt-2 font-serif text-2xl">{cur.subject}</h2>
               <p className="mt-4 font-serif text-lg leading-relaxed whitespace-pre-line">
-                {fr && cur.bodyFr ? cur.bodyFr : <Body text={cur.body} hook={lead?.signals[0]} />}
+                {fr && cur.bodyFr ? cur.bodyFr : <Body text={cur.body} hook={lead && hookOf(lead)} />}
               </p>
             </>
           )}

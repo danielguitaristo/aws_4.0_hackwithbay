@@ -50,9 +50,21 @@ async function post<T>(url: string, body: unknown): Promise<T | null> {
   }
 }
 
+/** The single best reason this importer fits: A's top positive score line, else a cleaned signal. */
+export function reasonOf(lead: Lead): string | undefined {
+  const best = (lead.scoreBreakdown ?? []).filter((s) => s.status !== "unknown" && s.points > 0).sort((a, b) => b.points - a.points)[0];
+  return best?.label ?? lead.signals[0]?.replace(/^[+-]?\d+\s+/, "");
+}
+
+/** Fallback letter hook, phrased as a sentence. B's Mistral route writes the real letters. */
+export function hookOf(lead: Lead): string {
+  const r = reasonOf(lead);
+  return r ? `I came across ${lead.name} and your ${r.charAt(0).toLowerCase()}${r.slice(1)}` : `I came across ${lead.name} while looking for importers who love small growers`;
+}
+
 function draftFor(lead: Lead, d: Domaine, variant: string): Pick<Letter, "subject" | "body" | "bodyFr"> {
   const first = lead.contact?.name?.split(" ")[0] ?? "there";
-  const hook = lead.signals[0] ?? `I came across ${lead.name} while looking for importers who love small growers`;
+  const hook = hookOf(lead);
   const signature = `Claire Martin\n${d.name}`;
   const estate = `We're a small organic estate in ${d.region.split("(")[1]?.replace(")", "") ?? d.region} making mineral ${d.grapes[0]}, still and sparkling, and we're looking for our first US partner.`;
   return {
